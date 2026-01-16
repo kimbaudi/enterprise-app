@@ -676,3 +676,41 @@ li {
   margin-bottom: 0.5rem;
   color: #4b5563;
 }
+.alert-section {
+  margin-top: 2rem;
+}
+
+.alert-section h3 {
+  margin: 1.5rem 0 1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.alert-section h3:first-of-type {
+  margin-top: 1rem;
+}
+
+.alert-section p {
+  margin: 0 0 1.5rem 0;
+  color: var(--color-text-secondary);
+}
+
+.alert-demo-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.alert-demo-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.alert-demo-item > span {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}

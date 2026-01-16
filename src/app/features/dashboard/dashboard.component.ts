@@ -32,6 +32,7 @@ import { ProgressComponent } from '@shared/components/progress/progress.componen
 import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
 import { TooltipDirective } from '@shared/directives/tooltip.directive';
 import { PaginationComponent } from '@shared/components/pagination/pagination.component';
+import { AlertComponent } from '@shared/components/alert/alert.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -60,6 +61,7 @@ import { PaginationComponent } from '@shared/components/pagination/pagination.co
     SkeletonComponent,
     TooltipDirective,
     PaginationComponent,
+    AlertComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',

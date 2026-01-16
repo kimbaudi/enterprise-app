@@ -865,6 +865,147 @@
         </form>
       </app-card>
     </div>
+
+    <div class="alert-section">
+      <app-card title="Alert/Banner Component Demo">
+        <p>Alerts display important messages, warnings, and notifications to users.</p>
+
+        <h3>Alert Types</h3>
+        <div class="alert-demo-grid">
+          <app-alert type="info" title="Information">
+            This is an informational alert with useful details for the user.
+          </app-alert>
+
+          <app-alert type="success" title="Success">
+            Your changes have been saved successfully!
+          </app-alert>
+
+          <app-alert type="warning" title="Warning">
+            Please review your settings before proceeding.
+          </app-alert>
+
+          <app-alert type="error" title="Error">
+            An error occurred while processing your request.
+          </app-alert>
+        </div>
+
+        <h3>Variants</h3>
+        <div class="alert-demo-grid">
+          <div class="alert-demo-item">
+            <span>Filled</span>
+            <app-alert type="info" variant="filled" title="Filled Alert">
+              This alert uses the filled variant with a solid background.
+            </app-alert>
+          </div>
+
+          <div class="alert-demo-item">
+            <span>Outlined</span>
+            <app-alert type="success" variant="outlined" title="Outlined Alert">
+              This alert uses the outlined variant with a border.
+            </app-alert>
+          </div>
+
+          <div class="alert-demo-item">
+            <span>Subtle (default)</span>
+            <app-alert type="warning" variant="subtle" title="Subtle Alert">
+              This alert uses the subtle variant with a light background.
+            </app-alert>
+          </div>
+        </div>
+
+        <h3>Without Title</h3>
+        <div class="alert-demo-grid">
+          <app-alert type="info">
+            Simple informational message without a title.
+          </app-alert>
+
+          <app-alert type="success" variant="outlined">
+            Operation completed successfully!
+          </app-alert>
+        </div>
+
+        <h3>Without Icon</h3>
+        <div class="alert-demo-grid">
+          <app-alert type="info" [showIcon]="false" title="No Icon">
+            This alert doesn't display an icon.
+          </app-alert>
+        </div>
+
+        <h3>Custom Icons</h3>
+        <div class="alert-demo-grid">
+          <app-alert type="info" icon="🔔" title="Notification">
+            You have 3 new notifications waiting for you.
+          </app-alert>
+
+          <app-alert type="success" icon="🎉" title="Congratulations" variant="filled">
+            You've completed all tasks for today!
+          </app-alert>
+
+          <app-alert type="warning" icon="⏰" title="Reminder">
+            Your subscription will expire in 7 days.
+          </app-alert>
+        </div>
+
+        <h3>Dismissible Alerts</h3>
+        <div class="alert-demo-grid">
+          <app-alert type="info" title="Dismissible Info" [dismissible]="true">
+            Click the × button to dismiss this alert.
+          </app-alert>
+
+          <app-alert type="warning" variant="outlined" [dismissible]="true">
+            This warning can be closed by the user.
+          </app-alert>
+        </div>
+
+        <h3>Complex Content</h3>
+        <div class="alert-demo-grid">
+          <app-alert type="info" title="System Update Available" [dismissible]="true">
+            <p style="margin: 0 0 0.5rem 0;">A new version (v2.5.0) is available with the following improvements:</p>
+            <ul style="margin: 0; padding-left: 1.25rem;">
+              <li>Enhanced performance and speed</li>
+              <li>New dark mode support</li>
+              <li>Bug fixes and stability improvements</li>
+            </ul>
+          </app-alert>
+
+          <app-alert type="warning" title="Action Required" variant="outlined" [dismissible]="true">
+            <p style="margin: 0 0 0.5rem 0;">Your account requires immediate attention:</p>
+            <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
+              <app-button size="sm" variant="primary">Update Now</app-button>
+              <app-button size="sm" variant="outline">Remind Later</app-button>
+            </div>
+          </app-alert>
+
+          <app-alert type="error" title="Connection Failed" variant="filled">
+            <p style="margin: 0 0 0.5rem 0;">Unable to connect to the server. Please check:</p>
+            <ul style="margin: 0; padding-left: 1.25rem;">
+              <li>Your internet connection</li>
+              <li>Firewall settings</li>
+              <li>Server status at status.example.com</li>
+            </ul>
+          </app-alert>
+        </div>
+
+        <h3>All Variant Combinations</h3>
+        <div class="alert-demo-grid">
+          <app-alert type="info" variant="filled">Info - Filled</app-alert>
+          <app-alert type="info" variant="outlined">Info - Outlined</app-alert>
+          <app-alert type="info" variant="subtle">Info - Subtle</app-alert>
+
+          <app-alert type="success" variant="filled">Success - Filled</app-alert>
+          <app-alert type="success" variant="outlined">Success - Outlined</app-alert>
+          <app-alert type="success" variant="subtle">Success - Subtle</app-alert>
+
+          <app-alert type="warning" variant="filled">Warning - Filled</app-alert>
+          <app-alert type="warning" variant="outlined">Warning - Outlined</app-alert>
+          <app-alert type="warning" variant="subtle">Warning - Subtle</app-alert>
+
+          <app-alert type="error" variant="filled">Error - Filled</app-alert>
+          <app-alert type="error" variant="outlined">Error - Outlined</app-alert>
+          <app-alert type="error" variant="subtle">Error - Subtle</app-alert>
+        </div>
+      </app-card>
+    </div>
   </div>
 </div>
 
