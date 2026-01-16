@@ -91,6 +91,7 @@ import {
   FormBuilderConfig,
 } from '@shared/components/form-builder/form-builder.component';
 import { SliderComponent } from '@shared/components/slider/slider.component';
+import { SwitchComponent } from '@shared/components/switch/switch.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -140,6 +141,7 @@ import { SliderComponent } from '@shared/components/slider/slider.component';
     CodeEditorComponent,
     FormBuilderComponent,
     SliderComponent,
+    SwitchComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -2317,5 +2319,31 @@ export class ExampleComponent {}`);
 
   formatTemperature(value: number): string {
     return `${value}°C`;
+  }
+
+  // Switch component demo data
+  wifiEnabled = signal(true);
+  notificationsEnabled = signal(false);
+  darkModeEnabled = signal(false);
+  autoSaveEnabled = signal(true);
+  bluetoothEnabled = signal(false);
+  locationEnabled = signal(true);
+  airplaneModeEnabled = signal(false);
+  switchLoading = signal(false);
+
+  onSwitchChange(value: boolean, name: string): void {
+    console.log(`${name} changed:`, value);
+  }
+
+  onSwitchToggle(value: boolean, name: string): void {
+    console.log(`${name} toggled:`, value);
+  }
+
+  simulateLoading(): void {
+    this.switchLoading.set(true);
+    setTimeout(() => {
+      this.switchLoading.set(false);
+      this.toastService.success('Settings updated successfully!');
+    }, 2000);
   }
 }

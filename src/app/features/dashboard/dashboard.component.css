@@ -2587,3 +2587,88 @@ li {
     gap: 2rem;
   }
 }
+
+/* Switch Section */
+.switch-section {
+  margin-top: 2rem;
+}
+
+.switch-section h3 {
+  margin: 1.5rem 0 1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.switch-section h3:first-of-type {
+  margin-top: 1rem;
+}
+
+.switch-section p {
+  margin: 0 0 1.5rem 0;
+  color: var(--color-text-secondary);
+}
+
+.switch-section app-switch {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.switch-positions-demo,
+.switch-sizes-demo,
+.switch-colors-demo,
+.switch-icons-demo,
+.switch-text-demo,
+.switch-loading-demo,
+.switch-disabled-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background-color: var(--color-bg-secondary);
+  border-radius: 0.5rem;
+}
+
+.settings-panel,
+.connectivity-panel,
+.privacy-panel,
+.feature-toggles-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+}
+
+.switch-section .use-case-item {
+  padding: 1.5rem;
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+}
+
+.switch-section .use-case-item h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.switch-section .use-case-item p {
+  margin: 0 0 1rem 0;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .switch-positions-demo,
+  .switch-sizes-demo,
+  .switch-colors-demo,
+  .switch-icons-demo {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,54 @@
+<div
+  class="switch-container"
+  [class.switch-disabled]="disabled || loading"
+  [class.switch-label-left]="labelPosition === 'left'"
+  [class.switch-label-right]="labelPosition === 'right'"
+>
+  @if (label && labelPosition === 'left') {
+    <label class="switch-label" (click)="onToggle()">
+      {{ label }}
+    </label>
+  }
+
+  <div
+    class="switch-wrapper"
+    [class.switch-checked]="checked()"
+    [class.switch-focused]="focused()"
+    [class.switch-disabled]="disabled"
+    [class.switch-loading]="loading"
+    [class.switch-sm]="size === 'sm'"
+    [class.switch-md]="size === 'md'"
+    [class.switch-lg]="size === 'lg'"
+    [class.switch-primary]="color === 'primary'"
+    [class.switch-success]="color === 'success'"
+    [class.switch-warning]="color === 'warning'"
+    [class.switch-error]="color === 'error'"
+    (click)="onToggle()"
+    (keydown)="onKeyDown($event)"
+    (focus)="onFocus()"
+    (blur)="onBlur()"
+    [attr.tabindex]="disabled || loading ? -1 : 0"
+    [attr.role]="'switch'"
+    [attr.aria-checked]="checked()"
+    [attr.aria-disabled]="disabled || loading"
+    [attr.aria-label]="label || 'toggle switch'"
+  >
+    <div class="switch-track">
+      <div class="switch-thumb">
+        @if (loading) {
+          <div class="switch-spinner"></div>
+        } @else if (displayIcon) {
+          <span class="switch-icon">{{ displayIcon }}</span>
+        } @else if (showText) {
+          <span class="switch-text">{{ displayText }}</span>
+        }
+      </div>
+    </div>
+  </div>
+
+  @if (label && labelPosition === 'right') {
+    <label class="switch-label" (click)="onToggle()">
+      {{ label }}
+    </label>
+  }
+</div>

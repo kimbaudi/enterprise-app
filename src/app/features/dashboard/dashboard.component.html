@@ -4385,6 +4385,307 @@
         </div>
       </app-card>
     </div>
+
+    <!-- Switch Component Section -->
+    <div class="switch-section">
+      <app-card title="Switch Component Demo">
+        <p>
+          Toggle switch component for boolean on/off states with multiple sizes, colors, and
+          styles. Supports labels, icons, loading states, and integrates seamlessly with reactive
+          forms. Perfect for settings, preferences, and feature toggles.
+        </p>
+
+        <h3>Basic Switch</h3>
+        <app-switch
+          label="Wi-Fi"
+          [(ngModel)]="wifiEnabled"
+          (valueChange)="onSwitchChange($event, 'Wi-Fi')"
+        ></app-switch>
+
+        <h3>Label Positions</h3>
+        <div class="switch-positions-demo">
+          <app-switch
+            label="Label on Right"
+            labelPosition="right"
+            [(ngModel)]="notificationsEnabled"
+          ></app-switch>
+          <app-switch
+            label="Label on Left"
+            labelPosition="left"
+            [(ngModel)]="darkModeEnabled"
+          ></app-switch>
+        </div>
+
+        <h3>Switch Sizes</h3>
+        <div class="switch-sizes-demo">
+          <app-switch
+            label="Small"
+            size="sm"
+            [(ngModel)]="wifiEnabled"
+          ></app-switch>
+          <app-switch
+            label="Medium (Default)"
+            size="md"
+            [(ngModel)]="wifiEnabled"
+          ></app-switch>
+          <app-switch
+            label="Large"
+            size="lg"
+            [(ngModel)]="wifiEnabled"
+          ></app-switch>
+        </div>
+
+        <h3>Switch Colors</h3>
+        <div class="switch-colors-demo">
+          <app-switch
+            label="Primary"
+            color="primary"
+            [(ngModel)]="wifiEnabled"
+          ></app-switch>
+          <app-switch
+            label="Success"
+            color="success"
+            [(ngModel)]="wifiEnabled"
+          ></app-switch>
+          <app-switch
+            label="Warning"
+            color="warning"
+            [(ngModel)]="wifiEnabled"
+          ></app-switch>
+          <app-switch
+            label="Error"
+            color="error"
+            [(ngModel)]="wifiEnabled"
+          ></app-switch>
+        </div>
+
+        <h3>Switch with Icons</h3>
+        <div class="switch-icons-demo">
+          <app-switch
+            label="Wi-Fi"
+            checkedIcon="📶"
+            uncheckedIcon="📵"
+            [(ngModel)]="wifiEnabled"
+          ></app-switch>
+          <app-switch
+            label="Bluetooth"
+            checkedIcon="🔵"
+            uncheckedIcon="⚪"
+            color="success"
+            [(ngModel)]="bluetoothEnabled"
+          ></app-switch>
+          <app-switch
+            label="Location"
+            checkedIcon="📍"
+            uncheckedIcon="📍"
+            color="warning"
+            [(ngModel)]="locationEnabled"
+          ></app-switch>
+        </div>
+
+        <h3>Switch with Text</h3>
+        <div class="switch-text-demo">
+          <app-switch
+            label="Auto-Save"
+            [showText]="true"
+            checkedText="ON"
+            uncheckedText="OFF"
+            size="lg"
+            [(ngModel)]="autoSaveEnabled"
+          ></app-switch>
+        </div>
+
+        <h3>Loading State</h3>
+        <div class="switch-loading-demo">
+          <app-switch
+            label="Updating Settings..."
+            [loading]="switchLoading()"
+            [(ngModel)]="airplaneModeEnabled"
+            (toggle)="simulateLoading()"
+          ></app-switch>
+        </div>
+
+        <h3>Disabled State</h3>
+        <div class="switch-disabled-demo">
+          <app-switch
+            label="Disabled (On)"
+            [disabled]="true"
+            [ngModel]="true"
+          ></app-switch>
+          <app-switch
+            label="Disabled (Off)"
+            [disabled]="true"
+            [ngModel]="false"
+          ></app-switch>
+        </div>
+
+        <h3>Common Use Cases</h3>
+        <div class="use-case-grid">
+          <div class="use-case-item">
+            <h4>⚙️ Settings Panel</h4>
+            <p>Quick toggle switches for app settings and user preferences.</p>
+            <div class="settings-panel">
+              <app-switch
+                label="Enable Notifications"
+                [(ngModel)]="notificationsEnabled"
+                (valueChange)="onSwitchChange($event, 'Notifications')"
+              ></app-switch>
+              <app-switch
+                label="Dark Mode"
+                color="warning"
+                [(ngModel)]="darkModeEnabled"
+                (valueChange)="onSwitchChange($event, 'Dark Mode')"
+              ></app-switch>
+              <app-switch
+                label="Auto-Save"
+                color="success"
+                [(ngModel)]="autoSaveEnabled"
+                (valueChange)="onSwitchChange($event, 'Auto-Save')"
+              ></app-switch>
+            </div>
+          </div>
+
+          <div class="use-case-item">
+            <h4>📱 Connectivity Settings</h4>
+            <p>Control device connectivity options with visual feedback.</p>
+            <div class="connectivity-panel">
+              <app-switch
+                label="Wi-Fi"
+                checkedIcon="📶"
+                uncheckedIcon="📵"
+                color="primary"
+                size="lg"
+                [(ngModel)]="wifiEnabled"
+              ></app-switch>
+              <app-switch
+                label="Bluetooth"
+                checkedIcon="🔵"
+                uncheckedIcon="⚪"
+                color="success"
+                size="lg"
+                [(ngModel)]="bluetoothEnabled"
+              ></app-switch>
+              <app-switch
+                label="Airplane Mode"
+                checkedIcon="✈️"
+                uncheckedIcon="✈️"
+                color="error"
+                size="lg"
+                [(ngModel)]="airplaneModeEnabled"
+              ></app-switch>
+            </div>
+          </div>
+
+          <div class="use-case-item">
+            <h4>🔒 Privacy Controls</h4>
+            <p>Manage privacy settings with clear on/off indicators.</p>
+            <div class="privacy-panel">
+              <app-switch
+                label="Location Services"
+                checkedIcon="📍"
+                color="warning"
+                [(ngModel)]="locationEnabled"
+              ></app-switch>
+              <app-switch
+                label="Share Analytics"
+                color="error"
+                [(ngModel)]="notificationsEnabled"
+              ></app-switch>
+            </div>
+          </div>
+
+          <div class="use-case-item">
+            <h4>🎛️ Feature Toggles</h4>
+            <p>Enable or disable features dynamically with toggle controls.</p>
+            <div class="feature-toggles-panel">
+              <app-switch
+                label="Beta Features"
+                [showText]="true"
+                checkedText="ON"
+                uncheckedText="OFF"
+                color="warning"
+                [(ngModel)]="wifiEnabled"
+              ></app-switch>
+              <app-switch
+                label="Experimental Mode"
+                [showText]="true"
+                checkedText="ON"
+                uncheckedText="OFF"
+                color="error"
+                [(ngModel)]="darkModeEnabled"
+              ></app-switch>
+            </div>
+          </div>
+        </div>
+
+        <h3>Features</h3>
+        <div class="features-grid">
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">📐</span>
+              <strong>Multiple Sizes</strong>
+              <p>Small, medium, and large size variants for different layouts</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">🎨</span>
+              <strong>Color Variants</strong>
+              <p>Primary, success, warning, and error color options available</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">🏷️</span>
+              <strong>Labels</strong>
+              <p>Configurable label text with left or right positioning</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">💫</span>
+              <strong>Icons</strong>
+              <p>Custom icons for checked and unchecked states</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">⏳</span>
+              <strong>Loading State</strong>
+              <p>Built-in loading spinner for async operations</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">⌨️</span>
+              <strong>Keyboard Support</strong>
+              <p>Full keyboard navigation with Enter and Space keys</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">♿</span>
+              <strong>Accessible</strong>
+              <p>ARIA attributes, focus management, and screen reader support</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">📋</span>
+              <strong>Form Integration</strong>
+              <p>ControlValueAccessor for seamless reactive forms integration</p>
+            </div>
+          </div>
+        </div>
+      </app-card>
+    </div>
   </div>
 
   <!-- User Details Modal -->
