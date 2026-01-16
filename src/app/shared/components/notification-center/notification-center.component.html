@@ -1,0 +1,111 @@
+<div class="notification-center">
+  <!-- Header -->
+  <div class="notification-header">
+    <div class="header-title">
+      <h3>Notifications</h3>
+      @if (unreadCount() > 0) {
+        <app-badge [variant]="'solid'">{{ unreadCount() }}</app-badge>
+      }
+    </div>
+    <div class="header-actions">
+      @if (config.showMarkAllRead && unreadCount() > 0) {
+        <button class="action-button" (click)="onMarkAllAsRead()" title="Mark all as read">
+          ✓
+        </button>
+      }
+      @if (config.showClearAll && notifications.length > 0) {
+        <button class="action-button" (click)="onClearAll()" title="Clear all">🗑️</button>
+      }
+    </div>
+  </div>
+
+  <!-- Filters -->
+  @if (config.showFilters) {
+    <div class="notification-filters">
+      @for (option of filterOptions; track option.value) {
+        <button
+          class="filter-button"
+          [class.active]="selectedFilter() === option.value"
+          (click)="setFilter(option.value)"
+        >
+          {{ option.label }}
+        </button>
+      }
+    </div>
+  }
+
+  <!-- Notification List -->
+  <div class="notification-list" [style.max-height]="config.maxHeight">
+    @if (filteredNotifications().length === 0) {
+      <div class="empty-state">
+        <div class="empty-icon">🔔</div>
+        <p>No notifications</p>
+      </div>
+    } @else {
+      @for (group of getObjectKeys(groupedNotifications()); track group) {
+        @if (config.groupByDate && group) {
+          <div class="notification-group-label">{{ group }}</div>
+        }
+
+        @for (notification of groupedNotifications()[group]; track notification.id) {
+          <div
+            class="notification-item"
+            [class.unread]="!notification.read"
+            [class.read]="notification.read"
+            (click)="onNotificationClick(notification)"
+          >
+            <div class="notification-indicator" [attr.data-type]="notification.type"></div>
+
+            <div class="notification-icon">
+              @if (notification.avatar) {
+                <app-avatar [src]="notification.avatar" [size]="'sm'" />
+              } @else {
+                <span class="icon-placeholder">{{ getNotificationIcon(notification.type) }}</span>
+              }
+            </div>
+
+            <div class="notification-content">
+              <div class="notification-title">
+                {{ notification.title }}
+                @if (!notification.read) {
+                  <span class="unread-dot"></span>
+                }
+              </div>
+              <div class="notification-message">{{ notification.message }}</div>
+              <div class="notification-footer">
+                <span class="notification-time">{{ formatTimestamp(notification.timestamp) }}</span>
+                @if (config.enableActions && notification.actionText) {
+                  <button
+                    class="notification-action"
+                    (click)="onNotificationAction(notification, $event)"
+                  >
+                    {{ notification.actionText }}
+                  </button>
+                }
+              </div>
+            </div>
+
+            <div class="notification-actions">
+              @if (notification.read) {
+                <button
+                  class="action-icon"
+                  (click)="markAsUnread(notification, $event)"
+                  title="Mark as unread"
+                >
+                  ✉️
+                </button>
+              }
+              <button
+                class="action-icon"
+                (click)="deleteNotification(notification, $event)"
+                title="Delete"
+              >
+                ×
+              </button>
+            </div>
+          </div>
+        }
+      }
+    }
+  </div>
+</div>

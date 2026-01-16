@@ -73,6 +73,11 @@ import {
   ChartOptions,
   ChartType,
 } from '@shared/components/chart/chart.component';
+import {
+  NotificationCenterComponent,
+  Notification,
+  NotificationCenterConfig,
+} from '@shared/components/notification-center/notification-center.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -118,6 +123,7 @@ import {
     RichTextEditorComponent,
     KanbanBoardComponent,
     ChartComponent,
+    NotificationCenterComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -1546,5 +1552,187 @@ export class DashboardComponent {
   onChartClick(event: { label: string; value: number; datasetIndex: number }): void {
     console.log('Chart clicked:', event);
     this.toastService.info(`${event.label}: ${event.value}`, 'Chart Data');
+  }
+
+  // Notification Center Configuration
+  notifications: Notification[] = [
+    {
+      id: 1,
+      type: 'info',
+      title: 'New feature released',
+      message: 'Check out the new data visualization dashboard with interactive charts.',
+      timestamp: new Date(Date.now() - 5 * 60000),
+      read: false,
+      avatar: 'https://i.pravatar.cc/150?img=1',
+    },
+    {
+      id: 2,
+      type: 'success',
+      title: 'Deployment successful',
+      message: 'Your application has been deployed to production successfully.',
+      timestamp: new Date(Date.now() - 30 * 60000),
+      read: false,
+    },
+    {
+      id: 3,
+      type: 'warning',
+      title: 'High memory usage detected',
+      message: 'Your application is using 85% of available memory.',
+      timestamp: new Date(Date.now() - 2 * 3600000),
+      read: false,
+      actionText: 'View Details',
+      actionUrl: '/monitoring',
+    },
+    {
+      id: 4,
+      type: 'mention',
+      title: 'John mentioned you',
+      message: '@you Please review the pull request for the authentication feature.',
+      timestamp: new Date(Date.now() - 4 * 3600000),
+      read: true,
+      avatar: 'https://i.pravatar.cc/150?img=2',
+      actionText: 'View PR',
+    },
+    {
+      id: 5,
+      type: 'error',
+      title: 'Build failed',
+      message: 'The CI/CD pipeline failed due to test errors in user module.',
+      timestamp: new Date(Date.now() - 86400000),
+      read: true,
+      actionText: 'View Logs',
+    },
+    {
+      id: 6,
+      type: 'info',
+      title: 'Security update available',
+      message: 'A new security patch is available for your dependencies.',
+      timestamp: new Date(Date.now() - 2 * 86400000),
+      read: true,
+    },
+    {
+      id: 7,
+      type: 'success',
+      title: 'Task completed',
+      message: 'Sarah completed the "Design new landing page" task.',
+      timestamp: new Date(Date.now() - 3 * 86400000),
+      read: true,
+      avatar: 'https://i.pravatar.cc/150?img=3',
+    },
+    {
+      id: 8,
+      type: 'info',
+      title: 'Meeting reminder',
+      message: 'Team standup meeting starts in 15 minutes.',
+      timestamp: new Date(Date.now() - 7 * 86400000),
+      read: true,
+    },
+  ];
+
+  simpleNotifications: Notification[] = [
+    {
+      id: 1,
+      type: 'info',
+      title: 'System update',
+      message: 'System will be updated tonight at 10 PM.',
+      timestamp: new Date(),
+      read: false,
+    },
+    {
+      id: 2,
+      type: 'success',
+      title: 'Payment received',
+      message: 'Your payment of $99.00 has been processed.',
+      timestamp: new Date(Date.now() - 60000),
+      read: false,
+    },
+    {
+      id: 3,
+      type: 'warning',
+      title: 'Action required',
+      message: 'Please verify your email address.',
+      timestamp: new Date(Date.now() - 120000),
+      read: true,
+    },
+  ];
+
+  activityNotifications: Notification[] = [
+    {
+      id: 1,
+      type: 'success',
+      title: 'Task completed',
+      message: 'John completed Design Review task',
+      timestamp: new Date(Date.now() - 300000),
+      read: false,
+      avatar: 'https://i.pravatar.cc/150?img=5',
+    },
+    {
+      id: 2,
+      type: 'info',
+      title: 'Comment added',
+      message: 'Sarah commented on your pull request',
+      timestamp: new Date(Date.now() - 600000),
+      read: false,
+      avatar: 'https://i.pravatar.cc/150?img=6',
+    },
+    {
+      id: 3,
+      type: 'mention',
+      title: 'You were mentioned',
+      message: '@you check the latest updates',
+      timestamp: new Date(Date.now() - 900000),
+      read: true,
+      avatar: 'https://i.pravatar.cc/150?img=7',
+    },
+  ];
+
+  notificationCenterConfig: NotificationCenterConfig = {
+    maxHeight: '500px',
+    showFilters: true,
+    showMarkAllRead: true,
+    showClearAll: false,
+    groupByDate: true,
+    enableActions: true,
+  };
+
+  compactNotificationConfig: NotificationCenterConfig = {
+    maxHeight: '300px',
+    showFilters: false,
+    showMarkAllRead: true,
+    showClearAll: false,
+    groupByDate: false,
+    enableActions: false,
+  };
+
+  onNotificationClick(notification: Notification): void {
+    console.log('Notification clicked:', notification);
+    this.toastService.info(notification.title, 'Notification');
+  }
+
+  onNotificationRead(notification: Notification): void {
+    console.log('Notification read status changed:', notification);
+  }
+
+  onNotificationDelete(notification: Notification): void {
+    const index = this.notifications.findIndex((n) => n.id === notification.id);
+    if (index > -1) {
+      this.notifications.splice(index, 1);
+      this.toastService.success('Notification deleted', 'Success');
+    }
+  }
+
+  onNotificationAction(notification: Notification): void {
+    console.log('Notification action:', notification);
+    this.toastService.info(`Action: ${notification.actionText}`, notification.title);
+  }
+
+  onMarkAllNotificationsRead(): void {
+    console.log('Mark all as read');
+    this.toastService.success('All notifications marked as read', 'Success');
+  }
+
+  onClearAllNotifications(): void {
+    this.notifications = [];
+    this.toastService.success('All notifications cleared', 'Success');
   }
 }

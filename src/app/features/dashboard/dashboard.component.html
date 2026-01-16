@@ -2958,7 +2958,6 @@
         </div>
 
         <h3>Use Cases</h3>
-
         <div class="use-case-grid">
           <div class="use-case-item">
             <h4>📁 File Browser</h4>
@@ -3214,7 +3213,6 @@
       </app-card>
     </div>
 
-    <!-- Rich Text Editor Component -->
     <div class="rich-text-editor-section">
       <app-card title="Rich Text Editor Component Demo">
         <p>WYSIWYG text editor with formatting toolbar, links, and images.</p>
@@ -3303,7 +3301,6 @@
       </app-card>
     </div>
 
-    <!-- Kanban Board Component -->
     <div class="kanban-board-section">
       <app-card title="Kanban Board Component Demo">
         <p>Drag-and-drop task board for managing workflows and projects.</p>
@@ -3434,108 +3431,76 @@
       </app-card>
     </div>
 
-    <!-- Chart Section -->
-    <div class="component-section chart-section">
+    <div class="chart-section">
       <app-card title="Chart Component Demo">
-        <p>
-          Interactive data visualization with multiple chart types. Supports line, bar, pie,
-          doughnut, and area charts with tooltips, legends, and animations.
-        </p>
+        <p>Interactive data visualization with line, bar, pie, doughnut, and area chart types.</p>
 
-        <div class="demo-group">
-          <h4>Line Chart</h4>
-          <p>Display trends over time with multiple datasets</p>
-          <div class="chart-wrapper">
-            <app-chart
-              [type]="'line'"
-              [data]="lineChartData"
-              [options]="chartOptions"
-              (chartClick)="onChartClick($event)"
-            />
-          </div>
-        </div>
+        <h3>Line Chart</h3>
+        <app-chart
+          [type]="'line'"
+          [data]="lineChartData"
+          [options]="chartOptions"
+          (chartClick)="onChartClick($event)"
+        />
 
-        <div class="demo-group">
-          <h4>Bar Chart</h4>
-          <p>Compare values across categories with grouped bars</p>
-          <div class="chart-wrapper">
-            <app-chart
-              [type]="'bar'"
-              [data]="barChartData"
-              [options]="chartOptions"
-              (chartClick)="onChartClick($event)"
-            />
-          </div>
-        </div>
+        <h3>Bar Chart</h3>
+        <app-chart
+          [type]="'bar'"
+          [data]="barChartData"
+          [options]="chartOptions"
+          (chartClick)="onChartClick($event)"
+        />
 
-        <div class="demo-group">
-          <h4>Pie Chart</h4>
-          <p>Show percentage distribution with interactive slices</p>
-          <div class="chart-wrapper">
-            <app-chart
-              [type]="'pie'"
-              [data]="pieChartData"
-              [options]="chartOptions"
-              (chartClick)="onChartClick($event)"
-            />
-          </div>
-        </div>
+        <h3>Pie Chart</h3>
+        <app-chart
+          [type]="'pie'"
+          [data]="pieChartData"
+          [options]="chartOptions"
+          (chartClick)="onChartClick($event)"
+        />
 
-        <div class="demo-group">
-          <h4>Area Chart</h4>
-          <p>Visualize cumulative data with filled areas</p>
-          <div class="chart-wrapper">
-            <app-chart
-              [type]="'area'"
-              [data]="areaChartData"
-              [options]="chartOptions"
-              (chartClick)="onChartClick($event)"
-            />
-          </div>
-        </div>
+        <h3>Area Chart</h3>
+        <app-chart
+          [type]="'area'"
+          [data]="areaChartData"
+          [options]="chartOptions"
+          (chartClick)="onChartClick($event)"
+        />
 
-        <div class="demo-group">
-          <h4>Doughnut Chart</h4>
-          <p>Display proportions with a hollow center</p>
-          <div class="chart-wrapper">
-            <app-chart
-              [type]="'doughnut'"
-              [data]="doughnutChartData"
-              [options]="chartOptions"
-              (chartClick)="onChartClick($event)"
-            />
-          </div>
-        </div>
+        <h3>Doughnut Chart</h3>
+        <app-chart
+          [type]="'doughnut'"
+          [data]="doughnutChartData"
+          [options]="chartOptions"
+          (chartClick)="onChartClick($event)"
+        />
 
-        <div class="demo-group">
-          <h4>Compact Charts</h4>
-          <p>Smaller charts without grid and legend for dashboards</p>
-          <div class="chart-grid">
-            <div class="chart-grid-item">
-              <h5>Sales Trend</h5>
-              <div class="chart-wrapper-compact">
-                <app-chart [type]="'line'" [data]="lineChartData" [options]="compactChartOptions" />
-              </div>
+        <h3>Compact Charts</h3>
+        <div class="chart-grid">
+          <div class="chart-grid-item">
+            <h5>Sales Trend</h5>
+            <div class="chart-wrapper-compact">
+              <app-chart [type]="'line'" [data]="lineChartData" [options]="compactChartOptions" />
             </div>
-            <div class="chart-grid-item">
-              <h5>Quarterly Revenue</h5>
-              <div class="chart-wrapper-compact">
-                <app-chart [type]="'bar'" [data]="barChartData" [options]="compactChartOptions" />
-              </div>
+          </div>
+          <div class="chart-grid-item">
+            <h5>Quarterly Revenue</h5>
+            <div class="chart-wrapper-compact">
+              <app-chart [type]="'bar'" [data]="barChartData" [options]="compactChartOptions" />
             </div>
-            <div class="chart-grid-item">
-              <h5>Market Share</h5>
-              <div class="chart-wrapper-compact">
-                <app-chart [type]="'pie'" [data]="pieChartData" [options]="compactChartOptions" />
-              </div>
+          </div>
+          <div class="chart-grid-item">
+            <h5>Market Share</h5>
+            <div class="chart-wrapper-compact">
+              <app-chart [type]="'pie'" [data]="pieChartData" [options]="compactChartOptions" />
             </div>
           </div>
         </div>
 
-        <div class="use-cases">
-          <h4>Use Cases</h4>
+        <h3>Use Cases</h3>
+        <div class="use-case-grid">
           <div class="use-case-item">
-            <strong>Analytics Dashboard</strong>
+            <h4>Analytics Dashboard</h4>
             <p>Display business metrics with interactive charts showing trends and comparisons.</p>
             <div class="chart-wrapper">
               <app-chart
@@ -3562,6 +3527,65 @@
                 [options]="chartOptions"
               />
             </div>
+          </div>
+        </div>
+      </app-card>
+    </div>
+
+    <div class="notification-center-section">
+      <app-card title="Notification Center Demo">
+        <p>Centralized notification management with filtering, grouping, and real-time updates.</p>
+
+        <h3>Full-Featured Notification Center</h3>
+        <app-notification-center
+          [notifications]="notifications"
+          [config]="notificationCenterConfig"
+          (notificationClick)="onNotificationClick($event)"
+          (notificationRead)="onNotificationRead($event)"
+          (notificationDelete)="onNotificationDelete($event)"
+          (notificationAction)="onNotificationAction($event)"
+          (markAllAsRead)="onMarkAllNotificationsRead()"
+        />
+
+        <h3>Compact Notification List</h3>
+        <app-notification-center
+          [notifications]="simpleNotifications"
+          [config]="compactNotificationConfig"
+          (notificationClick)="onNotificationClick($event)"
+          (notificationDelete)="onNotificationDelete($event)"
+        />
+
+        <h3>Empty State</h3>
+        <app-notification-center [notifications]="[]" [config]="{ maxHeight: '250px' }" />
+
+        <h3>Use Cases</h3>
+        <div class="use-case-grid">
+          <div class="use-case-item">
+            <h4>Dashboard Widget</h4>
+            <p>Display recent notifications in a dashboard sidebar or dropdown.</p>
+            <app-notification-center
+              [notifications]="simpleNotifications"
+              [config]="{
+                maxHeight: '350px',
+                showFilters: false,
+                showMarkAllRead: true,
+                groupByDate: false,
+              }"
+            />
+          </div>
+          <div class="use-case-item">
+            <h4>Activity Feed</h4>
+            <p>Show team activity and system events with filtering options.</p>
+            <app-notification-center
+              [notifications]="activityNotifications"
+              [config]="{
+                maxHeight: '350px',
+                showFilters: true,
+                showMarkAllRead: true,
+                groupByDate: false,
+                enableActions: true,
+              }"
+            />
           </div>
         </div>
       </app-card>
