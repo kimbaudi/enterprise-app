@@ -5166,6 +5166,194 @@
         </div>
       </app-card>
     </div>
+
+    <!-- Transfer List Component Section -->
+    <div class="transfer-list-section">
+      <app-card title="Transfer List Component Demo">
+        <p>
+          Dual list box for moving items between available and selected lists. Perfect for
+          managing selections, permissions, and assignments with search and bulk operations.
+        </p>
+
+        <h3>Basic Transfer List</h3>
+        <app-transfer-list
+          [items]="transferItems"
+          [(ngModel)]="selectedLanguages"
+          (change)="onTransferChange($event, 'Programming Languages')"
+        ></app-transfer-list>
+        <p>Selected: {{ selectedLanguages().join(', ') || 'None' }}</p>
+
+        <h3>Team Assignment</h3>
+        <app-transfer-list
+          [items]="teamMembers"
+          sourceTitle="Available Members"
+          targetTitle="Team Members"
+          [(ngModel)]="selectedMembers"
+          (change)="onTransferChange($event, 'Team Members')"
+        ></app-transfer-list>
+
+        <h3>Without Search</h3>
+        <app-transfer-list
+          [items]="projectFeatures"
+          sourceTitle="All Features"
+          targetTitle="Enabled Features"
+          [searchable]="false"
+          [(ngModel)]="selectedFeatures"
+        ></app-transfer-list>
+
+        <h3>Custom Height</h3>
+        <app-transfer-list
+          [items]="transferItems"
+          height="250px"
+          [showCount]="false"
+          [(ngModel)]="selectedLanguages"
+        ></app-transfer-list>
+
+        <h3>Disabled State</h3>
+        <app-transfer-list
+          [items]="transferItems"
+          [disabled]="true"
+          [ngModel]="['1', '2', '3']"
+        ></app-transfer-list>
+
+        <h3>Use Cases</h3>
+        <div class="use-case-grid">
+          <div class="use-case-item">
+            <h4>👥 Team Management</h4>
+            <p>Assign team members to projects or departments</p>
+            <app-transfer-list
+              [items]="teamMembers"
+              sourceTitle="All Employees"
+              targetTitle="Project Team"
+              height="280px"
+              [(ngModel)]="selectedMembers"
+              (change)="onTransferChange($event, 'Project Team')"
+            ></app-transfer-list>
+          </div>
+
+          <div class="use-case-item">
+            <h4>🔐 Permission Management</h4>
+            <p>Grant or revoke user permissions</p>
+            <app-transfer-list
+              [items]="[
+                { value: 'p1', label: 'Read Documents' },
+                { value: 'p2', label: 'Write Documents' },
+                { value: 'p3', label: 'Delete Documents' },
+                { value: 'p4', label: 'Manage Users' },
+                { value: 'p5', label: 'View Reports' },
+                { value: 'p6', label: 'Export Data' },
+                { value: 'p7', label: 'Admin Access', disabled: true }
+              ]"
+              sourceTitle="Available Permissions"
+              targetTitle="User Permissions"
+              height="280px"
+              [(ngModel)]="selectedPermissions"
+            ></app-transfer-list>
+          </div>
+
+          <div class="use-case-item">
+            <h4>⚙️ Feature Toggle</h4>
+            <p>Enable or disable application features</p>
+            <app-transfer-list
+              [items]="projectFeatures"
+              sourceTitle="Available Features"
+              targetTitle="Active Features"
+              height="280px"
+              [(ngModel)]="selectedFeatures"
+              (change)="onTransferChange($event, 'Features')"
+            ></app-transfer-list>
+          </div>
+
+          <div class="use-case-item">
+            <h4>📊 Data Selection</h4>
+            <p>Choose columns for export or report generation</p>
+            <app-transfer-list
+              [items]="[
+                { value: 'c1', label: 'ID' },
+                { value: 'c2', label: 'Name' },
+                { value: 'c3', label: 'Email' },
+                { value: 'c4', label: 'Phone' },
+                { value: 'c5', label: 'Address' },
+                { value: 'c6', label: 'City' },
+                { value: 'c7', label: 'Country' },
+                { value: 'c8', label: 'Created Date' }
+              ]"
+              sourceTitle="Available Columns"
+              targetTitle="Export Columns"
+              height="280px"
+              [ngModel]="['c1', 'c2', 'c3']"
+            ></app-transfer-list>
+          </div>
+        </div>
+
+        <h3>Features</h3>
+        <div class="features-grid">
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">🔍</span>
+              <strong>Search</strong>
+              <p>Filter items in both lists with real-time search</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">↔️</span>
+              <strong>Bulk Transfer</strong>
+              <p>Move all items or selected items between lists</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">✓</span>
+              <strong>Multi-Select</strong>
+              <p>Select multiple items for batch operations</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">🔢</span>
+              <strong>Item Count</strong>
+              <p>Display count of items in each list</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">🚫</span>
+              <strong>Disabled Items</strong>
+              <p>Support for disabled items that cannot be moved</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">📐</span>
+              <strong>Custom Height</strong>
+              <p>Configurable list height for different layouts</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">⌨️</span>
+              <strong>Keyboard Support</strong>
+              <p>Navigate and select items using keyboard</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">📋</span>
+              <strong>Form Integration</strong>
+              <p>ControlValueAccessor for seamless forms support</p>
+            </div>
+          </div>
+        </div>
+      </app-card>
+    </div>
   </div>
 
   <!-- User Details Modal -->

@@ -97,6 +97,11 @@ import {
   SegmentedControlOption,
 } from '@shared/components/segmented-control/segmented-control.component';
 import { TagInputComponent } from '@shared/components/tag-input/tag-input.component';
+import {
+  TransferListComponent,
+  TransferListItem,
+  TransferChangeEvent,
+} from '@shared/components/transfer-list/transfer-list.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -149,6 +154,7 @@ import { TagInputComponent } from '@shared/components/tag-input/tag-input.compon
     SwitchComponent,
     SegmentedControlComponent,
     TagInputComponent,
+    TransferListComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -2470,5 +2476,55 @@ export class ExampleComponent {}`);
 
   onTagRemove(tag: string, name: string): void {
     this.toastService.info(`Removed tag: ${tag}`, `${name}`);
+  }
+
+  // Transfer List Component Data
+  transferItems: TransferListItem[] = [
+    { value: '1', label: 'JavaScript' },
+    { value: '2', label: 'TypeScript' },
+    { value: '3', label: 'Python' },
+    { value: '4', label: 'Java' },
+    { value: '5', label: 'C#' },
+    { value: '6', label: 'Go' },
+    { value: '7', label: 'Rust' },
+    { value: '8', label: 'PHP' },
+    { value: '9', label: 'Ruby' },
+    { value: '10', label: 'Swift' },
+  ];
+
+  teamMembers: TransferListItem[] = [
+    { value: 'u1', label: 'Alice Johnson' },
+    { value: 'u2', label: 'Bob Smith' },
+    { value: 'u3', label: 'Carol Williams' },
+    { value: 'u4', label: 'David Brown' },
+    { value: 'u5', label: 'Emma Davis' },
+    { value: 'u6', label: 'Frank Miller' },
+    { value: 'u7', label: 'Grace Wilson' },
+    { value: 'u8', label: 'Henry Moore' },
+  ];
+
+  projectFeatures: TransferListItem[] = [
+    { value: 'f1', label: 'User Authentication' },
+    { value: 'f2', label: 'Dashboard' },
+    { value: 'f3', label: 'Reporting' },
+    { value: 'f4', label: 'Analytics' },
+    { value: 'f5', label: 'Notifications' },
+    { value: 'f6', label: 'Export Data' },
+    { value: 'f7', label: 'Import Data' },
+    { value: 'f8', label: 'Multi-language' },
+    { value: 'f9', label: 'Dark Mode' },
+    { value: 'f10', label: 'Accessibility' },
+  ];
+
+  selectedLanguages = signal<string[]>(['1', '2']);
+  selectedMembers = signal<string[]>([]);
+  selectedFeatures = signal<string[]>([]);
+  selectedPermissions = signal<string[]>([]);
+
+  onTransferChange(event: TransferChangeEvent, name: string): void {
+    console.log(`${name} transfer:`, event);
+    const direction = event.direction === 'toTarget' ? 'added' : 'removed';
+    const count = event.movedItems.length;
+    this.toastService.info(`${count} item(s) ${direction}`, name);
   }
 }

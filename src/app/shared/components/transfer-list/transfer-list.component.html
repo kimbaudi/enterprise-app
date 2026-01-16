@@ -1,0 +1,136 @@
+<div class="transfer-list-container" [class.transfer-list-disabled]="disabled">
+  <!-- Source List -->
+  <div class="transfer-panel">
+    <div class="transfer-panel-header">
+      <h4 class="transfer-panel-title">{{ sourceTitle }}</h4>
+      @if (showCount) {
+        <span class="transfer-panel-count">{{ sourceCount() }}</span>
+      }
+    </div>
+
+    @if (searchable) {
+      <div class="transfer-search">
+        <input
+          type="text"
+          class="transfer-search-input"
+          placeholder="Search..."
+          [value]="sourceSearch()"
+          (input)="sourceSearch.set($any($event.target).value)"
+          [disabled]="disabled"
+        />
+      </div>
+    }
+
+    <div class="transfer-list" [style.height]="height">
+      @if (filteredSourceItems().length === 0) {
+        <div class="transfer-empty">
+          @if (sourceSearch()) {
+            <span>No items found</span>
+          } @else {
+            <span>No items available</span>
+          }
+        </div>
+      } @else {
+        @for (item of filteredSourceItems(); track item.value) {
+          <div
+            class="transfer-item"
+            [class.transfer-item-selected]="isSourceItemSelected(item)"
+            [class.transfer-item-disabled]="item.disabled || disabled"
+            (click)="toggleSourceItem(item)"
+          >
+            <span class="transfer-item-label">{{ item.label }}</span>
+          </div>
+        }
+      }
+    </div>
+  </div>
+
+  <!-- Transfer Controls -->
+  <div class="transfer-controls">
+    <button
+      type="button"
+      class="transfer-button"
+      [disabled]="!canMoveToTarget()"
+      (click)="moveToTarget()"
+      title="Move selected to target"
+    >
+      <span class="transfer-button-icon">→</span>
+    </button>
+
+    <button
+      type="button"
+      class="transfer-button"
+      [disabled]="!canMoveAllToTarget()"
+      (click)="moveAllToTarget()"
+      title="Move all to target"
+    >
+      <span class="transfer-button-icon">⇉</span>
+    </button>
+
+    <button
+      type="button"
+      class="transfer-button"
+      [disabled]="!canMoveAllToSource()"
+      (click)="moveAllToSource()"
+      title="Move all to source"
+    >
+      <span class="transfer-button-icon">⇇</span>
+    </button>
+
+    <button
+      type="button"
+      class="transfer-button"
+      [disabled]="!canMoveToSource()"
+      (click)="moveToSource()"
+      title="Move selected to source"
+    >
+      <span class="transfer-button-icon">←</span>
+    </button>
+  </div>
+
+  <!-- Target List -->
+  <div class="transfer-panel">
+    <div class="transfer-panel-header">
+      <h4 class="transfer-panel-title">{{ targetTitle }}</h4>
+      @if (showCount) {
+        <span class="transfer-panel-count">{{ targetCount() }}</span>
+      }
+    </div>
+
+    @if (searchable) {
+      <div class="transfer-search">
+        <input
+          type="text"
+          class="transfer-search-input"
+          placeholder="Search..."
+          [value]="targetSearch()"
+          (input)="targetSearch.set($any($event.target).value)"
+          [disabled]="disabled"
+        />
+      </div>
+    }
+
+    <div class="transfer-list" [style.height]="height">
+      @if (filteredTargetItems().length === 0) {
+        <div class="transfer-empty">
+          @if (targetSearch()) {
+            <span>No items found</span>
+          } @else {
+            <span>No items selected</span>
+          }
+        </div>
+      } @else {
+        @for (item of filteredTargetItems(); track item.value) {
+          <div
+            class="transfer-item"
+            [class.transfer-item-selected]="isTargetItemSelected(item)"
+            [class.transfer-item-disabled]="item.disabled || disabled"
+            (click)="toggleTargetItem(item)"
+          >
+            <span class="transfer-item-label">{{ item.label }}</span>
+          </div>
+        }
+      }
+    </div>
+  </div>
+</div>

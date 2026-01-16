@@ -1,0 +1,257 @@
+.transfer-list-container {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  font-family: var(--font-family);
+}
+
+.transfer-list-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Transfer Panel */
+.transfer-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.transfer-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-background-secondary);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.transfer-panel-title {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.transfer-panel-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  padding: 0 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background-color: var(--color-primary-light);
+  border-radius: 0.75rem;
+}
+
+/* Search */
+.transfer-search {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.transfer-search-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 0.375rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.transfer-search-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+.transfer-search-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.transfer-search-input::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+/* List */
+.transfer-list {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+.transfer-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.transfer-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.transfer-list::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: 3px;
+}
+
+.transfer-list::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-text-tertiary);
+}
+
+/* Items */
+.transfer-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border-bottom: 1px solid var(--color-border);
+  user-select: none;
+}
+
+.transfer-item:last-child {
+  border-bottom: none;
+}
+
+.transfer-item:hover {
+  background-color: var(--color-background-secondary);
+}
+
+.transfer-item-selected {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.transfer-item-selected:hover {
+  background-color: var(--color-primary-light);
+}
+
+.transfer-item-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.transfer-item-label {
+  font-size: 0.875rem;
+  color: inherit;
+}
+
+/* Empty State */
+.transfer-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 2rem;
+  text-align: center;
+  color: var(--color-text-tertiary);
+  font-size: 0.875rem;
+}
+
+/* Transfer Controls */
+.transfer-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-self: center;
+  margin: 0 0.5rem;
+}
+
+.transfer-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--color-text-primary);
+}
+
+.transfer-button:hover:not(:disabled) {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+  transform: scale(1.05);
+}
+
+.transfer-button:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.transfer-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.transfer-button-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .transfer-list-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .transfer-controls {
+    flex-direction: row;
+    align-self: stretch;
+    margin: 0;
+  }
+
+  .transfer-button {
+    flex: 1;
+  }
+
+  .transfer-button-icon {
+    transform: rotate(90deg);
+  }
+
+  .transfer-list {
+    max-height: 300px;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .transfer-panel {
+    background-color: var(--color-surface-dark);
+  }
+
+  .transfer-panel-header {
+    background-color: var(--color-background-dark);
+  }
+
+  .transfer-search-input {
+    background-color: var(--color-background-dark);
+  }
+
+  .transfer-item:hover {
+    background-color: var(--color-background-dark);
+  }
+
+  .transfer-button {
+    background-color: var(--color-surface-dark);
+  }
+
+  .transfer-button:hover:not(:disabled) {
+    background-color: var(--color-primary);
+  }
+}

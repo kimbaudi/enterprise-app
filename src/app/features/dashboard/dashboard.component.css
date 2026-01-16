@@ -2855,3 +2855,60 @@ li {
     gap: 1rem;
   }
 }
+
+/* Transfer List Section */
+.transfer-list-section {
+  margin-top: 2rem;
+}
+
+.transfer-list-section h3 {
+  margin: 1.5rem 0 1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.transfer-list-section h3:first-of-type {
+  margin-top: 1rem;
+}
+
+.transfer-list-section p {
+  margin: 0.5rem 0 1.5rem 0;
+  color: var(--color-text-secondary);
+}
+
+.transfer-list-section app-transfer-list {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.transfer-list-section .use-case-item {
+  padding: 1.5rem;
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+}
+
+.transfer-list-section .use-case-item h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.transfer-list-section .use-case-item p {
+  margin: 0 0 1rem 0;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.transfer-list-section .use-case-item app-transfer-list {
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .transfer-list-section {
+    margin-top: 2rem;
+  }
+}
