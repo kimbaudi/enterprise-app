@@ -350,6 +350,139 @@
       </app-card>
     </div>
 
+    <div class="progress-section">
+      <app-card title="Progress Bar Component Demo">
+        <p>Progress bars show task completion, loading states, and progress indicators.</p>
+
+        <h3>Basic Progress</h3>
+        <div class="progress-demo-grid">
+          <div class="progress-demo-item">
+            <span>25% Complete</span>
+            <app-progress [value]="25"></app-progress>
+          </div>
+          <div class="progress-demo-item">
+            <span>50% Complete</span>
+            <app-progress [value]="50" color="success"></app-progress>
+          </div>
+          <div class="progress-demo-item">
+            <span>75% Complete</span>
+            <app-progress [value]="75" color="warning"></app-progress>
+          </div>
+          <div class="progress-demo-item">
+            <span>100% Complete</span>
+            <app-progress [value]="100" color="success"></app-progress>
+          </div>
+        </div>
+
+        <h3>Colors</h3>
+        <div class="progress-demo-grid">
+          <div class="progress-demo-item">
+            <span>Primary (60%)</span>
+            <app-progress [value]="60" color="primary"></app-progress>
+          </div>
+          <div class="progress-demo-item">
+            <span>Success (85%)</span>
+            <app-progress [value]="85" color="success"></app-progress>
+          </div>
+          <div class="progress-demo-item">
+            <span>Error (40%)</span>
+            <app-progress [value]="40" color="error"></app-progress>
+          </div>
+          <div class="progress-demo-item">
+            <span>Warning (70%)</span>
+            <app-progress [value]="70" color="warning"></app-progress>
+          </div>
+          <div class="progress-demo-item">
+            <span>Info (90%)</span>
+            <app-progress [value]="90" color="info"></app-progress>
+          </div>
+        </div>
+
+        <h3>Sizes</h3>
+        <div class="progress-demo-grid">
+          <div class="progress-demo-item">
+            <span>Small</span>
+            <app-progress [value]="65" size="sm" color="primary"></app-progress>
+          </div>
+          <div class="progress-demo-item">
+            <span>Medium (default)</span>
+            <app-progress [value]="65" size="md" color="primary"></app-progress>
+          </div>
+          <div class="progress-demo-item">
+            <span>Large</span>
+            <app-progress [value]="65" size="lg" color="primary"></app-progress>
+          </div>
+        </div>
+
+        <h3>Variants</h3>
+        <div class="progress-demo-grid">
+          <div class="progress-demo-item">
+            <span>Solid</span>
+            <app-progress [value]="70" variant="solid" color="primary"></app-progress>
+          </div>
+          <div class="progress-demo-item">
+            <span>Striped</span>
+            <app-progress [value]="70" variant="striped" color="success"></app-progress>
+          </div>
+          <div class="progress-demo-item">
+            <span>Gradient</span>
+            <app-progress [value]="70" variant="gradient" color="info"></app-progress>
+          </div>
+          <div class="progress-demo-item">
+            <span>Striped + Animated</span>
+            <app-progress [value]="70" variant="striped" [animated]="true" color="warning"></app-progress>
+          </div>
+        </div>
+
+        <h3>With Labels</h3>
+        <div class="progress-demo-grid">
+          <div class="progress-demo-item">
+            <app-progress [value]="45" [showLabel]="true" [showPercentage]="true" color="primary"></app-progress>
+          </div>
+          <div class="progress-demo-item">
+            <app-progress [value]="78" [showLabel]="true" label="Uploading files..." color="success"></app-progress>
+          </div>
+          <div class="progress-demo-item">
+            <app-progress [value]="30" [showPercentage]="true" size="lg" color="info"></app-progress>
+          </div>
+        </div>
+
+        <h3>Indeterminate (Loading)</h3>
+        <div class="progress-demo-grid">
+          <div class="progress-demo-item">
+            <span>Loading...</span>
+            <app-progress [indeterminate]="true" color="primary"></app-progress>
+          </div>
+          <div class="progress-demo-item">
+            <span>Processing...</span>
+            <app-progress [indeterminate]="true" color="success"></app-progress>
+          </div>
+          <div class="progress-demo-item">
+            <span>Fetching data...</span>
+            <app-progress [indeterminate]="true" variant="striped" color="info"></app-progress>
+          </div>
+        </div>
+
+        <h3>Real-world Examples</h3>
+        <div class="progress-demo-grid">
+          <div class="progress-demo-item">
+            <app-progress [value]="33" [showLabel]="true" label="Project Alpha: 1 of 3 tasks"
+              color="primary"></app-progress>
+          </div>
+          <div class="progress-demo-item">
+            <app-progress [value]="88" [showLabel]="true" label="Download: 88 MB of 100 MB"
+              color="success"></app-progress>
+          </div>
+          <div class="progress-demo-item">
+            <app-progress [value]="15" [showLabel]="true" label="Disk Space: 15% used" color="warning"></app-progress>
+          </div>
+          <div class="progress-demo-item">
+            <app-progress [value]="95" [showLabel]="true" label="Memory: 95% (Critical)" color="error"></app-progress>
+          </div>
+        </div>
+      </app-card>
+    </div>
+
     <div class="users-section">
       <app-card title="Users Management">
         <app-table [columns]="columns" [data]="users" [config]="{

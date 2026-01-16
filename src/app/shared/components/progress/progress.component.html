@@ -1,0 +1,23 @@
+<div class="progress-wrapper">
+    @if (showLabel && progressLabel) {
+    <div class="progress-label-top">
+        <span>{{ progressLabel }}</span>
+    </div>
+    }
+    <div class="progress-container" [class]="'progress-' + size" role="progressbar"
+        [attr.aria-valuenow]="indeterminate ? null : value" [attr.aria-valuemin]="0" [attr.aria-valuemax]="max"
+        [attr.aria-label]="progressLabel || 'Progress bar'">
+        <div class="progress-bar" [class]="
+        'progress-bar-' +
+        variant +
+        ' progress-bar-' +
+        color +
+        (animated ? ' progress-animated' : '') +
+        (indeterminate ? ' progress-indeterminate' : '')
+      " [style.width.%]="indeterminate ? 100 : percentage">
+            @if (showPercentage && !showLabel && !indeterminate) {
+            <span class="progress-percentage">{{ percentage.toFixed(0) }}%</span>
+            }
+        </div>
+    </div>
+</div>

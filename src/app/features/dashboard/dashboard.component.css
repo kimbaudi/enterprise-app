@@ -259,6 +259,45 @@ app-breadcrumb {
   align-items: center;
 }
 
+.progress-section {
+  margin-top: 2rem;
+}
+
+.progress-section h3 {
+  margin: 1.5rem 0 1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.progress-section h3:first-of-type {
+  margin-top: 1rem;
+}
+
+.progress-section p {
+  margin: 0 0 1.5rem 0;
+  color: var(--color-text-secondary);
+}
+
+.progress-demo-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.progress-demo-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.progress-demo-item>span {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
 .users-section {
   margin-top: 2rem;
 }
