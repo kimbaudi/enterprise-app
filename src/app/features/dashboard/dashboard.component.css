@@ -2672,3 +2672,97 @@ li {
     padding: 1rem;
   }
 }
+
+/* Segmented Control Section */
+.segmented-control-section {
+  margin-top: 2rem;
+}
+
+.segmented-control-section h3 {
+  margin: 1.5rem 0 1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.segmented-control-section h3:first-of-type {
+  margin-top: 1rem;
+}
+
+.segmented-control-section h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.segmented-control-section p {
+  margin: 0.5rem 0 1.5rem 0;
+  color: var(--color-text-secondary);
+}
+
+.segmented-control-section app-segmented-control {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.segmented-control-sizes-demo,
+.segmented-control-colors-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.segmented-control-sizes-demo > div,
+.segmented-control-colors-demo > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.result-display {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-bg-secondary);
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.result-display strong {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.segmented-control-section .use-case-item {
+  padding: 1.5rem;
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+}
+
+.segmented-control-section .use-case-item h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.segmented-control-section .use-case-item p {
+  margin: 0 0 1rem 0;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.segmented-control-section .use-case-item app-segmented-control {
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .segmented-control-sizes-demo,
+  .segmented-control-colors-demo {
+    gap: 1rem;
+  }
+}

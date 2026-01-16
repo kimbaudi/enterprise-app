@@ -1,0 +1,32 @@
+<div
+  class="segmented-control"
+  [class.segmented-control-disabled]="disabled"
+  [class.segmented-control-full-width]="fullWidth"
+  [class.segmented-control-sm]="size === 'sm'"
+  [class.segmented-control-md]="size === 'md'"
+  [class.segmented-control-lg]="size === 'lg'"
+  [class.segmented-control-primary]="color === 'primary'"
+  [class.segmented-control-secondary]="color === 'secondary'"
+  [attr.role]="'radiogroup'"
+>
+  @for (option of options; track option.value; let i = $index) {
+    <button
+      type="button"
+      class="segment"
+      [class.segment-selected]="isSelected(option)"
+      [class.segment-disabled]="option.disabled"
+      [disabled]="disabled || option.disabled"
+      (click)="selectSegment(option)"
+      (keydown)="onKeyDown($event, i)"
+      [attr.role]="'radio'"
+      [attr.aria-checked]="isSelected(option)"
+      [attr.aria-disabled]="disabled || option.disabled"
+      [attr.tabindex]="isSelected(option) ? 0 : -1"
+    >
+      @if (option.icon) {
+        <span class="segment-icon">{{ option.icon }}</span>
+      }
+      <span class="segment-label">{{ option.label }}</span>
+    </button>
+  }
+</div>

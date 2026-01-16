@@ -92,6 +92,10 @@ import {
 } from '@shared/components/form-builder/form-builder.component';
 import { SliderComponent } from '@shared/components/slider/slider.component';
 import { SwitchComponent } from '@shared/components/switch/switch.component';
+import {
+  SegmentedControlComponent,
+  SegmentedControlOption,
+} from '@shared/components/segmented-control/segmented-control.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -142,6 +146,7 @@ import { SwitchComponent } from '@shared/components/switch/switch.component';
     FormBuilderComponent,
     SliderComponent,
     SwitchComponent,
+    SegmentedControlComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -2345,5 +2350,60 @@ export class ExampleComponent {}`);
       this.switchLoading.set(false);
       this.toastService.success('Settings updated successfully!');
     }, 2000);
+  }
+
+  // Segmented Control component demo data
+  viewMode = signal<string | number>('grid');
+  textAlign = signal<string | number>('left');
+  sortOrder = signal<string | number>('newest');
+  chartType = signal<string | number>('line');
+  filterStatus = signal<string | number>('all');
+
+  viewModeOptions: SegmentedControlOption[] = [
+    { value: 'list', label: 'List', icon: '☰' },
+    { value: 'grid', label: 'Grid', icon: '▦' },
+    { value: 'kanban', label: 'Kanban', icon: '▤' },
+  ];
+
+  textAlignOptions: SegmentedControlOption[] = [
+    { value: 'left', label: 'Left', icon: '◧' },
+    { value: 'center', label: 'Center', icon: '▬' },
+    { value: 'right', label: 'Right', icon: '◨' },
+    { value: 'justify', label: 'Justify', icon: '▭' },
+  ];
+
+  sortOptions: SegmentedControlOption[] = [
+    { value: 'newest', label: 'Newest' },
+    { value: 'oldest', label: 'Oldest' },
+    { value: 'popular', label: 'Popular' },
+  ];
+
+  chartTypeOptions: SegmentedControlOption[] = [
+    { value: 'line', label: 'Line', icon: '📈' },
+    { value: 'bar', label: 'Bar', icon: '📊' },
+    { value: 'pie', label: 'Pie', icon: '🥧' },
+    { value: 'area', label: 'Area', icon: '🏔️' },
+  ];
+
+  statusOptions: SegmentedControlOption[] = [
+    { value: 'all', label: 'All' },
+    { value: 'active', label: 'Active' },
+    { value: 'pending', label: 'Pending' },
+    { value: 'archived', label: 'Archived' },
+  ];
+
+  timeRangeOptions: SegmentedControlOption[] = [
+    { value: 'day', label: 'Day' },
+    { value: 'week', label: 'Week' },
+    { value: 'month', label: 'Month' },
+    { value: 'year', label: 'Year' },
+  ];
+
+  onSegmentedControlChange(value: string | number, name: string): void {
+    console.log(`${name} changed:`, value);
+  }
+
+  onSegmentChange(option: SegmentedControlOption, name: string): void {
+    console.log(`${name} segment changed:`, option);
   }
 }

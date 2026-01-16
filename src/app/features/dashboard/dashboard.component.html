@@ -4686,6 +4686,219 @@
         </div>
       </app-card>
     </div>
+
+    <!-- Segmented Control Component Section -->
+    <div class="segmented-control-section">
+      <app-card title="Segmented Control Component Demo">
+        <p>
+          Compact control for mutually exclusive selections with smooth animations. Provides a
+          modern alternative to radio buttons or tabs with support for icons, multiple sizes,
+          and keyboard navigation. Perfect for view modes, filters, and compact option lists.
+        </p>
+
+        <h3>Basic Segmented Control</h3>
+        <app-segmented-control
+          [options]="viewModeOptions"
+          [(ngModel)]="viewMode"
+          (valueChange)="onSegmentedControlChange($event, 'View Mode')"
+        ></app-segmented-control>
+        <p>Selected: {{ viewMode() }}</p>
+
+        <h3>With Icons Only</h3>
+        <app-segmented-control
+          [options]="textAlignOptions"
+          [(ngModel)]="textAlign"
+          (valueChange)="onSegmentedControlChange($event, 'Text Align')"
+        ></app-segmented-control>
+        <p>Selected: {{ textAlign() }}</p>
+
+        <h3>Text Only</h3>
+        <app-segmented-control
+          [options]="sortOptions"
+          [(ngModel)]="sortOrder"
+          (valueChange)="onSegmentedControlChange($event, 'Sort Order')"
+        ></app-segmented-control>
+
+        <h3>Sizes</h3>
+        <div class="segmented-control-sizes-demo">
+          <div>
+            <h4>Small</h4>
+            <app-segmented-control
+              [options]="sortOptions"
+              size="sm"
+              [(ngModel)]="sortOrder"
+            ></app-segmented-control>
+          </div>
+          <div>
+            <h4>Medium (Default)</h4>
+            <app-segmented-control
+              [options]="sortOptions"
+              size="md"
+              [(ngModel)]="sortOrder"
+            ></app-segmented-control>
+          </div>
+          <div>
+            <h4>Large</h4>
+            <app-segmented-control
+              [options]="sortOptions"
+              size="lg"
+              [(ngModel)]="sortOrder"
+            ></app-segmented-control>
+          </div>
+        </div>
+
+        <h3>Color Variants</h3>
+        <div class="segmented-control-colors-demo">
+          <div>
+            <h4>Primary</h4>
+            <app-segmented-control
+              [options]="viewModeOptions"
+              color="primary"
+              [(ngModel)]="viewMode"
+            ></app-segmented-control>
+          </div>
+          <div>
+            <h4>Secondary</h4>
+            <app-segmented-control
+              [options]="viewModeOptions"
+              color="secondary"
+              [(ngModel)]="viewMode"
+            ></app-segmented-control>
+          </div>
+        </div>
+
+        <h3>Full Width</h3>
+        <app-segmented-control
+          [options]="statusOptions"
+          [fullWidth]="true"
+          [(ngModel)]="filterStatus"
+        ></app-segmented-control>
+
+        <h3>Disabled State</h3>
+        <app-segmented-control
+          [options]="sortOptions"
+          [disabled]="true"
+          [ngModel]="'newest'"
+        ></app-segmented-control>
+
+        <h3>Common Use Cases</h3>
+        <div class="use-case-grid">
+          <div class="use-case-item">
+            <h4>📊 Chart Type Selector</h4>
+            <p>Switch between different chart visualization types with icon indicators.</p>
+            <app-segmented-control
+              [options]="chartTypeOptions"
+              [(ngModel)]="chartType"
+              (segmentChange)="onSegmentChange($event, 'Chart Type')"
+            ></app-segmented-control>
+            <div class="result-display">
+              Selected Chart: <strong>{{ chartType() }}</strong>
+            </div>
+          </div>
+
+          <div class="use-case-item">
+            <h4>🎨 View Mode Toggle</h4>
+            <p>Allow users to switch between list, grid, and kanban view layouts.</p>
+            <app-segmented-control
+              [options]="viewModeOptions"
+              color="primary"
+              [(ngModel)]="viewMode"
+            ></app-segmented-control>
+            <div class="result-display">
+              Current View: <strong>{{ viewMode() }}</strong>
+            </div>
+          </div>
+
+          <div class="use-case-item">
+            <h4>📅 Time Range Filter</h4>
+            <p>Quick selection for date range filters in analytics dashboards.</p>
+            <app-segmented-control
+              [options]="timeRangeOptions"
+              [fullWidth]="true"
+              [(ngModel)]="sortOrder"
+            ></app-segmented-control>
+          </div>
+
+          <div class="use-case-item">
+            <h4>🔍 Status Filter</h4>
+            <p>Filter content by status with a compact, accessible control.</p>
+            <app-segmented-control
+              [options]="statusOptions"
+              [fullWidth]="true"
+              [(ngModel)]="filterStatus"
+              (valueChange)="onSegmentedControlChange($event, 'Status Filter')"
+            ></app-segmented-control>
+          </div>
+        </div>
+
+        <h3>Features</h3>
+        <div class="features-grid">
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">🎯</span>
+              <strong>Mutually Exclusive</strong>
+              <p>Only one segment can be selected at a time, like radio buttons</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">💫</span>
+              <strong>Icon Support</strong>
+              <p>Display icons, text, or both in each segment for better clarity</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">📐</span>
+              <strong>Size Variants</strong>
+              <p>Three size options (small, medium, large) for different contexts</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">🎨</span>
+              <strong>Color Options</strong>
+              <p>Primary and secondary color schemes to match your design</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">⌨️</span>
+              <strong>Keyboard Navigation</strong>
+              <p>Full arrow key support, Home/End, and Enter/Space activation</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">📱</span>
+              <strong>Responsive</strong>
+              <p>Adapts to mobile screens with icon-only mode for space saving</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">♿</span>
+              <strong>Accessible</strong>
+              <p>ARIA radiogroup pattern with proper roles and keyboard support</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">📋</span>
+              <strong>Form Integration</strong>
+              <p>ControlValueAccessor for seamless reactive forms compatibility</p>
+            </div>
+          </div>
+        </div>
+      </app-card>
+    </div>
   </div>
 
   <!-- User Details Modal -->
