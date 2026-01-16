@@ -36,6 +36,7 @@ import { DividerComponent } from '@shared/components/divider/divider.component';
 import { EmptyStateComponent } from '@shared/components/empty-state/empty-state.component';
 import { FileUploadComponent } from '@shared/components/file-upload/file-upload.component';
 import { RatingComponent } from '@shared/components/rating/rating.component';
+import { StepperComponent, Step } from '@shared/components/stepper/stepper.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -71,6 +72,7 @@ import { RatingComponent } from '@shared/components/rating/rating.component';
     EmptyStateComponent,
     FileUploadComponent,
     RatingComponent,
+    StepperComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -339,4 +341,156 @@ export class DashboardComponent {
     const count = ratings.filter((r) => r > 0).length;
     return count > 0 ? Math.round((sum / count) * 2) / 2 : 0;
   });
+
+  // Stepper demo data
+  basicSteps: Step[] = [
+    { label: 'Select campaign' },
+    { label: 'Create an ad group' },
+    { label: 'Create an ad' },
+  ];
+
+  stepsWithDescription: Step[] = [
+    { label: 'Step 1', description: 'Choose your preferences' },
+    { label: 'Step 2', description: 'Configure settings' },
+    { label: 'Step 3', description: 'Review and confirm' },
+  ];
+
+  stepsWithOptional: Step[] = [
+    { label: 'Basic Info' },
+    { label: 'Additional Details', optional: true },
+    { label: 'Confirmation' },
+  ];
+
+  stepsWithIcons: Step[] = [
+    { label: 'Profile', icon: '👤' },
+    { label: 'Billing', icon: '💳' },
+    { label: 'Settings', icon: '⚙️' },
+    { label: 'Complete', icon: '✓' },
+  ];
+
+  stepsWithError: Step[] = [
+    { label: 'Personal Info', state: 'completed' },
+    { label: 'Payment', state: 'error' },
+    { label: 'Confirmation', state: 'upcoming' },
+  ];
+
+  accountSetupSteps: Step[] = [
+    { label: 'Personal Info', description: 'Your basic details' },
+    { label: 'Company', description: 'Organization information' },
+    { label: 'Preferences', description: 'Customize your experience', optional: true },
+    { label: 'Review', description: 'Confirm your information' },
+  ];
+
+  checkoutSteps: Step[] = [
+    { label: 'Cart', description: 'Review your items' },
+    { label: 'Shipping', description: 'Delivery address' },
+    { label: 'Payment', description: 'Payment method' },
+    { label: 'Confirm', description: 'Place your order' },
+  ];
+
+  basicStepperCurrent = signal(0);
+  verticalStepperCurrent = signal(0);
+  descStepperCurrent = signal(1);
+  linearStepperCurrent = signal(0);
+  nonClickStepperCurrent = signal(0);
+  optionalStepperCurrent = signal(0);
+  iconStepperCurrent = signal(0);
+  errorStepperCurrent = signal(1);
+  accountStepperCurrent = signal(0);
+  checkoutStepperCurrent = signal(0);
+
+  industryOptions: SelectOption[] = [
+    { label: 'Technology', value: 'tech' },
+    { label: 'Healthcare', value: 'health' },
+    { label: 'Finance', value: 'finance' },
+    { label: 'Education', value: 'education' },
+  ];
+
+  paymentOptions: RadioOption[] = [
+    { label: 'Credit Card', value: 'card' },
+    { label: 'PayPal', value: 'paypal' },
+    { label: 'Bank Transfer', value: 'bank' },
+  ];
+
+  basicStepperNext(): void {
+    if (this.basicStepperCurrent() < this.basicSteps.length - 1) {
+      this.basicStepperCurrent.set(this.basicStepperCurrent() + 1);
+    }
+  }
+
+  basicStepperPrevious(): void {
+    if (this.basicStepperCurrent() > 0) {
+      this.basicStepperCurrent.set(this.basicStepperCurrent() - 1);
+    }
+  }
+
+  verticalStepperNext(): void {
+    if (this.verticalStepperCurrent() < this.basicSteps.length - 1) {
+      this.verticalStepperCurrent.set(this.verticalStepperCurrent() + 1);
+    }
+  }
+
+  verticalStepperPrevious(): void {
+    if (this.verticalStepperCurrent() > 0) {
+      this.verticalStepperCurrent.set(this.verticalStepperCurrent() - 1);
+    }
+  }
+
+  linearStepperNext(): void {
+    if (this.linearStepperCurrent() < this.basicSteps.length - 1) {
+      this.linearStepperCurrent.set(this.linearStepperCurrent() + 1);
+    }
+  }
+
+  linearStepperPrevious(): void {
+    if (this.linearStepperCurrent() > 0) {
+      this.linearStepperCurrent.set(this.linearStepperCurrent() - 1);
+    }
+  }
+
+  nonClickStepperNext(): void {
+    if (this.nonClickStepperCurrent() < this.basicSteps.length - 1) {
+      this.nonClickStepperCurrent.set(this.nonClickStepperCurrent() + 1);
+    }
+  }
+
+  nonClickStepperPrevious(): void {
+    if (this.nonClickStepperCurrent() > 0) {
+      this.nonClickStepperCurrent.set(this.nonClickStepperCurrent() - 1);
+    }
+  }
+
+  accountStepperNext(): void {
+    if (this.accountStepperCurrent() < this.accountSetupSteps.length - 1) {
+      this.accountStepperCurrent.set(this.accountStepperCurrent() + 1);
+    } else {
+      this.onAccountSetupComplete();
+    }
+  }
+
+  accountStepperPrevious(): void {
+    if (this.accountStepperCurrent() > 0) {
+      this.accountStepperCurrent.set(this.accountStepperCurrent() - 1);
+    }
+  }
+
+  checkoutStepperNext(): void {
+    if (this.checkoutStepperCurrent() < this.checkoutSteps.length - 1) {
+      this.checkoutStepperCurrent.set(this.checkoutStepperCurrent() + 1);
+    } else {
+      this.toastService.success('Order placed successfully!', 'Success');
+      this.checkoutStepperCurrent.set(0);
+    }
+  }
+
+  checkoutStepperPrevious(): void {
+    if (this.checkoutStepperCurrent() > 0) {
+      this.checkoutStepperCurrent.set(this.checkoutStepperCurrent() - 1);
+    }
+  }
+
+  onAccountSetupComplete(): void {
+    this.toastService.success('Account setup completed!', 'Success');
+    this.accountStepperCurrent.set(0);
+  }
 }

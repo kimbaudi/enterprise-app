@@ -1,0 +1,38 @@
+<div [class]="containerClasses">
+  <div class="stepper-header">
+    @for (step of steps; track $index) {
+      <div
+        [class]="getStepClasses($index)"
+        (click)="goToStep($index)"
+        [attr.aria-current]="getStepState($index) === 'active' ? 'step' : null"
+        [attr.aria-label]="'Step ' + ($index + 1) + ': ' + step.label"
+      >
+        <div class="step-indicator">
+          <div class="step-icon">
+            {{ getStepIcon(step, $index) }}
+          </div>
+        </div>
+
+        <div class="step-content">
+          <div class="step-label">
+            {{ step.label }}
+            @if (step.optional) {
+              <span class="step-optional-label">(Optional)</span>
+            }
+          </div>
+          @if (step.description) {
+            <div class="step-description">{{ step.description }}</div>
+          }
+        </div>
+
+        @if ($index < steps.length - 1 && orientation === 'horizontal') {
+          <div class="step-connector"></div>
+        }
+      </div>
+
+      @if ($index < steps.length - 1 && orientation === 'vertical') {
+        <div class="step-connector"></div>
+      }
+    }
+  </div>
+</div>

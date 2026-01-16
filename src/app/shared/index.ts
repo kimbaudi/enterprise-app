@@ -34,6 +34,7 @@ export * from '@shared/components/divider/divider.component';
 export * from '@shared/components/empty-state/empty-state.component';
 export * from '@shared/components/file-upload/file-upload.component';
 export * from '@shared/components/rating/rating.component';
+export * from '@shared/components/stepper/stepper.component';
 
 export * from '@shared/directives/tooltip.directive';
 export * from '@shared/directives/highlight.directive';
