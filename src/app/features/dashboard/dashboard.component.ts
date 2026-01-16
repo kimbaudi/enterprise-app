@@ -78,6 +78,12 @@ import {
   Notification,
   NotificationCenterConfig,
 } from '@shared/components/notification-center/notification-center.component';
+import {
+  CodeEditorComponent,
+  CodeLanguage,
+  CodeTheme,
+  CodeEditorConfig,
+} from '@shared/components/code-editor/code-editor.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -124,6 +130,7 @@ import {
     KanbanBoardComponent,
     ChartComponent,
     NotificationCenterComponent,
+    CodeEditorComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -1734,5 +1741,206 @@ export class DashboardComponent {
   onClearAllNotifications(): void {
     this.notifications = [];
     this.toastService.success('All notifications cleared', 'Success');
+  }
+
+  // Code Editor Demo Data
+  typescriptCode = signal(`interface User {
+  id: number;
+  name: string;
+  email: string;
+  role: 'admin' | 'user';
+}
+
+class UserService {
+  private users: User[] = [];
+
+  async fetchUsers(): Promise<User[]> {
+    const response = await fetch('/api/users');
+    return response.json();
+  }
+
+  addUser(user: User): void {
+    this.users.push(user);
+    console.log('User added:', user);
+  }
+}`);
+
+  javascriptCode = signal(`function calculateTotal(items) {
+  return items.reduce((sum, item) => {
+    return sum + (item.price * item.quantity);
+  }, 0);
+}
+
+const cart = [
+  { name: 'Book', price: 12.99, quantity: 2 },
+  { name: 'Pen', price: 1.50, quantity: 5 }
+];
+
+const total = calculateTotal(cart);
+console.log('Total:', total);`);
+
+  htmlCode = signal(`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Page</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome</h1>
+    <p>This is a sample page.</p>
+    <button onclick="handleClick()">Click Me</button>
+  </div>
+</body>
+</html>`);
+
+  cssCode = signal(`.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}`);
+
+  jsonCode = signal(`{
+  "name": "my-app",
+  "version": "1.0.0",
+  "description": "A sample application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest",
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "express": "^4.18.0",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "webpack": "^5.75.0"
+  }
+}`);
+
+  pythonCode = signal(`class Calculator:
+    def __init__(self):
+        self.history = []
+
+    def add(self, a, b):
+        result = a + b
+        self.history.append(f"{a} + {b} = {result}")
+        return result
+
+    def get_history(self):
+        return self.history
+
+# Usage
+calc = Calculator()
+print(calc.add(5, 3))  # Output: 8
+print(calc.get_history())`);
+
+  sqlCode = signal(`SELECT 
+  u.id,
+  u.name,
+  u.email,
+  COUNT(o.id) as order_count,
+  SUM(o.total) as total_spent
+FROM users u
+LEFT JOIN orders o ON u.id = o.user_id
+WHERE u.status = 'active'
+  AND o.created_at >= '2024-01-01'
+GROUP BY u.id, u.name, u.email
+HAVING COUNT(o.id) > 5
+ORDER BY total_spent DESC
+LIMIT 10;`);
+
+  bashCode = signal(`#!/bin/bash
+
+# Backup script
+BACKUP_DIR="/var/backups"
+DATE=$(date +%Y%m%d)
+
+echo "Starting backup..."
+
+# Create backup directory
+mkdir -p "$BACKUP_DIR/$DATE"
+
+# Backup database
+mysqldump -u root mydb > "$BACKUP_DIR/$DATE/mydb.sql"
+
+# Compress files
+tar -czf "$BACKUP_DIR/$DATE/files.tar.gz" /var/www/html
+
+echo "Backup completed: $BACKUP_DIR/$DATE"
+
+# Remove old backups (older than 30 days)
+find "$BACKUP_DIR" -type d -mtime +30 -exec rm -rf {} +`);
+
+  editorTheme = signal<CodeTheme>('dark');
+  editorLanguage = signal<CodeLanguage>('typescript');
+  codeEditorConfig: CodeEditorConfig = {
+    showLineNumbers: true,
+    readOnly: false,
+    wordWrap: false,
+    fontSize: 14,
+    tabSize: 2,
+    highlightActiveLine: true,
+    autoCloseBrackets: true,
+  };
+
+  compactCode = signal(`const greeting = "Hello, World!";
+console.log(greeting);`);
+
+  noLineNumbersCode = signal(`// This editor has no line numbers
+function example() {
+  return true;
+}`);
+
+  snippetCode = signal(`import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-example',
+  template: '<h1>Hello</h1>'
+})
+export class ExampleComponent {}`);
+
+  configCode = signal(`{
+  "api": {
+    "baseUrl": "https://api.example.com",
+    "timeout": 5000,
+    "retries": 3
+  },
+  "features": {
+    "analytics": true,
+    "darkMode": false
+  }
+}`);
+
+  onCodeChange(code: string): void {
+    console.log('Code changed:', code.length, 'characters');
+  }
+
+  onEditorLanguageChange(language: CodeLanguage): void {
+    this.editorLanguage.set(language);
+  }
+
+  onEditorThemeChange(theme: CodeTheme): void {
+    this.editorTheme.set(theme);
   }
 }

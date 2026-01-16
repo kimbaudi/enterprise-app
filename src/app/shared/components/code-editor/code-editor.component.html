@@ -1,0 +1,55 @@
+<div class="code-editor" [attr.data-theme]="theme" [style.height]="height">
+  <!-- Line Numbers -->
+  @if (config.showLineNumbers) {
+    <div class="line-numbers">
+      @for (line of lines(); track $index) {
+        <div
+          class="line-number"
+          [class.active]="activeLineNumber() === $index + 1"
+          (click)="onLineClick($index + 1)"
+        >
+          {{ $index + 1 }}
+        </div>
+      }
+    </div>
+  }
+
+  <!-- Code Area -->
+  <div class="code-area">
+    <!-- Syntax Highlighted Display -->
+    @if (config.readOnly) {
+      <pre
+        class="code-display"
+        [style.font-size.px]="config.fontSize"
+        [innerHTML]="getHighlightedCode()"
+      ></pre>
+    }
+
+    <!-- Editable Textarea -->
+    @if (!config.readOnly) {
+      <textarea
+        class="code-input"
+        [value]="editorCode()"
+        [placeholder]="placeholder"
+        [style.font-size.px]="config.fontSize"
+        [style.tab-size]="config.tabSize"
+        [class.word-wrap]="config.wordWrap"
+        spellcheck="false"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        (input)="onCodeChange($event)"
+        (keydown)="onKeyDown($event)"
+        (focus)="onFocus()"
+        (blur)="onBlur()"
+      ></textarea>
+
+      <!-- Syntax Highlighting Overlay -->
+      <pre
+        class="code-overlay"
+        [style.font-size.px]="config.fontSize"
+        [innerHTML]="getHighlightedCode()"
+      ></pre>
+    }
+  </div>
+</div>

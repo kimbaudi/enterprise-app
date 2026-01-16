@@ -3591,6 +3591,132 @@
       </app-card>
     </div>
 
+    <div class="code-editor-section">
+      <app-card title="Code Editor Component Demo">
+        <p>
+          Syntax-highlighted code editor with line numbers, themes, and multiple language support.
+        </p>
+
+        <h3>TypeScript Editor</h3>
+        <app-code-editor
+          [code]="typescriptCode()"
+          [language]="'typescript'"
+          [theme]="'dark'"
+          [config]="codeEditorConfig"
+          [height]="'350px'"
+          (codeChange)="typescriptCode.set($event)"
+        />
+
+        <h3>JavaScript Editor</h3>
+        <app-code-editor
+          [code]="javascriptCode()"
+          [language]="'javascript'"
+          [theme]="'dark'"
+          [config]="codeEditorConfig"
+          [height]="'300px'"
+        />
+
+        <h3>HTML Editor</h3>
+        <app-code-editor
+          [code]="htmlCode()"
+          [language]="'html'"
+          [theme]="'light'"
+          [config]="codeEditorConfig"
+          [height]="'300px'"
+        />
+
+        <h3>CSS Editor</h3>
+        <app-code-editor
+          [code]="cssCode()"
+          [language]="'css'"
+          [theme]="'github'"
+          [config]="codeEditorConfig"
+          [height]="'300px'"
+        />
+
+        <h3>JSON Viewer</h3>
+        <app-code-editor
+          [code]="jsonCode()"
+          [language]="'json'"
+          [theme]="'monokai'"
+          [config]="{ ...codeEditorConfig, readOnly: true }"
+          [height]="'350px'"
+        />
+
+        <h3>Python Editor</h3>
+        <app-code-editor
+          [code]="pythonCode()"
+          [language]="'python'"
+          [theme]="'dracula'"
+          [config]="codeEditorConfig"
+          [height]="'300px'"
+        />
+
+        <h3>SQL Query Editor</h3>
+        <app-code-editor
+          [code]="sqlCode()"
+          [language]="'sql'"
+          [theme]="'dark'"
+          [config]="codeEditorConfig"
+          [height]="'280px'"
+        />
+
+        <h3>Bash Script Editor</h3>
+        <app-code-editor
+          [code]="bashCode()"
+          [language]="'bash'"
+          [theme]="'dark'"
+          [config]="codeEditorConfig"
+          [height]="'320px'"
+        />
+
+        <h3>Compact Editor (Read-Only)</h3>
+        <app-code-editor
+          [code]="compactCode()"
+          [language]="'javascript'"
+          [theme]="'github'"
+          [config]="{ showLineNumbers: true, readOnly: true, fontSize: 13 }"
+          [height]="'120px'"
+        />
+
+        <h3>Without Line Numbers</h3>
+        <app-code-editor
+          [code]="noLineNumbersCode()"
+          [language]="'javascript'"
+          [theme]="'dark'"
+          [config]="{ ...codeEditorConfig, showLineNumbers: false }"
+          [height]="'150px'"
+        />
+
+        <h3>Use Cases</h3>
+        <div class="use-case-grid">
+          <div class="use-case-item">
+            <h4>📝 Code Snippet Showcase</h4>
+            <p>Display syntax-highlighted code examples in documentation</p>
+            <app-code-editor
+              [code]="snippetCode()"
+              [language]="'typescript'"
+              [theme]="'github'"
+              [config]="{ showLineNumbers: true, readOnly: true, fontSize: 13 }"
+              [height]="'200px'"
+            />
+          </div>
+
+          <div class="use-case-item">
+            <h4>⚙️ Configuration Editor</h4>
+            <p>Edit JSON configuration files with validation</p>
+            <app-code-editor
+              [code]="configCode()"
+              [language]="'json'"
+              [theme]="'dark'"
+              [config]="{ showLineNumbers: true, readOnly: false, fontSize: 13 }"
+              [height]="'250px'"
+            />
+          </div>
+        </div>
+      </app-card>
+    </div>
+
     <!-- add new section here -->
   </div>
 
