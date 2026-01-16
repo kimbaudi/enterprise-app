@@ -729,6 +729,91 @@
       </app-card>
     </div>
 
+    <div class="pagination-section">
+      <app-card title="Pagination Component Demo">
+        <p>Pagination helps users navigate through large datasets efficiently.</p>
+
+        <h3>Basic Pagination</h3>
+        <div class="pagination-demo">
+          <app-pagination [totalItems]="paginationTotalItems" [pageSize]="paginationPageSize"
+            [currentPage]="paginationCurrentPage()" (pageChange)="onPaginationPageChange($event)">
+          </app-pagination>
+        </div>
+
+        <h3>Without First/Last Buttons</h3>
+        <div class="pagination-demo">
+          <app-pagination [totalItems]="100" [pageSize]="10" [currentPage]="1" [showFirstLast]="false">
+          </app-pagination>
+        </div>
+
+        <h3>Without Page Info</h3>
+        <div class="pagination-demo">
+          <app-pagination [totalItems]="150" [pageSize]="15" [currentPage]="1" [showPageInfo]="false">
+          </app-pagination>
+        </div>
+
+        <h3>Sizes</h3>
+        <div class="pagination-demo-sizes">
+          <div class="pagination-demo-item">
+            <span>Small</span>
+            <app-pagination [totalItems]="200" [pageSize]="20" [currentPage]="1" size="sm">
+            </app-pagination>
+          </div>
+
+          <div class="pagination-demo-item">
+            <span>Medium (default)</span>
+            <app-pagination [totalItems]="200" [pageSize]="20" [currentPage]="1" size="md">
+            </app-pagination>
+          </div>
+
+          <div class="pagination-demo-item">
+            <span>Large</span>
+            <app-pagination [totalItems]="200" [pageSize]="20" [currentPage]="1" size="lg">
+            </app-pagination>
+          </div>
+        </div>
+
+        <h3>Limited Pages Display</h3>
+        <div class="pagination-demo">
+          <app-pagination [totalItems]="500" [pageSize]="10" [currentPage]="25" [maxPages]="5">
+          </app-pagination>
+        </div>
+
+        <h3>Different Page Sizes</h3>
+        <div class="pagination-demo-grid">
+          <div class="pagination-demo-item">
+            <span>10 items per page</span>
+            <app-pagination [totalItems]="100" [pageSize]="10" [currentPage]="1">
+            </app-pagination>
+          </div>
+
+          <div class="pagination-demo-item">
+            <span>25 items per page</span>
+            <app-pagination [totalItems]="100" [pageSize]="25" [currentPage]="1">
+            </app-pagination>
+          </div>
+
+          <div class="pagination-demo-item">
+            <span>50 items per page</span>
+            <app-pagination [totalItems]="100" [pageSize]="50" [currentPage]="1">
+            </app-pagination>
+          </div>
+        </div>
+
+        <h3>Few Pages (No Ellipsis)</h3>
+        <div class="pagination-demo">
+          <app-pagination [totalItems]="50" [pageSize]="10" [currentPage]="3">
+          </app-pagination>
+        </div>
+
+        <h3>Many Pages (With Ellipsis)</h3>
+        <div class="pagination-demo">
+          <app-pagination [totalItems]="1000" [pageSize]="10" [currentPage]="50">
+          </app-pagination>
+        </div>
+      </app-card>
+    </div>
+
     <div class="form-section">
       <app-card title="Form Components Demo">
         <form class="demo-form">

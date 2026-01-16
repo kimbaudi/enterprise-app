@@ -31,6 +31,7 @@ import { BadgeComponent } from '@shared/components/badge/badge.component';
 import { ProgressComponent } from '@shared/components/progress/progress.component';
 import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
 import { TooltipDirective } from '@shared/directives/tooltip.directive';
+import { PaginationComponent } from '@shared/components/pagination/pagination.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -58,6 +59,7 @@ import { TooltipDirective } from '@shared/directives/tooltip.directive';
     ProgressComponent,
     SkeletonComponent,
     TooltipDirective,
+    PaginationComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -121,6 +123,11 @@ export class DashboardComponent {
     { label: 'Pro', value: 'pro', hint: '$29/month - Advanced features' },
     { label: 'Enterprise', value: 'enterprise', hint: '$99/month - All features' },
   ];
+
+  // Pagination demo data
+  paginationCurrentPage = signal(1);
+  paginationTotalItems = 250;
+  paginationPageSize = 10;
 
   // Sample data for table demo
   columns: TableColumn[] = [
@@ -301,5 +308,10 @@ export class DashboardComponent {
 
   showInfoToast(): void {
     this.toastService.info('New updates are available.', 'Information', 6000);
+  }
+
+  onPaginationPageChange(page: number): void {
+    this.paginationCurrentPage.set(page);
+    console.log('Page changed to:', page);
   }
 }
