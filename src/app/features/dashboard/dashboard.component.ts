@@ -29,6 +29,7 @@ import { DropdownItemComponent } from '@shared/components/dropdown-item/dropdown
 import { ToastService } from '@core/services/toast.service';
 import { BadgeComponent } from '@shared/components/badge/badge.component';
 import { ProgressComponent } from '@shared/components/progress/progress.component';
+import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -54,6 +55,7 @@ import { ProgressComponent } from '@shared/components/progress/progress.componen
     DropdownItemComponent,
     BadgeComponent,
     ProgressComponent,
+    SkeletonComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',

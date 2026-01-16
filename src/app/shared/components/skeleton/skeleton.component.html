@@ -1,0 +1,13 @@
+@for (item of [].constructor(count); track $index) {
+<div class="skeleton" [class]="
+      'skeleton-' +
+      variant +
+      ' skeleton-' +
+      shape +
+      (rounded ? ' skeleton-rounded' : '')
+    " [style.width]="width" [style.height]="height" role="status" aria-label="Loading...">
+    @if (variant === 'wave') {
+    <div class="skeleton-wave"></div>
+    }
+</div>
+}

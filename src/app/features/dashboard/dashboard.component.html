@@ -483,6 +483,119 @@
       </app-card>
     </div>
 
+    <div class="skeleton-section">
+      <app-card title="Skeleton Loader Component Demo">
+        <p>Skeleton loaders provide elegant loading states and content placeholders.</p>
+
+        <h3>Basic Shapes</h3>
+        <div class="skeleton-demo-grid">
+          <div class="skeleton-demo-item">
+            <span>Rectangle (default)</span>
+            <app-skeleton width="100%" height="3rem"></app-skeleton>
+          </div>
+          <div class="skeleton-demo-item">
+            <span>Circle</span>
+            <app-skeleton shape="circle" width="4rem" height="4rem"></app-skeleton>
+          </div>
+          <div class="skeleton-demo-item">
+            <span>Text</span>
+            <app-skeleton shape="text" width="80%" [count]="3"></app-skeleton>
+          </div>
+          <div class="skeleton-demo-item">
+            <span>Rounded</span>
+            <app-skeleton width="100%" height="2.5rem" [rounded]="true"></app-skeleton>
+          </div>
+        </div>
+
+        <h3>Animation Variants</h3>
+        <div class="skeleton-demo-grid">
+          <div class="skeleton-demo-item">
+            <span>Pulse (default)</span>
+            <app-skeleton variant="pulse" width="100%" height="3rem"></app-skeleton>
+          </div>
+          <div class="skeleton-demo-item">
+            <span>Wave</span>
+            <app-skeleton variant="wave" width="100%" height="3rem"></app-skeleton>
+          </div>
+          <div class="skeleton-demo-item">
+            <span>None (static)</span>
+            <app-skeleton variant="none" width="100%" height="3rem"></app-skeleton>
+          </div>
+        </div>
+
+        <h3>Text Line Patterns</h3>
+        <div class="skeleton-demo-grid">
+          <div class="skeleton-demo-item">
+            <span>Paragraph (3 lines)</span>
+            <app-skeleton shape="text" width="100%" [count]="3"></app-skeleton>
+          </div>
+          <div class="skeleton-demo-item">
+            <span>Heading + Text</span>
+            <app-skeleton shape="text" width="40%" height="1.5rem"></app-skeleton>
+            <app-skeleton shape="text" width="100%" [count]="2"></app-skeleton>
+          </div>
+          <div class="skeleton-demo-item">
+            <span>Variable Width Lines</span>
+            <app-skeleton shape="text" width="100%"></app-skeleton>
+            <app-skeleton shape="text" width="95%"></app-skeleton>
+            <app-skeleton shape="text" width="80%"></app-skeleton>
+          </div>
+        </div>
+
+        <h3>Card Skeleton</h3>
+        <div class="skeleton-card-demo">
+          <div class="skeleton-card">
+            <app-skeleton width="100%" height="12rem"></app-skeleton>
+            <div class="skeleton-card-content">
+              <app-skeleton shape="text" width="60%" height="1.5rem"></app-skeleton>
+              <app-skeleton shape="text" width="100%" [count]="3"></app-skeleton>
+              <div class="skeleton-card-footer">
+                <app-skeleton width="5rem" height="2.5rem" [rounded]="true"></app-skeleton>
+                <app-skeleton width="5rem" height="2.5rem" [rounded]="true"></app-skeleton>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3>Profile Skeleton</h3>
+        <div class="skeleton-profile-demo">
+          <div class="skeleton-profile">
+            <app-skeleton shape="circle" width="5rem" height="5rem"></app-skeleton>
+            <div class="skeleton-profile-content">
+              <app-skeleton shape="text" width="12rem" height="1.5rem"></app-skeleton>
+              <app-skeleton shape="text" width="8rem"></app-skeleton>
+              <app-skeleton shape="text" width="100%" [count]="2"></app-skeleton>
+            </div>
+          </div>
+        </div>
+
+        <h3>List Item Skeleton</h3>
+        <div class="skeleton-list-demo">
+          @for (item of [1, 2, 3]; track item) {
+          <div class="skeleton-list-item">
+            <app-skeleton shape="circle" width="3rem" height="3rem"></app-skeleton>
+            <div class="skeleton-list-content">
+              <app-skeleton shape="text" width="40%" height="1.25rem"></app-skeleton>
+              <app-skeleton shape="text" width="80%"></app-skeleton>
+            </div>
+          </div>
+          }
+        </div>
+
+        <h3>Table Skeleton</h3>
+        <div class="skeleton-table-demo">
+          @for (row of [1, 2, 3, 4]; track row) {
+          <div class="skeleton-table-row">
+            <app-skeleton width="3rem" height="3rem" [rounded]="true"></app-skeleton>
+            <app-skeleton width="100%" height="1rem"></app-skeleton>
+            <app-skeleton width="100%" height="1rem"></app-skeleton>
+            <app-skeleton width="100%" height="1rem"></app-skeleton>
+          </div>
+          }
+        </div>
+      </app-card>
+    </div>
+
     <div class="users-section">
       <app-card title="Users Management">
         <app-table [columns]="columns" [data]="users" [config]="{

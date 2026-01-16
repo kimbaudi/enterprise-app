@@ -1,0 +1,83 @@
+.skeleton {
+    background-color: var(--color-bg-secondary);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.skeleton:last-child {
+    margin-bottom: 0;
+}
+
+/* Shapes */
+.skeleton-rectangle {
+    border-radius: 0.25rem;
+}
+
+.skeleton-circle {
+    border-radius: 50%;
+    aspect-ratio: 1;
+}
+
+.skeleton-text {
+    border-radius: 0.25rem;
+    height: 0.875rem;
+}
+
+.skeleton-rounded {
+    border-radius: 9999px;
+}
+
+/* Pulse Animation */
+.skeleton-pulse {
+    animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Wave Animation */
+.skeleton-wave::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent);
+    animation: skeleton-wave 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-wave {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Dark mode adjustments */
+:root[data-theme='dark'] .skeleton {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+:root[data-theme='dark'] .skeleton-wave::after {
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.05),
+            transparent);
+}
