@@ -36,6 +36,7 @@ export * from '@shared/components/file-upload/file-upload.component';
 export * from '@shared/components/rating/rating.component';
 export * from '@shared/components/stepper/stepper.component';
 export * from '@shared/components/timeline/timeline.component';
+export * from '@shared/components/date-picker/date-picker.component';
 
 export * from '@shared/directives/tooltip.directive';
 export * from '@shared/directives/highlight.directive';

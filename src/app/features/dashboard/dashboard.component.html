@@ -2626,6 +2626,138 @@
         </div>
       </app-card>
     </div>
+
+    <div class="date-picker-section">
+      <app-card title="Date Picker Component Demo">
+        <p>
+          Date picker with calendar UI, single date selection, date range selection, and navigation.
+        </p>
+
+        <h3>Basic Date Picker</h3>
+        <div class="date-picker-demo">
+          <app-date-picker
+            [inline]="true"
+            (valueChange)="selectedDate.set($event)"
+          ></app-date-picker>
+          @if (selectedDate()) {
+            <p>Selected: {{ selectedDate()!.toLocaleDateString() }}</p>
+          }
+        </div>
+
+        <h3>Date Range Picker</h3>
+        <div class="date-picker-demo">
+          <app-date-picker
+            mode="range"
+            [inline]="true"
+            (rangeChange)="selectedDateRange.set($event)"
+          ></app-date-picker>
+          @if (selectedDateRange().start && selectedDateRange().end) {
+            <p>
+              Range: {{ selectedDateRange().start!.toLocaleDateString() }} -
+              {{ selectedDateRange().end!.toLocaleDateString() }}
+            </p>
+          }
+        </div>
+
+        <h3>With Week Numbers</h3>
+        <div class="date-picker-demo">
+          <app-date-picker [inline]="true" [showWeekNumbers]="true"></app-date-picker>
+        </div>
+
+        <h3>With Min and Max Dates</h3>
+        <div class="date-picker-demo">
+          <app-date-picker
+            [inline]="true"
+            [minDate]="minDate"
+            [maxDate]="maxDate"
+          ></app-date-picker>
+          <p class="demo-hint">Selectable dates: Jan 1, 2024 - Dec 31, 2025</p>
+        </div>
+
+        <h3>Disabled State</h3>
+        <div class="date-picker-demo">
+          <app-date-picker [inline]="true" [disabled]="true"></app-date-picker>
+        </div>
+
+        <h3>Pre-selected Date</h3>
+        <div class="date-picker-demo">
+          <app-date-picker [inline]="true" [value]="preselectedDate"></app-date-picker>
+        </div>
+
+        <h3>Pre-selected Date Range</h3>
+        <div class="date-picker-demo">
+          <app-date-picker
+            mode="range"
+            [inline]="true"
+            [range]="preselectedRange"
+          ></app-date-picker>
+        </div>
+
+        <h3>Without Today Highlight</h3>
+        <div class="date-picker-demo">
+          <app-date-picker [inline]="true" [highlightToday]="false"></app-date-picker>
+        </div>
+
+        <h3>Use Case: Meeting Scheduler</h3>
+        <div class="date-picker-use-case">
+          <div class="use-case-content">
+            <h4>Schedule a Meeting</h4>
+            <p>Select a date for your team meeting</p>
+            <app-date-picker
+              [inline]="true"
+              [minDate]="today"
+              (valueChange)="onMeetingDateSelect($event)"
+            ></app-date-picker>
+            @if (meetingDate()) {
+              <div class="meeting-summary">
+                <strong>Meeting Scheduled:</strong>
+                <p>
+                  {{
+                    meetingDate()!.toLocaleDateString('en-US', {
+                      weekday: 'long',
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })
+                  }}
+                </p>
+              </div>
+            }
+          </div>
+        </div>
+
+        <h3>Use Case: Vacation Planner</h3>
+        <div class="date-picker-use-case">
+          <div class="use-case-content">
+            <h4>Book Your Vacation</h4>
+            <p>Select start and end dates for your vacation</p>
+            <app-date-picker
+              mode="range"
+              [inline]="true"
+              [minDate]="today"
+              (rangeChange)="onVacationRangeSelect($event)"
+            ></app-date-picker>
+            @if (vacationRange().start && vacationRange().end) {
+              <div class="vacation-summary">
+                <strong>Vacation Details:</strong>
+                <p>From: {{ vacationRange().start!.toLocaleDateString() }}</p>
+                <p>To: {{ vacationRange().end!.toLocaleDateString() }}</p>
+                <p>
+                  Duration:
+                  {{
+                    Math.ceil(
+                      (vacationRange().end!.getTime() - vacationRange().start!.getTime()) /
+                        (1000 * 60 * 60 * 24)
+                    )
+                  }}
+                  days
+                </p>
+              </div>
+            }
+          </div>
+        </div>
+      </app-card>
+    </div>
   </div>
 
   <!-- User Details Modal -->

@@ -1,0 +1,118 @@
+<div class="date-picker" [class.inline]="inline" [class.disabled]="disabled">
+  <div class="calendar">
+    <!-- Header -->
+    <div class="calendar-header">
+      @if (currentView() === 'days') {
+        <button class="nav-button" (click)="previousMonth()" [disabled]="disabled" type="button">
+          ‹
+        </button>
+        <button class="header-button" (click)="showMonthView()" [disabled]="disabled" type="button">
+          {{ currentMonthName() }} {{ currentYear() }}
+        </button>
+        <button class="nav-button" (click)="nextMonth()" [disabled]="disabled" type="button">
+          ›
+        </button>
+      } @else if (currentView() === 'months') {
+        <button class="nav-button" (click)="previousYear()" [disabled]="disabled" type="button">
+          ‹
+        </button>
+        <button class="header-button" (click)="showYearView()" [disabled]="disabled" type="button">
+          {{ currentYear() }}
+        </button>
+        <button class="nav-button" (click)="nextYear()" [disabled]="disabled" type="button">
+          ›
+        </button>
+      } @else if (currentView() === 'years') {
+        <button class="nav-button" (click)="previousYears()" [disabled]="disabled" type="button">
+          ‹
+        </button>
+        <div class="header-title">{{ yearsGrid()[0] }} - {{ yearsGrid()[11] }}</div>
+        <button class="nav-button" (click)="nextYears()" [disabled]="disabled" type="button">
+          ›
+        </button>
+      }
+    </div>
+
+    <!-- Days View -->
+    @if (currentView() === 'days') {
+      <div class="calendar-body">
+        <!-- Weekday headers -->
+        <div class="weekdays">
+          @if (showWeekNumbers) {
+            <div class="weekday-header week-number-header">Wk</div>
+          }
+          @for (day of weekDays; track day) {
+            <div class="weekday-header">{{ day }}</div>
+          }
+        </div>
+
+        <!-- Days grid -->
+        <div class="days-grid">
+          @for (dayInfo of calendarDays(); track dayInfo.date.getTime()) {
+            @if (showWeekNumbers && dayInfo.date.getDay() === 0) {
+              <div class="week-number">{{ dayInfo.weekNumber }}</div>
+            }
+            <button
+              class="day-cell"
+              [class.other-month]="!dayInfo.isCurrentMonth"
+              [class.selected]="isDateSelected(dayInfo.date)"
+              [class.in-range]="isDateInRange(dayInfo.date)"
+              [class.today]="highlightToday && isDateToday(dayInfo.date)"
+              [class.disabled]="!isDateSelectable(dayInfo.date)"
+              [disabled]="disabled || !isDateSelectable(dayInfo.date)"
+              (click)="selectDate(dayInfo.date)"
+              type="button"
+            >
+              {{ dayInfo.date.getDate() }}
+            </button>
+          }
+        </div>
+      </div>
+    }
+
+    <!-- Months View -->
+    @if (currentView() === 'months') {
+      <div class="calendar-body">
+        <div class="months-grid">
+          @for (month of monthsGrid(); track month.index) {
+            <button
+              class="month-cell"
+              [class.selected]="isMonthSelected(month.index)"
+              [disabled]="disabled"
+              (click)="selectMonth(month.index)"
+              type="button"
+            >
+              {{ month.name }}
+            </button>
+          }
+        </div>
+      </div>
+    }
+
+    <!-- Years View -->
+    @if (currentView() === 'years') {
+      <div class="calendar-body">
+        <div class="years-grid">
+          @for (year of yearsGrid(); track year) {
+            <button
+              class="year-cell"
+              [class.selected]="isYearSelected(year)"
+              [disabled]="disabled"
+              (click)="selectYear(year)"
+              type="button"
+            >
+              {{ year }}
+            </button>
+          }
+        </div>
+      </div>
+    }
+
+    <!-- Footer -->
+    <div class="calendar-footer">
+      <button class="today-button" (click)="goToToday()" [disabled]="disabled" type="button">
+        Today
+      </button>
+    </div>
+  </div>
+</div>

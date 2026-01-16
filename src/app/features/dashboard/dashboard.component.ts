@@ -38,6 +38,10 @@ import { FileUploadComponent } from '@shared/components/file-upload/file-upload.
 import { RatingComponent } from '@shared/components/rating/rating.component';
 import { StepperComponent, Step } from '@shared/components/stepper/stepper.component';
 import { TimelineComponent, TimelineItem } from '@shared/components/timeline/timeline.component';
+import {
+  DatePickerComponent,
+  DateRange,
+} from '@shared/components/date-picker/date-picker.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -75,6 +79,7 @@ import { TimelineComponent, TimelineItem } from '@shared/components/timeline/tim
     RatingComponent,
     StepperComponent,
     TimelineComponent,
+    DatePickerComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -626,5 +631,48 @@ export class DashboardComponent {
       status: 'default',
     },
   ];
-}
 
+  // Date Picker demo data
+  selectedDate = signal<Date | null>(null);
+  selectedDateRange = signal<DateRange>({ start: null, end: null });
+  minDate = new Date(2024, 0, 1); // January 1, 2024
+  maxDate = new Date(2025, 11, 31); // December 31, 2025
+  meetingDate = signal<Date | null>(null);
+  vacationRange = signal<DateRange>({ start: null, end: null });
+  appointmentDate = signal<Date | null>(null);
+
+  // Helper properties for template
+  preselectedDate = new Date(2024, 5, 15);
+  preselectedRange = { start: new Date(2024, 5, 10), end: new Date(2024, 5, 20) };
+  today = new Date();
+  Math = Math; // For Math.ceil in template
+
+  onDateSelect(date: Date): void {
+    this.selectedDate.set(date);
+    console.log('Selected date:', date);
+  }
+
+  onDateRangeSelect(range: DateRange): void {
+    this.selectedDateRange.set(range);
+    console.log('Selected range:', range);
+  }
+
+  onMeetingDateSelect(date: Date): void {
+    this.meetingDate.set(date);
+    this.toastService.success(
+      `Meeting scheduled for ${date.toLocaleDateString()}`,
+      'Meeting Scheduled',
+    );
+  }
+
+  onVacationRangeSelect(range: DateRange): void {
+    this.vacationRange.set(range);
+    if (range.start && range.end) {
+      const days = Math.ceil((range.end.getTime() - range.start.getTime()) / (1000 * 60 * 60 * 24));
+      this.toastService.success(
+        `${days} days vacation from ${range.start.toLocaleDateString()} to ${range.end.toLocaleDateString()}`,
+        'Vacation Booked',
+      );
+    }
+  }
+}
