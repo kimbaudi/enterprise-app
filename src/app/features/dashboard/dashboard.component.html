@@ -5584,6 +5584,255 @@
         </div>
       </app-card>
     </div>
+
+    <!-- Context Menu Component Section -->
+    <div class="context-menu-section">
+      <app-card title="Context Menu Component Demo">
+        <p>
+          Right-click menu with nested submenus, keyboard shortcuts, and custom actions.
+          Perfect for file managers, text editors, and rich interactions.
+        </p>
+
+        <h3>Basic Context Menu</h3>
+        <div
+          class="context-menu-target"
+          #fileMenu
+          (contextmenu)="fileContext.open($event)"
+        >
+          Right-click here for File menu
+        </div>
+        <app-context-menu
+          #fileContext
+          [items]="fileMenuItems"
+          (itemClick)="onContextMenuClick($event)"
+        ></app-context-menu>
+
+        <h3>Edit Menu</h3>
+        <div
+          class="context-menu-target"
+          #editMenu
+          (contextmenu)="editContext.open($event)"
+        >
+          Right-click here for Edit menu
+        </div>
+        <app-context-menu
+          #editContext
+          [items]="editMenuItems"
+          (itemClick)="onContextMenuClick($event)"
+        ></app-context-menu>
+
+        <h3>With Submenus</h3>
+        <div
+          class="context-menu-target"
+          #advancedMenu
+          (contextmenu)="advancedContext.open($event)"
+        >
+          Right-click here for Advanced menu with submenus
+        </div>
+        <app-context-menu
+          #advancedContext
+          [items]="advancedMenuItems"
+          (itemClick)="onContextMenuClick($event)"
+        ></app-context-menu>
+
+        <h3>Click Trigger</h3>
+        <div
+          class="context-menu-target context-menu-target-click"
+          (click)="clickContext.open($event)"
+        >
+          Click here to open menu
+        </div>
+        <app-context-menu
+          #clickContext
+          [items]="fileMenuItems"
+          triggerOn="click"
+          (itemClick)="onContextMenuClick($event)"
+        ></app-context-menu>
+
+        <h3>Use Cases</h3>
+        <div class="use-case-grid">
+          <div class="use-case-item">
+            <h4>📁 File Manager</h4>
+            <p>Context menu for file and folder operations</p>
+            <div
+              class="file-item"
+              (contextmenu)="fileManagerContext.open($event)"
+            >
+              <span class="file-icon">📄</span>
+              <span>document.pdf</span>
+            </div>
+            <app-context-menu
+              #fileManagerContext
+              [items]="[
+                { label: 'Open', icon: '📂', action: 'open' },
+                { label: 'Rename', icon: '✏️', action: 'rename', shortcut: 'F2' },
+                { divider: true },
+                { label: 'Copy', icon: '📋', action: 'copy', shortcut: 'Ctrl+C' },
+                { label: 'Cut', icon: '✂️', action: 'cut', shortcut: 'Ctrl+X' },
+                { label: 'Paste', icon: '📌', action: 'paste', shortcut: 'Ctrl+V' },
+                { divider: true },
+                { label: 'Delete', icon: '🗑️', action: 'delete', shortcut: 'Del' },
+                { divider: true },
+                { label: 'Properties', icon: 'ℹ️', action: 'properties' }
+              ]"
+              (itemClick)="onContextMenuClick($event)"
+            ></app-context-menu>
+          </div>
+
+          <div class="use-case-item">
+            <h4>📝 Text Editor</h4>
+            <p>Rich text editing operations</p>
+            <div
+              class="text-editor-area"
+              (contextmenu)="textEditorContext.open($event)"
+            >
+              Select this text and right-click for options
+            </div>
+            <app-context-menu
+              #textEditorContext
+              [items]="[
+                { label: 'Cut', icon: '✂️', action: 'cut', shortcut: 'Ctrl+X' },
+                { label: 'Copy', icon: '📋', action: 'copy', shortcut: 'Ctrl+C' },
+                { label: 'Paste', icon: '📌', action: 'paste', shortcut: 'Ctrl+V' },
+                { divider: true },
+                { label: 'Format', icon: '🎨', items: [
+                  { label: 'Bold', icon: '𝐁', action: 'bold', shortcut: 'Ctrl+B' },
+                  { label: 'Italic', icon: '𝐼', action: 'italic', shortcut: 'Ctrl+I' },
+                  { label: 'Underline', icon: 'U̲', action: 'underline', shortcut: 'Ctrl+U' }
+                ]},
+                { label: 'Insert', icon: '➕', items: [
+                  { label: 'Link', icon: '🔗', action: 'insertLink' },
+                  { label: 'Image', icon: '🖼️', action: 'insertImage' },
+                  { label: 'Table', icon: '📊', action: 'insertTable' }
+                ]}
+              ]"
+              (itemClick)="onContextMenuClick($event)"
+            ></app-context-menu>
+          </div>
+
+          <div class="use-case-item">
+            <h4>🗺️ Map Actions</h4>
+            <p>Location-based context menu</p>
+            <div
+              class="map-area"
+              (contextmenu)="mapContext.open($event)"
+            >
+              <span class="map-marker">📍</span>
+            </div>
+            <app-context-menu
+              #mapContext
+              [items]="[
+                { label: 'Add Marker', icon: '📍', action: 'addMarker' },
+                { label: 'Get Directions', icon: '🧭', action: 'directions' },
+                { divider: true },
+                { label: 'Zoom In', icon: '🔍', action: 'zoomIn', shortcut: '+' },
+                { label: 'Zoom Out', icon: '🔍', action: 'zoomOut', shortcut: '-' },
+                { divider: true },
+                { label: 'Share Location', icon: '📤', action: 'share' },
+                { label: 'Save Location', icon: '💾', action: 'save' }
+              ]"
+              (itemClick)="onContextMenuClick($event)"
+            ></app-context-menu>
+          </div>
+
+          <div class="use-case-item">
+            <h4>📊 Data Table</h4>
+            <p>Row and column operations</p>
+            <div
+              class="table-row"
+              (contextmenu)="tableContext.open($event)"
+            >
+              <span>John Doe</span>
+              <span>john@example.com</span>
+            </div>
+            <app-context-menu
+              #tableContext
+              [items]="[
+                { label: 'View Details', icon: '👁️', action: 'view' },
+                { label: 'Edit', icon: '✏️', action: 'edit' },
+                { divider: true },
+                { label: 'Duplicate Row', icon: '📋', action: 'duplicate' },
+                { label: 'Delete Row', icon: '🗑️', action: 'deleteRow' },
+                { divider: true },
+                { label: 'Export', icon: '📤', items: [
+                  { label: 'Export as CSV', icon: '📄', action: 'exportCsv' },
+                  { label: 'Export as JSON', icon: '📄', action: 'exportJson' },
+                  { label: 'Export as PDF', icon: '📄', action: 'exportPdf' }
+                ]}
+              ]"
+              (itemClick)="onContextMenuClick($event)"
+            ></app-context-menu>
+          </div>
+        </div>
+
+        <h3>Features</h3>
+        <div class="features-grid">
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">🖱️</span>
+              <strong>Right-Click</strong>
+              <p>Opens on contextmenu event at cursor position</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">📋</span>
+              <strong>Nested Menus</strong>
+              <p>Support for unlimited submenu levels</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">⌨️</span>
+              <strong>Shortcuts</strong>
+              <p>Display keyboard shortcuts alongside menu items</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">🎨</span>
+              <strong>Icons</strong>
+              <p>Add visual context with emoji or icon fonts</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">➖</span>
+              <strong>Dividers</strong>
+              <p>Organize menu items with visual separators</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">🚫</span>
+              <strong>Disabled Items</strong>
+              <p>Show unavailable actions in disabled state</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">📐</span>
+              <strong>Smart Position</strong>
+              <p>Auto-adjusts to stay within viewport bounds</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">⎋</span>
+              <strong>Keyboard Nav</strong>
+              <p>Close with Escape, navigate with arrow keys</p>
+            </div>
+          </div>
+        </div>
+      </app-card>
+    </div>
   </div>
 
   <!-- User Details Modal -->

@@ -106,6 +106,10 @@ import {
   BreadcrumbTrailComponent,
   BreadcrumbTrailItem,
 } from '@shared/components/breadcrumb-trail/breadcrumb-trail.component';
+import {
+  ContextMenuComponent,
+  ContextMenuItem,
+} from '@shared/components/context-menu/context-menu.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -160,6 +164,7 @@ import {
     TagInputComponent,
     TransferListComponent,
     BreadcrumbTrailComponent,
+    ContextMenuComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -2586,5 +2591,69 @@ export class ExampleComponent {}`);
   onBreadcrumbHome(): void {
     console.log('Home clicked');
     this.toastService.info('Navigating to home', 'Breadcrumb');
+  }
+
+  // Context Menu Component Data
+  fileMenuItems: ContextMenuItem[] = [
+    { label: 'New', icon: '📄', action: 'new', shortcut: 'Ctrl+N' },
+    { label: 'Open', icon: '📂', action: 'open', shortcut: 'Ctrl+O' },
+    { divider: true },
+    { label: 'Save', icon: '💾', action: 'save', shortcut: 'Ctrl+S' },
+    { label: 'Save As...', icon: '💾', action: 'saveAs' },
+    { divider: true },
+    { label: 'Print', icon: '🖨️', action: 'print', shortcut: 'Ctrl+P' },
+  ];
+
+  editMenuItems: ContextMenuItem[] = [
+    { label: 'Cut', icon: '✂️', action: 'cut', shortcut: 'Ctrl+X' },
+    { label: 'Copy', icon: '📋', action: 'copy', shortcut: 'Ctrl+C' },
+    { label: 'Paste', icon: '📌', action: 'paste', shortcut: 'Ctrl+V' },
+    { divider: true },
+    { label: 'Delete', icon: '🗑️', action: 'delete', shortcut: 'Del' },
+    { divider: true },
+    { label: 'Select All', icon: '☑️', action: 'selectAll', shortcut: 'Ctrl+A' },
+  ];
+
+  advancedMenuItems: ContextMenuItem[] = [
+    {
+      label: 'File',
+      icon: '📁',
+      items: [
+        { label: 'New File', icon: '📄', action: 'newFile' },
+        { label: 'New Folder', icon: '📁', action: 'newFolder' },
+        { divider: true },
+        { label: 'Open', icon: '📂', action: 'open' },
+      ],
+    },
+    {
+      label: 'Edit',
+      icon: '✏️',
+      items: [
+        { label: 'Undo', icon: '↶', action: 'undo', shortcut: 'Ctrl+Z' },
+        { label: 'Redo', icon: '↷', action: 'redo', shortcut: 'Ctrl+Y' },
+        { divider: true },
+        { label: 'Find', icon: '🔍', action: 'find', shortcut: 'Ctrl+F' },
+        { label: 'Replace', icon: '🔄', action: 'replace', shortcut: 'Ctrl+H' },
+      ],
+    },
+    {
+      label: 'View',
+      icon: '👁️',
+      items: [
+        { label: 'Zoom In', icon: '🔍', action: 'zoomIn', shortcut: 'Ctrl++' },
+        { label: 'Zoom Out', icon: '🔍', action: 'zoomOut', shortcut: 'Ctrl+-' },
+        { label: 'Reset Zoom', icon: '↺', action: 'resetZoom', shortcut: 'Ctrl+0' },
+      ],
+    },
+    { divider: true },
+    { label: 'Settings', icon: '⚙️', action: 'settings' },
+    { label: 'Help', icon: '❓', action: 'help', shortcut: 'F1' },
+  ];
+
+  onContextMenuClick(item: ContextMenuItem): void {
+    console.log('Context menu item clicked:', item);
+    if (item.action) {
+      this.toastService.info(`Action: ${item.action}`, item.label);
+    }
   }
 }

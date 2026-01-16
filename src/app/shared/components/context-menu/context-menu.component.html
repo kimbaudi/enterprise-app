@@ -1,0 +1,67 @@
+@if (isOpen()) {
+  <div
+    #menu
+    class="context-menu"
+    [style.left.px]="position().x"
+    [style.top.px]="position().y"
+    role="menu"
+    aria-label="Context menu"
+  >
+    @for (item of items; track $index) {
+      @if (item.divider) {
+        <div class="context-menu-divider" role="separator"></div>
+      } @else {
+        <div class="context-menu-item-wrapper">
+          <button
+            type="button"
+            class="context-menu-item"
+            [class.context-menu-item-disabled]="item.disabled"
+            [class.context-menu-item-has-submenu]="item.items && item.items.length > 0"
+            [class.context-menu-item-submenu-open]="isSubmenuOpen($index)"
+            [disabled]="item.disabled"
+            (click)="onItemClick($event, item, $index)"
+            role="menuitem"
+          >
+            @if (item.icon) {
+              <span class="context-menu-icon">{{ item.icon }}</span>
+            }
+            <span class="context-menu-label">{{ item.label }}</span>
+            @if (item.shortcut) {
+              <span class="context-menu-shortcut">{{ item.shortcut }}</span>
+            }
+            @if (item.items && item.items.length > 0) {
+              <span class="context-menu-arrow">›</span>
+            }
+          </button>
+
+          @if (item.items && item.items.length > 0 && isSubmenuOpen($index)) {
+            <div class="context-menu context-menu-submenu" role="menu">
+              @for (subItem of item.items; track $index) {
+                @if (subItem.divider) {
+                  <div class="context-menu-divider" role="separator"></div>
+                } @else {
+                  <button
+                    type="button"
+                    class="context-menu-item"
+                    [class.context-menu-item-disabled]="subItem.disabled"
+                    [disabled]="subItem.disabled"
+                    (click)="onSubmenuItemClick($event, subItem)"
+                    role="menuitem"
+                  >
+                    @if (subItem.icon) {
+                      <span class="context-menu-icon">{{ subItem.icon }}</span>
+                    }
+                    <span class="context-menu-label">{{ subItem.label }}</span>
+                    @if (subItem.shortcut) {
+                      <span class="context-menu-shortcut">{{ subItem.shortcut }}</span>
+                    }
+                  </button>
+                }
+              }
+            </div>
+          }
+        </div>
+      }
+    }
+  </div>
+}
