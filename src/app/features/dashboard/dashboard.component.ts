@@ -20,6 +20,8 @@ import {
   BreadcrumbComponent,
   BreadcrumbItem,
 } from '@shared/components/breadcrumb/breadcrumb.component';
+import { TabsComponent, Tab } from '@shared/components/tabs/tabs.component';
+import { TabPanelComponent } from '@shared/components/tab-panel/tab-panel.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -37,6 +39,8 @@ import {
     CheckboxComponent,
     RadioComponent,
     BreadcrumbComponent,
+    TabsComponent,
+    TabPanelComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -53,6 +57,16 @@ export class DashboardComponent {
     { label: 'Dashboard', url: '/dashboard', icon: '📊' },
     { label: 'Overview', active: true },
   ];
+
+  // Tabs demo data
+  profileTabs: Tab[] = [
+    { id: 'overview', label: 'Overview', icon: '📊' },
+    { id: 'activity', label: 'Activity', icon: '📈', badge: 12 },
+    { id: 'settings', label: 'Settings', icon: '⚙️' },
+    { id: 'disabled', label: 'Disabled', icon: '🚫', disabled: true },
+  ];
+
+  activeProfileTab = signal('overview');
 
   // Form demo data
   formName = signal('');

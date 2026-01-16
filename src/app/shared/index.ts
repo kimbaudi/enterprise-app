@@ -14,6 +14,8 @@ export * from '@shared/components/select/select.component';
 export * from '@shared/components/checkbox/checkbox.component';
 export * from '@shared/components/radio/radio.component';
 export * from '@shared/components/breadcrumb/breadcrumb.component';
+export * from '@shared/components/tabs/tabs.component';
+export * from '@shared/components/tab-panel/tab-panel.component';
 
 export * from '@shared/pipes/truncate.pipe';
 export * from '@shared/pipes/safe-html.pipe';

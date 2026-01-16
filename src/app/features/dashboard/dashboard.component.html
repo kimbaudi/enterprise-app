@@ -46,6 +46,68 @@
       </app-card>
     </div>
 
+    <div class="tabs-section">
+      <app-card title="Tabs Component Demo">
+        <app-tabs [tabs]="profileTabs" variant="default" [activeTabId]="activeProfileTab()">
+          <app-tab-panel [tabId]="'overview'" [active]="activeProfileTab() === 'overview'">
+            <h3>Overview</h3>
+            <p>Welcome to your dashboard overview. Here you can see key metrics and recent activity.</p>
+            <div class="overview-stats">
+              <div class="stat-item">
+                <span class="stat-number">156</span>
+                <span class="stat-desc">Total Projects</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">89%</span>
+                <span class="stat-desc">Success Rate</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">24</span>
+                <span class="stat-desc">Team Members</span>
+              </div>
+            </div>
+          </app-tab-panel>
+
+          <app-tab-panel [tabId]="'activity'" [active]="activeProfileTab() === 'activity'">
+            <h3>Recent Activity</h3>
+            <div class="activity-list">
+              <div class="activity-item">
+                <span class="activity-icon">✅</span>
+                <div class="activity-content">
+                  <strong>Task completed:</strong> Update dashboard components
+                  <span class="activity-time">2 hours ago</span>
+                </div>
+              </div>
+              <div class="activity-item">
+                <span class="activity-icon">📝</span>
+                <div class="activity-content">
+                  <strong>New comment:</strong> Feedback on the latest release
+                  <span class="activity-time">5 hours ago</span>
+                </div>
+              </div>
+              <div class="activity-item">
+                <span class="activity-icon">🚀</span>
+                <div class="activity-content">
+                  <strong>Deployment:</strong> Production release v2.0.1
+                  <span class="activity-time">1 day ago</span>
+                </div>
+              </div>
+            </div>
+          </app-tab-panel>
+
+          <app-tab-panel [tabId]="'settings'" [active]="activeProfileTab() === 'settings'">
+            <h3>Settings</h3>
+            <p>Configure your dashboard preferences and account settings.</p>
+            <div class="settings-options">
+              <app-checkbox label="Enable email notifications"></app-checkbox>
+              <app-checkbox label="Show advanced features"></app-checkbox>
+              <app-checkbox label="Auto-save changes"></app-checkbox>
+            </div>
+          </app-tab-panel>
+        </app-tabs>
+      </app-card>
+    </div>
+
     <div class="users-section">
       <app-card title="Users Management">
         <app-table [columns]="columns" [data]="users" [config]="{

@@ -1,0 +1,21 @@
+<div class="tabs-container">
+    <div class="tabs-header" [class.tabs-pills]="variant === 'pills'" [class.tabs-underline]="variant === 'underline'"
+        [class.tabs-fullwidth]="fullWidth" [class.tabs-sm]="size === 'sm'" [class.tabs-lg]="size === 'lg'">
+        @for (tab of tabs; track tab.id) {
+        <button type="button" class="tab-button" [class.active]="isActive(tab)" [class.disabled]="tab.disabled"
+            [disabled]="tab.disabled" (click)="selectTab(tab)" [attr.aria-selected]="isActive(tab)" role="tab">
+            @if (tab.icon) {
+            <span class="tab-icon">{{ tab.icon }}</span>
+            }
+            <span class="tab-label">{{ tab.label }}</span>
+            @if (tab.badge) {
+            <span class="tab-badge">{{ tab.badge }}</span>
+            }
+        </button>
+        }
+    </div>
+
+    <div class="tabs-content">
+        <ng-content></ng-content>
+    </div>
+</div>
