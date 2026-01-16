@@ -29,13 +29,14 @@ export * from '@shared/components/tooltip/tooltip.component';
 export * from '@shared/components/pagination/pagination.component';
 export * from '@shared/components/alert/alert.component';
 export * from '@shared/components/avatar/avatar.component';
+export * from '@shared/components/chip/chip.component';
+export * from '@shared/components/divider/divider.component';
+export * from '@shared/components/empty-state/empty-state.component';
+export * from '@shared/components/file-upload/file-upload.component';
 
 export * from '@shared/directives/tooltip.directive';
-export * from '@shared/pipes/safe-html.pipe';
-
 export * from '@shared/directives/highlight.directive';
 export * from '@shared/directives/has-role.directive';
 export * from '@shared/directives/click-outside.directive';
-export * from './components/chip/chip.component';
-export * from './components/divider/divider.component';
-export * from './components/empty-state/empty-state.component';
+
+export * from '@shared/pipes/safe-html.pipe';

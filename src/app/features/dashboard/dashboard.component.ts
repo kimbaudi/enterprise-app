@@ -37,6 +37,7 @@ import { AvatarComponent } from '@shared/components/avatar/avatar.component';
 import { ChipComponent } from '@shared/components/chip/chip.component';
 import { DividerComponent } from '@shared/components/divider/divider.component';
 import { EmptyStateComponent } from '@shared/components/empty-state/empty-state.component';
+import { FileUploadComponent } from '@shared/components/file-upload/file-upload.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -70,6 +71,7 @@ import { EmptyStateComponent } from '@shared/components/empty-state/empty-state.
     ChipComponent,
     DividerComponent,
     EmptyStateComponent,
+    FileUploadComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',

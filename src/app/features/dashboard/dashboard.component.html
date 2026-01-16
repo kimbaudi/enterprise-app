@@ -1656,6 +1656,102 @@
       </div>
     </app-card>
   </div>
+
+  <div class="file-upload-section">
+    <app-card title="File Upload Component Demo">
+      <p>File upload component with drag-and-drop support, validation, and file previews.</p>
+
+      <h3>Basic File Upload</h3>
+      <div class="file-upload-demo">
+        <app-file-upload label="Drop your file here or click to browse"
+          hint="Supports all file types"></app-file-upload>
+      </div>
+
+      <h3>Multiple Files Upload</h3>
+      <div class="file-upload-demo">
+        <app-file-upload [multiple]="true" label="Drop multiple files here or click to browse"
+          hint="You can select multiple files at once"></app-file-upload>
+      </div>
+
+      <h3>Image Upload with Preview</h3>
+      <div class="file-upload-demo">
+        <app-file-upload accept="image/*" [multiple]="true" [showPreview]="true"
+          label="Drop images here or click to browse" hint="Only image files are accepted"></app-file-upload>
+      </div>
+
+      <h3>Document Upload (PDF, Word, Excel)</h3>
+      <div class="file-upload-demo">
+        <app-file-upload accept=".pdf,.doc,.docx,.xls,.xlsx" [multiple]="true"
+          label="Drop documents here or click to browse" hint="Accepts PDF, Word, and Excel files"></app-file-upload>
+      </div>
+
+      <h3>With File Size Limit (2MB)</h3>
+      <div class="file-upload-demo">
+        <app-file-upload [maxSize]="2097152" label="Drop files here or click to browse"
+          hint="Maximum file size: 2MB"></app-file-upload>
+      </div>
+
+      <h3>With Max Files Limit (3 files)</h3>
+      <div class="file-upload-demo">
+        <app-file-upload [multiple]="true" [maxFiles]="3" label="Drop up to 3 files here or click to browse"
+          hint="Maximum 3 files allowed"></app-file-upload>
+      </div>
+
+      <h3>Video Upload</h3>
+      <div class="file-upload-demo">
+        <app-file-upload accept="video/*" label="Drop video files here or click to browse"
+          hint="Accepts all video formats"></app-file-upload>
+      </div>
+
+      <h3>Audio Upload</h3>
+      <div class="file-upload-demo">
+        <app-file-upload accept="audio/*" [multiple]="true" label="Drop audio files here or click to browse"
+          hint="Accepts MP3, WAV, and other audio formats"></app-file-upload>
+      </div>
+
+      <h3>Compressed Files (ZIP, RAR)</h3>
+      <div class="file-upload-demo">
+        <app-file-upload accept=".zip,.rar,.7z,.tar,.gz" label="Drop compressed files here or click to browse"
+          hint="Accepts ZIP, RAR, 7Z, TAR, GZ"></app-file-upload>
+      </div>
+
+      <h3>Disabled State</h3>
+      <div class="file-upload-demo">
+        <app-file-upload [disabled]="true" label="File upload is disabled"
+          hint="This upload field is currently disabled"></app-file-upload>
+      </div>
+
+      <h3>Use Case - Profile Picture Upload</h3>
+      <div class="file-upload-use-case">
+        <div class="use-case-content">
+          <h4>Upload Profile Picture</h4>
+          <p>Choose a photo to represent your profile. Recommended size: 400x400 pixels.</p>
+          <app-file-upload accept="image/jpeg,image/png,image/gif" [maxSize]="5242880" [showPreview]="true"
+            label="Drop your profile picture here" hint="JPG, PNG, or GIF (max 5MB)"></app-file-upload>
+        </div>
+      </div>
+
+      <h3>Use Case - Document Submission</h3>
+      <div class="file-upload-use-case">
+        <div class="use-case-content">
+          <h4>Submit Required Documents</h4>
+          <p>Please upload your identification documents and supporting files.</p>
+          <app-file-upload accept=".pdf,.jpg,.jpeg,.png" [multiple]="true" [maxFiles]="5" [maxSize]="10485760"
+            label="Drop documents here (PDF or images)" hint="Maximum 5 files, 10MB each"></app-file-upload>
+        </div>
+      </div>
+
+      <h3>Use Case - Bulk File Import</h3>
+      <div class="file-upload-use-case">
+        <div class="use-case-content">
+          <h4>Import Data Files</h4>
+          <p>Upload CSV or Excel files to import your data into the system.</p>
+          <app-file-upload accept=".csv,.xls,.xlsx" [multiple]="true" label="Drop data files here"
+            hint="CSV or Excel formats accepted"></app-file-upload>
+        </div>
+      </div>
+    </app-card>
+  </div>
 </div>
 
 <!-- User Details Modal -->
