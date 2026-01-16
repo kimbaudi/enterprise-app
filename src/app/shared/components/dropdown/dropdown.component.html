@@ -1,0 +1,19 @@
+<div class="dropdown-container">
+    <button type="button" class="dropdown-trigger" [class]="'btn-' + variant + ' btn-' + size"
+        [class.disabled]="disabled" [disabled]="disabled" (click)="toggle()" [attr.aria-expanded]="isOpen()"
+        [attr.aria-haspopup]="true">
+        @if (icon) {
+        <span class="dropdown-trigger-icon">{{ icon }}</span>
+        }
+        @if (label) {
+        <span class="dropdown-trigger-label">{{ label }}</span>
+        }
+        <span class="dropdown-arrow" [class.open]="isOpen()">▼</span>
+    </button>
+
+    @if (isOpen()) {
+    <div class="dropdown-menu" [class.position-right]="position === 'right'" role="menu">
+        <ng-content></ng-content>
+    </div>
+    }
+</div>

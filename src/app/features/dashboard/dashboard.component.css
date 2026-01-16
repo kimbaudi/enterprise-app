@@ -170,6 +170,35 @@ app-breadcrumb {
   color: var(--color-text-primary);
 }
 
+.dropdown-section {
+  margin-top: 2rem;
+}
+
+.dropdown-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.dropdown-example {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dropdown-example h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.dropdown-variants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 .users-section {
   margin-top: 2rem;
 }

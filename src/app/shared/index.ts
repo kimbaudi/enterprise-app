@@ -18,6 +18,8 @@ export * from '@shared/components/tabs/tabs.component';
 export * from '@shared/components/tab-panel/tab-panel.component';
 export * from '@shared/components/accordion/accordion.component';
 export * from '@shared/components/accordion-item/accordion-item.component';
+export * from '@shared/components/dropdown/dropdown.component';
+export * from '@shared/components/dropdown-item/dropdown-item.component';
 
 export * from '@shared/pipes/truncate.pipe';
 export * from '@shared/pipes/safe-html.pipe';

@@ -24,6 +24,8 @@ import { TabsComponent, Tab } from '@shared/components/tabs/tabs.component';
 import { TabPanelComponent } from '@shared/components/tab-panel/tab-panel.component';
 import { AccordionComponent } from '@shared/components/accordion/accordion.component';
 import { AccordionItemComponent } from '@shared/components/accordion-item/accordion-item.component';
+import { DropdownComponent } from '@shared/components/dropdown/dropdown.component';
+import { DropdownItemComponent } from '@shared/components/dropdown-item/dropdown-item.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -45,6 +47,8 @@ import { AccordionItemComponent } from '@shared/components/accordion-item/accord
     TabPanelComponent,
     AccordionComponent,
     AccordionItemComponent,
+    DropdownComponent,
+    DropdownItemComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -246,5 +250,23 @@ export class DashboardComponent {
     this.formNewsletter.set(false);
     this.formNotifications.set(false);
     this.formPlan.set(null);
+  }
+
+  onDropdownAction(action: string): void {
+    console.log('Dropdown action:', action);
+    switch (action) {
+      case 'edit':
+        alert('Edit action clicked');
+        break;
+      case 'duplicate':
+        alert('Duplicate action clicked');
+        break;
+      case 'archive':
+        alert('Archive action clicked');
+        break;
+      case 'delete':
+        alert('Delete action clicked');
+        break;
+    }
   }
 }

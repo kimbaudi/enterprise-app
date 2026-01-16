@@ -4,6 +4,13 @@
   <div class="dashboard-header">
     <h1>Dashboard</h1>
     <div class="header-actions">
+      <app-dropdown label="Actions" icon="⚙️" variant="outline" position="right" (itemClick)="onDropdownAction($event)">
+        <app-dropdown-item id="edit" icon="✏️" label="Edit"></app-dropdown-item>
+        <app-dropdown-item id="duplicate" icon="📋" label="Duplicate"></app-dropdown-item>
+        <app-dropdown-item [divider]="true"></app-dropdown-item>
+        <app-dropdown-item id="archive" icon="📦" label="Archive"></app-dropdown-item>
+        <app-dropdown-item id="delete" icon="🗑️" label="Delete" [danger]="true"></app-dropdown-item>
+      </app-dropdown>
       <app-theme-toggle></app-theme-toggle>
       <app-button variant="outline" (click)="openModalViaService()">Open Modal</app-button>
       <app-button variant="secondary" (click)="logout()">Logout</app-button>
@@ -163,6 +170,55 @@
             </p>
           </app-accordion-item>
         </app-accordion>
+      </app-card>
+    </div>
+
+    <div class="dropdown-section">
+      <app-card title="Dropdown Menu Component Demo">
+        <div class="dropdown-demo">
+          <div class="dropdown-example">
+            <h4>Action Menu</h4>
+            <app-dropdown label="Actions" icon="⚙️" variant="outline" (itemClick)="onDropdownAction($event)">
+              <app-dropdown-item id="edit" icon="✏️" label="Edit"></app-dropdown-item>
+              <app-dropdown-item id="duplicate" icon="📋" label="Duplicate"></app-dropdown-item>
+              <app-dropdown-item [divider]="true"></app-dropdown-item>
+              <app-dropdown-item id="archive" icon="📦" label="Archive"></app-dropdown-item>
+              <app-dropdown-item id="delete" icon="🗑️" label="Delete" [danger]="true"></app-dropdown-item>
+            </app-dropdown>
+          </div>
+
+          <div class="dropdown-example">
+            <h4>Variants</h4>
+            <div class="dropdown-variants">
+              <app-dropdown label="Primary" variant="primary" size="sm">
+                <app-dropdown-item id="option1" icon="⭐" label="Option 1"></app-dropdown-item>
+                <app-dropdown-item id="option2" icon="🎯" label="Option 2"></app-dropdown-item>
+              </app-dropdown>
+
+              <app-dropdown label="Secondary" variant="secondary" size="md">
+                <app-dropdown-item id="save" icon="💾" label="Save"></app-dropdown-item>
+                <app-dropdown-item id="export" icon="📤" label="Export"></app-dropdown-item>
+              </app-dropdown>
+
+              <app-dropdown label="Ghost" variant="ghost" size="lg">
+                <app-dropdown-item id="view" icon="👁️" label="View"></app-dropdown-item>
+                <app-dropdown-item id="share" icon="🔗" label="Share"></app-dropdown-item>
+              </app-dropdown>
+            </div>
+          </div>
+
+          <div class="dropdown-example">
+            <h4>User Menu Example</h4>
+            <app-dropdown icon="👤" label="John Doe" variant="outline" position="right">
+              <app-dropdown-item id="profile" icon="👤" label="My Profile"></app-dropdown-item>
+              <app-dropdown-item id="settings" icon="⚙️" label="Settings"></app-dropdown-item>
+              <app-dropdown-item id="billing" icon="💳" label="Billing"></app-dropdown-item>
+              <app-dropdown-item [divider]="true"></app-dropdown-item>
+              <app-dropdown-item id="help" icon="❓" label="Help & Support"></app-dropdown-item>
+              <app-dropdown-item id="logout" icon="🚪" label="Logout" [danger]="true"></app-dropdown-item>
+            </app-dropdown>
+          </div>
+        </div>
       </app-card>
     </div>
 
