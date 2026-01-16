@@ -1309,6 +1309,209 @@
         </div>
       </app-card>
     </div>
+
+    <div class="divider-section">
+      <app-card title="Divider Component Demo">
+        <p>Dividers separate and organize content into clear sections.</p>
+
+        <h3>Basic Horizontal Dividers</h3>
+        <div class="divider-demo-basic">
+          <p>Content above the divider</p>
+          <app-divider></app-divider>
+          <p>Content below the divider</p>
+        </div>
+
+        <h3>Divider Styles</h3>
+        <div class="divider-demo-grid">
+          <div class="divider-demo-item">
+            <span>Solid (default)</span>
+            <app-divider style="solid"></app-divider>
+          </div>
+          <div class="divider-demo-item">
+            <span>Dashed</span>
+            <app-divider style="dashed"></app-divider>
+          </div>
+          <div class="divider-demo-item">
+            <span>Dotted</span>
+            <app-divider style="dotted"></app-divider>
+          </div>
+        </div>
+
+        <h3>Divider Thickness</h3>
+        <div class="divider-demo-grid">
+          <div class="divider-demo-item">
+            <span>Thin (default)</span>
+            <app-divider thickness="thin"></app-divider>
+          </div>
+          <div class="divider-demo-item">
+            <span>Medium</span>
+            <app-divider thickness="medium"></app-divider>
+          </div>
+          <div class="divider-demo-item">
+            <span>Thick</span>
+            <app-divider thickness="thick"></app-divider>
+          </div>
+        </div>
+
+        <h3>Divider Colors</h3>
+        <div class="divider-demo-grid">
+          <div class="divider-demo-item">
+            <span>Default</span>
+            <app-divider color="default"></app-divider>
+          </div>
+          <div class="divider-demo-item">
+            <span>Light</span>
+            <app-divider color="light"></app-divider>
+          </div>
+          <div class="divider-demo-item">
+            <span>Dark</span>
+            <app-divider color="dark"></app-divider>
+          </div>
+          <div class="divider-demo-item">
+            <span>Primary</span>
+            <app-divider color="primary"></app-divider>
+          </div>
+          <div class="divider-demo-item">
+            <span>Success</span>
+            <app-divider color="success"></app-divider>
+          </div>
+          <div class="divider-demo-item">
+            <span>Error</span>
+            <app-divider color="error"></app-divider>
+          </div>
+          <div class="divider-demo-item">
+            <span>Warning</span>
+            <app-divider color="warning"></app-divider>
+          </div>
+          <div class="divider-demo-item">
+            <span>Info</span>
+            <app-divider color="info"></app-divider>
+          </div>
+        </div>
+
+        <h3>Dividers with Text</h3>
+        <div class="divider-demo-text">
+          <app-divider text="OR" textAlign="center"></app-divider>
+          <app-divider text="Section Title" textAlign="center" color="primary"></app-divider>
+          <app-divider text="Left Aligned" textAlign="left"></app-divider>
+          <app-divider text="Right Aligned" textAlign="right"></app-divider>
+        </div>
+
+        <h3>Divider Spacing</h3>
+        <div class="divider-demo-spacing">
+          <div class="divider-demo-item">
+            <span>None</span>
+            <div style="background: var(--color-background-secondary); padding: 1rem;">
+              <p style="margin: 0;">Content</p>
+              <app-divider spacing="none"></app-divider>
+              <p style="margin: 0;">Content</p>
+            </div>
+          </div>
+          <div class="divider-demo-item">
+            <span>Small</span>
+            <div style="background: var(--color-background-secondary); padding: 1rem;">
+              <p style="margin: 0;">Content</p>
+              <app-divider spacing="sm"></app-divider>
+              <p style="margin: 0;">Content</p>
+            </div>
+          </div>
+          <div class="divider-demo-item">
+            <span>Medium (default)</span>
+            <div style="background: var(--color-background-secondary); padding: 1rem;">
+              <p style="margin: 0;">Content</p>
+              <app-divider spacing="md"></app-divider>
+              <p style="margin: 0;">Content</p>
+            </div>
+          </div>
+          <div class="divider-demo-item">
+            <span>Large</span>
+            <div style="background: var(--color-background-secondary); padding: 1rem;">
+              <p style="margin: 0;">Content</p>
+              <app-divider spacing="lg"></app-divider>
+              <p style="margin: 0;">Content</p>
+            </div>
+          </div>
+        </div>
+
+        <h3>Vertical Dividers</h3>
+        <div class="divider-demo-vertical">
+          <span>Item 1</span>
+          <app-divider orientation="vertical"></app-divider>
+          <span>Item 2</span>
+          <app-divider orientation="vertical" style="dashed"></app-divider>
+          <span>Item 3</span>
+          <app-divider orientation="vertical" color="primary"></app-divider>
+          <span>Item 4</span>
+          <app-divider orientation="vertical" thickness="medium"></app-divider>
+          <span>Item 5</span>
+        </div>
+
+        <h3>Use Cases - Login Form</h3>
+        <div class="divider-use-case">
+          <app-button variant="primary" style="width: 100%;">Sign in with Email</app-button>
+          <app-divider text="OR" textAlign="center" spacing="lg"></app-divider>
+          <div style="display: flex; gap: 0.75rem;">
+            <app-button variant="outline" style="flex: 1;">Google</app-button>
+            <app-button variant="outline" style="flex: 1;">GitHub</app-button>
+          </div>
+        </div>
+
+        <h3>Use Cases - Content Sections</h3>
+        <div class="divider-use-case">
+          <div>
+            <h4 style="margin: 0 0 0.5rem 0;">Personal Information</h4>
+            <p style="margin: 0; color: var(--color-text-secondary); font-size: 0.875rem;">
+              Update your personal details and profile information.
+            </p>
+          </div>
+          <app-divider spacing="lg"></app-divider>
+          <div>
+            <h4 style="margin: 0 0 0.5rem 0;">Security Settings</h4>
+            <p style="margin: 0; color: var(--color-text-secondary); font-size: 0.875rem;">
+              Manage your password and two-factor authentication.
+            </p>
+          </div>
+          <app-divider spacing="lg"></app-divider>
+          <div>
+            <h4 style="margin: 0 0 0.5rem 0;">Notification Preferences</h4>
+            <p style="margin: 0; color: var(--color-text-secondary); font-size: 0.875rem;">
+              Choose how you receive notifications and updates.
+            </p>
+          </div>
+        </div>
+
+        <h3>Use Cases - Breadcrumb Style</h3>
+        <div class="divider-demo-breadcrumb">
+          <span>Home</span>
+          <app-divider orientation="vertical" spacing="sm"></app-divider>
+          <span>Products</span>
+          <app-divider orientation="vertical" spacing="sm"></app-divider>
+          <span>Electronics</span>
+          <app-divider orientation="vertical" spacing="sm"></app-divider>
+          <span style="font-weight: 600;">Laptops</span>
+        </div>
+
+        <h3>Use Cases - Toolbar</h3>
+        <div class="divider-use-case-toolbar">
+          <app-button variant="outline" size="sm">Save</app-button>
+          <app-button variant="outline" size="sm">Export</app-button>
+          <app-divider orientation="vertical" spacing="sm"></app-divider>
+          <app-button variant="outline" size="sm">Share</app-button>
+          <app-button variant="outline" size="sm">Print</app-button>
+          <app-divider orientation="vertical" spacing="sm"></app-divider>
+          <app-button variant="outline" size="sm">Settings</app-button>
+        </div>
+
+        <h3>Styled Variations</h3>
+        <div class="divider-demo-styled">
+          <app-divider text="Basic Section" color="default" thickness="thin"></app-divider>
+          <app-divider text="Important Section" color="primary" thickness="medium"></app-divider>
+          <app-divider text="Success Message" color="success" thickness="medium"></app-divider>
+          <app-divider text="Warning Notice" color="warning" thickness="medium"></app-divider>
+          <app-divider text="Error Alert" color="error" thickness="medium"></app-divider>
+        </div>
+      </app-card>
+    </div>
   </div>
 </div>
 

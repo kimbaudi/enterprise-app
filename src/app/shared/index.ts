@@ -37,3 +37,4 @@ export * from '@shared/directives/highlight.directive';
 export * from '@shared/directives/has-role.directive';
 export * from '@shared/directives/click-outside.directive';
 export * from './components/chip/chip.component';
+export * from './components/divider/divider.component';

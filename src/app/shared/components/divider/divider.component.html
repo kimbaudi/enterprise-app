@@ -1,0 +1,13 @@
+@if (orientation === 'horizontal') {
+@if (text) {
+<div [class]="dividerClasses">
+    <span class="divider-line"></span>
+    <span class="divider-text">{{ text }}</span>
+    <span class="divider-line"></span>
+</div>
+} @else {
+<div [class]="dividerClasses"></div>
+}
+} @else {
+<div [class]="dividerClasses"></div>
+}

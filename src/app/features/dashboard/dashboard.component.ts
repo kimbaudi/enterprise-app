@@ -35,6 +35,7 @@ import { PaginationComponent } from '@shared/components/pagination/pagination.co
 import { AlertComponent } from '@shared/components/alert/alert.component';
 import { AvatarComponent } from '@shared/components/avatar/avatar.component';
 import { ChipComponent } from '@shared/components/chip/chip.component';
+import { DividerComponent } from '@shared/components/divider/divider.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -66,6 +67,7 @@ import { ChipComponent } from '@shared/components/chip/chip.component';
     AlertComponent,
     AvatarComponent,
     ChipComponent,
+    DividerComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
