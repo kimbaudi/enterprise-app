@@ -2067,7 +2067,6 @@
       </app-card>
     </div>
 
-    <!-- Rating Component Section -->
     <div class="rating-section">
       <app-card title="Rating Component Demo">
         <p>
@@ -2075,26 +2074,22 @@
           selection.
         </p>
 
-        <!-- Basic Rating -->
         <div class="rating-demo">
           <h3>Basic Rating</h3>
           <app-rating [value]="4"></app-rating>
         </div>
 
-        <!-- Interactive Rating -->
         <div class="rating-demo">
           <h3>Interactive Rating</h3>
           <app-rating [value]="userRating()" (valueChange)="userRating.set($event)"></app-rating>
           <p>Your rating: {{ userRating() }}</p>
         </div>
 
-        <!-- With Count Display -->
         <div class="rating-demo">
           <h3>With Count Display</h3>
           <app-rating [value]="4.5" [showCount]="true"></app-rating>
         </div>
 
-        <!-- Half Star Support -->
         <div class="rating-demo">
           <h3>Half Star Support</h3>
           <app-rating
@@ -2105,7 +2100,6 @@
           ></app-rating>
         </div>
 
-        <!-- Sizes -->
         <div class="rating-demo">
           <h3>Sizes</h3>
           <div class="rating-sizes">
@@ -2124,7 +2118,6 @@
           </div>
         </div>
 
-        <!-- Colors -->
         <div class="rating-demo">
           <h3>Colors</h3>
           <div class="rating-colors">
@@ -2151,25 +2144,21 @@
           </div>
         </div>
 
-        <!-- Readonly -->
         <div class="rating-demo">
           <h3>Readonly</h3>
           <app-rating [value]="4.5" [readonly]="true" [showCount]="true"></app-rating>
         </div>
 
-        <!-- Disabled -->
         <div class="rating-demo">
           <h3>Disabled</h3>
           <app-rating [value]="3" [disabled]="true"></app-rating>
         </div>
 
-        <!-- Custom Max -->
         <div class="rating-demo">
           <h3>Custom Max (10 Stars)</h3>
           <app-rating [value]="7" [max]="10" [showCount]="true"></app-rating>
         </div>
 
-        <!-- Custom Icons -->
         <div class="rating-demo">
           <h3>Custom Icons</h3>
           <div class="custom-icons">
@@ -2303,12 +2292,10 @@
       </app-card>
     </div>
 
-    <!-- Stepper Component Section -->
     <div class="stepper-section">
       <app-card title="Stepper Component Demo">
         <p>Guide users through multi-step processes with horizontal or vertical stepper layouts.</p>
 
-        <!-- Basic Horizontal Stepper -->
         <div class="stepper-demo">
           <h3>Basic Horizontal Stepper</h3>
           <app-stepper
@@ -2329,7 +2316,6 @@
           </div>
         </div>
 
-        <!-- Vertical Stepper -->
         <div class="stepper-demo">
           <h3>Vertical Stepper</h3>
           <app-stepper
@@ -2351,9 +2337,8 @@
           </div>
         </div>
 
-        <!-- Stepper with Descriptions -->
         <div class="stepper-demo">
-          <h3>With Descriptions</h3>
+          <h3>Stepper with Descriptions</h3>
           <app-stepper
             [steps]="stepsWithDescription"
             [activeStep]="descStepperCurrent()"
@@ -2361,7 +2346,6 @@
           ></app-stepper>
         </div>
 
-        <!-- Linear Stepper -->
         <div class="stepper-demo">
           <h3>Linear Stepper (Sequential Navigation)</h3>
           <p class="demo-description">Users must complete steps in order.</p>
@@ -2382,7 +2366,6 @@
           </div>
         </div>
 
-        <!-- Non-clickable Stepper -->
         <div class="stepper-demo">
           <h3>Non-clickable Stepper</h3>
           <p class="demo-description">Navigation controlled only by buttons.</p>
@@ -2403,9 +2386,8 @@
           </div>
         </div>
 
-        <!-- Stepper with Optional Steps -->
         <div class="stepper-demo">
-          <h3>With Optional Steps</h3>
+          <h3>Stepper with Optional Steps</h3>
           <app-stepper
             [steps]="stepsWithOptional"
             [activeStep]="optionalStepperCurrent()"
@@ -2413,9 +2395,8 @@
           ></app-stepper>
         </div>
 
-        <!-- Stepper with Custom Icons -->
         <div class="stepper-demo">
-          <h3>Custom Icons</h3>
+          <h3>Stepper with Custom Icons</h3>
           <app-stepper
             [steps]="stepsWithIcons"
             [activeStep]="iconStepperCurrent()"
@@ -2424,9 +2405,8 @@
           ></app-stepper>
         </div>
 
-        <!-- Stepper with Error State -->
         <div class="stepper-demo">
-          <h3>Error State</h3>
+          <h3>Stepper with Error State</h3>
           <p class="demo-description">Shows validation errors on specific steps.</p>
           <app-stepper
             [steps]="stepsWithError"
@@ -2752,6 +2732,137 @@
                   }}
                   days
                 </p>
+              </div>
+            }
+          </div>
+        </div>
+      </app-card>
+    </div>
+
+    <div class="color-picker-section">
+      <app-card title="Color Picker Component Demo">
+        <p>
+          Color picker with visual selection, multiple formats (HEX, RGB, HSL), alpha channel, and
+          preset colors.
+        </p>
+
+        <h3>Basic Color Picker</h3>
+        <div class="color-picker-demo">
+          <app-color-picker
+            [value]="primaryColor()"
+            (valueChange)="onPrimaryColorChange($event)"
+          ></app-color-picker>
+          <div class="selected-color-display">
+            <div class="color-swatch" [style.background]="primaryColor()"></div>
+            <span>Selected: {{ primaryColor() }}</span>
+          </div>
+        </div>
+
+        <h3>Without Alpha Channel</h3>
+        <div class="color-picker-demo">
+          <app-color-picker
+            [value]="accentColor()"
+            [showAlpha]="false"
+            (valueChange)="onAccentColorChange($event)"
+          ></app-color-picker>
+        </div>
+
+        <h3>Without Presets</h3>
+        <div class="color-picker-demo">
+          <app-color-picker [value]="'#10b981'" [showPresets]="false"></app-color-picker>
+        </div>
+
+        <h3>Without Manual Inputs</h3>
+        <div class="color-picker-demo">
+          <app-color-picker [value]="'#f59e0b'" [showInputs]="false"></app-color-picker>
+        </div>
+
+        <h3>RGB Format</h3>
+        <div class="color-picker-demo">
+          <app-color-picker [value]="'rgb(236, 72, 153)'" format="rgb"></app-color-picker>
+        </div>
+
+        <h3>HSL Format</h3>
+        <div class="color-picker-demo">
+          <app-color-picker [value]="'hsl(142, 71%, 45%)'" format="hsl"></app-color-picker>
+        </div>
+
+        <h3>Disabled State</h3>
+        <div class="color-picker-demo">
+          <app-color-picker [value]="'#ef4444'" [disabled]="true"></app-color-picker>
+        </div>
+
+        <h3>Use Case: Theme Customizer</h3>
+        <div class="color-picker-use-case">
+          <div class="use-case-content">
+            <h4>Customize Your Theme</h4>
+            <p>Select colors for your brand identity</p>
+
+            <div class="theme-colors-grid">
+              <div class="theme-color-item">
+                <label>Primary Color</label>
+                <app-color-picker
+                  [value]="primaryColor()"
+                  [showPresets]="false"
+                  (valueChange)="onPrimaryColorChange($event)"
+                ></app-color-picker>
+              </div>
+
+              <div class="theme-color-item">
+                <label>Brand Color</label>
+                <app-color-picker
+                  [value]="brandColor()"
+                  [showPresets]="false"
+                  (valueChange)="onBrandColorChange($event)"
+                ></app-color-picker>
+              </div>
+
+              <div class="theme-color-item">
+                <label>Accent Color</label>
+                <app-color-picker
+                  [value]="accentColor()"
+                  [showAlpha]="false"
+                  [showPresets]="false"
+                  (valueChange)="onAccentColorChange($event)"
+                ></app-color-picker>
+              </div>
+            </div>
+
+            <div class="theme-preview">
+              <strong>Theme Preview:</strong>
+              <div class="preview-buttons">
+                <button type="button" class="preview-button" [style.background]="primaryColor()">
+                  Primary Button
+                </button>
+                <button type="button" class="preview-button" [style.background]="brandColor()">
+                  Brand Button
+                </button>
+                <button type="button" class="preview-button" [style.background]="accentColor()">
+                  Accent Button
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3>Use Case: Design Tool Color Selection</h3>
+        <div class="color-picker-use-case">
+          <div class="use-case-content">
+            <h4>Background Color</h4>
+            <p>Choose a background color for your design</p>
+            <app-color-picker
+              [value]="backgroundColor()"
+              format="hex"
+              [showAlpha]="true"
+              (valueChange)="onBackgroundColorChange($event)"
+              (formatChange)="onColorFormatChange($event)"
+            ></app-color-picker>
+            @if (backgroundColor()) {
+              <div class="background-preview">
+                <strong>Preview:</strong>
+                <div class="preview-canvas" [style.background]="backgroundColor()">
+                  <span>Sample Content</span>
+                </div>
               </div>
             }
           </div>

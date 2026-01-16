@@ -44,3 +44,4 @@ export * from '@shared/directives/has-role.directive';
 export * from '@shared/directives/click-outside.directive';
 
 export * from '@shared/pipes/safe-html.pipe';
+export * from './components/color-picker/color-picker.component';

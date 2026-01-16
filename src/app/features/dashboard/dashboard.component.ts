@@ -42,6 +42,10 @@ import {
   DatePickerComponent,
   DateRange,
 } from '@shared/components/date-picker/date-picker.component';
+import {
+  ColorPickerComponent,
+  ColorFormat,
+} from '@shared/components/color-picker/color-picker.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -80,6 +84,7 @@ import {
     StepperComponent,
     TimelineComponent,
     DatePickerComponent,
+    ColorPickerComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -674,5 +679,34 @@ export class DashboardComponent {
         'Vacation Booked',
       );
     }
+  }
+
+  // Color Picker demo data
+  primaryColor = signal<string>('#3b82f6');
+  brandColor = signal<string>('#8b5cf6');
+  accentColor = signal<string>('#ec4899');
+  backgroundColor = signal<string>('#ffffff');
+  colorFormat = signal<ColorFormat>('hex');
+
+  onPrimaryColorChange(color: string): void {
+    this.primaryColor.set(color);
+    console.log('Primary color changed:', color);
+  }
+
+  onBrandColorChange(color: string): void {
+    this.brandColor.set(color);
+    this.toastService.success(`Brand color updated to ${color}`, 'Color Updated');
+  }
+
+  onAccentColorChange(color: string): void {
+    this.accentColor.set(color);
+  }
+
+  onBackgroundColorChange(color: string): void {
+    this.backgroundColor.set(color);
+  }
+
+  onColorFormatChange(format: ColorFormat): void {
+    this.colorFormat.set(format);
   }
 }

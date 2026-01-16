@@ -1,0 +1,257 @@
+<div class="color-picker" [class.disabled]="disabled">
+  <!-- Color Display -->
+  <div class="color-display">
+    <div class="color-preview" [style.background]="currentValue()"></div>
+    <div class="color-info">
+      <span class="color-value">{{ currentValue() }}</span>
+      <div class="format-tabs">
+        <button
+          type="button"
+          class="format-tab"
+          [class.active]="currentFormat() === 'hex'"
+          (click)="changeFormat('hex')"
+          [disabled]="disabled"
+        >
+          HEX
+        </button>
+        <button
+          type="button"
+          class="format-tab"
+          [class.active]="currentFormat() === 'rgb'"
+          (click)="changeFormat('rgb')"
+          [disabled]="disabled"
+        >
+          RGB
+        </button>
+        <button
+          type="button"
+          class="format-tab"
+          [class.active]="currentFormat() === 'hsl'"
+          (click)="changeFormat('hsl')"
+          [disabled]="disabled"
+        >
+          HSL
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Saturation/Lightness Picker -->
+  <div
+    class="saturation-picker"
+    [style.background]="saturationGradient()"
+    (mousedown)="onSaturationMouseDown($event)"
+    (mousemove)="onSaturationMouseMove($event)"
+    (mouseup)="onSaturationMouseUp()"
+    (mouseleave)="onSaturationMouseUp()"
+  >
+    <div class="saturation-overlay"></div>
+    <div
+      class="saturation-cursor"
+      [style.left.%]="saturation()"
+      [style.top.%]="100 - lightness()"
+    ></div>
+  </div>
+
+  <!-- Hue Slider -->
+  <div class="slider-group">
+    <label>Hue</label>
+    <div
+      class="hue-slider"
+      (mousedown)="onHueMouseDown($event)"
+      (mousemove)="onHueMouseMove($event)"
+      (mouseup)="onHueMouseUp()"
+      (mouseleave)="onHueMouseUp()"
+    >
+      <div class="slider-handle" [style.left.%]="(hue() / 360) * 100"></div>
+    </div>
+  </div>
+
+  <!-- Alpha Slider -->
+  @if (showAlpha) {
+    <div class="slider-group">
+      <label>Opacity</label>
+      <div
+        class="alpha-slider"
+        [style.background]="alphaGradient()"
+        (mousedown)="onAlphaMouseDown($event)"
+        (mousemove)="onAlphaMouseMove($event)"
+        (mouseup)="onAlphaMouseUp()"
+        (mouseleave)="onAlphaMouseUp()"
+      >
+        <div class="alpha-background"></div>
+        <div class="slider-handle" [style.left.%]="alpha() * 100"></div>
+      </div>
+    </div>
+  }
+
+  <!-- Manual Inputs -->
+  @if (showInputs) {
+    <div class="color-inputs">
+      @if (currentFormat() === 'hex') {
+        <div class="input-group">
+          <label>HEX</label>
+          <input
+            type="text"
+            [value]="hexValue()"
+            (input)="onHexInput($any($event.target).value)"
+            [disabled]="disabled"
+            maxlength="9"
+          />
+        </div>
+      }
+
+      @if (currentFormat() === 'rgb') {
+        <div class="input-row">
+          <div class="input-group">
+            <label>R</label>
+            <input
+              type="number"
+              [value]="rgbColor().r"
+              (input)="
+                onRgbInput(+$any($event.target).value, rgbColor().g, rgbColor().b, rgbColor().a)
+              "
+              [disabled]="disabled"
+              min="0"
+              max="255"
+            />
+          </div>
+          <div class="input-group">
+            <label>G</label>
+            <input
+              type="number"
+              [value]="rgbColor().g"
+              (input)="
+                onRgbInput(rgbColor().r, +$any($event.target).value, rgbColor().b, rgbColor().a)
+              "
+              [disabled]="disabled"
+              min="0"
+              max="255"
+            />
+          </div>
+          <div class="input-group">
+            <label>B</label>
+            <input
+              type="number"
+              [value]="rgbColor().b"
+              (input)="
+                onRgbInput(rgbColor().r, rgbColor().g, +$any($event.target).value, rgbColor().a)
+              "
+              [disabled]="disabled"
+              min="0"
+              max="255"
+            />
+          </div>
+          @if (showAlpha) {
+            <div class="input-group">
+              <label>A</label>
+              <input
+                type="number"
+                [value]="rgbColor().a"
+                (input)="
+                  onRgbInput(rgbColor().r, rgbColor().g, rgbColor().b, +$any($event.target).value)
+                "
+                [disabled]="disabled"
+                min="0"
+                max="1"
+                step="0.01"
+              />
+            </div>
+          }
+        </div>
+      }
+
+      @if (currentFormat() === 'hsl') {
+        <div class="input-row">
+          <div class="input-group">
+            <label>H</label>
+            <input
+              type="number"
+              [value]="Math.round(hue())"
+              (input)="onHslInput(+$any($event.target).value, saturation(), lightness(), alpha())"
+              [disabled]="disabled"
+              min="0"
+              max="360"
+            />
+          </div>
+          <div class="input-group">
+            <label>S</label>
+            <input
+              type="number"
+              [value]="Math.round(saturation())"
+              (input)="onHslInput(hue(), +$any($event.target).value, lightness(), alpha())"
+              [disabled]="disabled"
+              min="0"
+              max="100"
+            />
+          </div>
+          <div class="input-group">
+            <label>L</label>
+            <input
+              type="number"
+              [value]="Math.round(lightness())"
+              (input)="onHslInput(hue(), saturation(), +$any($event.target).value, alpha())"
+              [disabled]="disabled"
+              min="0"
+              max="100"
+            />
+          </div>
+          @if (showAlpha) {
+            <div class="input-group">
+              <label>A</label>
+              <input
+                type="number"
+                [value]="alpha()"
+                (input)="onHslInput(hue(), saturation(), lightness(), +$any($event.target).value)"
+                [disabled]="disabled"
+                min="0"
+                max="1"
+                step="0.01"
+              />
+            </div>
+          }
+        </div>
+      }
+    </div>
+  }
+
+  <!-- Preset Colors -->
+  @if (showPresets) {
+    <div class="preset-colors">
+      <label>Presets</label>
+      <div class="color-grid">
+        @for (color of presetColors; track color) {
+          <button
+            type="button"
+            class="preset-color"
+            [style.background]="color"
+            [class.active]="hexValue().toLowerCase() === color.toLowerCase()"
+            (click)="selectPresetColor(color)"
+            [disabled]="disabled"
+            [title]="color"
+          ></button>
+        }
+      </div>
+    </div>
+  }
+
+  <!-- Recent Colors -->
+  @if (recentColors().length > 0) {
+    <div class="recent-colors">
+      <label>Recent</label>
+      <div class="color-grid">
+        @for (color of recentColors(); track color) {
+          <button
+            type="button"
+            class="preset-color"
+            [style.background]="color"
+            [class.active]="hexValue().toLowerCase() === color.toLowerCase()"
+            (click)="selectPresetColor(color)"
+            [disabled]="disabled"
+            [title]="color"
+          ></button>
+        }
+      </div>
+    </div>
+  }
+</div>
