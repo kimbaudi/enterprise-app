@@ -1,48 +1,64 @@
 <div class="file-upload">
-    <div class="file-upload-dropzone" [class.dragging]="isDragging()" [class.disabled]="disabled"
-        (dragover)="onDragOver($event)" (dragleave)="onDragLeave($event)" (drop)="onDrop($event)">
-        <input type="file" class="file-upload-input" [accept]="accept" [multiple]="multiple" [disabled]="disabled"
-            (change)="onFileSelect($event)" #fileInput />
+  <div
+    class="file-upload-dropzone"
+    [class.dragging]="isDragging()"
+    [class.disabled]="disabled"
+    (dragover)="onDragOver($event)"
+    (dragleave)="onDragLeave($event)"
+    (drop)="onDrop($event)"
+  >
+    <input
+      type="file"
+      class="file-upload-input"
+      [accept]="accept"
+      [multiple]="multiple"
+      [disabled]="disabled"
+      (change)="onFileSelect($event)"
+      #fileInput
+    />
 
-        <div class="file-upload-content">
-            <span class="file-upload-icon">📁</span>
-            <p class="file-upload-label">{{ label }}</p>
-            @if (hint) {
-            <p class="file-upload-hint">{{ hint }}</p>
-            }
-            <app-button variant="outline" size="sm" [disabled]="disabled" (click)="fileInput.click()">
-                Browse Files
-            </app-button>
-        </div>
+    <div class="file-upload-content">
+      <span class="file-upload-icon">📁</span>
+      <p class="file-upload-label">{{ label }}</p>
+      @if (hint) {
+        <p class="file-upload-hint">{{ hint }}</p>
+      }
+      <app-button variant="outline" size="sm" [disabled]="disabled" (click)="fileInput.click()">
+        Browse Files
+      </app-button>
     </div>
+  </div>
 
-    @if (uploadedFiles().length > 0) {
+  @if (uploadedFiles().length > 0) {
     <div class="file-upload-list">
-        <div class="file-upload-list-header">
-            <span>{{ uploadedFiles().length }} file(s) selected</span>
-            <button type="button" class="file-upload-clear" (click)="clearAll()">
-                Clear All
-            </button>
-        </div>
+      <div class="file-upload-list-header">
+        <span>{{ uploadedFiles().length }} file(s) selected</span>
+        <button type="button" class="file-upload-clear" (click)="clearAll()">Clear All</button>
+      </div>
 
-        @for (file of uploadedFiles(); track file.name) {
+      @for (file of uploadedFiles(); track file.name) {
         <div class="file-upload-item">
-            @if (file.preview) {
+          @if (file.preview) {
             <img [src]="file.preview" alt="" class="file-upload-preview" />
-            } @else {
+          } @else {
             <span class="file-upload-file-icon">{{ getFileIcon(file.type) }}</span>
-            }
+          }
 
-            <div class="file-upload-file-info">
-                <span class="file-upload-file-name">{{ file.name }}</span>
-                <span class="file-upload-file-size">{{ formatFileSize(file.size) }}</span>
-            </div>
+          <div class="file-upload-file-info">
+            <span class="file-upload-file-name">{{ file.name }}</span>
+            <span class="file-upload-file-size">{{ formatFileSize(file.size) }}</span>
+          </div>
 
-            <button type="button" class="file-upload-remove" (click)="removeFile(file)" aria-label="Remove file">
-                ✕
-            </button>
+          <button
+            type="button"
+            class="file-upload-remove"
+            (click)="removeFile(file)"
+            aria-label="Remove file"
+          >
+            ✕
+          </button>
         </div>
-        }
+      }
     </div>
-    }
+  }
 </div>

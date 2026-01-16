@@ -2,16 +2,16 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-    selector: 'app-tab-panel',
-    standalone: true,
-    imports: [CommonModule],
-    template: `
+  selector: 'app-tab-panel',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
     <div class="tab-panel" [class.active]="active" role="tabpanel" [attr.aria-hidden]="!active">
       <ng-content></ng-content>
     </div>
   `,
-    styles: [
-        `
+  styles: [
+    `
       .tab-panel {
         display: none;
         animation: fadeIn 0.2s ease-in;
@@ -32,9 +32,9 @@ import { CommonModule } from '@angular/common';
         }
       }
     `,
-    ],
+  ],
 })
 export class TabPanelComponent {
-    @Input() tabId = '';
-    @Input() active = false;
+  @Input() tabId = '';
+  @Input() active = false;
 }

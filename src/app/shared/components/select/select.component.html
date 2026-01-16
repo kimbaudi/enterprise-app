@@ -1,51 +1,66 @@
 <div class="select-wrapper">
-    @if (label) {
+  @if (label) {
     <label class="select-label">
-        {{ label }}
-        @if (required) {
+      {{ label }}
+      @if (required) {
         <span class="required">*</span>
-        }
+      }
     </label>
-    }
+  }
 
-    <div class="select-container" [class.disabled]="disabled" [class.error]="error">
-        <div class="select-trigger" (click)="toggleDropdown()">
-            <span class="select-value" [class.placeholder]="!selectedLabel()">
-                {{ selectedLabel() || placeholder }}
-            </span>
-            <span class="select-arrow">{{ isOpen() ? '▲' : '▼' }}</span>
-        </div>
-
-        @if (isOpen()) {
-        <div class="select-dropdown">
-            @if (searchable) {
-            <div class="select-search">
-                <input type="text" placeholder="Search..." [value]="searchQuery()" (input)="onSearchInput($event)"
-                    (click)="$event.stopPropagation()" class="select-search-input" />
-            </div>
-            }
-
-            <div class="select-options">
-                @for (option of filteredOptions(); track option.value) {
-                <div class="select-option" [class.selected]="isSelected(option)" [class.disabled]="option.disabled"
-                    (click)="selectOption(option)">
-                    @if (multiple) {
-                    <input type="checkbox" [checked]="isSelected(option)" [disabled]="option.disabled"
-                        class="select-checkbox" (click)="$event.stopPropagation()" />
-                    }
-                    <span>{{ option.label }}</span>
-                </div>
-                } @empty {
-                <div class="select-empty">No options found</div>
-                }
-            </div>
-        </div>
-        }
+  <div class="select-container" [class.disabled]="disabled" [class.error]="error">
+    <div class="select-trigger" (click)="toggleDropdown()">
+      <span class="select-value" [class.placeholder]="!selectedLabel()">
+        {{ selectedLabel() || placeholder }}
+      </span>
+      <span class="select-arrow">{{ isOpen() ? '▲' : '▼' }}</span>
     </div>
 
-    @if (error) {
-    <span class="select-error">{{ error }}</span>
-    } @else if (hint) {
-    <span class="select-hint">{{ hint }}</span>
+    @if (isOpen()) {
+      <div class="select-dropdown">
+        @if (searchable) {
+          <div class="select-search">
+            <input
+              type="text"
+              placeholder="Search..."
+              [value]="searchQuery()"
+              (input)="onSearchInput($event)"
+              (click)="$event.stopPropagation()"
+              class="select-search-input"
+            />
+          </div>
+        }
+
+        <div class="select-options">
+          @for (option of filteredOptions(); track option.value) {
+            <div
+              class="select-option"
+              [class.selected]="isSelected(option)"
+              [class.disabled]="option.disabled"
+              (click)="selectOption(option)"
+            >
+              @if (multiple) {
+                <input
+                  type="checkbox"
+                  [checked]="isSelected(option)"
+                  [disabled]="option.disabled"
+                  class="select-checkbox"
+                  (click)="$event.stopPropagation()"
+                />
+              }
+              <span>{{ option.label }}</span>
+            </div>
+          } @empty {
+            <div class="select-empty">No options found</div>
+          }
+        </div>
+      </div>
     }
+  </div>
+
+  @if (error) {
+    <span class="select-error">{{ error }}</span>
+  } @else if (hint) {
+    <span class="select-hint">{{ hint }}</span>
+  }
 </div>

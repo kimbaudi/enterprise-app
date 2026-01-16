@@ -1,158 +1,158 @@
 .avatar {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    background-color: var(--color-bg-secondary);
-    color: var(--color-text-primary);
-    font-weight: 600;
-    overflow: hidden;
-    user-select: none;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  font-weight: 600;
+  overflow: hidden;
+  user-select: none;
 }
 
 /* Sizes */
 .avatar-xs {
-    width: 1.5rem;
-    height: 1.5rem;
-    font-size: 0.625rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.625rem;
 }
 
 .avatar-sm {
-    width: 2rem;
-    height: 2rem;
-    font-size: 0.75rem;
+  width: 2rem;
+  height: 2rem;
+  font-size: 0.75rem;
 }
 
 .avatar-md {
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 0.875rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 0.875rem;
 }
 
 .avatar-lg {
-    width: 3rem;
-    height: 3rem;
-    font-size: 1rem;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1rem;
 }
 
 .avatar-xl {
-    width: 4rem;
-    height: 4rem;
-    font-size: 1.25rem;
+  width: 4rem;
+  height: 4rem;
+  font-size: 1.25rem;
 }
 
 /* Shapes */
 .avatar-circle {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 .avatar-square {
-    border-radius: 0;
+  border-radius: 0;
 }
 
 .avatar-rounded {
-    border-radius: 0.375rem;
+  border-radius: 0.375rem;
 }
 
 .avatar-xl.avatar-rounded {
-    border-radius: 0.5rem;
+  border-radius: 0.5rem;
 }
 
 /* Border */
 .avatar-border {
-    border: 2px solid var(--color-bg-primary);
-    box-shadow: 0 0 0 1px var(--color-border);
+  border: 2px solid var(--color-bg-primary);
+  box-shadow: 0 0 0 1px var(--color-border);
 }
 
 /* Image */
 .avatar-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Initials */
 .avatar-initials {
-    line-height: 1;
-    text-transform: uppercase;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 /* Icon */
 .avatar-icon {
-    font-size: 1.2em;
-    line-height: 1;
+  font-size: 1.2em;
+  line-height: 1;
 }
 
 /* Placeholder */
 .avatar-placeholder {
-    font-size: 1.2em;
-    opacity: 0.5;
-    line-height: 1;
+  font-size: 1.2em;
+  opacity: 0.5;
+  line-height: 1;
 }
 
 /* Status Indicator */
 .avatar-status {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 25%;
-    height: 25%;
-    border-radius: 50%;
-    border: 2px solid var(--color-bg-primary);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 25%;
+  height: 25%;
+  border-radius: 50%;
+  border: 2px solid var(--color-bg-primary);
 }
 
 .avatar-xs .avatar-status {
-    width: 0.375rem;
-    height: 0.375rem;
-    border-width: 1px;
+  width: 0.375rem;
+  height: 0.375rem;
+  border-width: 1px;
 }
 
 .avatar-sm .avatar-status {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-width: 1.5px;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-width: 1.5px;
 }
 
 .avatar-md .avatar-status {
-    width: 0.625rem;
-    height: 0.625rem;
+  width: 0.625rem;
+  height: 0.625rem;
 }
 
 .avatar-lg .avatar-status {
-    width: 0.75rem;
-    height: 0.75rem;
+  width: 0.75rem;
+  height: 0.75rem;
 }
 
 .avatar-xl .avatar-status {
-    width: 1rem;
-    height: 1rem;
-    border-width: 2.5px;
+  width: 1rem;
+  height: 1rem;
+  border-width: 2.5px;
 }
 
 .avatar-status-online {
-    background-color: var(--color-success);
+  background-color: var(--color-success);
 }
 
 .avatar-status-offline {
-    background-color: var(--color-text-secondary);
+  background-color: var(--color-text-secondary);
 }
 
 .avatar-status-away {
-    background-color: var(--color-warning);
+  background-color: var(--color-warning);
 }
 
 .avatar-status-busy {
-    background-color: var(--color-error);
+  background-color: var(--color-error);
 }
 
 /* Color variations for initials */
 .avatar-initials {
-    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
-    color: white;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

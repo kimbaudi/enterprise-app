@@ -1,72 +1,72 @@
 .checkbox-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .checkbox-label {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
 }
 
 .checkbox-label.disabled {
-    cursor: not-allowed;
-    opacity: 0.6;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .checkbox-input {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .checkbox-box {
-    position: relative;
-    width: 1.25rem;
-    height: 1.25rem;
-    border: 2px solid var(--color-border);
-    border-radius: 0.25rem;
-    background-color: var(--color-bg-primary);
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+  position: relative;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid var(--color-border);
+  border-radius: 0.25rem;
+  background-color: var(--color-bg-primary);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .checkbox-label:hover:not(.disabled) .checkbox-box {
-    border-color: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .checkbox-box.checked,
 .checkbox-box.indeterminate {
-    background-color: var(--color-primary);
-    border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .checkbox-icon {
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    line-height: 1;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1;
 }
 
 .checkbox-text {
-    font-size: 0.875rem;
-    color: var(--color-text-primary);
+  font-size: 0.875rem;
+  color: var(--color-text-primary);
 }
 
 .checkbox-error {
-    font-size: 0.75rem;
-    color: var(--color-error);
-    margin-left: 1.75rem;
+  font-size: 0.75rem;
+  color: var(--color-error);
+  margin-left: 1.75rem;
 }
 
 .checkbox-hint {
-    font-size: 0.75rem;
-    color: var(--color-text-secondary);
-    margin-left: 1.75rem;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  margin-left: 1.75rem;
 }

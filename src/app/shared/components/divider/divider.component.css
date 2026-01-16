@@ -1,220 +1,220 @@
 .divider {
-    border: none;
-    margin: 0;
+  border: none;
+  margin: 0;
 }
 
 /* Horizontal Divider */
 .divider-horizontal {
-    width: 100%;
-    display: block;
-    border-top-style: solid;
-    border-top-width: 1px;
-    border-top-color: var(--color-border);
+  width: 100%;
+  display: block;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: var(--color-border);
 }
 
 .divider-horizontal.divider-with-text {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    border: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: none;
 }
 
 /* Vertical Divider */
 .divider-vertical {
-    height: 100%;
-    display: inline-block;
-    border-left-style: solid;
-    border-left-width: 1px;
-    border-left-color: var(--color-border);
-    vertical-align: middle;
+  height: 100%;
+  display: inline-block;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-left-color: var(--color-border);
+  vertical-align: middle;
 }
 
 /* Divider Line for Text Variant */
 .divider-line {
-    flex: 1;
-    height: 1px;
-    background: var(--color-border);
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
 }
 
 .divider-text {
-    flex-shrink: 0;
-    color: var(--color-text-secondary);
-    font-size: 0.875rem;
-    font-weight: 500;
-    white-space: nowrap;
+  flex-shrink: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
 }
 
 /* Text Alignment */
 .divider-text-left .divider-line:first-child {
-    flex: 0 0 2rem;
+  flex: 0 0 2rem;
 }
 
 .divider-text-right .divider-line:last-child {
-    flex: 0 0 2rem;
+  flex: 0 0 2rem;
 }
 
 /* Styles */
 .divider-dashed {
-    border-style: dashed !important;
+  border-style: dashed !important;
 }
 
 .divider-dashed .divider-line {
-    background: none;
-    border-top: 1px dashed var(--color-border);
+  background: none;
+  border-top: 1px dashed var(--color-border);
 }
 
 .divider-dotted {
-    border-style: dotted !important;
+  border-style: dotted !important;
 }
 
 .divider-dotted .divider-line {
-    background: none;
-    border-top: 1px dotted var(--color-border);
+  background: none;
+  border-top: 1px dotted var(--color-border);
 }
 
 /* Thickness */
 .divider-thin {
-    border-width: 1px;
+  border-width: 1px;
 }
 
 .divider-thin .divider-line {
-    height: 1px;
+  height: 1px;
 }
 
 .divider-medium {
-    border-width: 2px;
+  border-width: 2px;
 }
 
 .divider-medium .divider-line {
-    height: 2px;
+  height: 2px;
 }
 
 .divider-thick {
-    border-width: 3px;
+  border-width: 3px;
 }
 
 .divider-thick .divider-line {
-    height: 3px;
+  height: 3px;
 }
 
 /* Vertical thickness adjustments */
 .divider-vertical.divider-thin {
-    border-left-width: 1px;
+  border-left-width: 1px;
 }
 
 .divider-vertical.divider-medium {
-    border-left-width: 2px;
+  border-left-width: 2px;
 }
 
 .divider-vertical.divider-thick {
-    border-left-width: 3px;
+  border-left-width: 3px;
 }
 
 /* Colors */
 .divider-default {
-    border-color: var(--color-border);
+  border-color: var(--color-border);
 }
 
 .divider-default .divider-line {
-    background: var(--color-border);
-    border-color: var(--color-border);
+  background: var(--color-border);
+  border-color: var(--color-border);
 }
 
 .divider-light {
-    border-color: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.06);
 }
 
 .divider-light .divider-line {
-    background: rgba(0, 0, 0, 0.06);
-    border-color: rgba(0, 0, 0, 0.06);
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.06);
 }
 
 .divider-dark {
-    border-color: var(--color-text-secondary);
+  border-color: var(--color-text-secondary);
 }
 
 .divider-dark .divider-line {
-    background: var(--color-text-secondary);
-    border-color: var(--color-text-secondary);
+  background: var(--color-text-secondary);
+  border-color: var(--color-text-secondary);
 }
 
 .divider-primary {
-    border-color: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .divider-primary .divider-line {
-    background: var(--color-primary);
-    border-color: var(--color-primary);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .divider-success {
-    border-color: var(--color-success);
+  border-color: var(--color-success);
 }
 
 .divider-success .divider-line {
-    background: var(--color-success);
-    border-color: var(--color-success);
+  background: var(--color-success);
+  border-color: var(--color-success);
 }
 
 .divider-error {
-    border-color: var(--color-error);
+  border-color: var(--color-error);
 }
 
 .divider-error .divider-line {
-    background: var(--color-error);
-    border-color: var(--color-error);
+  background: var(--color-error);
+  border-color: var(--color-error);
 }
 
 .divider-warning {
-    border-color: var(--color-warning);
+  border-color: var(--color-warning);
 }
 
 .divider-warning .divider-line {
-    background: var(--color-warning);
-    border-color: var(--color-warning);
+  background: var(--color-warning);
+  border-color: var(--color-warning);
 }
 
 .divider-info {
-    border-color: var(--color-info);
+  border-color: var(--color-info);
 }
 
 .divider-info .divider-line {
-    background: var(--color-info);
-    border-color: var(--color-info);
+  background: var(--color-info);
+  border-color: var(--color-info);
 }
 
 /* Spacing */
 .divider-spacing-none {
-    margin: 0;
+  margin: 0;
 }
 
 .divider-spacing-sm.divider-horizontal {
-    margin: 0.5rem 0;
+  margin: 0.5rem 0;
 }
 
 .divider-spacing-sm.divider-vertical {
-    margin: 0 0.5rem;
+  margin: 0 0.5rem;
 }
 
 .divider-spacing-md.divider-horizontal {
-    margin: 1rem 0;
+  margin: 1rem 0;
 }
 
 .divider-spacing-md.divider-vertical {
-    margin: 0 1rem;
+  margin: 0 1rem;
 }
 
 .divider-spacing-lg.divider-horizontal {
-    margin: 1.5rem 0;
+  margin: 1.5rem 0;
 }
 
 .divider-spacing-lg.divider-vertical {
-    margin: 0 1.5rem;
+  margin: 0 1.5rem;
 }
 
 /* Dark mode adjustments */
 :host-context(.dark-theme) .divider-light .divider-line,
 :host-context(.dark-theme) .divider-light {
-    border-color: rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
 }

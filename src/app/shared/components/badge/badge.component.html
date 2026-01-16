@@ -1,17 +1,20 @@
-<span class="badge" [class]="'badge-' + variant + ' badge-' + color + ' badge-' + size" [class.badge-rounded]="rounded"
-    [class.badge-with-icon]="icon || dot" role="status">
-    @if (dot) {
+<span
+  class="badge"
+  [class]="'badge-' + variant + ' badge-' + color + ' badge-' + size"
+  [class.badge-rounded]="rounded"
+  [class.badge-with-icon]="icon || dot"
+  role="status"
+>
+  @if (dot) {
     <span class="badge-dot"></span>
-    }
-    @if (icon) {
+  }
+  @if (icon) {
     <span class="badge-icon">{{ icon }}</span>
-    }
-    <span class="badge-content">
-        <ng-content></ng-content>
-    </span>
-    @if (removable) {
-    <button type="button" class="badge-remove" aria-label="Remove">
-        ✕
-    </button>
-    }
+  }
+  <span class="badge-content">
+    <ng-content></ng-content>
+  </span>
+  @if (removable) {
+    <button type="button" class="badge-remove" aria-label="Remove">✕</button>
+  }
 </span>

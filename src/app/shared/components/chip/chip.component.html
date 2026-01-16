@@ -1,17 +1,17 @@
 <div [class]="chipClasses" (click)="onClick()">
-    @if (avatar) {
+  @if (avatar) {
     <img [src]="avatar" alt="" class="chip-avatar" />
-    }
+  }
 
-    @if (icon) {
+  @if (icon) {
     <span class="chip-icon">{{ icon }}</span>
-    }
+  }
 
-    <span class="chip-label">{{ label }}</span>
+  <span class="chip-label">{{ label }}</span>
 
-    @if (removable && !disabled) {
+  @if (removable && !disabled) {
     <button type="button" class="chip-remove" (click)="onRemove($event)" aria-label="Remove">
-        ✕
+      ✕
     </button>
-    }
+  }
 </div>

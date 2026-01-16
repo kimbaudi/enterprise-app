@@ -1,22 +1,22 @@
 <div class="alert" [class]="'alert-' + type + ' alert-' + variant" role="alert">
-    @if (showIcon) {
+  @if (showIcon) {
     <div class="alert-icon">
-        <span class="alert-icon-content">{{ defaultIcon }}</span>
+      <span class="alert-icon-content">{{ defaultIcon }}</span>
     </div>
+  }
+
+  <div class="alert-content">
+    @if (title) {
+      <div class="alert-title">{{ title }}</div>
     }
-
-    <div class="alert-content">
-        @if (title) {
-        <div class="alert-title">{{ title }}</div>
-        }
-        <div class="alert-message">
-            <ng-content></ng-content>
-        </div>
+    <div class="alert-message">
+      <ng-content></ng-content>
     </div>
+  </div>
 
-    @if (dismissible) {
+  @if (dismissible) {
     <button type="button" class="alert-close" (click)="onDismiss()" aria-label="Dismiss alert">
-        ✕
+      ✕
     </button>
-    }
+  }
 </div>

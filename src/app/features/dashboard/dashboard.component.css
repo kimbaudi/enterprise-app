@@ -246,7 +246,7 @@ app-breadcrumb {
   gap: 0.75rem;
 }
 
-.badge-demo-item>span {
+.badge-demo-item > span {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -292,7 +292,7 @@ app-breadcrumb {
   gap: 0.5rem;
 }
 
-.progress-demo-item>span {
+.progress-demo-item > span {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -331,7 +331,7 @@ app-breadcrumb {
   gap: 0.75rem;
 }
 
-.skeleton-demo-item>span {
+.skeleton-demo-item > span {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -572,7 +572,7 @@ app-breadcrumb {
   gap: 1rem;
 }
 
-.pagination-demo-sizes .pagination-demo-item>span {
+.pagination-demo-sizes .pagination-demo-item > span {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -591,7 +591,7 @@ app-breadcrumb {
   gap: 0.75rem;
 }
 
-.pagination-demo-grid .pagination-demo-item>span {
+.pagination-demo-grid .pagination-demo-item > span {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -1114,4 +1114,224 @@ li {
 .use-case-content p {
   margin-bottom: 1rem;
   font-size: 0.9375rem;
+}
+
+/* Rating Section */
+.rating-section {
+  margin-top: 3rem;
+}
+
+.rating-demo {
+  padding: 1.5rem;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.rating-demo h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.rating-demo h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.rating-demo h5 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.rating-demo p {
+  margin: 0.5rem 0 0;
+  color: var(--color-text-secondary);
+}
+
+.rating-sizes,
+.rating-colors,
+.custom-icons {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.rating-sizes > div,
+.rating-colors > div,
+.custom-icons > div {
+  flex: 1;
+  min-width: 150px;
+}
+
+/* Rating Use Cases */
+.rating-use-case {
+  padding: 2rem;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.rating-use-case h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* Product Review */
+.product-review {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.product-info {
+  flex: 1;
+  min-width: 300px;
+}
+
+.product-info h4 {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.review-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.review-count {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.product-description {
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.add-review {
+  flex: 0 0 auto;
+  padding: 1.5rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  min-width: 250px;
+}
+
+/* Restaurant Review */
+.restaurant-review h4 {
+  margin: 0 0 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.review-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.review-category {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.375rem;
+}
+
+.category-label {
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.overall-rating {
+  padding: 1.5rem;
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-primary);
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.overall-rating h5 {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Skills Assessment */
+.skills-assessment h4 {
+  margin: 0 0 1.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.skill-item:first-child {
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+}
+
+.skill-item:last-child {
+  border-bottom-left-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+  border-bottom: none;
+}
+
+.skill-name {
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .product-review {
+    flex-direction: column;
+  }
+
+  .rating-sizes,
+  .rating-colors,
+  .custom-icons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .review-category {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
 }

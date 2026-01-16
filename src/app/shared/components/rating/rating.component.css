@@ -1,0 +1,144 @@
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rating-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Star */
+.rating-star {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  position: relative;
+}
+
+.rating-readonly .rating-star,
+.rating-disabled .rating-star {
+  cursor: default;
+}
+
+.rating-disabled .rating-star {
+  opacity: 0.5;
+}
+
+.star-icon {
+  display: inline-block;
+  line-height: 1;
+}
+
+/* Half Star */
+.star-half {
+  position: relative;
+  display: inline-block;
+}
+
+.star-half-filled {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  width: 50%;
+  display: inline-block;
+}
+
+.star-half-empty {
+  display: inline-block;
+}
+
+/* Sizes */
+.rating-sm .star-icon {
+  font-size: 1rem;
+}
+
+.rating-md .star-icon {
+  font-size: 1.5rem;
+}
+
+.rating-lg .star-icon {
+  font-size: 2rem;
+}
+
+/* Colors - Full Stars */
+.rating-default .rating-star.full .star-icon,
+.rating-default .rating-star.half .star-half-filled {
+  color: #fbbf24;
+}
+
+.rating-default .rating-star.empty .star-icon {
+  color: #d1d5db;
+}
+
+.rating-primary .rating-star.full .star-icon,
+.rating-primary .rating-star.half .star-half-filled {
+  color: var(--color-primary);
+}
+
+.rating-primary .rating-star.empty .star-icon {
+  color: #d1d5db;
+}
+
+.rating-success .rating-star.full .star-icon,
+.rating-success .rating-star.half .star-half-filled {
+  color: var(--color-success);
+}
+
+.rating-success .rating-star.empty .star-icon {
+  color: #d1d5db;
+}
+
+.rating-warning .rating-star.full .star-icon,
+.rating-warning .rating-star.half .star-half-filled {
+  color: var(--color-warning);
+}
+
+.rating-warning .rating-star.empty .star-icon {
+  color: #d1d5db;
+}
+
+.rating-error .rating-star.full .star-icon,
+.rating-error .rating-star.half .star-half-filled {
+  color: var(--color-error);
+}
+
+.rating-error .rating-star.empty .star-icon {
+  color: #d1d5db;
+}
+
+/* Hover Effects */
+.rating:not(.rating-readonly):not(.rating-disabled) .rating-star:hover {
+  transform: scale(1.1);
+}
+
+/* Count */
+.rating-count {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.rating-sm .rating-count {
+  font-size: 0.75rem;
+}
+
+.rating-lg .rating-count {
+  font-size: 1rem;
+}
+
+/* Dark mode adjustments */
+:host-context(.dark-theme) .rating-star.empty .star-icon {
+  color: #4b5563;
+}
+
+:host-context(.dark-theme) .rating-star.empty .star-half-empty {
+  color: #4b5563;
+}

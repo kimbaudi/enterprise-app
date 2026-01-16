@@ -1,51 +1,76 @@
 <nav class="pagination" [class]="'pagination-' + size" role="navigation" aria-label="Pagination">
-    <div class="pagination-controls">
-        @if (showFirstLast) {
-        <button type="button" class="pagination-button pagination-first" [disabled]="isFirstPage"
-            (click)="goToFirstPage()" aria-label="First page">
-            ⟪
-        </button>
-        }
-
-        @if (showPrevNext) {
-        <button type="button" class="pagination-button pagination-prev" [disabled]="isFirstPage"
-            (click)="goToPreviousPage()" aria-label="Previous page">
-            ‹
-        </button>
-        }
-
-        <div class="pagination-pages">
-            @for (page of pages(); track page) {
-            @if (page === '...') {
-            <span class="pagination-ellipsis">{{ page }}</span>
-            } @else {
-            <button type="button" class="pagination-button pagination-page" [class.active]="isCurrentPage(page)"
-                (click)="goToPage(page)" [attr.aria-label]="'Page ' + page"
-                [attr.aria-current]="isCurrentPage(page) ? 'page' : null">
-                {{ page }}
-            </button>
-            }
-            }
-        </div>
-
-        @if (showPrevNext) {
-        <button type="button" class="pagination-button pagination-next" [disabled]="isLastPage" (click)="goToNextPage()"
-            aria-label="Next page">
-            ›
-        </button>
-        }
-
-        @if (showFirstLast) {
-        <button type="button" class="pagination-button pagination-last" [disabled]="isLastPage" (click)="goToLastPage()"
-            aria-label="Last page">
-            ⟫
-        </button>
-        }
-    </div>
-
-    @if (showPageInfo) {
-    <div class="pagination-info" aria-live="polite">
-        {{ pageInfo() }}
-    </div>
+  <div class="pagination-controls">
+    @if (showFirstLast) {
+      <button
+        type="button"
+        class="pagination-button pagination-first"
+        [disabled]="isFirstPage"
+        (click)="goToFirstPage()"
+        aria-label="First page"
+      >
+        ⟪
+      </button>
     }
+
+    @if (showPrevNext) {
+      <button
+        type="button"
+        class="pagination-button pagination-prev"
+        [disabled]="isFirstPage"
+        (click)="goToPreviousPage()"
+        aria-label="Previous page"
+      >
+        ‹
+      </button>
+    }
+
+    <div class="pagination-pages">
+      @for (page of pages(); track page) {
+        @if (page === '...') {
+          <span class="pagination-ellipsis">{{ page }}</span>
+        } @else {
+          <button
+            type="button"
+            class="pagination-button pagination-page"
+            [class.active]="isCurrentPage(page)"
+            (click)="goToPage(page)"
+            [attr.aria-label]="'Page ' + page"
+            [attr.aria-current]="isCurrentPage(page) ? 'page' : null"
+          >
+            {{ page }}
+          </button>
+        }
+      }
+    </div>
+
+    @if (showPrevNext) {
+      <button
+        type="button"
+        class="pagination-button pagination-next"
+        [disabled]="isLastPage"
+        (click)="goToNextPage()"
+        aria-label="Next page"
+      >
+        ›
+      </button>
+    }
+
+    @if (showFirstLast) {
+      <button
+        type="button"
+        class="pagination-button pagination-last"
+        [disabled]="isLastPage"
+        (click)="goToLastPage()"
+        aria-label="Last page"
+      >
+        ⟫
+      </button>
+    }
+  </div>
+
+  @if (showPageInfo) {
+    <div class="pagination-info" aria-live="polite">
+      {{ pageInfo() }}
+    </div>
+  }
 </nav>

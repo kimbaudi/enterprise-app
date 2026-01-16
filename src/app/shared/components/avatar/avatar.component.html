@@ -1,16 +1,23 @@
-<div class="avatar" [class]="'avatar-' + size + ' avatar-' + shape + (border ? ' avatar-border' : '')"
-    [attr.aria-label]="alt || 'Avatar'">
-    @if (showImage) {
+<div
+  class="avatar"
+  [class]="'avatar-' + size + ' avatar-' + shape + (border ? ' avatar-border' : '')"
+  [attr.aria-label]="alt || 'Avatar'"
+>
+  @if (showImage) {
     <img [src]="src" [alt]="alt" class="avatar-image" (error)="onImageError()" />
-    } @else if (showInitials) {
+  } @else if (showInitials) {
     <span class="avatar-initials">{{ displayInitials }}</span>
-    } @else if (showIcon) {
+  } @else if (showIcon) {
     <span class="avatar-icon">{{ icon }}</span>
-    } @else if (showPlaceholder) {
+  } @else if (showPlaceholder) {
     <span class="avatar-placeholder">👤</span>
-    }
+  }
 
-    @if (status) {
-    <span class="avatar-status" [class]="'avatar-status-' + status" [attr.aria-label]="status"></span>
-    }
+  @if (status) {
+    <span
+      class="avatar-status"
+      [class]="'avatar-status-' + status"
+      [attr.aria-label]="status"
+    ></span>
+  }
 </div>

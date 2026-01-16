@@ -1,14 +1,11 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '@core/services/auth.service';
 import { ButtonComponent } from '@shared/components/button/button.component';
 import { CardComponent } from '@shared/components/card/card.component';
-import {
-  TableComponent,
-  TableColumn,
-} from '@shared/components/table/table.component';
+import { TableComponent, TableColumn } from '@shared/components/table/table.component';
 import { ModalComponent } from '@shared/components/modal/modal.component';
 import { ModalService } from '@shared/components/modal/modal.service';
 import { ThemeToggleComponent } from '@shared/components/theme-toggle/theme-toggle.component';
@@ -38,6 +35,7 @@ import { ChipComponent } from '@shared/components/chip/chip.component';
 import { DividerComponent } from '@shared/components/divider/divider.component';
 import { EmptyStateComponent } from '@shared/components/empty-state/empty-state.component';
 import { FileUploadComponent } from '@shared/components/file-upload/file-upload.component';
+import { RatingComponent } from '@shared/components/rating/rating.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -72,6 +70,7 @@ import { FileUploadComponent } from '@shared/components/file-upload/file-upload.
     DividerComponent,
     EmptyStateComponent,
     FileUploadComponent,
+    RatingComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -304,18 +303,11 @@ export class DashboardComponent {
   }
 
   showErrorToast(): void {
-    this.toastService.error(
-      'Something went wrong. Please try again.',
-      'Error',
-      7000
-    );
+    this.toastService.error('Something went wrong. Please try again.', 'Error', 7000);
   }
 
   showWarningToast(): void {
-    this.toastService.warning(
-      'This action requires your attention.',
-      'Warning'
-    );
+    this.toastService.warning('This action requires your attention.', 'Warning');
   }
 
   showInfoToast(): void {
@@ -326,4 +318,25 @@ export class DashboardComponent {
     this.paginationCurrentPage.set(page);
     console.log('Page changed to:', page);
   }
+
+  // Rating demo data
+  userRating = signal(0);
+  halfStarRating = signal(3.5);
+  productRating = signal(0);
+  foodRating = signal(0);
+  serviceRating = signal(0);
+  atmosphereRating = signal(0);
+  valueRating = signal(0);
+
+  overallRating = computed(() => {
+    const ratings = [
+      this.foodRating(),
+      this.serviceRating(),
+      this.atmosphereRating(),
+      this.valueRating(),
+    ];
+    const sum = ratings.reduce((acc, val) => acc + val, 0);
+    const count = ratings.filter((r) => r > 0).length;
+    return count > 0 ? Math.round((sum / count) * 2) / 2 : 0;
+  });
 }

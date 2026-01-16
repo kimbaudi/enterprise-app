@@ -6,12 +6,7 @@ import { ToastContainerComponent } from '@shared/components/toast-container/toas
 
 @Component({
   selector: 'app-root',
-  imports: [
-    RouterOutlet,
-    LoadingSpinnerComponent,
-    NotificationComponent,
-    ToastContainerComponent,
-  ],
+  imports: [RouterOutlet, LoadingSpinnerComponent, NotificationComponent, ToastContainerComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

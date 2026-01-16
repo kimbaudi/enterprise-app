@@ -4,7 +4,13 @@
   <div class="dashboard-header">
     <h1>Dashboard</h1>
     <div class="header-actions">
-      <app-dropdown label="Actions" icon="⚙️" variant="outline" position="right" (itemClick)="onDropdownAction($event)">
+      <app-dropdown
+        label="Actions"
+        icon="⚙️"
+        variant="outline"
+        position="right"
+        (itemClick)="onDropdownAction($event)"
+      >
         <app-dropdown-item id="edit" icon="✏️" label="Edit"></app-dropdown-item>
         <app-dropdown-item id="duplicate" icon="📋" label="Duplicate"></app-dropdown-item>
         <app-dropdown-item [divider]="true"></app-dropdown-item>
@@ -58,7 +64,9 @@
         <app-tabs [tabs]="profileTabs" variant="default" [activeTabId]="activeProfileTab()">
           <app-tab-panel [tabId]="'overview'" [active]="activeProfileTab() === 'overview'">
             <h3>Overview</h3>
-            <p>Welcome to your dashboard overview. Here you can see key metrics and recent activity.</p>
+            <p>
+              Welcome to your dashboard overview. Here you can see key metrics and recent activity.
+            </p>
             <div class="overview-stats">
               <div class="stat-item">
                 <span class="stat-number">156</span>
@@ -120,9 +128,9 @@
         <app-accordion [allowMultiple]="false">
           <app-accordion-item id="faq1" title="What is this application?" icon="❓">
             <p>
-              This is an enterprise-ready Angular application built with modern best practices
-              and design patterns. It includes state management with NgRx, authentication,
-              comprehensive utilities, and a complete component library.
+              This is an enterprise-ready Angular application built with modern best practices and
+              design patterns. It includes state management with NgRx, authentication, comprehensive
+              utilities, and a complete component library.
             </p>
           </app-accordion-item>
 
@@ -142,16 +150,16 @@
               <li><strong>State Management:</strong> NgRx for predictable state updates</li>
               <li><strong>Authentication:</strong> JWT-based auth with refresh tokens</li>
               <li><strong>UI Components:</strong> 15+ reusable components with dark mode</li>
-              <li><strong>Form Controls:</strong> Input, select, checkbox, radio with validation</li>
+              <li>
+                <strong>Form Controls:</strong> Input, select, checkbox, radio with validation
+              </li>
               <li><strong>Utilities:</strong> 100+ helper functions for common tasks</li>
               <li><strong>Testing:</strong> Comprehensive test setup with Jest</li>
             </ul>
           </app-accordion-item>
 
           <app-accordion-item id="faq4" title="Is it production-ready?" icon="✅">
-            <p>
-              Yes! This application follows enterprise best practices including:
-            </p>
+            <p>Yes! This application follows enterprise best practices including:</p>
             <ul>
               <li>TypeScript strict mode for type safety</li>
               <li>Modular architecture with lazy-loaded features</li>
@@ -164,9 +172,9 @@
 
           <app-accordion-item id="faq5" title="How can I customize it?" icon="🎨">
             <p>
-              Customization is straightforward with CSS variables for theming,
-              modular components that can be extended, and clear separation of concerns.
-              Check the documentation for detailed customization guides.
+              Customization is straightforward with CSS variables for theming, modular components
+              that can be extended, and clear separation of concerns. Check the documentation for
+              detailed customization guides.
             </p>
           </app-accordion-item>
         </app-accordion>
@@ -178,12 +186,22 @@
         <div class="dropdown-demo">
           <div class="dropdown-example">
             <h4>Action Menu</h4>
-            <app-dropdown label="Actions" icon="⚙️" variant="outline" (itemClick)="onDropdownAction($event)">
+            <app-dropdown
+              label="Actions"
+              icon="⚙️"
+              variant="outline"
+              (itemClick)="onDropdownAction($event)"
+            >
               <app-dropdown-item id="edit" icon="✏️" label="Edit"></app-dropdown-item>
               <app-dropdown-item id="duplicate" icon="📋" label="Duplicate"></app-dropdown-item>
               <app-dropdown-item [divider]="true"></app-dropdown-item>
               <app-dropdown-item id="archive" icon="📦" label="Archive"></app-dropdown-item>
-              <app-dropdown-item id="delete" icon="🗑️" label="Delete" [danger]="true"></app-dropdown-item>
+              <app-dropdown-item
+                id="delete"
+                icon="🗑️"
+                label="Delete"
+                [danger]="true"
+              ></app-dropdown-item>
             </app-dropdown>
           </div>
 
@@ -215,7 +233,12 @@
               <app-dropdown-item id="billing" icon="💳" label="Billing"></app-dropdown-item>
               <app-dropdown-item [divider]="true"></app-dropdown-item>
               <app-dropdown-item id="help" icon="❓" label="Help & Support"></app-dropdown-item>
-              <app-dropdown-item id="logout" icon="🚪" label="Logout" [danger]="true"></app-dropdown-item>
+              <app-dropdown-item
+                id="logout"
+                icon="🚪"
+                label="Logout"
+                [danger]="true"
+              ></app-dropdown-item>
             </app-dropdown>
           </div>
         </div>
@@ -226,18 +249,10 @@
       <app-card title="Toast Notification System Demo">
         <p>Click the buttons below to see different types of toast notifications:</p>
         <div class="toast-demo-buttons">
-          <app-button variant="primary" (click)="showSuccessToast()">
-            Show Success
-          </app-button>
-          <app-button variant="secondary" (click)="showErrorToast()">
-            Show Error
-          </app-button>
-          <app-button variant="outline" (click)="showWarningToast()">
-            Show Warning
-          </app-button>
-          <app-button variant="outline" (click)="showInfoToast()">
-            Show Info
-          </app-button>
+          <app-button variant="primary" (click)="showSuccessToast()"> Show Success </app-button>
+          <app-button variant="secondary" (click)="showErrorToast()"> Show Error </app-button>
+          <app-button variant="outline" (click)="showWarningToast()"> Show Warning </app-button>
+          <app-button variant="outline" (click)="showInfoToast()"> Show Info </app-button>
         </div>
       </app-card>
     </div>
@@ -430,20 +445,40 @@
           </div>
           <div class="progress-demo-item">
             <span>Striped + Animated</span>
-            <app-progress [value]="70" variant="striped" [animated]="true" color="warning"></app-progress>
+            <app-progress
+              [value]="70"
+              variant="striped"
+              [animated]="true"
+              color="warning"
+            ></app-progress>
           </div>
         </div>
 
         <h3>With Labels</h3>
         <div class="progress-demo-grid">
           <div class="progress-demo-item">
-            <app-progress [value]="45" [showLabel]="true" [showPercentage]="true" color="primary"></app-progress>
+            <app-progress
+              [value]="45"
+              [showLabel]="true"
+              [showPercentage]="true"
+              color="primary"
+            ></app-progress>
           </div>
           <div class="progress-demo-item">
-            <app-progress [value]="78" [showLabel]="true" label="Uploading files..." color="success"></app-progress>
+            <app-progress
+              [value]="78"
+              [showLabel]="true"
+              label="Uploading files..."
+              color="success"
+            ></app-progress>
           </div>
           <div class="progress-demo-item">
-            <app-progress [value]="30" [showPercentage]="true" size="lg" color="info"></app-progress>
+            <app-progress
+              [value]="30"
+              [showPercentage]="true"
+              size="lg"
+              color="info"
+            ></app-progress>
           </div>
         </div>
 
@@ -466,18 +501,36 @@
         <h3>Real-world Examples</h3>
         <div class="progress-demo-grid">
           <div class="progress-demo-item">
-            <app-progress [value]="33" [showLabel]="true" label="Project Alpha: 1 of 3 tasks"
-              color="primary"></app-progress>
+            <app-progress
+              [value]="33"
+              [showLabel]="true"
+              label="Project Alpha: 1 of 3 tasks"
+              color="primary"
+            ></app-progress>
           </div>
           <div class="progress-demo-item">
-            <app-progress [value]="88" [showLabel]="true" label="Download: 88 MB of 100 MB"
-              color="success"></app-progress>
+            <app-progress
+              [value]="88"
+              [showLabel]="true"
+              label="Download: 88 MB of 100 MB"
+              color="success"
+            ></app-progress>
           </div>
           <div class="progress-demo-item">
-            <app-progress [value]="15" [showLabel]="true" label="Disk Space: 15% used" color="warning"></app-progress>
+            <app-progress
+              [value]="15"
+              [showLabel]="true"
+              label="Disk Space: 15% used"
+              color="warning"
+            ></app-progress>
           </div>
           <div class="progress-demo-item">
-            <app-progress [value]="95" [showLabel]="true" label="Memory: 95% (Critical)" color="error"></app-progress>
+            <app-progress
+              [value]="95"
+              [showLabel]="true"
+              label="Memory: 95% (Critical)"
+              color="error"
+            ></app-progress>
           </div>
         </div>
       </app-card>
@@ -572,25 +625,25 @@
         <h3>List Item Skeleton</h3>
         <div class="skeleton-list-demo">
           @for (item of [1, 2, 3]; track item) {
-          <div class="skeleton-list-item">
-            <app-skeleton shape="circle" width="3rem" height="3rem"></app-skeleton>
-            <div class="skeleton-list-content">
-              <app-skeleton shape="text" width="40%" height="1.25rem"></app-skeleton>
-              <app-skeleton shape="text" width="80%"></app-skeleton>
+            <div class="skeleton-list-item">
+              <app-skeleton shape="circle" width="3rem" height="3rem"></app-skeleton>
+              <div class="skeleton-list-content">
+                <app-skeleton shape="text" width="40%" height="1.25rem"></app-skeleton>
+                <app-skeleton shape="text" width="80%"></app-skeleton>
+              </div>
             </div>
-          </div>
           }
         </div>
 
         <h3>Table Skeleton</h3>
         <div class="skeleton-table-demo">
           @for (row of [1, 2, 3, 4]; track row) {
-          <div class="skeleton-table-row">
-            <app-skeleton width="3rem" height="3rem" [rounded]="true"></app-skeleton>
-            <app-skeleton width="100%" height="1rem"></app-skeleton>
-            <app-skeleton width="100%" height="1rem"></app-skeleton>
-            <app-skeleton width="100%" height="1rem"></app-skeleton>
-          </div>
+            <div class="skeleton-table-row">
+              <app-skeleton width="3rem" height="3rem" [rounded]="true"></app-skeleton>
+              <app-skeleton width="100%" height="1rem"></app-skeleton>
+              <app-skeleton width="100%" height="1rem"></app-skeleton>
+              <app-skeleton width="100%" height="1rem"></app-skeleton>
+            </div>
           }
         </div>
       </app-card>
@@ -598,7 +651,10 @@
 
     <div class="tooltip-section">
       <app-card title="Tooltip Component Demo">
-        <p>Tooltips provide contextual information on hover. Hover over the elements below to see tooltips.</p>
+        <p>
+          Tooltips provide contextual information on hover. Hover over the elements below to see
+          tooltips.
+        </p>
 
         <h3>Tooltip Positions</h3>
         <div class="tooltip-demo-positions">
@@ -619,23 +675,39 @@
         <h3>With Icons and Badges</h3>
         <div class="tooltip-demo-grid">
           <div class="tooltip-demo-item">
-            <span appTooltip="Click to edit your profile settings" tooltipPosition="top" style="cursor: pointer;">
+            <span
+              appTooltip="Click to edit your profile settings"
+              tooltipPosition="top"
+              style="cursor: pointer"
+            >
               ⚙️ Settings
             </span>
           </div>
           <div class="tooltip-demo-item">
-            <span appTooltip="5 new notifications available" tooltipPosition="right" style="cursor: pointer;">
+            <span
+              appTooltip="5 new notifications available"
+              tooltipPosition="right"
+              style="cursor: pointer"
+            >
               🔔 Notifications
               <app-badge variant="solid" color="error" [rounded]="true" size="sm">5</app-badge>
             </span>
           </div>
           <div class="tooltip-demo-item">
-            <span appTooltip="View your account information" tooltipPosition="bottom" style="cursor: pointer;">
+            <span
+              appTooltip="View your account information"
+              tooltipPosition="bottom"
+              style="cursor: pointer"
+            >
               👤 Profile
             </span>
           </div>
           <div class="tooltip-demo-item">
-            <span appTooltip="Toggle dark/light theme" tooltipPosition="left" style="cursor: pointer;">
+            <span
+              appTooltip="Toggle dark/light theme"
+              tooltipPosition="left"
+              style="cursor: pointer"
+            >
               🌓 Theme
             </span>
           </div>
@@ -645,15 +717,22 @@
         <div class="tooltip-demo-info">
           <p>
             Hover over the
-            <span appTooltip="This is helpful contextual information" tooltipPosition="top" class="tooltip-trigger">
+            <span
+              appTooltip="This is helpful contextual information"
+              tooltipPosition="top"
+              class="tooltip-trigger"
+            >
               underlined text
             </span>
             to see additional information.
           </p>
           <p>
             Need help? Check the
-            <span appTooltip="Documentation provides detailed guides and examples" tooltipPosition="right"
-              class="tooltip-trigger">
+            <span
+              appTooltip="Documentation provides detailed guides and examples"
+              tooltipPosition="right"
+              class="tooltip-trigger"
+            >
               documentation
             </span>
             for more details.
@@ -665,7 +744,11 @@
           <div class="form-field">
             <label>
               Username
-              <span appTooltip="Must be 3-20 characters, alphanumeric only" tooltipPosition="right" class="help-icon">
+              <span
+                appTooltip="Must be 3-20 characters, alphanumeric only"
+                tooltipPosition="right"
+                class="help-icon"
+              >
                 ℹ️
               </span>
             </label>
@@ -674,8 +757,11 @@
           <div class="form-field">
             <label>
               Password
-              <span appTooltip="Minimum 8 characters with uppercase, lowercase, and numbers" tooltipPosition="right"
-                class="help-icon">
+              <span
+                appTooltip="Minimum 8 characters with uppercase, lowercase, and numbers"
+                tooltipPosition="right"
+                class="help-icon"
+              >
                 ℹ️
               </span>
             </label>
@@ -685,31 +771,61 @@
 
         <h3>Action Buttons</h3>
         <div class="tooltip-demo-actions">
-          <app-button appTooltip="Save your changes" tooltipPosition="top" variant="primary" size="sm">
+          <app-button
+            appTooltip="Save your changes"
+            tooltipPosition="top"
+            variant="primary"
+            size="sm"
+          >
             💾 Save
           </app-button>
-          <app-button appTooltip="Discard all changes" tooltipPosition="top" variant="secondary" size="sm">
+          <app-button
+            appTooltip="Discard all changes"
+            tooltipPosition="top"
+            variant="secondary"
+            size="sm"
+          >
             ❌ Cancel
           </app-button>
-          <app-button appTooltip="Download as PDF" tooltipPosition="top" variant="outline" size="sm">
+          <app-button
+            appTooltip="Download as PDF"
+            tooltipPosition="top"
+            variant="outline"
+            size="sm"
+          >
             📥 Export
           </app-button>
-          <app-button appTooltip="Delete permanently (cannot be undone)" tooltipPosition="top" variant="outline"
-            size="sm">
+          <app-button
+            appTooltip="Delete permanently (cannot be undone)"
+            tooltipPosition="top"
+            variant="outline"
+            size="sm"
+          >
             🗑️ Delete
           </app-button>
         </div>
 
         <h3>Status Indicators</h3>
         <div class="tooltip-demo-status">
-          <div appTooltip="System is running normally" tooltipPosition="top" class="status-indicator status-success">
+          <div
+            appTooltip="System is running normally"
+            tooltipPosition="top"
+            class="status-indicator status-success"
+          >
             <app-badge variant="solid" color="success" [dot]="true">Online</app-badge>
           </div>
-          <div appTooltip="Warning: High memory usage detected" tooltipPosition="top"
-            class="status-indicator status-warning">
+          <div
+            appTooltip="Warning: High memory usage detected"
+            tooltipPosition="top"
+            class="status-indicator status-warning"
+          >
             <app-badge variant="solid" color="warning" [dot]="true">Warning</app-badge>
           </div>
-          <div appTooltip="Error: Connection failed" tooltipPosition="top" class="status-indicator status-error">
+          <div
+            appTooltip="Error: Connection failed"
+            tooltipPosition="top"
+            class="status-indicator status-error"
+          >
             <app-badge variant="solid" color="error" [dot]="true">Error</app-badge>
           </div>
         </div>
@@ -718,14 +834,19 @@
 
     <div class="users-section">
       <app-card title="Users Management">
-        <app-table [columns]="columns" [data]="users" [config]="{
+        <app-table
+          [columns]="columns"
+          [data]="users"
+          [config]="{
             pageSize: 5,
             pageSizeOptions: [5, 10, 20],
             showPagination: true,
             showSearch: true,
             striped: true,
             hoverable: true,
-          }" (rowClick)="onRowClick($event)"></app-table>
+          }"
+          (rowClick)="onRowClick($event)"
+        ></app-table>
       </app-card>
     </div>
 
@@ -735,20 +856,34 @@
 
         <h3>Basic Pagination</h3>
         <div class="pagination-demo">
-          <app-pagination [totalItems]="paginationTotalItems" [pageSize]="paginationPageSize"
-            [currentPage]="paginationCurrentPage()" (pageChange)="onPaginationPageChange($event)">
+          <app-pagination
+            [totalItems]="paginationTotalItems"
+            [pageSize]="paginationPageSize"
+            [currentPage]="paginationCurrentPage()"
+            (pageChange)="onPaginationPageChange($event)"
+          >
           </app-pagination>
         </div>
 
         <h3>Without First/Last Buttons</h3>
         <div class="pagination-demo">
-          <app-pagination [totalItems]="100" [pageSize]="10" [currentPage]="1" [showFirstLast]="false">
+          <app-pagination
+            [totalItems]="100"
+            [pageSize]="10"
+            [currentPage]="1"
+            [showFirstLast]="false"
+          >
           </app-pagination>
         </div>
 
         <h3>Without Page Info</h3>
         <div class="pagination-demo">
-          <app-pagination [totalItems]="150" [pageSize]="15" [currentPage]="1" [showPageInfo]="false">
+          <app-pagination
+            [totalItems]="150"
+            [pageSize]="15"
+            [currentPage]="1"
+            [showPageInfo]="false"
+          >
           </app-pagination>
         </div>
 
@@ -783,33 +918,28 @@
         <div class="pagination-demo-grid">
           <div class="pagination-demo-item">
             <span>10 items per page</span>
-            <app-pagination [totalItems]="100" [pageSize]="10" [currentPage]="1">
-            </app-pagination>
+            <app-pagination [totalItems]="100" [pageSize]="10" [currentPage]="1"> </app-pagination>
           </div>
 
           <div class="pagination-demo-item">
             <span>25 items per page</span>
-            <app-pagination [totalItems]="100" [pageSize]="25" [currentPage]="1">
-            </app-pagination>
+            <app-pagination [totalItems]="100" [pageSize]="25" [currentPage]="1"> </app-pagination>
           </div>
 
           <div class="pagination-demo-item">
             <span>50 items per page</span>
-            <app-pagination [totalItems]="100" [pageSize]="50" [currentPage]="1">
-            </app-pagination>
+            <app-pagination [totalItems]="100" [pageSize]="50" [currentPage]="1"> </app-pagination>
           </div>
         </div>
 
         <h3>Few Pages (No Ellipsis)</h3>
         <div class="pagination-demo">
-          <app-pagination [totalItems]="50" [pageSize]="10" [currentPage]="3">
-          </app-pagination>
+          <app-pagination [totalItems]="50" [pageSize]="10" [currentPage]="3"> </app-pagination>
         </div>
 
         <h3>Many Pages (With Ellipsis)</h3>
         <div class="pagination-demo">
-          <app-pagination [totalItems]="1000" [pageSize]="10" [currentPage]="50">
-          </app-pagination>
+          <app-pagination [totalItems]="1000" [pageSize]="10" [currentPage]="50"> </app-pagination>
         </div>
       </app-card>
     </div>
@@ -818,44 +948,93 @@
       <app-card title="Form Components Demo">
         <form class="demo-form">
           <div class="form-row">
-            <app-input label="Full Name" placeholder="Enter your name" [required]="true" icon="👤"
-              hint="Enter your first and last name" [(ngModel)]="formName" name="name"></app-input>
+            <app-input
+              label="Full Name"
+              placeholder="Enter your name"
+              [required]="true"
+              icon="👤"
+              hint="Enter your first and last name"
+              [(ngModel)]="formName"
+              name="name"
+            ></app-input>
           </div>
 
           <div class="form-row">
-            <app-input label="Email Address" type="email" placeholder="you@example.com" [required]="true" icon="📧"
-              [(ngModel)]="formEmail" name="email"></app-input>
+            <app-input
+              label="Email Address"
+              type="email"
+              placeholder="you@example.com"
+              [required]="true"
+              icon="📧"
+              [(ngModel)]="formEmail"
+              name="email"
+            ></app-input>
           </div>
 
           <div class="form-row">
-            <app-input label="Password" type="password" placeholder="Enter password" [required]="true" icon="🔒"
-              hint="Must be at least 8 characters" [(ngModel)]="formPassword" name="password"></app-input>
+            <app-input
+              label="Password"
+              type="password"
+              placeholder="Enter password"
+              [required]="true"
+              icon="🔒"
+              hint="Must be at least 8 characters"
+              [(ngModel)]="formPassword"
+              name="password"
+            ></app-input>
           </div>
 
           <div class="form-row">
-            <app-select label="Country" placeholder="Select your country" [options]="countryOptions" [searchable]="true"
-              [required]="true" hint="Choose from the list" [(ngModel)]="formCountry" name="country"></app-select>
+            <app-select
+              label="Country"
+              placeholder="Select your country"
+              [options]="countryOptions"
+              [searchable]="true"
+              [required]="true"
+              hint="Choose from the list"
+              [(ngModel)]="formCountry"
+              name="country"
+            ></app-select>
           </div>
 
           <div class="form-row">
-            <app-select label="Skills" placeholder="Select your skills" [options]="skillOptions" [searchable]="true"
-              [multiple]="true" hint="You can select multiple skills" [(ngModel)]="formSkills"
-              name="skills"></app-select>
+            <app-select
+              label="Skills"
+              placeholder="Select your skills"
+              [options]="skillOptions"
+              [searchable]="true"
+              [multiple]="true"
+              hint="You can select multiple skills"
+              [(ngModel)]="formSkills"
+              name="skills"
+            ></app-select>
           </div>
 
           <div class="form-row">
-            <app-checkbox label="Subscribe to newsletter" hint="Receive updates about new features"
-              [(ngModel)]="formNewsletter" name="newsletter"></app-checkbox>
+            <app-checkbox
+              label="Subscribe to newsletter"
+              hint="Receive updates about new features"
+              [(ngModel)]="formNewsletter"
+              name="newsletter"
+            ></app-checkbox>
           </div>
 
           <div class="form-row">
-            <app-checkbox label="Enable push notifications" [(ngModel)]="formNotifications"
-              name="notifications"></app-checkbox>
+            <app-checkbox
+              label="Enable push notifications"
+              [(ngModel)]="formNotifications"
+              name="notifications"
+            ></app-checkbox>
           </div>
 
           <div class="form-row">
-            <app-radio label="Choose a Plan" [options]="planOptions" [required]="true" [(ngModel)]="formPlan"
-              name="plan"></app-radio>
+            <app-radio
+              label="Choose a Plan"
+              [options]="planOptions"
+              [required]="true"
+              [(ngModel)]="formPlan"
+              name="plan"
+            ></app-radio>
           </div>
 
           <div class="form-actions">
@@ -915,9 +1094,7 @@
 
         <h3>Without Title</h3>
         <div class="alert-demo-grid">
-          <app-alert type="info">
-            Simple informational message without a title.
-          </app-alert>
+          <app-alert type="info"> Simple informational message without a title. </app-alert>
 
           <app-alert type="success" variant="outlined">
             Operation completed successfully!
@@ -960,8 +1137,10 @@
         <h3>Complex Content</h3>
         <div class="alert-demo-grid">
           <app-alert type="info" title="System Update Available" [dismissible]="true">
-            <p style="margin: 0 0 0.5rem 0;">A new version (v2.5.0) is available with the following improvements:</p>
-            <ul style="margin: 0; padding-left: 1.25rem;">
+            <p style="margin: 0 0 0.5rem 0">
+              A new version (v2.5.0) is available with the following improvements:
+            </p>
+            <ul style="margin: 0; padding-left: 1.25rem">
               <li>Enhanced performance and speed</li>
               <li>New dark mode support</li>
               <li>Bug fixes and stability improvements</li>
@@ -969,16 +1148,16 @@
           </app-alert>
 
           <app-alert type="warning" title="Action Required" variant="outlined" [dismissible]="true">
-            <p style="margin: 0 0 0.5rem 0;">Your account requires immediate attention:</p>
-            <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
+            <p style="margin: 0 0 0.5rem 0">Your account requires immediate attention:</p>
+            <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem">
               <app-button size="sm" variant="primary">Update Now</app-button>
               <app-button size="sm" variant="outline">Remind Later</app-button>
             </div>
           </app-alert>
 
           <app-alert type="error" title="Connection Failed" variant="filled">
-            <p style="margin: 0 0 0.5rem 0;">Unable to connect to the server. Please check:</p>
-            <ul style="margin: 0; padding-left: 1.25rem;">
+            <p style="margin: 0 0 0.5rem 0">Unable to connect to the server. Please check:</p>
+            <ul style="margin: 0; padding-left: 1.25rem">
               <li>Your internet connection</li>
               <li>Firewall settings</li>
               <li>Server status at status.example.com</li>
@@ -1135,7 +1314,9 @@
 
     <div class="chip-section">
       <app-card title="Chip/Tag Component Demo">
-        <p>Chips are compact elements that represent tags, categories, filters, or user selections.</p>
+        <p>
+          Chips are compact elements that represent tags, categories, filters, or user selections.
+        </p>
 
         <h3>Basic Chips</h3>
         <div class="chip-demo-row">
@@ -1197,7 +1378,12 @@
         <h3>Removable Chips</h3>
         <div class="chip-demo-row">
           <app-chip label="Removable" [removable]="true" color="primary"></app-chip>
-          <app-chip label="Click X to remove" [removable]="true" color="success" icon="✓"></app-chip>
+          <app-chip
+            label="Click X to remove"
+            [removable]="true"
+            color="success"
+            icon="✓"
+          ></app-chip>
           <app-chip label="Tag 1" [removable]="true" color="info" variant="outline"></app-chip>
           <app-chip label="Tag 2" [removable]="true" color="warning" variant="subtle"></app-chip>
         </div>
@@ -1213,8 +1399,18 @@
         <h3>Disabled Chips</h3>
         <div class="chip-demo-row">
           <app-chip label="Disabled" [disabled]="true" color="primary"></app-chip>
-          <app-chip label="Disabled Removable" [disabled]="true" [removable]="true" color="success"></app-chip>
-          <app-chip label="Disabled Clickable" [disabled]="true" [clickable]="true" color="error"></app-chip>
+          <app-chip
+            label="Disabled Removable"
+            [disabled]="true"
+            [removable]="true"
+            color="success"
+          ></app-chip>
+          <app-chip
+            label="Disabled Clickable"
+            [disabled]="true"
+            [clickable]="true"
+            color="error"
+          ></app-chip>
         </div>
 
         <h3>Use Cases - Categories</h3>
@@ -1245,7 +1441,13 @@
 
         <h3>Use Cases - Filters</h3>
         <div class="chip-demo-row">
-          <app-chip label="All Items" [clickable]="true" [selected]="true" color="primary" size="sm"></app-chip>
+          <app-chip
+            label="All Items"
+            [clickable]="true"
+            [selected]="true"
+            color="primary"
+            size="sm"
+          ></app-chip>
           <app-chip label="New" [clickable]="true" color="primary" size="sm"></app-chip>
           <app-chip label="In Progress" [clickable]="true" color="primary" size="sm"></app-chip>
           <app-chip label="Completed" [clickable]="true" color="primary" size="sm"></app-chip>
@@ -1401,34 +1603,34 @@
         <div class="divider-demo-spacing">
           <div class="divider-demo-item">
             <span>None</span>
-            <div style="background: var(--color-background-secondary); padding: 1rem;">
-              <p style="margin: 0;">Content</p>
+            <div style="background: var(--color-background-secondary); padding: 1rem">
+              <p style="margin: 0">Content</p>
               <app-divider spacing="none"></app-divider>
-              <p style="margin: 0;">Content</p>
+              <p style="margin: 0">Content</p>
             </div>
           </div>
           <div class="divider-demo-item">
             <span>Small</span>
-            <div style="background: var(--color-background-secondary); padding: 1rem;">
-              <p style="margin: 0;">Content</p>
+            <div style="background: var(--color-background-secondary); padding: 1rem">
+              <p style="margin: 0">Content</p>
               <app-divider spacing="sm"></app-divider>
-              <p style="margin: 0;">Content</p>
+              <p style="margin: 0">Content</p>
             </div>
           </div>
           <div class="divider-demo-item">
             <span>Medium (default)</span>
-            <div style="background: var(--color-background-secondary); padding: 1rem;">
-              <p style="margin: 0;">Content</p>
+            <div style="background: var(--color-background-secondary); padding: 1rem">
+              <p style="margin: 0">Content</p>
               <app-divider spacing="md"></app-divider>
-              <p style="margin: 0;">Content</p>
+              <p style="margin: 0">Content</p>
             </div>
           </div>
           <div class="divider-demo-item">
             <span>Large</span>
-            <div style="background: var(--color-background-secondary); padding: 1rem;">
-              <p style="margin: 0;">Content</p>
+            <div style="background: var(--color-background-secondary); padding: 1rem">
+              <p style="margin: 0">Content</p>
               <app-divider spacing="lg"></app-divider>
-              <p style="margin: 0;">Content</p>
+              <p style="margin: 0">Content</p>
             </div>
           </div>
         </div>
@@ -1448,33 +1650,33 @@
 
         <h3>Use Cases - Login Form</h3>
         <div class="divider-use-case">
-          <app-button variant="primary" style="width: 100%;">Sign in with Email</app-button>
+          <app-button variant="primary" style="width: 100%">Sign in with Email</app-button>
           <app-divider text="OR" textAlign="center" spacing="lg"></app-divider>
-          <div style="display: flex; gap: 0.75rem;">
-            <app-button variant="outline" style="flex: 1;">Google</app-button>
-            <app-button variant="outline" style="flex: 1;">GitHub</app-button>
+          <div style="display: flex; gap: 0.75rem">
+            <app-button variant="outline" style="flex: 1">Google</app-button>
+            <app-button variant="outline" style="flex: 1">GitHub</app-button>
           </div>
         </div>
 
         <h3>Use Cases - Content Sections</h3>
         <div class="divider-use-case">
           <div>
-            <h4 style="margin: 0 0 0.5rem 0;">Personal Information</h4>
-            <p style="margin: 0; color: var(--color-text-secondary); font-size: 0.875rem;">
+            <h4 style="margin: 0 0 0.5rem 0">Personal Information</h4>
+            <p style="margin: 0; color: var(--color-text-secondary); font-size: 0.875rem">
               Update your personal details and profile information.
             </p>
           </div>
           <app-divider spacing="lg"></app-divider>
           <div>
-            <h4 style="margin: 0 0 0.5rem 0;">Security Settings</h4>
-            <p style="margin: 0; color: var(--color-text-secondary); font-size: 0.875rem;">
+            <h4 style="margin: 0 0 0.5rem 0">Security Settings</h4>
+            <p style="margin: 0; color: var(--color-text-secondary); font-size: 0.875rem">
               Manage your password and two-factor authentication.
             </p>
           </div>
           <app-divider spacing="lg"></app-divider>
           <div>
-            <h4 style="margin: 0 0 0.5rem 0;">Notification Preferences</h4>
-            <p style="margin: 0; color: var(--color-text-secondary); font-size: 0.875rem;">
+            <h4 style="margin: 0 0 0.5rem 0">Notification Preferences</h4>
+            <p style="margin: 0; color: var(--color-text-secondary); font-size: 0.875rem">
               Choose how you receive notifications and updates.
             </p>
           </div>
@@ -1488,7 +1690,7 @@
           <app-divider orientation="vertical" spacing="sm"></app-divider>
           <span>Electronics</span>
           <app-divider orientation="vertical" spacing="sm"></app-divider>
-          <span style="font-weight: 600;">Laptops</span>
+          <span style="font-weight: 600">Laptops</span>
         </div>
 
         <h3>Use Cases - Toolbar</h3>
@@ -1512,282 +1714,632 @@
         </div>
       </app-card>
     </div>
+
+    <div class="empty-state-section">
+      <app-card title="Empty State Component Demo">
+        <p>
+          Empty states provide clear guidance when there's no content, helping users understand what
+          to do next.
+        </p>
+
+        <h3>Basic Empty States</h3>
+        <div class="empty-state-demo-grid">
+          <div class="empty-state-demo-item">
+            <app-empty-state
+              icon="���"
+              title="No messages"
+              description="You don't have any messages yet. Start a conversation to get started."
+            ></app-empty-state>
+          </div>
+
+          <div class="empty-state-demo-item">
+            <app-empty-state
+              icon="���"
+              title="No results found"
+              description="We couldn't find any items matching your search criteria."
+            ></app-empty-state>
+          </div>
+
+          <div class="empty-state-demo-item">
+            <app-empty-state
+              icon="���"
+              title="No documents"
+              description="Upload your first document to get started with file management."
+            ></app-empty-state>
+          </div>
+        </div>
+
+        <h3>With Action Buttons</h3>
+        <div class="empty-state-demo-grid">
+          <div class="empty-state-demo-item">
+            <app-empty-state
+              icon="➕"
+              title="Create your first project"
+              description="Projects help you organize your work and collaborate with your team."
+              primaryActionLabel="New Project"
+            ></app-empty-state>
+          </div>
+
+          <div class="empty-state-demo-item">
+            <app-empty-state
+              icon="���"
+              title="Invite team members"
+              description="Collaborate with others by inviting them to join your workspace."
+              primaryActionLabel="Invite"
+              secondaryActionLabel="Learn More"
+            ></app-empty-state>
+          </div>
+        </div>
+
+        <h3>Sizes</h3>
+        <div class="empty-state-demo-sizes">
+          <div class="empty-state-demo-item">
+            <span>Small</span>
+            <app-empty-state
+              size="sm"
+              icon="���"
+              title="Small empty state"
+              description="This is a compact version for smaller spaces."
+            ></app-empty-state>
+          </div>
+
+          <div class="empty-state-demo-item">
+            <span>Medium (default)</span>
+            <app-empty-state
+              size="md"
+              icon="���"
+              title="Medium empty state"
+              description="This is the default size for most use cases."
+            ></app-empty-state>
+          </div>
+
+          <div class="empty-state-demo-item">
+            <span>Large</span>
+            <app-empty-state
+              size="lg"
+              icon="���"
+              title="Large empty state"
+              description="This is a larger version for prominent empty states."
+            ></app-empty-state>
+          </div>
+        </div>
+
+        <h3>Compact Variant</h3>
+        <div class="empty-state-demo-compact">
+          <app-empty-state
+            [compact]="true"
+            icon="���"
+            title="No items"
+            description="Try adjusting your filters"
+          ></app-empty-state>
+        </div>
+
+        <h3>Use Cases - No Search Results</h3>
+        <div class="empty-state-demo-use-case">
+          <app-empty-state
+            icon="���"
+            title="No results for 'angular components'"
+            description="Try adjusting your search terms or filters to find what you're looking for."
+            primaryActionLabel="Clear Filters"
+            secondaryActionLabel="Browse All"
+          ></app-empty-state>
+        </div>
+
+        <h3>Use Cases - Empty Inbox</h3>
+        <div class="empty-state-demo-use-case">
+          <app-empty-state
+            icon="✅"
+            title="All caught up!"
+            description="You've read all your messages. Take a break or start a new conversation."
+            primaryActionLabel="Compose Message"
+          ></app-empty-state>
+        </div>
+
+        <h3>Use Cases - No Data Yet</h3>
+        <div class="empty-state-demo-use-case">
+          <app-empty-state
+            icon="���"
+            title="No data to display"
+            description="Connect your data source or import data to see analytics and insights."
+            primaryActionLabel="Connect Data"
+            secondaryActionLabel="Import CSV"
+          ></app-empty-state>
+        </div>
+
+        <h3>Use Cases - Error State</h3>
+        <div class="empty-state-demo-use-case">
+          <app-empty-state
+            icon="⚠️"
+            title="Something went wrong"
+            description="We encountered an error while loading your data. Please try again or contact support if the problem persists."
+            primaryActionLabel="Retry"
+            secondaryActionLabel="Contact Support"
+          ></app-empty-state>
+        </div>
+
+        <h3>Use Cases - Permission Denied</h3>
+        <div class="empty-state-demo-use-case">
+          <app-empty-state
+            icon="���"
+            title="Access denied"
+            description="You don't have permission to view this content. Contact your administrator to request access."
+            primaryActionLabel="Request Access"
+          ></app-empty-state>
+        </div>
+
+        <h3>Use Cases - Empty Cart</h3>
+        <div class="empty-state-demo-use-case">
+          <app-empty-state
+            icon="���"
+            title="Your cart is empty"
+            description="Browse our products and add items to your cart to get started."
+            primaryActionLabel="Start Shopping"
+            secondaryActionLabel="View Favorites"
+          ></app-empty-state>
+        </div>
+
+        <h3>Use Cases - No Favorites</h3>
+        <div class="empty-state-demo-use-case">
+          <app-empty-state
+            icon="⭐"
+            title="No favorites yet"
+            description="Mark items as favorites to quickly access them later."
+            secondaryActionLabel="Explore Items"
+          ></app-empty-state>
+        </div>
+
+        <h3>Use Cases - Empty Notifications</h3>
+        <div class="empty-state-demo-compact">
+          <app-empty-state
+            [compact]="true"
+            icon="���"
+            title="No notifications"
+            description="You're all up to date!"
+          ></app-empty-state>
+        </div>
+
+        <h3>Different Icons</h3>
+        <div class="empty-state-demo-icons">
+          <div class="empty-state-demo-icon-item">
+            <app-empty-state [compact]="true" icon="���" title="No tasks"></app-empty-state>
+          </div>
+          <div class="empty-state-demo-icon-item">
+            <app-empty-state [compact]="true" icon="���" title="No comments"></app-empty-state>
+          </div>
+          <div class="empty-state-demo-icon-item">
+            <app-empty-state [compact]="true" icon="���" title="No photos"></app-empty-state>
+          </div>
+          <div class="empty-state-demo-icon-item">
+            <app-empty-state [compact]="true" icon="���" title="No music"></app-empty-state>
+          </div>
+          <div class="empty-state-demo-icon-item">
+            <app-empty-state [compact]="true" icon="���" title="No videos"></app-empty-state>
+          </div>
+          <div class="empty-state-demo-icon-item">
+            <app-empty-state [compact]="true" icon="���️" title="No folders"></app-empty-state>
+          </div>
+        </div>
+      </app-card>
+    </div>
+
+    <div class="file-upload-section">
+      <app-card title="File Upload Component Demo">
+        <p>File upload component with drag-and-drop support, validation, and file previews.</p>
+
+        <h3>Basic File Upload</h3>
+        <div class="file-upload-demo">
+          <app-file-upload
+            label="Drop your file here or click to browse"
+            hint="Supports all file types"
+          ></app-file-upload>
+        </div>
+
+        <h3>Multiple Files Upload</h3>
+        <div class="file-upload-demo">
+          <app-file-upload
+            [multiple]="true"
+            label="Drop multiple files here or click to browse"
+            hint="You can select multiple files at once"
+          ></app-file-upload>
+        </div>
+
+        <h3>Image Upload with Preview</h3>
+        <div class="file-upload-demo">
+          <app-file-upload
+            accept="image/*"
+            [multiple]="true"
+            [showPreview]="true"
+            label="Drop images here or click to browse"
+            hint="Only image files are accepted"
+          ></app-file-upload>
+        </div>
+
+        <h3>Document Upload (PDF, Word, Excel)</h3>
+        <div class="file-upload-demo">
+          <app-file-upload
+            accept=".pdf,.doc,.docx,.xls,.xlsx"
+            [multiple]="true"
+            label="Drop documents here or click to browse"
+            hint="Accepts PDF, Word, and Excel files"
+          ></app-file-upload>
+        </div>
+
+        <h3>With File Size Limit (2MB)</h3>
+        <div class="file-upload-demo">
+          <app-file-upload
+            [maxSize]="2097152"
+            label="Drop files here or click to browse"
+            hint="Maximum file size: 2MB"
+          ></app-file-upload>
+        </div>
+
+        <h3>With Max Files Limit (3 files)</h3>
+        <div class="file-upload-demo">
+          <app-file-upload
+            [multiple]="true"
+            [maxFiles]="3"
+            label="Drop up to 3 files here or click to browse"
+            hint="Maximum 3 files allowed"
+          ></app-file-upload>
+        </div>
+
+        <h3>Video Upload</h3>
+        <div class="file-upload-demo">
+          <app-file-upload
+            accept="video/*"
+            label="Drop video files here or click to browse"
+            hint="Accepts all video formats"
+          ></app-file-upload>
+        </div>
+
+        <h3>Audio Upload</h3>
+        <div class="file-upload-demo">
+          <app-file-upload
+            accept="audio/*"
+            [multiple]="true"
+            label="Drop audio files here or click to browse"
+            hint="Accepts MP3, WAV, and other audio formats"
+          ></app-file-upload>
+        </div>
+
+        <h3>Compressed Files (ZIP, RAR)</h3>
+        <div class="file-upload-demo">
+          <app-file-upload
+            accept=".zip,.rar,.7z,.tar,.gz"
+            label="Drop compressed files here or click to browse"
+            hint="Accepts ZIP, RAR, 7Z, TAR, GZ"
+          ></app-file-upload>
+        </div>
+
+        <h3>Disabled State</h3>
+        <div class="file-upload-demo">
+          <app-file-upload
+            [disabled]="true"
+            label="File upload is disabled"
+            hint="This upload field is currently disabled"
+          ></app-file-upload>
+        </div>
+
+        <h3>Use Case - Profile Picture Upload</h3>
+        <div class="file-upload-use-case">
+          <div class="use-case-content">
+            <h4>Upload Profile Picture</h4>
+            <p>Choose a photo to represent your profile. Recommended size: 400x400 pixels.</p>
+            <app-file-upload
+              accept="image/jpeg,image/png,image/gif"
+              [maxSize]="5242880"
+              [showPreview]="true"
+              label="Drop your profile picture here"
+              hint="JPG, PNG, or GIF (max 5MB)"
+            ></app-file-upload>
+          </div>
+        </div>
+
+        <h3>Use Case - Document Submission</h3>
+        <div class="file-upload-use-case">
+          <div class="use-case-content">
+            <h4>Submit Required Documents</h4>
+            <p>Please upload your identification documents and supporting files.</p>
+            <app-file-upload
+              accept=".pdf,.jpg,.jpeg,.png"
+              [multiple]="true"
+              [maxFiles]="5"
+              [maxSize]="10485760"
+              label="Drop documents here (PDF or images)"
+              hint="Maximum 5 files, 10MB each"
+            ></app-file-upload>
+          </div>
+        </div>
+
+        <h3>Use Case - Bulk File Import</h3>
+        <div class="file-upload-use-case">
+          <div class="use-case-content">
+            <h4>Import Data Files</h4>
+            <p>Upload CSV or Excel files to import your data into the system.</p>
+            <app-file-upload
+              accept=".csv,.xls,.xlsx"
+              [multiple]="true"
+              label="Drop data files here"
+              hint="CSV or Excel formats accepted"
+            ></app-file-upload>
+          </div>
+        </div>
+      </app-card>
+    </div>
+
+    <!-- Rating Component Section -->
+    <div class="rating-section">
+      <h2>Rating Component</h2>
+      <p>
+        Display and collect ratings with customizable stars, half-star support, and interactive
+        selection.
+      </p>
+
+      <!-- Basic Rating -->
+      <div class="rating-demo">
+        <h3>Basic Rating</h3>
+        <app-rating [value]="4"></app-rating>
+      </div>
+
+      <!-- Interactive Rating -->
+      <div class="rating-demo">
+        <h3>Interactive Rating</h3>
+        <app-rating [value]="userRating()" (valueChange)="userRating.set($event)"></app-rating>
+        <p>Your rating: {{ userRating() }}</p>
+      </div>
+
+      <!-- With Count Display -->
+      <div class="rating-demo">
+        <h3>With Count Display</h3>
+        <app-rating [value]="4.5" [showCount]="true"></app-rating>
+      </div>
+
+      <!-- Half Star Support -->
+      <div class="rating-demo">
+        <h3>Half Star Support</h3>
+        <app-rating
+          [value]="halfStarRating()"
+          [allowHalf]="true"
+          [showCount]="true"
+          (valueChange)="halfStarRating.set($event)"
+        ></app-rating>
+      </div>
+
+      <!-- Sizes -->
+      <div class="rating-demo">
+        <h3>Sizes</h3>
+        <div class="rating-sizes">
+          <div>
+            <p><strong>Small</strong></p>
+            <app-rating [value]="4" size="sm"></app-rating>
+          </div>
+          <div>
+            <p><strong>Medium (Default)</strong></p>
+            <app-rating [value]="4" size="md"></app-rating>
+          </div>
+          <div>
+            <p><strong>Large</strong></p>
+            <app-rating [value]="4" size="lg"></app-rating>
+          </div>
+        </div>
+      </div>
+
+      <!-- Colors -->
+      <div class="rating-demo">
+        <h3>Colors</h3>
+        <div class="rating-colors">
+          <div>
+            <p><strong>Default (Gold)</strong></p>
+            <app-rating [value]="5" color="default"></app-rating>
+          </div>
+          <div>
+            <p><strong>Primary</strong></p>
+            <app-rating [value]="5" color="primary"></app-rating>
+          </div>
+          <div>
+            <p><strong>Success</strong></p>
+            <app-rating [value]="5" color="success"></app-rating>
+          </div>
+          <div>
+            <p><strong>Warning</strong></p>
+            <app-rating [value]="5" color="warning"></app-rating>
+          </div>
+          <div>
+            <p><strong>Error</strong></p>
+            <app-rating [value]="5" color="error"></app-rating>
+          </div>
+        </div>
+      </div>
+
+      <!-- Readonly -->
+      <div class="rating-demo">
+        <h3>Readonly</h3>
+        <app-rating [value]="4.5" [readonly]="true" [showCount]="true"></app-rating>
+      </div>
+
+      <!-- Disabled -->
+      <div class="rating-demo">
+        <h3>Disabled</h3>
+        <app-rating [value]="3" [disabled]="true"></app-rating>
+      </div>
+
+      <!-- Custom Max -->
+      <div class="rating-demo">
+        <h3>Custom Max (10 Stars)</h3>
+        <app-rating [value]="7" [max]="10" [showCount]="true"></app-rating>
+      </div>
+
+      <!-- Custom Icons -->
+      <div class="rating-demo">
+        <h3>Custom Icons</h3>
+        <div class="custom-icons">
+          <div>
+            <p><strong>Hearts</strong></p>
+            <app-rating [value]="4" icon="❤" emptyIcon="♡" color="error"></app-rating>
+          </div>
+          <div>
+            <p><strong>Thumbs</strong></p>
+            <app-rating [value]="3" [max]="5" icon="���" emptyIcon="���"></app-rating>
+          </div>
+          <div>
+            <p><strong>Faces</strong></p>
+            <app-rating [value]="4" icon="���" emptyIcon="���"></app-rating>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Review Use Case -->
+      <div class="rating-use-case">
+        <h3>Use Case: Product Review</h3>
+        <div class="product-review">
+          <div class="product-info">
+            <h4>Wireless Bluetooth Headphones</h4>
+            <div class="review-meta">
+              <app-rating [value]="4.5" [readonly]="true" size="sm"></app-rating>
+              <span class="review-count">(1,234 reviews)</span>
+            </div>
+            <p class="product-description">
+              Premium wireless headphones with active noise cancellation, 30-hour battery life, and
+              superior sound quality.
+            </p>
+          </div>
+          <div class="add-review">
+            <h5>Rate this product:</h5>
+            <app-rating
+              [value]="productRating()"
+              [allowHalf]="true"
+              [showCount]="true"
+              (valueChange)="productRating.set($event)"
+            ></app-rating>
+          </div>
+        </div>
+      </div>
+
+      <!-- Restaurant Review Use Case -->
+      <div class="rating-use-case">
+        <h3>Use Case: Restaurant Review</h3>
+        <div class="restaurant-review">
+          <h4>The Gourmet Kitchen</h4>
+          <div class="review-categories">
+            <div class="review-category">
+              <span class="category-label">Food Quality</span>
+              <app-rating
+                [value]="foodRating()"
+                [allowHalf]="true"
+                size="sm"
+                (valueChange)="foodRating.set($event)"
+              ></app-rating>
+            </div>
+            <div class="review-category">
+              <span class="category-label">Service</span>
+              <app-rating
+                [value]="serviceRating()"
+                [allowHalf]="true"
+                size="sm"
+                (valueChange)="serviceRating.set($event)"
+              ></app-rating>
+            </div>
+            <div class="review-category">
+              <span class="category-label">Atmosphere</span>
+              <app-rating
+                [value]="atmosphereRating()"
+                [allowHalf]="true"
+                size="sm"
+                (valueChange)="atmosphereRating.set($event)"
+              ></app-rating>
+            </div>
+            <div class="review-category">
+              <span class="category-label">Value</span>
+              <app-rating
+                [value]="valueRating()"
+                [allowHalf]="true"
+                size="sm"
+                (valueChange)="valueRating.set($event)"
+              ></app-rating>
+            </div>
+          </div>
+          <div class="overall-rating">
+            <h5>Overall Rating</h5>
+            <app-rating
+              [value]="overallRating()"
+              [readonly]="true"
+              [showCount]="true"
+              size="lg"
+            ></app-rating>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skill Level Use Case -->
+      <div class="rating-use-case">
+        <h3>Use Case: Skill Level Assessment</h3>
+        <div class="skills-assessment">
+          <h4>Technical Skills</h4>
+          <div class="skill-item">
+            <span class="skill-name">JavaScript</span>
+            <app-rating [value]="4.5" [readonly]="true" size="sm" color="primary"></app-rating>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">TypeScript</span>
+            <app-rating [value]="4" [readonly]="true" size="sm" color="primary"></app-rating>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Angular</span>
+            <app-rating [value]="5" [readonly]="true" size="sm" color="primary"></app-rating>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Node.js</span>
+            <app-rating [value]="3.5" [readonly]="true" size="sm" color="primary"></app-rating>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">SQL</span>
+            <app-rating [value]="4" [readonly]="true" size="sm" color="primary"></app-rating>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="empty-state-section">
-    <app-card title="Empty State Component Demo">
-      <p>Empty states provide clear guidance when there's no content, helping users understand what to do next.</p>
-
-      <h3>Basic Empty States</h3>
-      <div class="empty-state-demo-grid">
-        <div class="empty-state-demo-item">
-          <app-empty-state icon="���" title="No messages"
-            description="You don't have any messages yet. Start a conversation to get started."></app-empty-state>
-        </div>
-
-        <div class="empty-state-demo-item">
-          <app-empty-state icon="���" title="No results found"
-            description="We couldn't find any items matching your search criteria."></app-empty-state>
-        </div>
-
-        <div class="empty-state-demo-item">
-          <app-empty-state icon="���" title="No documents"
-            description="Upload your first document to get started with file management."></app-empty-state>
-        </div>
+  <!-- User Details Modal -->
+  <app-modal
+    [title]="'User Details'"
+    [size]="'md'"
+    [isOpen]="showModal"
+    (closeEvent)="closeModal()"
+    *ngIf="showModal && selectedUser"
+  >
+    <div class="modal-content">
+      <div class="user-detail">
+        <label>ID:</label>
+        <span>{{ selectedUser.id }}</span>
       </div>
-
-      <h3>With Action Buttons</h3>
-      <div class="empty-state-demo-grid">
-        <div class="empty-state-demo-item">
-          <app-empty-state icon="➕" title="Create your first project"
-            description="Projects help you organize your work and collaborate with your team."
-            primaryActionLabel="New Project"></app-empty-state>
-        </div>
-
-        <div class="empty-state-demo-item">
-          <app-empty-state icon="���" title="Invite team members"
-            description="Collaborate with others by inviting them to join your workspace." primaryActionLabel="Invite"
-            secondaryActionLabel="Learn More"></app-empty-state>
-        </div>
+      <div class="user-detail">
+        <label>Name:</label>
+        <span>{{ selectedUser.name }}</span>
       </div>
-
-      <h3>Sizes</h3>
-      <div class="empty-state-demo-sizes">
-        <div class="empty-state-demo-item">
-          <span>Small</span>
-          <app-empty-state size="sm" icon="���" title="Small empty state"
-            description="This is a compact version for smaller spaces."></app-empty-state>
-        </div>
-
-        <div class="empty-state-demo-item">
-          <span>Medium (default)</span>
-          <app-empty-state size="md" icon="���" title="Medium empty state"
-            description="This is the default size for most use cases."></app-empty-state>
-        </div>
-
-        <div class="empty-state-demo-item">
-          <span>Large</span>
-          <app-empty-state size="lg" icon="���" title="Large empty state"
-            description="This is a larger version for prominent empty states."></app-empty-state>
-        </div>
+      <div class="user-detail">
+        <label>Email:</label>
+        <span>{{ selectedUser.email }}</span>
       </div>
-
-      <h3>Compact Variant</h3>
-      <div class="empty-state-demo-compact">
-        <app-empty-state [compact]="true" icon="���" title="No items"
-          description="Try adjusting your filters"></app-empty-state>
+      <div class="user-detail">
+        <label>Role:</label>
+        <span>{{ selectedUser.role }}</span>
       </div>
-
-      <h3>Use Cases - No Search Results</h3>
-      <div class="empty-state-demo-use-case">
-        <app-empty-state icon="���" title="No results for 'angular components'"
-          description="Try adjusting your search terms or filters to find what you're looking for."
-          primaryActionLabel="Clear Filters" secondaryActionLabel="Browse All"></app-empty-state>
+      <div class="user-detail">
+        <label>Status:</label>
+        <span [class]="selectedUser.status ? 'status-active' : 'status-inactive'">
+          {{ selectedUser.status ? 'Active' : 'Inactive' }}
+        </span>
       </div>
-
-      <h3>Use Cases - Empty Inbox</h3>
-      <div class="empty-state-demo-use-case">
-        <app-empty-state icon="✅" title="All caught up!"
-          description="You've read all your messages. Take a break or start a new conversation."
-          primaryActionLabel="Compose Message"></app-empty-state>
+      <div class="user-detail">
+        <label>Created:</label>
+        <span>{{ selectedUser.createdAt }}</span>
       </div>
+    </div>
 
-      <h3>Use Cases - No Data Yet</h3>
-      <div class="empty-state-demo-use-case">
-        <app-empty-state icon="���" title="No data to display"
-          description="Connect your data source or import data to see analytics and insights."
-          primaryActionLabel="Connect Data" secondaryActionLabel="Import CSV"></app-empty-state>
-      </div>
-
-      <h3>Use Cases - Error State</h3>
-      <div class="empty-state-demo-use-case">
-        <app-empty-state icon="⚠️" title="Something went wrong"
-          description="We encountered an error while loading your data. Please try again or contact support if the problem persists."
-          primaryActionLabel="Retry" secondaryActionLabel="Contact Support"></app-empty-state>
-      </div>
-
-      <h3>Use Cases - Permission Denied</h3>
-      <div class="empty-state-demo-use-case">
-        <app-empty-state icon="���" title="Access denied"
-          description="You don't have permission to view this content. Contact your administrator to request access."
-          primaryActionLabel="Request Access"></app-empty-state>
-      </div>
-
-      <h3>Use Cases - Empty Cart</h3>
-      <div class="empty-state-demo-use-case">
-        <app-empty-state icon="���" title="Your cart is empty"
-          description="Browse our products and add items to your cart to get started."
-          primaryActionLabel="Start Shopping" secondaryActionLabel="View Favorites"></app-empty-state>
-      </div>
-
-      <h3>Use Cases - No Favorites</h3>
-      <div class="empty-state-demo-use-case">
-        <app-empty-state icon="⭐" title="No favorites yet"
-          description="Mark items as favorites to quickly access them later."
-          secondaryActionLabel="Explore Items"></app-empty-state>
-      </div>
-
-      <h3>Use Cases - Empty Notifications</h3>
-      <div class="empty-state-demo-compact">
-        <app-empty-state [compact]="true" icon="���" title="No notifications"
-          description="You're all up to date!"></app-empty-state>
-      </div>
-
-      <h3>Different Icons</h3>
-      <div class="empty-state-demo-icons">
-        <div class="empty-state-demo-icon-item">
-          <app-empty-state [compact]="true" icon="���" title="No tasks"></app-empty-state>
-        </div>
-        <div class="empty-state-demo-icon-item">
-          <app-empty-state [compact]="true" icon="���" title="No comments"></app-empty-state>
-        </div>
-        <div class="empty-state-demo-icon-item">
-          <app-empty-state [compact]="true" icon="���" title="No photos"></app-empty-state>
-        </div>
-        <div class="empty-state-demo-icon-item">
-          <app-empty-state [compact]="true" icon="���" title="No music"></app-empty-state>
-        </div>
-        <div class="empty-state-demo-icon-item">
-          <app-empty-state [compact]="true" icon="���" title="No videos"></app-empty-state>
-        </div>
-        <div class="empty-state-demo-icon-item">
-          <app-empty-state [compact]="true" icon="���️" title="No folders"></app-empty-state>
-        </div>
-      </div>
-    </app-card>
-  </div>
-
-  <div class="file-upload-section">
-    <app-card title="File Upload Component Demo">
-      <p>File upload component with drag-and-drop support, validation, and file previews.</p>
-
-      <h3>Basic File Upload</h3>
-      <div class="file-upload-demo">
-        <app-file-upload label="Drop your file here or click to browse"
-          hint="Supports all file types"></app-file-upload>
-      </div>
-
-      <h3>Multiple Files Upload</h3>
-      <div class="file-upload-demo">
-        <app-file-upload [multiple]="true" label="Drop multiple files here or click to browse"
-          hint="You can select multiple files at once"></app-file-upload>
-      </div>
-
-      <h3>Image Upload with Preview</h3>
-      <div class="file-upload-demo">
-        <app-file-upload accept="image/*" [multiple]="true" [showPreview]="true"
-          label="Drop images here or click to browse" hint="Only image files are accepted"></app-file-upload>
-      </div>
-
-      <h3>Document Upload (PDF, Word, Excel)</h3>
-      <div class="file-upload-demo">
-        <app-file-upload accept=".pdf,.doc,.docx,.xls,.xlsx" [multiple]="true"
-          label="Drop documents here or click to browse" hint="Accepts PDF, Word, and Excel files"></app-file-upload>
-      </div>
-
-      <h3>With File Size Limit (2MB)</h3>
-      <div class="file-upload-demo">
-        <app-file-upload [maxSize]="2097152" label="Drop files here or click to browse"
-          hint="Maximum file size: 2MB"></app-file-upload>
-      </div>
-
-      <h3>With Max Files Limit (3 files)</h3>
-      <div class="file-upload-demo">
-        <app-file-upload [multiple]="true" [maxFiles]="3" label="Drop up to 3 files here or click to browse"
-          hint="Maximum 3 files allowed"></app-file-upload>
-      </div>
-
-      <h3>Video Upload</h3>
-      <div class="file-upload-demo">
-        <app-file-upload accept="video/*" label="Drop video files here or click to browse"
-          hint="Accepts all video formats"></app-file-upload>
-      </div>
-
-      <h3>Audio Upload</h3>
-      <div class="file-upload-demo">
-        <app-file-upload accept="audio/*" [multiple]="true" label="Drop audio files here or click to browse"
-          hint="Accepts MP3, WAV, and other audio formats"></app-file-upload>
-      </div>
-
-      <h3>Compressed Files (ZIP, RAR)</h3>
-      <div class="file-upload-demo">
-        <app-file-upload accept=".zip,.rar,.7z,.tar,.gz" label="Drop compressed files here or click to browse"
-          hint="Accepts ZIP, RAR, 7Z, TAR, GZ"></app-file-upload>
-      </div>
-
-      <h3>Disabled State</h3>
-      <div class="file-upload-demo">
-        <app-file-upload [disabled]="true" label="File upload is disabled"
-          hint="This upload field is currently disabled"></app-file-upload>
-      </div>
-
-      <h3>Use Case - Profile Picture Upload</h3>
-      <div class="file-upload-use-case">
-        <div class="use-case-content">
-          <h4>Upload Profile Picture</h4>
-          <p>Choose a photo to represent your profile. Recommended size: 400x400 pixels.</p>
-          <app-file-upload accept="image/jpeg,image/png,image/gif" [maxSize]="5242880" [showPreview]="true"
-            label="Drop your profile picture here" hint="JPG, PNG, or GIF (max 5MB)"></app-file-upload>
-        </div>
-      </div>
-
-      <h3>Use Case - Document Submission</h3>
-      <div class="file-upload-use-case">
-        <div class="use-case-content">
-          <h4>Submit Required Documents</h4>
-          <p>Please upload your identification documents and supporting files.</p>
-          <app-file-upload accept=".pdf,.jpg,.jpeg,.png" [multiple]="true" [maxFiles]="5" [maxSize]="10485760"
-            label="Drop documents here (PDF or images)" hint="Maximum 5 files, 10MB each"></app-file-upload>
-        </div>
-      </div>
-
-      <h3>Use Case - Bulk File Import</h3>
-      <div class="file-upload-use-case">
-        <div class="use-case-content">
-          <h4>Import Data Files</h4>
-          <p>Upload CSV or Excel files to import your data into the system.</p>
-          <app-file-upload accept=".csv,.xls,.xlsx" [multiple]="true" label="Drop data files here"
-            hint="CSV or Excel formats accepted"></app-file-upload>
-        </div>
-      </div>
-    </app-card>
-  </div>
+    <div footer>
+      <app-button variant="outline" (click)="closeModal()">Cancel</app-button>
+      <app-button variant="primary" (click)="deleteUser()">Delete User</app-button>
+    </div>
+  </app-modal>
 </div>
-
-<!-- User Details Modal -->
-<app-modal [title]="'User Details'" [size]="'md'" [isOpen]="showModal" (closeEvent)="closeModal()"
-  *ngIf="showModal && selectedUser">
-  <div class="modal-content">
-    <div class="user-detail">
-      <label>ID:</label>
-      <span>{{ selectedUser.id }}</span>
-    </div>
-    <div class="user-detail">
-      <label>Name:</label>
-      <span>{{ selectedUser.name }}</span>
-    </div>
-    <div class="user-detail">
-      <label>Email:</label>
-      <span>{{ selectedUser.email }}</span>
-    </div>
-    <div class="user-detail">
-      <label>Role:</label>
-      <span>{{ selectedUser.role }}</span>
-    </div>
-    <div class="user-detail">
-      <label>Status:</label>
-      <span [class]="selectedUser.status ? 'status-active' : 'status-inactive'">
-        {{ selectedUser.status ? 'Active' : 'Inactive' }}
-      </span>
-    </div>
-    <div class="user-detail">
-      <label>Created:</label>
-      <span>{{ selectedUser.createdAt }}</span>
-    </div>
-  </div>
-
-  <div footer>
-    <app-button variant="outline" (click)="closeModal()">Cancel</app-button>
-    <app-button variant="primary" (click)="deleteUser()">Delete User</app-button>
-  </div>
-</app-modal>

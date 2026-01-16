@@ -1,0 +1,30 @@
+<div [class]="containerClasses" (mouseleave)="onMouseLeave()">
+  <div class="rating-stars">
+    @for (star of stars(); track star) {
+      <span
+        class="rating-star"
+        [class.full]="getStarState(star) === 'full'"
+        [class.half]="getStarState(star) === 'half'"
+        [class.empty]="getStarState(star) === 'empty'"
+        (click)="onStarClick(star, $event)"
+        (mousemove)="onStarHover(star, $event)"
+        [attr.aria-label]="'Rate ' + star + ' out of ' + max"
+      >
+        @if (getStarState(star) === 'full') {
+          <span class="star-icon">{{ icon }}</span>
+        } @else if (getStarState(star) === 'half') {
+          <span class="star-icon star-half">
+            <span class="star-half-filled">{{ icon }}</span>
+            <span class="star-half-empty">{{ emptyIcon }}</span>
+          </span>
+        } @else {
+          <span class="star-icon">{{ emptyIcon }}</span>
+        }
+      </span>
+    }
+  </div>
+
+  @if (showCount) {
+    <span class="rating-count">{{ displayValue() }} / {{ max }}</span>
+  }
+</div>

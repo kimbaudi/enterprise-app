@@ -1,11 +1,18 @@
 @if (divider) {
-<div class="dropdown-divider"></div>
+  <div class="dropdown-divider"></div>
 } @else {
-<button type="button" class="dropdown-item" [class.disabled]="disabled" [class.danger]="danger" [disabled]="disabled"
-    (click)="onClick()" role="menuitem">
+  <button
+    type="button"
+    class="dropdown-item"
+    [class.disabled]="disabled"
+    [class.danger]="danger"
+    [disabled]="disabled"
+    (click)="onClick()"
+    role="menuitem"
+  >
     @if (icon) {
-    <span class="dropdown-item-icon">{{ icon }}</span>
+      <span class="dropdown-item-icon">{{ icon }}</span>
     }
     <span class="dropdown-item-label">{{ label }}</span>
-</button>
+  </button>
 }

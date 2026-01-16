@@ -1,18 +1,23 @@
 <div class="accordion-item" [class.open]="isOpen()" [class.disabled]="disabled">
-    <button type="button" class="accordion-header" (click)="toggle()" [disabled]="disabled"
-        [attr.aria-expanded]="isOpen()">
-        <div class="accordion-title">
-            @if (icon) {
-            <span class="accordion-icon">{{ icon }}</span>
-            }
-            <span>{{ title }}</span>
-        </div>
-        <span class="accordion-arrow" [class.rotated]="isOpen()">▼</span>
-    </button>
-
-    <div class="accordion-content" [class.open]="isOpen()">
-        <div class="accordion-body">
-            <ng-content></ng-content>
-        </div>
+  <button
+    type="button"
+    class="accordion-header"
+    (click)="toggle()"
+    [disabled]="disabled"
+    [attr.aria-expanded]="isOpen()"
+  >
+    <div class="accordion-title">
+      @if (icon) {
+        <span class="accordion-icon">{{ icon }}</span>
+      }
+      <span>{{ title }}</span>
     </div>
+    <span class="accordion-arrow" [class.rotated]="isOpen()">▼</span>
+  </button>
+
+  <div class="accordion-content" [class.open]="isOpen()">
+    <div class="accordion-body">
+      <ng-content></ng-content>
+    </div>
+  </div>
 </div>

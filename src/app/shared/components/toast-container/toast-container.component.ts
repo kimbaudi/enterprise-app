@@ -4,18 +4,18 @@ import { ToastService } from '@core/services/toast.service';
 import { ToastComponent } from '../toast/toast.component';
 
 @Component({
-    selector: 'app-toast-container',
-    standalone: true,
-    imports: [CommonModule, ToastComponent],
-    templateUrl: './toast-container.component.html',
-    styleUrl: './toast-container.component.css',
+  selector: 'app-toast-container',
+  standalone: true,
+  imports: [CommonModule, ToastComponent],
+  templateUrl: './toast-container.component.html',
+  styleUrl: './toast-container.component.css',
 })
 export class ToastContainerComponent {
-    private toastService = inject(ToastService);
+  private toastService = inject(ToastService);
 
-    toasts = this.toastService.getToasts();
+  toasts = this.toastService.getToasts();
 
-    onDismiss(id: string): void {
-        this.toastService.dismiss(id);
-    }
+  onDismiss(id: string): void {
+    this.toastService.dismiss(id);
+  }
 }

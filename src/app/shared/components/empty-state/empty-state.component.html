@@ -1,33 +1,33 @@
 <div [class]="containerClasses">
-    @if (image) {
+  @if (image) {
     <img [src]="image" alt="" class="empty-state-image" />
-    } @else if (icon) {
+  } @else if (icon) {
     <div class="empty-state-icon">{{ icon }}</div>
+  }
+
+  <div class="empty-state-content">
+    <h3 class="empty-state-title">{{ title }}</h3>
+
+    @if (description) {
+      <p class="empty-state-description">{{ description }}</p>
     }
 
-    <div class="empty-state-content">
-        <h3 class="empty-state-title">{{ title }}</h3>
-
-        @if (description) {
-        <p class="empty-state-description">{{ description }}</p>
+    @if (primaryActionLabel || secondaryActionLabel) {
+      <div class="empty-state-actions">
+        @if (primaryActionLabel) {
+          <app-button variant="primary" (click)="onPrimaryAction()">
+            {{ primaryActionLabel }}
+          </app-button>
         }
 
-        @if (primaryActionLabel || secondaryActionLabel) {
-        <div class="empty-state-actions">
-            @if (primaryActionLabel) {
-            <app-button variant="primary" (click)="onPrimaryAction()">
-                {{ primaryActionLabel }}
-            </app-button>
-            }
-
-            @if (secondaryActionLabel) {
-            <app-button variant="outline" (click)="onSecondaryAction()">
-                {{ secondaryActionLabel }}
-            </app-button>
-            }
-        </div>
+        @if (secondaryActionLabel) {
+          <app-button variant="outline" (click)="onSecondaryAction()">
+            {{ secondaryActionLabel }}
+          </app-button>
         }
-    </div>
+      </div>
+    }
+  </div>
 
-    <ng-content></ng-content>
+  <ng-content></ng-content>
 </div>

@@ -1,37 +1,37 @@
 <nav class="breadcrumb-nav" aria-label="Breadcrumb">
-    <ol class="breadcrumb-list">
-        @if (showHome) {
-        <li class="breadcrumb-item">
-            <a [routerLink]="homeUrl" class="breadcrumb-link">
-                <span class="breadcrumb-icon">{{ homeIcon }}</span>
-            </a>
-        </li>
-        @if (breadcrumbItems().length > 0) {
+  <ol class="breadcrumb-list">
+    @if (showHome) {
+      <li class="breadcrumb-item">
+        <a [routerLink]="homeUrl" class="breadcrumb-link">
+          <span class="breadcrumb-icon">{{ homeIcon }}</span>
+        </a>
+      </li>
+      @if (breadcrumbItems().length > 0) {
         <li class="breadcrumb-separator" aria-hidden="true">{{ separator }}</li>
-        }
-        }
+      }
+    }
 
-        @for (item of breadcrumbItems(); track $index; let isLast = $last) {
-        <li class="breadcrumb-item" [class.active]="isLast || item.active">
-            @if (isLast || item.active || !item.url) {
-            <span class="breadcrumb-text">
-                @if (item.icon) {
-                <span class="breadcrumb-icon">{{ item.icon }}</span>
-                }
-                {{ item.label }}
-            </span>
-            } @else {
-            <a [routerLink]="item.url" class="breadcrumb-link">
-                @if (item.icon) {
-                <span class="breadcrumb-icon">{{ item.icon }}</span>
-                }
-                {{ item.label }}
-            </a>
+    @for (item of breadcrumbItems(); track $index; let isLast = $last) {
+      <li class="breadcrumb-item" [class.active]="isLast || item.active">
+        @if (isLast || item.active || !item.url) {
+          <span class="breadcrumb-text">
+            @if (item.icon) {
+              <span class="breadcrumb-icon">{{ item.icon }}</span>
             }
-        </li>
-        @if (!isLast) {
+            {{ item.label }}
+          </span>
+        } @else {
+          <a [routerLink]="item.url" class="breadcrumb-link">
+            @if (item.icon) {
+              <span class="breadcrumb-icon">{{ item.icon }}</span>
+            }
+            {{ item.label }}
+          </a>
+        }
+      </li>
+      @if (!isLast) {
         <li class="breadcrumb-separator" aria-hidden="true">{{ separator }}</li>
-        }
-        }
-    </ol>
+      }
+    }
+  </ol>
 </nav>

@@ -1,202 +1,202 @@
 .alert {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid transparent;
-    font-size: 0.875rem;
-    line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
 
 .alert-icon {
-    flex-shrink: 0;
-    width: 1.5rem;
-    height: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    font-size: 0.875rem;
-    font-weight: 600;
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.875rem;
+  font-weight: 600;
 }
 
 .alert-icon-content {
-    line-height: 1;
+  line-height: 1;
 }
 
 .alert-content {
-    flex: 1;
-    min-width: 0;
+  flex: 1;
+  min-width: 0;
 }
 
 .alert-title {
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-    color: inherit;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: inherit;
 }
 
 .alert-message {
-    color: inherit;
-    opacity: 0.9;
+  color: inherit;
+  opacity: 0.9;
 }
 
 .alert-close {
-    flex-shrink: 0;
-    width: 1.5rem;
-    height: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    background: transparent;
-    border: none;
-    color: inherit;
-    font-size: 1rem;
-    cursor: pointer;
-    opacity: 0.6;
-    transition: opacity 0.2s;
-    border-radius: 0.25rem;
-    line-height: 1;
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  border-radius: 0.25rem;
+  line-height: 1;
 }
 
 .alert-close:hover {
-    opacity: 1;
-    background-color: rgba(0, 0, 0, 0.05);
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 /* Filled Variant */
 .alert-filled.alert-info {
-    background-color: var(--color-info);
-    color: white;
+  background-color: var(--color-info);
+  color: white;
 }
 
 .alert-filled.alert-info .alert-icon {
-    background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .alert-filled.alert-success {
-    background-color: var(--color-success);
-    color: white;
+  background-color: var(--color-success);
+  color: white;
 }
 
 .alert-filled.alert-success .alert-icon {
-    background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .alert-filled.alert-warning {
-    background-color: var(--color-warning);
-    color: white;
+  background-color: var(--color-warning);
+  color: white;
 }
 
 .alert-filled.alert-warning .alert-icon {
-    background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .alert-filled.alert-error {
-    background-color: var(--color-error);
-    color: white;
+  background-color: var(--color-error);
+  color: white;
 }
 
 .alert-filled.alert-error .alert-icon {
-    background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Outlined Variant */
 .alert-outlined {
-    background-color: var(--color-bg-primary);
+  background-color: var(--color-bg-primary);
 }
 
 .alert-outlined.alert-info {
-    border-color: var(--color-info);
-    color: var(--color-info);
+  border-color: var(--color-info);
+  color: var(--color-info);
 }
 
 .alert-outlined.alert-info .alert-icon {
-    background-color: var(--color-info);
-    color: white;
+  background-color: var(--color-info);
+  color: white;
 }
 
 .alert-outlined.alert-success {
-    border-color: var(--color-success);
-    color: var(--color-success);
+  border-color: var(--color-success);
+  color: var(--color-success);
 }
 
 .alert-outlined.alert-success .alert-icon {
-    background-color: var(--color-success);
-    color: white;
+  background-color: var(--color-success);
+  color: white;
 }
 
 .alert-outlined.alert-warning {
-    border-color: var(--color-warning);
-    color: var(--color-warning);
+  border-color: var(--color-warning);
+  color: var(--color-warning);
 }
 
 .alert-outlined.alert-warning .alert-icon {
-    background-color: var(--color-warning);
-    color: white;
+  background-color: var(--color-warning);
+  color: white;
 }
 
 .alert-outlined.alert-error {
-    border-color: var(--color-error);
-    color: var(--color-error);
+  border-color: var(--color-error);
+  color: var(--color-error);
 }
 
 .alert-outlined.alert-error .alert-icon {
-    background-color: var(--color-error);
-    color: white;
+  background-color: var(--color-error);
+  color: white;
 }
 
 .alert-outlined .alert-message {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 /* Subtle Variant */
 .alert-subtle.alert-info {
-    background-color: var(--color-info-light);
-    color: var(--color-info);
+  background-color: var(--color-info-light);
+  color: var(--color-info);
 }
 
 .alert-subtle.alert-info .alert-icon {
-    background-color: var(--color-info);
-    color: white;
+  background-color: var(--color-info);
+  color: white;
 }
 
 .alert-subtle.alert-success {
-    background-color: var(--color-success-light);
-    color: var(--color-success);
+  background-color: var(--color-success-light);
+  color: var(--color-success);
 }
 
 .alert-subtle.alert-success .alert-icon {
-    background-color: var(--color-success);
-    color: white;
+  background-color: var(--color-success);
+  color: white;
 }
 
 .alert-subtle.alert-warning {
-    background-color: var(--color-warning-light);
-    color: var(--color-warning);
+  background-color: var(--color-warning-light);
+  color: var(--color-warning);
 }
 
 .alert-subtle.alert-warning .alert-icon {
-    background-color: var(--color-warning);
-    color: white;
+  background-color: var(--color-warning);
+  color: white;
 }
 
 .alert-subtle.alert-error {
-    background-color: var(--color-error-light);
-    color: var(--color-error);
+  background-color: var(--color-error-light);
+  color: var(--color-error);
 }
 
 .alert-subtle.alert-error .alert-icon {
-    background-color: var(--color-error);
-    color: white;
+  background-color: var(--color-error);
+  color: white;
 }
 
 .alert-subtle .alert-message {
-    opacity: 0.85;
+  opacity: 0.85;
 }
 
 /* Dark mode adjustments for filled */
 :root[data-theme='dark'] .alert-filled .alert-close:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
 }
