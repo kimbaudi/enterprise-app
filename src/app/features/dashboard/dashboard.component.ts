@@ -36,6 +36,7 @@ import { AlertComponent } from '@shared/components/alert/alert.component';
 import { AvatarComponent } from '@shared/components/avatar/avatar.component';
 import { ChipComponent } from '@shared/components/chip/chip.component';
 import { DividerComponent } from '@shared/components/divider/divider.component';
+import { EmptyStateComponent } from '@shared/components/empty-state/empty-state.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -68,6 +69,7 @@ import { DividerComponent } from '@shared/components/divider/divider.component';
     AvatarComponent,
     ChipComponent,
     DividerComponent,
+    EmptyStateComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',

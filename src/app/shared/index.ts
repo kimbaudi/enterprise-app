@@ -38,3 +38,4 @@ export * from '@shared/directives/has-role.directive';
 export * from '@shared/directives/click-outside.directive';
 export * from './components/chip/chip.component';
 export * from './components/divider/divider.component';
+export * from './components/empty-state/empty-state.component';

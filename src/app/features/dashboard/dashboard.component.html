@@ -1513,6 +1513,149 @@
       </app-card>
     </div>
   </div>
+
+  <div class="empty-state-section">
+    <app-card title="Empty State Component Demo">
+      <p>Empty states provide clear guidance when there's no content, helping users understand what to do next.</p>
+
+      <h3>Basic Empty States</h3>
+      <div class="empty-state-demo-grid">
+        <div class="empty-state-demo-item">
+          <app-empty-state icon="���" title="No messages"
+            description="You don't have any messages yet. Start a conversation to get started."></app-empty-state>
+        </div>
+
+        <div class="empty-state-demo-item">
+          <app-empty-state icon="���" title="No results found"
+            description="We couldn't find any items matching your search criteria."></app-empty-state>
+        </div>
+
+        <div class="empty-state-demo-item">
+          <app-empty-state icon="���" title="No documents"
+            description="Upload your first document to get started with file management."></app-empty-state>
+        </div>
+      </div>
+
+      <h3>With Action Buttons</h3>
+      <div class="empty-state-demo-grid">
+        <div class="empty-state-demo-item">
+          <app-empty-state icon="➕" title="Create your first project"
+            description="Projects help you organize your work and collaborate with your team."
+            primaryActionLabel="New Project"></app-empty-state>
+        </div>
+
+        <div class="empty-state-demo-item">
+          <app-empty-state icon="���" title="Invite team members"
+            description="Collaborate with others by inviting them to join your workspace." primaryActionLabel="Invite"
+            secondaryActionLabel="Learn More"></app-empty-state>
+        </div>
+      </div>
+
+      <h3>Sizes</h3>
+      <div class="empty-state-demo-sizes">
+        <div class="empty-state-demo-item">
+          <span>Small</span>
+          <app-empty-state size="sm" icon="���" title="Small empty state"
+            description="This is a compact version for smaller spaces."></app-empty-state>
+        </div>
+
+        <div class="empty-state-demo-item">
+          <span>Medium (default)</span>
+          <app-empty-state size="md" icon="���" title="Medium empty state"
+            description="This is the default size for most use cases."></app-empty-state>
+        </div>
+
+        <div class="empty-state-demo-item">
+          <span>Large</span>
+          <app-empty-state size="lg" icon="���" title="Large empty state"
+            description="This is a larger version for prominent empty states."></app-empty-state>
+        </div>
+      </div>
+
+      <h3>Compact Variant</h3>
+      <div class="empty-state-demo-compact">
+        <app-empty-state [compact]="true" icon="���" title="No items"
+          description="Try adjusting your filters"></app-empty-state>
+      </div>
+
+      <h3>Use Cases - No Search Results</h3>
+      <div class="empty-state-demo-use-case">
+        <app-empty-state icon="���" title="No results for 'angular components'"
+          description="Try adjusting your search terms or filters to find what you're looking for."
+          primaryActionLabel="Clear Filters" secondaryActionLabel="Browse All"></app-empty-state>
+      </div>
+
+      <h3>Use Cases - Empty Inbox</h3>
+      <div class="empty-state-demo-use-case">
+        <app-empty-state icon="✅" title="All caught up!"
+          description="You've read all your messages. Take a break or start a new conversation."
+          primaryActionLabel="Compose Message"></app-empty-state>
+      </div>
+
+      <h3>Use Cases - No Data Yet</h3>
+      <div class="empty-state-demo-use-case">
+        <app-empty-state icon="���" title="No data to display"
+          description="Connect your data source or import data to see analytics and insights."
+          primaryActionLabel="Connect Data" secondaryActionLabel="Import CSV"></app-empty-state>
+      </div>
+
+      <h3>Use Cases - Error State</h3>
+      <div class="empty-state-demo-use-case">
+        <app-empty-state icon="⚠️" title="Something went wrong"
+          description="We encountered an error while loading your data. Please try again or contact support if the problem persists."
+          primaryActionLabel="Retry" secondaryActionLabel="Contact Support"></app-empty-state>
+      </div>
+
+      <h3>Use Cases - Permission Denied</h3>
+      <div class="empty-state-demo-use-case">
+        <app-empty-state icon="���" title="Access denied"
+          description="You don't have permission to view this content. Contact your administrator to request access."
+          primaryActionLabel="Request Access"></app-empty-state>
+      </div>
+
+      <h3>Use Cases - Empty Cart</h3>
+      <div class="empty-state-demo-use-case">
+        <app-empty-state icon="���" title="Your cart is empty"
+          description="Browse our products and add items to your cart to get started."
+          primaryActionLabel="Start Shopping" secondaryActionLabel="View Favorites"></app-empty-state>
+      </div>
+
+      <h3>Use Cases - No Favorites</h3>
+      <div class="empty-state-demo-use-case">
+        <app-empty-state icon="⭐" title="No favorites yet"
+          description="Mark items as favorites to quickly access them later."
+          secondaryActionLabel="Explore Items"></app-empty-state>
+      </div>
+
+      <h3>Use Cases - Empty Notifications</h3>
+      <div class="empty-state-demo-compact">
+        <app-empty-state [compact]="true" icon="���" title="No notifications"
+          description="You're all up to date!"></app-empty-state>
+      </div>
+
+      <h3>Different Icons</h3>
+      <div class="empty-state-demo-icons">
+        <div class="empty-state-demo-icon-item">
+          <app-empty-state [compact]="true" icon="���" title="No tasks"></app-empty-state>
+        </div>
+        <div class="empty-state-demo-icon-item">
+          <app-empty-state [compact]="true" icon="���" title="No comments"></app-empty-state>
+        </div>
+        <div class="empty-state-demo-icon-item">
+          <app-empty-state [compact]="true" icon="���" title="No photos"></app-empty-state>
+        </div>
+        <div class="empty-state-demo-icon-item">
+          <app-empty-state [compact]="true" icon="���" title="No music"></app-empty-state>
+        </div>
+        <div class="empty-state-demo-icon-item">
+          <app-empty-state [compact]="true" icon="���" title="No videos"></app-empty-state>
+        </div>
+        <div class="empty-state-demo-icon-item">
+          <app-empty-state [compact]="true" icon="���️" title="No folders"></app-empty-state>
+        </div>
+      </div>
+    </app-card>
+  </div>
 </div>
 
 <!-- User Details Modal -->
