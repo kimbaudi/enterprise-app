@@ -1,0 +1,209 @@
+<form
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+  [class]="'form-builder form-layout-' + (schema.layout || 'vertical')"
+>
+  <div class="form-fields">
+    @for (field of visibleFields(); track field.name) {
+      <div
+        class="form-field"
+        [style.width]="getFieldWidth(field)"
+        [class.has-error]="hasError(field.name)"
+      >
+        <!-- Text, Email, Password, Tel, URL, Number -->
+        @if (
+          field.type === 'text' ||
+          field.type === 'email' ||
+          field.type === 'password' ||
+          field.type === 'tel' ||
+          field.type === 'url' ||
+          field.type === 'number'
+        ) {
+          <div class="input-wrapper">
+            <label [for]="getFieldId(field.name)" class="field-label">{{
+              getFieldLabel(field)
+            }}</label>
+            <input
+              [type]="field.type"
+              [id]="getFieldId(field.name)"
+              [formControlName]="field.name"
+              [placeholder]="field.placeholder || ''"
+              [readonly]="field.readonly || false"
+              class="field-input"
+              (blur)="onFieldBlur(field.name)"
+            />
+            @if (hasError(field.name)) {
+              <div class="field-error">{{ getFieldError(field.name) }}</div>
+            }
+            @if (field.hint && !hasError(field.name)) {
+              <div class="field-hint">{{ field.hint }}</div>
+            }
+          </div>
+        }
+
+        <!-- Date -->
+        @if (field.type === 'date') {
+          <div class="date-wrapper">
+            <label [for]="getFieldId(field.name)" class="field-label">{{
+              getFieldLabel(field)
+            }}</label>
+            <input
+              type="date"
+              [id]="getFieldId(field.name)"
+              [formControlName]="field.name"
+              [readonly]="field.readonly || false"
+              class="field-input"
+              (blur)="onFieldBlur(field.name)"
+            />
+            @if (hasError(field.name)) {
+              <div class="field-error">{{ getFieldError(field.name) }}</div>
+            }
+            @if (field.hint && !hasError(field.name)) {
+              <div class="field-hint">{{ field.hint }}</div>
+            }
+          </div>
+        }
+
+        <!-- Time -->
+        @if (field.type === 'time') {
+          <div class="time-wrapper">
+            <label [for]="getFieldId(field.name)" class="field-label">{{
+              getFieldLabel(field)
+            }}</label>
+            <input
+              type="time"
+              [id]="getFieldId(field.name)"
+              [formControlName]="field.name"
+              [readonly]="field.readonly || false"
+              class="field-input"
+              (blur)="onFieldBlur(field.name)"
+            />
+            @if (hasError(field.name)) {
+              <div class="field-error">{{ getFieldError(field.name) }}</div>
+            }
+            @if (field.hint && !hasError(field.name)) {
+              <div class="field-hint">{{ field.hint }}</div>
+            }
+          </div>
+        }
+
+        <!-- Textarea -->
+        @if (field.type === 'textarea') {
+          <div class="textarea-wrapper">
+            <label [for]="getFieldId(field.name)" class="field-label">{{
+              getFieldLabel(field)
+            }}</label>
+            <textarea
+              [id]="getFieldId(field.name)"
+              [formControlName]="field.name"
+              [placeholder]="field.placeholder || ''"
+              [readonly]="field.readonly || false"
+              class="field-textarea"
+              rows="4"
+              (blur)="onFieldBlur(field.name)"
+            ></textarea>
+            @if (hasError(field.name)) {
+              <div class="field-error">{{ getFieldError(field.name) }}</div>
+            }
+            @if (field.hint && !hasError(field.name)) {
+              <div class="field-hint">{{ field.hint }}</div>
+            }
+          </div>
+        }
+
+        <!-- Select -->
+        @if (field.type === 'select' && field.options) {
+          <div class="select-wrapper">
+            <label [for]="getFieldId(field.name)" class="field-label">{{
+              getFieldLabel(field)
+            }}</label>
+            <select
+              [id]="getFieldId(field.name)"
+              [formControlName]="field.name"
+              class="field-select"
+              (blur)="onFieldBlur(field.name)"
+            >
+              @if (field.placeholder) {
+                <option value="">{{ field.placeholder }}</option>
+              }
+              @for (option of field.options; track option.value) {
+                <option [value]="option.value">{{ option.label }}</option>
+              }
+            </select>
+            @if (hasError(field.name)) {
+              <div class="field-error">{{ getFieldError(field.name) }}</div>
+            }
+            @if (field.hint && !hasError(field.name)) {
+              <div class="field-hint">{{ field.hint }}</div>
+            }
+          </div>
+        }
+
+        <!-- Checkbox -->
+        @if (field.type === 'checkbox') {
+          <div class="checkbox-wrapper">
+            <label class="checkbox-label">
+              <input
+                type="checkbox"
+                [id]="getFieldId(field.name)"
+                [formControlName]="field.name"
+                class="field-checkbox"
+              />
+              <span>{{ field.label }}</span>
+            </label>
+            @if (field.hint) {
+              <div class="field-hint">{{ field.hint }}</div>
+            }
+          </div>
+        }
+
+        <!-- Radio -->
+        @if (field.type === 'radio' && field.options) {
+          <div class="radio-wrapper">
+            <label class="field-label">{{ getFieldLabel(field) }}</label>
+            <div class="radio-group">
+              @for (option of field.options; track option.value) {
+                <label class="radio-label">
+                  <input
+                    type="radio"
+                    [formControlName]="field.name"
+                    [value]="option.value"
+                    class="field-radio"
+                  />
+                  <span>{{ option.label }}</span>
+                </label>
+              }
+            </div>
+            @if (field.hint) {
+              <div class="field-hint">{{ field.hint }}</div>
+            }
+          </div>
+        }
+      </div>
+    }
+  </div>
+
+  <div class="form-actions">
+    @if (schema.showSubmit !== false) {
+      <app-button
+        type="submit"
+        [variant]="'primary'"
+        [disabled]="isSubmitting()"
+        [loading]="isSubmitting()"
+      >
+        {{ schema.submitLabel || 'Submit' }}
+      </app-button>
+    }
+
+    @if (schema.showReset) {
+      <app-button
+        type="button"
+        [variant]="'outline'"
+        [disabled]="isSubmitting()"
+        (click)="onReset()"
+      >
+        {{ schema.resetLabel || 'Reset' }}
+      </app-button>
+    }
+  </div>
+</form>

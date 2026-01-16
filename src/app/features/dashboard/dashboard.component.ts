@@ -84,6 +84,12 @@ import {
   CodeTheme,
   CodeEditorConfig,
 } from '@shared/components/code-editor/code-editor.component';
+import {
+  FormBuilderComponent,
+  FormSchema,
+  FormField,
+  FormBuilderConfig,
+} from '@shared/components/form-builder/form-builder.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -131,6 +137,7 @@ import {
     ChartComponent,
     NotificationCenterComponent,
     CodeEditorComponent,
+    FormBuilderComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -1942,5 +1949,332 @@ export class ExampleComponent {}`);
 
   onEditorThemeChange(theme: CodeTheme): void {
     this.editorTheme.set(theme);
+  }
+
+  // Form Builder Demo Data
+  contactFormSchema: FormSchema = {
+    fields: [
+      {
+        name: 'fullName',
+        label: 'Full Name',
+        type: 'text',
+        placeholder: 'John Doe',
+        required: true,
+        width: 'full',
+        validation: {
+          minLength: 2,
+          maxLength: 50,
+        },
+        hint: 'Enter your full name',
+      },
+      {
+        name: 'email',
+        label: 'Email Address',
+        type: 'email',
+        placeholder: 'john@example.com',
+        required: true,
+        width: 'half',
+        validation: {
+          email: true,
+        },
+      },
+      {
+        name: 'phone',
+        label: 'Phone Number',
+        type: 'tel',
+        placeholder: '+1 (555) 123-4567',
+        required: false,
+        width: 'half',
+        validation: {
+          pattern: '^[+]?[(]?[0-9]{1,4}[)]?[-\\s\\.]?[(]?[0-9]{1,4}[)]?[-\\s\\.]?[0-9]{1,9}$',
+        },
+      },
+      {
+        name: 'subject',
+        label: 'Subject',
+        type: 'select',
+        required: true,
+        width: 'full',
+        options: [
+          { value: 'general', label: 'General Inquiry' },
+          { value: 'support', label: 'Technical Support' },
+          { value: 'sales', label: 'Sales Question' },
+          { value: 'feedback', label: 'Feedback' },
+        ],
+      },
+      {
+        name: 'message',
+        label: 'Message',
+        type: 'textarea',
+        placeholder: 'Enter your message...',
+        required: true,
+        width: 'full',
+        validation: {
+          minLength: 10,
+          maxLength: 500,
+        },
+        hint: 'Minimum 10 characters',
+      },
+      {
+        name: 'subscribe',
+        label: 'Subscribe to newsletter',
+        type: 'checkbox',
+        defaultValue: false,
+        width: 'full',
+      },
+    ],
+    submitLabel: 'Send Message',
+    resetLabel: 'Clear Form',
+    showReset: true,
+    layout: 'vertical',
+  };
+
+  registrationFormSchema: FormSchema = {
+    fields: [
+      {
+        name: 'username',
+        label: 'Username',
+        type: 'text',
+        placeholder: 'johndoe',
+        required: true,
+        width: 'half',
+        validation: {
+          minLength: 3,
+          maxLength: 20,
+          pattern: '^[a-zA-Z0-9_]+$',
+        },
+        hint: 'Alphanumeric and underscores only',
+      },
+      {
+        name: 'email',
+        label: 'Email',
+        type: 'email',
+        placeholder: 'john@example.com',
+        required: true,
+        width: 'half',
+        validation: {
+          email: true,
+        },
+      },
+      {
+        name: 'password',
+        label: 'Password',
+        type: 'password',
+        placeholder: '••••••••',
+        required: true,
+        width: 'half',
+        validation: {
+          minLength: 8,
+          pattern: '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$',
+        },
+        hint: 'Min 8 chars, 1 uppercase, 1 lowercase, 1 number',
+      },
+      {
+        name: 'confirmPassword',
+        label: 'Confirm Password',
+        type: 'password',
+        placeholder: '••••••••',
+        required: true,
+        width: 'half',
+      },
+      {
+        name: 'role',
+        label: 'Role',
+        type: 'radio',
+        required: true,
+        width: 'full',
+        defaultValue: 'user',
+        options: [
+          { value: 'user', label: 'Regular User' },
+          { value: 'admin', label: 'Administrator' },
+          { value: 'moderator', label: 'Moderator' },
+        ],
+      },
+      {
+        name: 'terms',
+        label: 'I agree to the Terms and Conditions',
+        type: 'checkbox',
+        required: true,
+        width: 'full',
+      },
+    ],
+    submitLabel: 'Create Account',
+    layout: 'vertical',
+  };
+
+  surveyFormSchema: FormSchema = {
+    fields: [
+      {
+        name: 'satisfaction',
+        label: 'How satisfied are you with our service?',
+        type: 'radio',
+        required: true,
+        width: 'full',
+        options: [
+          { value: '5', label: 'Very Satisfied' },
+          { value: '4', label: 'Satisfied' },
+          { value: '3', label: 'Neutral' },
+          { value: '2', label: 'Dissatisfied' },
+          { value: '1', label: 'Very Dissatisfied' },
+        ],
+      },
+      {
+        name: 'recommend',
+        label: 'Would you recommend us to others?',
+        type: 'select',
+        required: true,
+        width: 'full',
+        options: [
+          { value: 'yes', label: 'Yes, definitely' },
+          { value: 'maybe', label: 'Maybe' },
+          { value: 'no', label: 'No' },
+        ],
+      },
+      {
+        name: 'features',
+        label: 'Which features do you use most?',
+        type: 'textarea',
+        placeholder: 'List the features...',
+        width: 'full',
+        validation: {
+          maxLength: 200,
+        },
+      },
+      {
+        name: 'improvements',
+        label: 'What can we improve?',
+        type: 'textarea',
+        placeholder: 'Your suggestions...',
+        width: 'full',
+        validation: {
+          maxLength: 300,
+        },
+      },
+    ],
+    submitLabel: 'Submit Survey',
+    resetLabel: 'Start Over',
+    showReset: true,
+    layout: 'vertical',
+  };
+
+  jobApplicationSchema: FormSchema = {
+    fields: [
+      {
+        name: 'firstName',
+        label: 'First Name',
+        type: 'text',
+        required: true,
+        width: 'half',
+        validation: {
+          minLength: 2,
+        },
+      },
+      {
+        name: 'lastName',
+        label: 'Last Name',
+        type: 'text',
+        required: true,
+        width: 'half',
+        validation: {
+          minLength: 2,
+        },
+      },
+      {
+        name: 'email',
+        label: 'Email',
+        type: 'email',
+        required: true,
+        width: 'half',
+        validation: {
+          email: true,
+        },
+      },
+      {
+        name: 'phone',
+        label: 'Phone',
+        type: 'tel',
+        required: true,
+        width: 'half',
+      },
+      {
+        name: 'position',
+        label: 'Position',
+        type: 'select',
+        required: true,
+        width: 'full',
+        options: [
+          { value: 'frontend', label: 'Frontend Developer' },
+          { value: 'backend', label: 'Backend Developer' },
+          { value: 'fullstack', label: 'Full Stack Developer' },
+          { value: 'devops', label: 'DevOps Engineer' },
+        ],
+      },
+      {
+        name: 'experience',
+        label: 'Years of Experience',
+        type: 'number',
+        required: true,
+        width: 'half',
+        validation: {
+          min: 0,
+          max: 50,
+        },
+      },
+      {
+        name: 'startDate',
+        label: 'Available Start Date',
+        type: 'date',
+        required: true,
+        width: 'half',
+      },
+      {
+        name: 'coverLetter',
+        label: 'Cover Letter',
+        type: 'textarea',
+        placeholder: 'Tell us why you would be a great fit...',
+        required: true,
+        width: 'full',
+        validation: {
+          minLength: 50,
+          maxLength: 1000,
+        },
+      },
+      {
+        name: 'remote',
+        label: 'Willing to work remotely',
+        type: 'checkbox',
+        defaultValue: false,
+        width: 'full',
+      },
+    ],
+    submitLabel: 'Submit Application',
+    layout: 'vertical',
+  };
+
+  formBuilderConfig: FormBuilderConfig = {
+    validateOnChange: true,
+    validateOnBlur: true,
+    showRequiredIndicator: true,
+    showOptionalIndicator: false,
+    requiredIndicator: '*',
+    optionalIndicator: '(optional)',
+  };
+
+  onFormSubmit(formName: string, data: any): void {
+    console.log(`${formName} submitted:`, data);
+    this.toastService.success('Form submitted successfully!', formName);
+  }
+
+  onFormReset(formName: string): void {
+    console.log(`${formName} reset`);
+    this.toastService.info('Form has been reset', formName);
+  }
+
+  onFormValueChange(data: any): void {
+    console.log('Form value changed:', data);
+  }
+
+  onFormValidationChange(isValid: boolean): void {
+    console.log('Form validation changed:', isValid);
   }
 }

@@ -3717,7 +3717,408 @@
       </app-card>
     </div>
 
-    <!-- add new section here -->
+    <!-- Form Builder Section -->
+    <div class="form-builder-section">
+      <app-card title="Form Builder Component Demo">
+        <p>
+          Dynamic form generation from JSON schema with validation, conditional fields, and flexible
+          layouts. Support for 12 field types, real-time validation, and customizable configuration.
+        </p>
+
+        <h3>Contact Form</h3>
+        <app-form-builder
+          formId="contact-form"
+          [schema]="contactFormSchema"
+          [config]="formBuilderConfig"
+          (formSubmit)="onFormSubmit('Contact Form', $event)"
+          (formReset)="onFormReset('Contact Form')"
+          (valueChange)="onFormValueChange($event)"
+        />
+
+        <h3>User Registration</h3>
+        <app-form-builder
+          formId="registration-form"
+          [schema]="registrationFormSchema"
+          [config]="formBuilderConfig"
+          (formSubmit)="onFormSubmit('Registration Form', $event)"
+          (validationChange)="onFormValidationChange($event)"
+        />
+
+        <h3>Customer Survey</h3>
+        <app-form-builder
+          formId="survey-form"
+          [schema]="surveyFormSchema"
+          [config]="formBuilderConfig"
+          (formSubmit)="onFormSubmit('Survey Form', $event)"
+          (formReset)="onFormReset('Survey Form')"
+        />
+
+        <h3>Job Application</h3>
+        <app-form-builder
+          formId="job-application-form"
+          [schema]="jobApplicationSchema"
+          [config]="formBuilderConfig"
+          (formSubmit)="onFormSubmit('Job Application', $event)"
+        />
+
+        <h3>Inline Layout</h3>
+        <app-form-builder
+          formId="inline-search-form"
+          [schema]="{
+            fields: [
+              {
+                name: 'search',
+                label: 'Search',
+                type: 'text',
+                placeholder: 'Search...',
+                width: 'full',
+                required: false,
+              },
+              {
+                name: 'category',
+                label: 'Category',
+                type: 'select',
+                width: 'full',
+                required: false,
+                options: [
+                  { value: 'all', label: 'All Categories' },
+                  { value: 'products', label: 'Products' },
+                  { value: 'services', label: 'Services' },
+                ],
+              },
+            ],
+            submitLabel: 'Search',
+            layout: 'inline',
+            showReset: false,
+          }"
+          (formSubmit)="onFormSubmit('Search Form', $event)"
+        />
+
+        <h3>Horizontal Layout</h3>
+        <app-form-builder
+          formId="horizontal-form"
+          [schema]="{
+            fields: [
+              {
+                name: 'firstName',
+                label: 'First Name',
+                type: 'text',
+                required: true,
+                width: 'half',
+              },
+              {
+                name: 'lastName',
+                label: 'Last Name',
+                type: 'text',
+                required: true,
+                width: 'half',
+              },
+              {
+                name: 'email',
+                label: 'Email',
+                type: 'email',
+                required: true,
+                width: 'full',
+                validation: { email: true },
+              },
+              { name: 'newsletter', label: 'Subscribe', type: 'checkbox', width: 'full' },
+            ],
+            submitLabel: 'Save',
+            layout: 'horizontal',
+          }"
+          (formSubmit)="onFormSubmit('Horizontal Form', $event)"
+        />
+
+        <h3>Field Types</h3>
+        <app-form-builder
+          formId="field-types-form"
+          [schema]="{
+            fields: [
+              {
+                name: 'text',
+                label: 'Text Input',
+                type: 'text',
+                placeholder: 'Enter text',
+                width: 'half',
+              },
+              {
+                name: 'email',
+                label: 'Email Input',
+                type: 'email',
+                placeholder: 'email@example.com',
+                width: 'half',
+              },
+              {
+                name: 'password',
+                label: 'Password Input',
+                type: 'password',
+                placeholder: '••••••••',
+                width: 'half',
+              },
+              {
+                name: 'number',
+                label: 'Number Input',
+                type: 'number',
+                placeholder: '0',
+                width: 'half',
+              },
+              {
+                name: 'tel',
+                label: 'Phone Input',
+                type: 'tel',
+                placeholder: '+1 (555) 000-0000',
+                width: 'half',
+              },
+              {
+                name: 'url',
+                label: 'URL Input',
+                type: 'url',
+                placeholder: 'https://example.com',
+                width: 'half',
+              },
+              { name: 'date', label: 'Date Input', type: 'date', width: 'half' },
+              { name: 'time', label: 'Time Input', type: 'time', width: 'half' },
+              {
+                name: 'textarea',
+                label: 'Textarea',
+                type: 'textarea',
+                placeholder: 'Enter multiple lines...',
+                width: 'full',
+              },
+              {
+                name: 'select',
+                label: 'Select Dropdown',
+                type: 'select',
+                width: 'third',
+                options: [
+                  { value: '1', label: 'Option 1' },
+                  { value: '2', label: 'Option 2' },
+                ],
+              },
+              {
+                name: 'radio',
+                label: 'Radio Buttons',
+                type: 'radio',
+                width: 'third',
+                options: [
+                  { value: 'a', label: 'Choice A' },
+                  { value: 'b', label: 'Choice B' },
+                ],
+              },
+              { name: 'checkbox', label: 'Checkbox', type: 'checkbox', width: 'third' },
+            ],
+            submitLabel: 'Submit',
+            layout: 'vertical',
+          }"
+          (formSubmit)="onFormSubmit('Field Types', $event)"
+        />
+
+        <h3>Field States</h3>
+        <app-form-builder
+          formId="field-states-form"
+          [schema]="{
+            fields: [
+              {
+                name: 'normal',
+                label: 'Normal Field',
+                type: 'text',
+                defaultValue: 'Editable',
+                width: 'third',
+              },
+              {
+                name: 'disabled',
+                label: 'Disabled Field',
+                type: 'text',
+                defaultValue: 'Cannot edit',
+                disabled: true,
+                width: 'third',
+              },
+              {
+                name: 'readonly',
+                label: 'Readonly Field',
+                type: 'text',
+                defaultValue: 'Read only',
+                readonly: true,
+                width: 'third',
+              },
+              {
+                name: 'disabledSelect',
+                label: 'Disabled Select',
+                type: 'select',
+                disabled: true,
+                width: 'half',
+                options: [{ value: '1', label: 'Option 1' }],
+                defaultValue: '1',
+              },
+              {
+                name: 'disabledCheckbox',
+                label: 'Disabled Checkbox',
+                type: 'checkbox',
+                disabled: true,
+                defaultValue: true,
+                width: 'half',
+              },
+            ],
+            submitLabel: 'Submit',
+            showReset: false,
+          }"
+          (formSubmit)="onFormSubmit('Field States', $event)"
+        />
+
+        <h3>Common Use Cases</h3>
+        <div class="use-case-grid">
+          <div class="use-case-card">
+            <h4>📋 Dynamic Forms</h4>
+            <p>
+              Generate forms dynamically from JSON schema for surveys, questionnaires, and data
+              collection. Perfect for admin panels that need configurable forms.
+            </p>
+          </div>
+
+          <div class="use-case-card">
+            <h4>✅ Form Validation</h4>
+            <p>
+              Built-in validation with real-time feedback. Support for email, URL, pattern matching,
+              length, min/max values, and custom validation functions.
+            </p>
+          </div>
+
+          <div class="use-case-card">
+            <h4>🎨 Flexible Layouts</h4>
+            <p>
+              Three layout modes (vertical, horizontal, inline) with responsive field widths (full,
+              half, third). Adapts automatically to mobile screens.
+            </p>
+          </div>
+
+          <div class="use-case-card">
+            <h4>🔗 Conditional Fields</h4>
+            <p>
+              Show/hide fields based on other field values using dependsOn configuration. Perfect
+              for multi-step forms with conditional logic.
+            </p>
+          </div>
+
+          <div class="use-case-card">
+            <h4>🚀 Quick Prototyping</h4>
+            <p>
+              Rapidly create forms without writing HTML templates. Just define the schema and let
+              the component handle rendering, validation, and state management.
+            </p>
+          </div>
+
+          <div class="use-case-card">
+            <h4>⚙️ Configuration Forms</h4>
+            <p>
+              Ideal for settings pages, user preferences, and admin configuration panels. Supports
+              all common input types with customizable labels and hints.
+            </p>
+          </div>
+        </div>
+
+        <h3>Features</h3>
+        <div class="features-grid">
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">📝</span>
+              <strong>12 Field Types</strong>
+              <p>
+                Text, email, password, number, tel, URL, textarea, select, checkbox, radio, date,
+                time
+              </p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">✓</span>
+              <strong>Comprehensive Validation</strong>
+              <p>Required, email, URL, min/max, minLength/maxLength, pattern, custom validators</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">📐</span>
+              <strong>3 Layout Modes</strong>
+              <p>Vertical (stacked), horizontal (side-by-side labels), inline (single row)</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">📱</span>
+              <strong>Responsive Design</strong>
+              <p>Mobile-friendly with automatic column layout on small screens</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">🎯</span>
+              <strong>Field Widths</strong>
+              <p>Full (100%), half (50%), third (33.333%) with flexible grid layout</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">🔄</span>
+              <strong>Real-time Updates</strong>
+              <p>Events for form submit, reset, value changes, and validation state changes</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">🎨</span>
+              <strong>Dark Mode</strong>
+              <p>Full dark mode support with theme-aware styling and color variables</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">🔧</span>
+              <strong>Public API</strong>
+              <p>Methods to get/set values, reset form, and programmatically validate fields</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">👁️</span>
+              <strong>Conditional Visibility</strong>
+              <p>Show/hide fields based on other field values with dependsOn configuration</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">💡</span>
+              <strong>Hint Text</strong>
+              <p>Add helpful hints and guidance below each field for better UX</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">⚠️</span>
+              <strong>Error Messages</strong>
+              <p>User-friendly error messages for all validation types with custom styling</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">🔒</span>
+              <strong>Field States</strong>
+              <p>Support for disabled and readonly states on all field types</p>
+            </div>
+          </div>
+        </div>
+      </app-card>
+    </div>
   </div>
 
   <!-- User Details Modal -->

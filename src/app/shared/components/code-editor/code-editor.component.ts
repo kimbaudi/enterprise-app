@@ -11,6 +11,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 export type CodeLanguage =
   | 'typescript'
@@ -73,7 +74,7 @@ export class CodeEditorComponent implements OnInit, OnChanges {
 
   private fullConfig: CodeEditorConfig = {};
 
-  constructor() {
+  constructor(private sanitizer: DomSanitizer) {
     effect(() => {
       this.updateLines();
     });
@@ -176,12 +177,13 @@ export class CodeEditorComponent implements OnInit, OnChanges {
     this.lines.set(code.split('\n'));
   }
 
-  getHighlightedCode(): string {
+  getHighlightedCode(): SafeHtml {
     const code = this.editorCode();
-    if (!code) return '';
+    if (!code) return this.sanitizer.bypassSecurityTrustHtml('');
 
     // Simple syntax highlighting based on language
-    return this.highlightCode(code, this.language);
+    const highlighted = this.highlightCode(code, this.language);
+    return this.sanitizer.bypassSecurityTrustHtml(highlighted);
   }
 
   private highlightCode(code: string, language: CodeLanguage): string {

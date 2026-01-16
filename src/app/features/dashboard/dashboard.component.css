@@ -2442,3 +2442,53 @@ li {
 .code-editor-section .use-case-item app-code-editor {
   margin-bottom: 0;
 }
+
+/* Form Builder Section */
+.form-builder-section {
+  margin-top: 2rem;
+}
+
+.form-builder-section h3 {
+  margin: 1.5rem 0 1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.form-builder-section h3:first-of-type {
+  margin-top: 1rem;
+}
+
+.form-builder-section p {
+  margin: 0 0 1.5rem 0;
+  color: var(--color-text-secondary);
+}
+
+.form-builder-section app-form-builder {
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.form-builder-section .use-case-card {
+  padding: 1.5rem;
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+}
+
+.form-builder-section .use-case-card h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.form-builder-section .use-case-card p {
+  margin: 0 0 1rem 0;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.form-builder-section .use-case-card app-form-builder {
+  margin-bottom: 0;
+}
