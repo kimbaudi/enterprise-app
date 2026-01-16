@@ -96,6 +96,7 @@ import {
   SegmentedControlComponent,
   SegmentedControlOption,
 } from '@shared/components/segmented-control/segmented-control.component';
+import { TagInputComponent } from '@shared/components/tag-input/tag-input.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -147,6 +148,7 @@ import {
     SliderComponent,
     SwitchComponent,
     SegmentedControlComponent,
+    TagInputComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -2405,5 +2407,68 @@ export class ExampleComponent {}`);
 
   onSegmentChange(option: SegmentedControlOption, name: string): void {
     console.log(`${name} segment changed:`, option);
+  }
+
+  // Tag Input Component Data
+  skillTags = signal<string[]>(['Angular', 'TypeScript', 'RxJS']);
+  categoryTags = signal<string[]>(['Frontend', 'Backend']);
+  interestTags = signal<string[]>([]);
+  colorTags = signal<string[]>(['Primary', 'Success']);
+  projectTags = signal<string[]>(['web-app']);
+  emailTags = signal<string[]>([]);
+
+  skillSuggestions = [
+    'Angular',
+    'React',
+    'Vue',
+    'TypeScript',
+    'JavaScript',
+    'Node.js',
+    'Express',
+    'NestJS',
+    'RxJS',
+    'NgRx',
+    'HTML',
+    'CSS',
+    'Sass',
+    'TailwindCSS',
+  ];
+  categorySuggestions = [
+    'Frontend',
+    'Backend',
+    'DevOps',
+    'Database',
+    'Testing',
+    'Design',
+    'Mobile',
+  ];
+  interestSuggestions = [
+    'Web Development',
+    'Mobile Apps',
+    'Machine Learning',
+    'Data Science',
+    'Cloud Computing',
+    'Cybersecurity',
+  ];
+  projectSuggestions = [
+    'web-app',
+    'mobile-app',
+    'api',
+    'dashboard',
+    'portfolio',
+    'blog',
+    'e-commerce',
+  ];
+
+  onTagsChange(tags: string[], name: string): void {
+    console.log(`${name} tags:`, tags);
+  }
+
+  onTagAdd(tag: string, name: string): void {
+    this.toastService.success(`Added tag: ${tag}`, `${name}`);
+  }
+
+  onTagRemove(tag: string, name: string): void {
+    this.toastService.info(`Removed tag: ${tag}`, `${name}`);
   }
 }

@@ -4899,6 +4899,273 @@
         </div>
       </app-card>
     </div>
+
+    <!-- Tag Input Component Section -->
+    <div class="tag-input-section">
+      <app-card title="Tag Input Component Demo">
+        <p>
+          Tag input component for entering multiple values with autocomplete suggestions.
+          Perfect for categories, skills, keywords, and labels. Supports limits, duplicate prevention,
+          and various styling options.
+        </p>
+
+        <h3>Basic Tag Input</h3>
+        <app-tag-input
+          placeholder="Add a tag..."
+          [(ngModel)]="skillTags"
+          (tagsChange)="onTagsChange($event, 'Skills')"
+          (tagAdd)="onTagAdd($event, 'Skills')"
+          (tagRemove)="onTagRemove($event, 'Skills')"
+        ></app-tag-input>
+        <p>Tags: {{ skillTags().join(', ') || 'None' }}</p>
+
+        <h3>With Autocomplete Suggestions</h3>
+        <app-tag-input
+          placeholder="Start typing to see suggestions..."
+          [(ngModel)]="categoryTags"
+          [suggestions]="categorySuggestions"
+          (tagsChange)="onTagsChange($event, 'Categories')"
+        ></app-tag-input>
+        <p>Categories: {{ categoryTags().join(', ') || 'None' }}</p>
+
+        <h3>Sizes</h3>
+        <div class="tag-input-sizes-demo">
+          <div>
+            <h4>Small</h4>
+            <app-tag-input
+              size="sm"
+              placeholder="Small size..."
+              [(ngModel)]="skillTags"
+            ></app-tag-input>
+          </div>
+          <div>
+            <h4>Medium (Default)</h4>
+            <app-tag-input
+              size="md"
+              placeholder="Medium size..."
+              [(ngModel)]="skillTags"
+            ></app-tag-input>
+          </div>
+          <div>
+            <h4>Large</h4>
+            <app-tag-input
+              size="lg"
+              placeholder="Large size..."
+              [(ngModel)]="skillTags"
+            ></app-tag-input>
+          </div>
+        </div>
+
+        <h3>Colors</h3>
+        <div class="tag-input-colors-demo">
+          <div>
+            <h4>Primary</h4>
+            <app-tag-input
+              color="primary"
+              placeholder="Primary tags..."
+              [(ngModel)]="skillTags"
+            ></app-tag-input>
+          </div>
+          <div>
+            <h4>Secondary</h4>
+            <app-tag-input
+              color="secondary"
+              placeholder="Secondary tags..."
+              [(ngModel)]="categoryTags"
+            ></app-tag-input>
+          </div>
+          <div>
+            <h4>Success</h4>
+            <app-tag-input
+              color="success"
+              placeholder="Success tags..."
+              [(ngModel)]="colorTags"
+            ></app-tag-input>
+          </div>
+          <div>
+            <h4>Warning</h4>
+            <app-tag-input
+              color="warning"
+              placeholder="Warning tags..."
+              [(ngModel)]="colorTags"
+            ></app-tag-input>
+          </div>
+          <div>
+            <h4>Error</h4>
+            <app-tag-input
+              color="error"
+              placeholder="Error tags..."
+              [(ngModel)]="colorTags"
+            ></app-tag-input>
+          </div>
+        </div>
+
+        <h3>Variants</h3>
+        <div class="tag-input-variants-demo">
+          <div>
+            <h4>Default</h4>
+            <app-tag-input
+              variant="default"
+              placeholder="Default variant..."
+              [(ngModel)]="skillTags"
+            ></app-tag-input>
+          </div>
+          <div>
+            <h4>Outlined</h4>
+            <app-tag-input
+              variant="outlined"
+              placeholder="Outlined variant..."
+              [(ngModel)]="skillTags"
+            ></app-tag-input>
+          </div>
+          <div>
+            <h4>Filled</h4>
+            <app-tag-input
+              variant="filled"
+              placeholder="Filled variant..."
+              [(ngModel)]="skillTags"
+            ></app-tag-input>
+          </div>
+        </div>
+
+        <h3>Tag Limits</h3>
+        <div class="tag-input-limits-demo">
+          <div>
+            <h4>Max 3 Tags</h4>
+            <app-tag-input
+              [maxTags]="3"
+              placeholder="Add up to 3 tags..."
+              [(ngModel)]="interestTags"
+            ></app-tag-input>
+          </div>
+          <div>
+            <h4>Max 15 Characters per Tag</h4>
+            <app-tag-input
+              [maxLength]="15"
+              placeholder="Max 15 chars..."
+              [(ngModel)]="categoryTags"
+            ></app-tag-input>
+          </div>
+        </div>
+
+        <h3>States</h3>
+        <div class="tag-input-states-demo">
+          <div>
+            <h4>Disabled</h4>
+            <app-tag-input
+              [disabled]="true"
+              placeholder="Disabled..."
+              [(ngModel)]="skillTags"
+            ></app-tag-input>
+          </div>
+          <div>
+            <h4>Not Removable</h4>
+            <app-tag-input
+              [removable]="false"
+              placeholder="Cannot remove tags..."
+              [(ngModel)]="categoryTags"
+            ></app-tag-input>
+          </div>
+          <div>
+            <h4>Not Clearable</h4>
+            <app-tag-input
+              [clearable]="false"
+              placeholder="No clear button..."
+              [(ngModel)]="skillTags"
+            ></app-tag-input>
+          </div>
+        </div>
+
+        <h3>Use Cases</h3>
+        <div class="use-case-grid">
+          <div class="use-case-item">
+            <h4>Skills & Technologies</h4>
+            <p>Add your technical skills and expertise</p>
+            <app-tag-input
+              placeholder="Add skills (e.g., Angular, TypeScript)..."
+              [(ngModel)]="skillTags"
+              [suggestions]="skillSuggestions"
+              [maxTags]="10"
+              (tagsChange)="onTagsChange($event, 'Skills')"
+            ></app-tag-input>
+          </div>
+
+          <div class="use-case-item">
+            <h4>Project Tags</h4>
+            <p>Categorize your project with relevant tags</p>
+            <app-tag-input
+              placeholder="Add project tags..."
+              [(ngModel)]="projectTags"
+              [suggestions]="projectSuggestions"
+              color="success"
+              (tagsChange)="onTagsChange($event, 'Project')"
+            ></app-tag-input>
+          </div>
+
+          <div class="use-case-item">
+            <h4>Email Recipients</h4>
+            <p>Add multiple email addresses</p>
+            <app-tag-input
+              placeholder="Enter email addresses..."
+              [(ngModel)]="emailTags"
+              [allowDuplicates]="false"
+              color="secondary"
+              (tagsChange)="onTagsChange($event, 'Emails')"
+            ></app-tag-input>
+          </div>
+
+          <div class="use-case-item">
+            <h4>Areas of Interest</h4>
+            <p>Select topics you're interested in</p>
+            <app-tag-input
+              placeholder="Add interests..."
+              [(ngModel)]="interestTags"
+              [suggestions]="interestSuggestions"
+              [maxTags]="5"
+              color="warning"
+              size="lg"
+              (tagsChange)="onTagsChange($event, 'Interests')"
+            ></app-tag-input>
+          </div>
+        </div>
+
+        <h3>Features</h3>
+        <div class="features-grid">
+          <div class="feature-item">
+            <strong>Autocomplete</strong>
+            <p>Suggestions dropdown as you type</p>
+          </div>
+          <div class="feature-item">
+            <strong>Tag Limits</strong>
+            <p>Restrict maximum tags and tag length</p>
+          </div>
+          <div class="feature-item">
+            <strong>Duplicate Prevention</strong>
+            <p>Optional duplicate tag detection</p>
+          </div>
+          <div class="feature-item">
+            <strong>Keyboard Support</strong>
+            <p>Enter to add, Backspace to remove</p>
+          </div>
+          <div class="feature-item">
+            <strong>Color Variants</strong>
+            <p>5 color schemes for tags</p>
+          </div>
+          <div class="feature-item">
+            <strong>Size Options</strong>
+            <p>Small, medium, and large sizes</p>
+          </div>
+          <div class="feature-item">
+            <strong>Style Variants</strong>
+            <p>Default, outlined, and filled</p>
+          </div>
+          <div class="feature-item">
+            <strong>Forms Integration</strong>
+            <p>Full ControlValueAccessor support</p>
+          </div>
+        </div>
+      </app-card>
+    </div>
   </div>
 
   <!-- User Details Modal -->

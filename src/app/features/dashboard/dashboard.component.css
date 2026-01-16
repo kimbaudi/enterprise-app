@@ -2766,3 +2766,92 @@ li {
     gap: 1rem;
   }
 }
+
+/* Tag Input Component Section */
+.tag-input-section {
+  margin-top: 2rem;
+}
+
+.tag-input-section h3 {
+  margin: 1.5rem 0 1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.tag-input-section h3:first-of-type {
+  margin-top: 1rem;
+}
+
+.tag-input-section h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.tag-input-section p {
+  margin: 0.5rem 0 1.5rem 0;
+  color: var(--color-text-secondary);
+}
+
+.tag-input-section app-tag-input {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.tag-input-sizes-demo,
+.tag-input-colors-demo,
+.tag-input-variants-demo,
+.tag-input-limits-demo,
+.tag-input-states-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag-input-sizes-demo > div,
+.tag-input-colors-demo > div,
+.tag-input-variants-demo > div,
+.tag-input-limits-demo > div,
+.tag-input-states-demo > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tag-input-section .use-case-item {
+  padding: 1.5rem;
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+}
+
+.tag-input-section .use-case-item h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.tag-input-section .use-case-item p {
+  margin: 0 0 1rem 0;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.tag-input-section .use-case-item app-tag-input {
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tag-input-sizes-demo,
+  .tag-input-colors-demo,
+  .tag-input-variants-demo,
+  .tag-input-limits-demo,
+  .tag-input-states-demo {
+    gap: 1rem;
+  }
+}

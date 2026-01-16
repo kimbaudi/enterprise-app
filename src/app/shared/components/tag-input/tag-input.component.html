@@ -1,0 +1,77 @@
+<div
+  class="tag-input-container"
+  [class.tag-input-focused]="focused()"
+  [class.tag-input-disabled]="disabled"
+  [class.tag-input-sm]="size === 'sm'"
+  [class.tag-input-md]="size === 'md'"
+  [class.tag-input-lg]="size === 'lg'"
+  [class.tag-input-default]="variant === 'default'"
+  [class.tag-input-outlined]="variant === 'outlined'"
+  [class.tag-input-filled]="variant === 'filled'"
+>
+  <div class="tag-input-wrapper">
+    <!-- Tags Display -->
+    <div class="tags-list">
+      @for (tag of tags(); track tag) {
+        <span
+          class="tag"
+          [class.tag-primary]="color === 'primary'"
+          [class.tag-secondary]="color === 'secondary'"
+          [class.tag-success]="color === 'success'"
+          [class.tag-warning]="color === 'warning'"
+          [class.tag-error]="color === 'error'"
+        >
+          <span class="tag-text">{{ tag }}</span>
+          @if (removable && !disabled) {
+            <button
+              type="button"
+              class="tag-remove"
+              (click)="removeTag(tag)"
+              [attr.aria-label]="'Remove ' + tag"
+            >
+              ×
+            </button>
+          }
+        </span>
+      }
+
+      <!-- Input Field -->
+      @if (canAddMore) {
+        <input
+          type="text"
+          class="tag-input"
+          [placeholder]="tags().length === 0 ? placeholder : ''"
+          [disabled]="disabled"
+          [value]="inputValue()"
+          (input)="onInputChange($any($event.target).value)"
+          (keydown)="onInputKeyDown($event)"
+          (focus)="onFocus()"
+          (blur)="onBlur()"
+        />
+      }
+    </div>
+
+    <!-- Actions -->
+    <div class="tag-input-actions">
+      @if (maxTags) {
+        <span class="tag-count">{{ tagCountText }}</span>
+      }
+      @if (clearable && tags().length > 0 && !disabled) {
+        <button type="button" class="clear-button" (click)="clearAll()" aria-label="Clear all tags">
+          ×
+        </button>
+      }
+    </div>
+  </div>
+
+  <!-- Suggestions Dropdown -->
+  @if (showSuggestions() && filteredSuggestions().length > 0) {
+    <div class="suggestions-dropdown">
+      @for (suggestion of filteredSuggestions(); track suggestion) {
+        <button type="button" class="suggestion-item" (click)="selectSuggestion(suggestion)">
+          {{ suggestion }}
+        </button>
+      }
+    </div>
+  }
+</div>
