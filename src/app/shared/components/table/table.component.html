@@ -1,0 +1,81 @@
+<div class="table-container">
+    <!-- Search Bar -->
+    <div class="table-header" *ngIf="config.showSearch">
+        <div class="search-box">
+            <input type="text" placeholder="Search..." [value]="searchQuery()" (input)="onSearch($event)"
+                class="search-input" />
+        </div>
+        <div class="table-info">
+            <span>{{ totalRecords() }} records</span>
+        </div>
+    </div>
+
+    <!-- Table -->
+    <div class="table-wrapper" [class.sticky-header]="config.stickyHeader">
+        <table class="table" [class.striped]="config.striped" [class.hoverable]="config.hoverable"
+            [class.bordered]="config.bordered">
+            <thead>
+                <tr>
+                    <th *ngFor="let column of columns" [style.width]="column.width"
+                        [style.text-align]="column.align || 'left'" [class.sortable]="column.sortable"
+                        (click)="onSort(column)">
+                        <div class="th-content">
+                            <span>{{ column.label }}</span>
+                            <span class="sort-icon" *ngIf="column.sortable">{{ getSortIcon(column) }}</span>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody *ngIf="!loading && paginatedData().length > 0">
+                <tr *ngFor="let row of paginatedData()" (click)="onRowClick(row)">
+                    <td *ngFor="let column of columns" [style.text-align]="column.align || 'left'"
+                        [attr.data-label]="column.label">
+                        {{ formatCellValue(row, column) }}
+                    </td>
+                </tr>
+            </tbody>
+            <tbody *ngIf="loading">
+                <tr>
+                    <td [attr.colspan]="columns.length" class="loading-cell">
+                        <div class="loading-spinner"></div>
+                        <span>Loading...</span>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody *ngIf="!loading && paginatedData().length === 0">
+                <tr>
+                    <td [attr.colspan]="columns.length" class="empty-cell">
+                        {{ emptyMessage }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="table-footer" *ngIf="config.showPagination && totalRecords() > 0">
+        <div class="pagination-info">
+            <span>Showing {{ startRecord() }} to {{ endRecord() }} of {{ totalRecords() }}</span>
+            <select [value]="pageSize()" (change)="onPageSizeChange($event)" class="page-size-select">
+                <option *ngFor="let size of config.pageSizeOptions" [value]="size">{{ size }}</option>
+            </select>
+            <span>per page</span>
+        </div>
+
+        <div class="pagination">
+            <button class="pagination-btn" (click)="onPageChange(currentPage() - 1)" [disabled]="currentPage() === 1">
+                Previous
+            </button>
+
+            <button *ngFor="let page of getPages()" class="pagination-btn" [class.active]="page === currentPage()"
+                [class.dots]="page === -1" [disabled]="page === -1" (click)="onPageChange(page)">
+                {{ page === -1 ? '...' : page }}
+            </button>
+
+            <button class="pagination-btn" (click)="onPageChange(currentPage() + 1)"
+                [disabled]="currentPage() === totalPages()">
+                Next
+            </button>
+        </div>
+    </div>
+</div>
