@@ -1,0 +1,140 @@
+<div class="kanban-board" [class.compact]="config.compactMode">
+  <div class="kanban-columns">
+    @for (column of columns; track column.id) {
+      <div
+        class="kanban-column"
+        [style.border-top-color]="column.color"
+        (dragover)="onDragOver($event)"
+        (drop)="onDrop($event, column.id)"
+      >
+        <!-- Column Header -->
+        <div class="column-header">
+          <div class="column-title">
+            <h3>{{ column.title }}</h3>
+            @if (config.showTaskCount) {
+              <app-badge
+                [variant]="isColumnLimitReached(column) ? 'solid' : 'outline'"
+                [size]="config.compactMode ? 'sm' : 'md'"
+              >
+                {{ getColumnTaskCount(column) }}
+              </app-badge>
+            }
+          </div>
+          @if (config.allowAddTask) {
+            <button
+              class="add-task-button"
+              (click)="toggleAddTaskForm(column.id)"
+              [title]="'Add task to ' + column.title"
+            >
+              +
+            </button>
+          }
+        </div>
+
+        <!-- Add Task Form -->
+        @if (showAddTaskForm()[column.id]) {
+          <div class="add-task-form">
+            <input
+              type="text"
+              class="task-input"
+              placeholder="Task title..."
+              [value]="newTaskTitle()[column.id] || ''"
+              (input)="updateTaskTitle(column.id, $any($event.target).value)"
+              (keyup.enter)="addTask(column.id)"
+              (keyup.escape)="cancelAddTask(column.id)"
+              autofocus
+            />
+            <div class="form-actions">
+              <app-button variant="primary" size="sm" (click)="addTask(column.id)">
+                Add
+              </app-button>
+              <app-button variant="outline" size="sm" (click)="cancelAddTask(column.id)">
+                Cancel
+              </app-button>
+            </div>
+          </div>
+        }
+
+        <!-- Tasks -->
+        <div class="column-tasks">
+          @for (task of column.tasks; track task.id) {
+            <div
+              class="task-card"
+              [class.dragging]="draggedTask()?.id === task.id"
+              [attr.draggable]="config.allowDragDrop"
+              (dragstart)="onDragStart(task, column.id)"
+              (dragend)="onDragEnd()"
+              (click)="onTaskClick(task)"
+            >
+              <!-- Task Header -->
+              <div class="task-header">
+                <div class="task-title">{{ task.title }}</div>
+                @if (config.allowDeleteTask) {
+                  <button
+                    class="delete-task-button"
+                    (click)="onDeleteTask(task, column.id); $event.stopPropagation()"
+                    title="Delete task"
+                  >
+                    ✕
+                  </button>
+                }
+              </div>
+
+              <!-- Task Description -->
+              @if (task.description && !config.compactMode) {
+                <p class="task-description">{{ task.description }}</p>
+              }
+
+              <!-- Task Tags -->
+              @if (task.tags && task.tags.length > 0 && !config.compactMode) {
+                <div class="task-tags">
+                  @for (tag of task.tags; track tag) {
+                    <span class="task-tag">{{ tag }}</span>
+                  }
+                </div>
+              }
+
+              <!-- Task Meta -->
+              <div class="task-meta">
+                <!-- Priority -->
+                @if (task.priority) {
+                  <app-badge [variant]="getPriorityColor(task.priority)" size="sm">
+                    {{ task.priority }}
+                  </app-badge>
+                }
+
+                <!-- Subtasks Progress -->
+                @if (task.subtasks && task.subtasks > 0) {
+                  <span class="task-subtasks">
+                    ✓ {{ task.completedSubtasks || 0 }}/{{ task.subtasks }}
+                  </span>
+                }
+
+                <!-- Due Date -->
+                @if (task.dueDate) {
+                  <span class="task-due-date" [class.overdue]="isOverdue(task.dueDate)">
+                    📅 {{ formatDate(task.dueDate) }}
+                  </span>
+                }
+
+                <!-- Assignee -->
+                @if (task.assignee && !config.compactMode) {
+                  <span class="task-assignee" [title]="task.assignee">
+                    {{ task.assignee.charAt(0).toUpperCase() }}
+                  </span>
+                }
+              </div>
+            </div>
+          }
+
+          <!-- Empty State -->
+          @if (column.tasks.length === 0) {
+            <div class="empty-column">
+              <span>No tasks</span>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</div>

@@ -9,7 +9,7 @@ import {
   OnDestroy,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonComponent } from '../button/button.component';
+// import { ButtonComponent } from '../button/button.component';
 
 export interface CarouselSlide {
   id: string | number;
@@ -36,7 +36,7 @@ export interface CarouselConfig {
 @Component({
   selector: 'app-carousel',
   standalone: true,
-  imports: [CommonModule, ButtonComponent],
+  imports: [CommonModule /*ButtonComponent*/],
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.css',
 })

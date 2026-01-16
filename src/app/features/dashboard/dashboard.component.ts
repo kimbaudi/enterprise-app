@@ -61,6 +61,12 @@ import {
   RichTextEditorComponent,
   RichTextEditorConfig,
 } from '@shared/components/rich-text-editor/rich-text-editor.component';
+import {
+  KanbanBoardComponent,
+  KanbanColumn,
+  KanbanTask,
+  KanbanConfig,
+} from '@shared/components/kanban-board/kanban-board.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -104,6 +110,7 @@ import {
     DataGridComponent,
     CarouselComponent,
     RichTextEditorComponent,
+    KanbanBoardComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -1282,5 +1289,158 @@ export class DashboardComponent {
 
   onEditorBlur(): void {
     console.log('Editor blurred');
+  }
+
+  // Kanban Board Component Data
+  kanbanColumns: KanbanColumn[] = [
+    {
+      id: 'todo',
+      title: 'To Do',
+      color: '#3b82f6',
+      tasks: [
+        {
+          id: 1,
+          title: 'Design new landing page',
+          description: 'Create wireframes and mockups for the new landing page',
+          priority: 'high',
+          assignee: 'Alice Johnson',
+          tags: ['design', 'ui/ux'],
+          dueDate: new Date('2026-01-20'),
+          subtasks: 5,
+          completedSubtasks: 2,
+        },
+        {
+          id: 2,
+          title: 'Update documentation',
+          description: 'Add API reference and examples',
+          priority: 'medium',
+          assignee: 'Bob Smith',
+          tags: ['documentation'],
+          dueDate: new Date('2026-01-25'),
+        },
+        {
+          id: 3,
+          title: 'Research user feedback',
+          priority: 'low',
+          assignee: 'Carol Davis',
+          tags: ['research', 'analytics'],
+        },
+      ],
+    },
+    {
+      id: 'inprogress',
+      title: 'In Progress',
+      color: '#f59e0b',
+      limit: 3,
+      tasks: [
+        {
+          id: 4,
+          title: 'Implement authentication',
+          description: 'Add JWT-based authentication system',
+          priority: 'high',
+          assignee: 'David Wilson',
+          tags: ['backend', 'security'],
+          dueDate: new Date('2026-01-18'),
+          subtasks: 8,
+          completedSubtasks: 5,
+        },
+        {
+          id: 5,
+          title: 'Build dashboard components',
+          description: 'Create reusable Angular components',
+          priority: 'medium',
+          assignee: 'Eve Brown',
+          tags: ['frontend', 'angular'],
+        },
+      ],
+    },
+    {
+      id: 'review',
+      title: 'Review',
+      color: '#8b5cf6',
+      tasks: [
+        {
+          id: 6,
+          title: 'Code review: User module',
+          priority: 'high',
+          assignee: 'Frank Miller',
+          tags: ['code-review'],
+          dueDate: new Date('2026-01-17'),
+        },
+      ],
+    },
+    {
+      id: 'done',
+      title: 'Done',
+      color: '#10b981',
+      tasks: [
+        {
+          id: 7,
+          title: 'Setup CI/CD pipeline',
+          description: 'Configure GitHub Actions for automated testing',
+          priority: 'medium',
+          assignee: 'Grace Lee',
+          tags: ['devops', 'automation'],
+          subtasks: 4,
+          completedSubtasks: 4,
+        },
+        {
+          id: 8,
+          title: 'Database schema design',
+          priority: 'high',
+          assignee: 'Henry Taylor',
+          tags: ['database', 'architecture'],
+        },
+      ],
+    },
+  ];
+
+  kanbanConfig: KanbanConfig = {
+    allowAddTask: true,
+    allowEditTask: true,
+    allowDeleteTask: true,
+    allowDragDrop: true,
+    showTaskCount: true,
+    showColumnLimit: true,
+    compactMode: false,
+  };
+
+  simpleKanbanColumns: KanbanColumn[] = [
+    {
+      id: 'todo',
+      title: 'To Do',
+      tasks: [
+        { id: 1, title: 'Task 1' },
+        { id: 2, title: 'Task 2' },
+      ],
+    },
+    {
+      id: 'doing',
+      title: 'Doing',
+      tasks: [{ id: 3, title: 'Task 3' }],
+    },
+    {
+      id: 'done',
+      title: 'Done',
+      tasks: [{ id: 4, title: 'Task 4' }],
+    },
+  ];
+
+  onKanbanTaskMove(event: {
+    task: KanbanTask;
+    fromColumn: string | number;
+    toColumn: string | number;
+  }): void {
+    console.log('Task moved:', event);
+    this.toastService.success(`Task "${event.task.title}" moved`, 'Kanban');
+  }
+
+  onKanbanTaskAdd(event: { columnId: string | number; task: KanbanTask }): void {
+    console.log('Task added:', event);
+  }
+
+  onKanbanTaskClick(task: KanbanTask): void {
+    console.log('Task clicked:', task);
+    this.toastService.info(task.title, 'Task Details');
   }
 }

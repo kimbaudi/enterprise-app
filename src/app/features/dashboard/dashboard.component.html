@@ -3303,6 +3303,137 @@
       </app-card>
     </div>
 
+    <!-- Kanban Board Component -->
+    <div class="kanban-board-section">
+      <app-card title="Kanban Board Component Demo">
+        <p>Drag-and-drop task board for managing workflows and projects.</p>
+
+        <h3>Full-Featured Kanban Board</h3>
+        <app-kanban-board
+          [columns]="kanbanColumns"
+          [config]="kanbanConfig"
+          (taskMove)="onKanbanTaskMove($event)"
+          (taskAdd)="onKanbanTaskAdd($event)"
+          (taskClick)="onKanbanTaskClick($event)"
+        />
+
+        <h3>Simple Kanban (3 Columns)</h3>
+        <app-kanban-board
+          [columns]="simpleKanbanColumns"
+          [config]="{
+            allowAddTask: true,
+            allowDragDrop: true,
+            showTaskCount: true,
+            compactMode: false,
+          }"
+        />
+
+        <h3>Compact Mode</h3>
+        <app-kanban-board
+          [columns]="simpleKanbanColumns"
+          [config]="{
+            allowAddTask: false,
+            allowDragDrop: true,
+            showTaskCount: false,
+            compactMode: true,
+          }"
+        />
+
+        <h3>Read-Only (No Drag & Drop)</h3>
+        <app-kanban-board
+          [columns]="simpleKanbanColumns"
+          [config]="{
+            allowAddTask: false,
+            allowEditTask: false,
+            allowDeleteTask: false,
+            allowDragDrop: false,
+            showTaskCount: true,
+          }"
+        />
+
+        <h3>Use Cases</h3>
+        <div class="use-case-grid">
+          <div class="use-case-item full-width">
+            <h4>🎯 Sprint Planning Board</h4>
+            <p>Track development tasks across sprint stages</p>
+            <app-kanban-board
+              [columns]="[
+                {
+                  id: 'backlog',
+                  title: 'Backlog',
+                  color: '#6b7280',
+                  tasks: [
+                    {
+                      id: 1,
+                      title: 'Add search functionality',
+                      priority: 'medium',
+                      tags: ['feature'],
+                    },
+                    {
+                      id: 2,
+                      title: 'Improve performance',
+                      priority: 'low',
+                      tags: ['optimization'],
+                    },
+                  ],
+                },
+                {
+                  id: 'sprint',
+                  title: 'This Sprint',
+                  color: '#3b82f6',
+                  limit: 5,
+                  tasks: [
+                    {
+                      id: 3,
+                      title: 'Fix login bug',
+                      priority: 'high',
+                      tags: ['bug'],
+                      assignee: 'John',
+                    },
+                    {
+                      id: 4,
+                      title: 'Update UI components',
+                      priority: 'medium',
+                      tags: ['frontend'],
+                      assignee: 'Sarah',
+                    },
+                  ],
+                },
+                {
+                  id: 'testing',
+                  title: 'Testing',
+                  color: '#f59e0b',
+                  tasks: [
+                    {
+                      id: 5,
+                      title: 'Test payment flow',
+                      priority: 'high',
+                      tags: ['testing'],
+                      assignee: 'Mike',
+                    },
+                  ],
+                },
+                {
+                  id: 'deployed',
+                  title: 'Deployed',
+                  color: '#10b981',
+                  tasks: [
+                    { id: 6, title: 'User profile page', tags: ['feature'], assignee: 'Lisa' },
+                  ],
+                },
+              ]"
+              [config]="{
+                allowAddTask: true,
+                allowDragDrop: true,
+                showTaskCount: true,
+                showColumnLimit: true,
+              }"
+            />
+          </div>
+        </div>
+      </app-card>
+    </div>
+
     <!-- add new section here -->
   </div>
 
