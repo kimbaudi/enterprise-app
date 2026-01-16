@@ -1,0 +1,10 @@
+<div class="chart-container">
+  <canvas #canvas></canvas>
+
+  @if (tooltipVisible()) {
+    <div class="chart-tooltip" [style.left.px]="tooltipX() + 10" [style.top.px]="tooltipY() - 30">
+      <div class="tooltip-label">{{ tooltipLabel() }}</div>
+      <div class="tooltip-value">{{ tooltipValue() }}</div>
+    </div>
+  }
+</div>

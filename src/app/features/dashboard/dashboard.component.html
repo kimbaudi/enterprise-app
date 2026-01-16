@@ -3434,6 +3434,139 @@
       </app-card>
     </div>
 
+    <!-- Chart Section -->
+    <div class="component-section chart-section">
+      <app-card title="Chart Component Demo">
+        <p>
+          Interactive data visualization with multiple chart types. Supports line, bar, pie,
+          doughnut, and area charts with tooltips, legends, and animations.
+        </p>
+
+        <div class="demo-group">
+          <h4>Line Chart</h4>
+          <p>Display trends over time with multiple datasets</p>
+          <div class="chart-wrapper">
+            <app-chart
+              [type]="'line'"
+              [data]="lineChartData"
+              [options]="chartOptions"
+              (chartClick)="onChartClick($event)"
+            />
+          </div>
+        </div>
+
+        <div class="demo-group">
+          <h4>Bar Chart</h4>
+          <p>Compare values across categories with grouped bars</p>
+          <div class="chart-wrapper">
+            <app-chart
+              [type]="'bar'"
+              [data]="barChartData"
+              [options]="chartOptions"
+              (chartClick)="onChartClick($event)"
+            />
+          </div>
+        </div>
+
+        <div class="demo-group">
+          <h4>Pie Chart</h4>
+          <p>Show percentage distribution with interactive slices</p>
+          <div class="chart-wrapper">
+            <app-chart
+              [type]="'pie'"
+              [data]="pieChartData"
+              [options]="chartOptions"
+              (chartClick)="onChartClick($event)"
+            />
+          </div>
+        </div>
+
+        <div class="demo-group">
+          <h4>Area Chart</h4>
+          <p>Visualize cumulative data with filled areas</p>
+          <div class="chart-wrapper">
+            <app-chart
+              [type]="'area'"
+              [data]="areaChartData"
+              [options]="chartOptions"
+              (chartClick)="onChartClick($event)"
+            />
+          </div>
+        </div>
+
+        <div class="demo-group">
+          <h4>Doughnut Chart</h4>
+          <p>Display proportions with a hollow center</p>
+          <div class="chart-wrapper">
+            <app-chart
+              [type]="'doughnut'"
+              [data]="doughnutChartData"
+              [options]="chartOptions"
+              (chartClick)="onChartClick($event)"
+            />
+          </div>
+        </div>
+
+        <div class="demo-group">
+          <h4>Compact Charts</h4>
+          <p>Smaller charts without grid and legend for dashboards</p>
+          <div class="chart-grid">
+            <div class="chart-grid-item">
+              <h5>Sales Trend</h5>
+              <div class="chart-wrapper-compact">
+                <app-chart [type]="'line'" [data]="lineChartData" [options]="compactChartOptions" />
+              </div>
+            </div>
+            <div class="chart-grid-item">
+              <h5>Quarterly Revenue</h5>
+              <div class="chart-wrapper-compact">
+                <app-chart [type]="'bar'" [data]="barChartData" [options]="compactChartOptions" />
+              </div>
+            </div>
+            <div class="chart-grid-item">
+              <h5>Market Share</h5>
+              <div class="chart-wrapper-compact">
+                <app-chart [type]="'pie'" [data]="pieChartData" [options]="compactChartOptions" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="use-cases">
+          <h4>Use Cases</h4>
+          <div class="use-case-item">
+            <strong>Analytics Dashboard</strong>
+            <p>Display business metrics with interactive charts showing trends and comparisons.</p>
+            <div class="chart-wrapper">
+              <app-chart
+                [type]="'line'"
+                [data]="{
+                  labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                  datasets: [
+                    {
+                      label: 'Page Views',
+                      data: [2500, 3200, 2800, 4100, 3800, 2900, 2200],
+                      borderColor: '#3b82f6',
+                      backgroundColor: '#3b82f6',
+                      borderWidth: 2,
+                    },
+                    {
+                      label: 'Unique Visitors',
+                      data: [1800, 2400, 2100, 3100, 2900, 2200, 1700],
+                      borderColor: '#10b981',
+                      backgroundColor: '#10b981',
+                      borderWidth: 2,
+                    },
+                  ],
+                }"
+                [options]="chartOptions"
+              />
+            </div>
+          </div>
+        </div>
+      </app-card>
+    </div>
+
     <!-- add new section here -->
   </div>
 

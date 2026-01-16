@@ -67,6 +67,12 @@ import {
   KanbanTask,
   KanbanConfig,
 } from '@shared/components/kanban-board/kanban-board.component';
+import {
+  ChartComponent,
+  ChartData,
+  ChartOptions,
+  ChartType,
+} from '@shared/components/chart/chart.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -111,6 +117,7 @@ import {
     CarouselComponent,
     RichTextEditorComponent,
     KanbanBoardComponent,
+    ChartComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -1442,5 +1449,102 @@ export class DashboardComponent {
   onKanbanTaskClick(task: KanbanTask): void {
     console.log('Task clicked:', task);
     this.toastService.info(task.title, 'Task Details');
+  }
+
+  // Chart Configuration
+  lineChartData: ChartData = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+    datasets: [
+      {
+        label: 'Sales',
+        data: [12000, 19000, 15000, 25000, 22000, 30000],
+        borderColor: '#3b82f6',
+        backgroundColor: '#3b82f6',
+        borderWidth: 2,
+      },
+      {
+        label: 'Revenue',
+        data: [8000, 13000, 10000, 18000, 16000, 24000],
+        borderColor: '#10b981',
+        backgroundColor: '#10b981',
+        borderWidth: 2,
+      },
+    ],
+  };
+
+  barChartData: ChartData = {
+    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+    datasets: [
+      {
+        label: '2025',
+        data: [45000, 52000, 48000, 61000],
+        backgroundColor: '#3b82f6',
+      },
+      {
+        label: '2024',
+        data: [38000, 45000, 42000, 53000],
+        backgroundColor: '#10b981',
+      },
+    ],
+  };
+
+  pieChartData: ChartData = {
+    labels: ['Product A', 'Product B', 'Product C', 'Product D'],
+    datasets: [
+      {
+        label: 'Market Share',
+        data: [35, 25, 20, 20],
+        backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444'],
+      },
+    ],
+  };
+
+  areaChartData: ChartData = {
+    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+    datasets: [
+      {
+        label: 'Active Users',
+        data: [1200, 1900, 1500, 2100],
+        borderColor: '#8b5cf6',
+        backgroundColor: '#8b5cf6',
+        fill: true,
+      },
+    ],
+  };
+
+  doughnutChartData: ChartData = {
+    labels: ['Mobile', 'Desktop', 'Tablet'],
+    datasets: [
+      {
+        label: 'Device Usage',
+        data: [45, 40, 15],
+        backgroundColor: ['#3b82f6', '#10b981', '#f59e0b'],
+      },
+    ],
+  };
+
+  chartOptions: ChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    showLegend: true,
+    showGrid: true,
+    showTooltip: true,
+    animationDuration: 800,
+    height: 300,
+  };
+
+  compactChartOptions: ChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    showLegend: false,
+    showGrid: false,
+    showTooltip: true,
+    animationDuration: 500,
+    height: 200,
+  };
+
+  onChartClick(event: { label: string; value: number; datasetIndex: number }): void {
+    console.log('Chart clicked:', event);
+    this.toastService.info(`${event.label}: ${event.value}`, 'Chart Data');
   }
 }
