@@ -1,19 +1,19 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-    name: 'safeHtml',
-    standalone: true,
+  name: 'safeHtml',
+  standalone: true,
 })
 export class SafeHtmlPipe implements PipeTransform {
-    transform(value: string): string {
-        if (!value) return '';
+  transform(value: string): string {
+    if (!value) return '';
 
-        // Basic HTML sanitization - in production, use DomSanitizer
-        return value
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&#039;');
-    }
+    // Basic HTML sanitization - in production, use DomSanitizer
+    return value
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
 }

@@ -4,11 +4,9 @@ import { finalize } from 'rxjs';
 import { LoadingService } from '@core/services/loading.service';
 
 export const loadingInterceptor: HttpInterceptorFn = (req, next) => {
-    const loadingService = inject(LoadingService);
+  const loadingService = inject(LoadingService);
 
-    loadingService.show();
+  loadingService.show();
 
-    return next(req).pipe(
-        finalize(() => loadingService.hide())
-    );
+  return next(req).pipe(finalize(() => loadingService.hide()));
 };

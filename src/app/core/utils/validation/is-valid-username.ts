@@ -4,5 +4,5 @@ import { VALIDATION_PATTERNS } from '@core/constants/validation.constants';
  * Validate username
  */
 export function isValidUsername(username: string): boolean {
-    return VALIDATION_PATTERNS.username.test(username);
+  return VALIDATION_PATTERNS.username.test(username);
 }

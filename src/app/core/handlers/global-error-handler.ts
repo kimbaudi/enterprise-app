@@ -9,76 +9,76 @@ import { NotificationService } from '@core/services/notification.service';
  */
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {
-    private logger = inject(LoggerService);
-    private notificationService = inject(NotificationService);
+  private logger = inject(LoggerService);
+  private notificationService = inject(NotificationService);
 
-    handleError(error: Error | HttpErrorResponse): void {
-        let errorMessage = 'An unexpected error occurred';
-        let stackTrace = '';
+  handleError(error: Error | HttpErrorResponse): void {
+    let errorMessage = 'An unexpected error occurred';
+    let stackTrace = '';
 
-        if (error instanceof HttpErrorResponse) {
-            // Server or network error
-            errorMessage = this.getServerErrorMessage(error);
-            this.logger.error('HTTP Error', error);
-        } else {
-            // Client-side error
-            errorMessage = this.getClientErrorMessage(error);
-            stackTrace = error.stack || '';
-            this.logger.error('Client Error', error);
-        }
-
-        // Log to console in development
-        if (this.isDevelopment()) {
-            console.error('Global Error Handler:', error);
-            if (stackTrace) {
-                console.error('Stack trace:', stackTrace);
-            }
-        }
-
-        // Show user-friendly notification
-        this.notificationService.showError(errorMessage);
-
-        // In production, you might want to send errors to a logging service
-        // this.sendErrorToLoggingService(error);
+    if (error instanceof HttpErrorResponse) {
+      // Server or network error
+      errorMessage = this.getServerErrorMessage(error);
+      this.logger.error('HTTP Error', error);
+    } else {
+      // Client-side error
+      errorMessage = this.getClientErrorMessage(error);
+      stackTrace = error.stack || '';
+      this.logger.error('Client Error', error);
     }
 
-    private getServerErrorMessage(error: HttpErrorResponse): string {
-        if (!navigator.onLine) {
-            return 'No internet connection';
-        }
-
-        if (error.error?.message) {
-            return error.error.message;
-        }
-
-        switch (error.status) {
-            case 400:
-                return 'Bad request';
-            case 401:
-                return 'Unauthorized access';
-            case 403:
-                return 'Access forbidden';
-            case 404:
-                return 'Resource not found';
-            case 500:
-                return 'Internal server error';
-            case 503:
-                return 'Service unavailable';
-            default:
-                return `Server error: ${error.status}`;
-        }
+    // Log to console in development
+    if (this.isDevelopment()) {
+      console.error('Global Error Handler:', error);
+      if (stackTrace) {
+        console.error('Stack trace:', stackTrace);
+      }
     }
 
-    private getClientErrorMessage(error: Error): string {
-        return error.message || 'An unexpected error occurred';
+    // Show user-friendly notification
+    this.notificationService.showError(errorMessage);
+
+    // In production, you might want to send errors to a logging service
+    // this.sendErrorToLoggingService(error);
+  }
+
+  private getServerErrorMessage(error: HttpErrorResponse): string {
+    if (!navigator.onLine) {
+      return 'No internet connection';
     }
 
-    private isDevelopment(): boolean {
-        return !window.location.hostname.includes('production');
+    if (error.error?.message) {
+      return error.error.message;
     }
 
-    // Uncomment and implement if you want to send errors to a logging service
-    // private sendErrorToLoggingService(error: Error | HttpErrorResponse): void {
-    //     // Send to external logging service (e.g., Sentry, LogRocket)
-    // }
+    switch (error.status) {
+      case 400:
+        return 'Bad request';
+      case 401:
+        return 'Unauthorized access';
+      case 403:
+        return 'Access forbidden';
+      case 404:
+        return 'Resource not found';
+      case 500:
+        return 'Internal server error';
+      case 503:
+        return 'Service unavailable';
+      default:
+        return `Server error: ${error.status}`;
+    }
+  }
+
+  private getClientErrorMessage(error: Error): string {
+    return error.message || 'An unexpected error occurred';
+  }
+
+  private isDevelopment(): boolean {
+    return !window.location.hostname.includes('production');
+  }
+
+  // Uncomment and implement if you want to send errors to a logging service
+  // private sendErrorToLoggingService(error: Error | HttpErrorResponse): void {
+  //     // Send to external logging service (e.g., Sentry, LogRocket)
+  // }
 }

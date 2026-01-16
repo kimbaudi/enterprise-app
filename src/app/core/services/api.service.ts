@@ -4,33 +4,33 @@ import { Observable } from 'rxjs';
 import { environment } from '@environments/environment';
 
 export interface ApiRequestOptions {
-    headers?: HttpHeaders | { [header: string]: string | string[] };
-    params?: HttpParams | { [param: string]: string | string[] };
+  headers?: HttpHeaders | { [header: string]: string | string[] };
+  params?: HttpParams | { [param: string]: string | string[] };
 }
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root',
 })
 export class ApiService {
-    private http = inject(HttpClient);
+  private http = inject(HttpClient);
 
-    get<T>(endpoint: string, options?: ApiRequestOptions): Observable<T> {
-        return this.http.get<T>(`${environment.apiUrl}${endpoint}`, options);
-    }
+  get<T>(endpoint: string, options?: ApiRequestOptions): Observable<T> {
+    return this.http.get<T>(`${environment.apiUrl}${endpoint}`, options);
+  }
 
-    post<T>(endpoint: string, body: any, options?: ApiRequestOptions): Observable<T> {
-        return this.http.post<T>(`${environment.apiUrl}${endpoint}`, body, options);
-    }
+  post<T>(endpoint: string, body: any, options?: ApiRequestOptions): Observable<T> {
+    return this.http.post<T>(`${environment.apiUrl}${endpoint}`, body, options);
+  }
 
-    put<T>(endpoint: string, body: any, options?: ApiRequestOptions): Observable<T> {
-        return this.http.put<T>(`${environment.apiUrl}${endpoint}`, body, options);
-    }
+  put<T>(endpoint: string, body: any, options?: ApiRequestOptions): Observable<T> {
+    return this.http.put<T>(`${environment.apiUrl}${endpoint}`, body, options);
+  }
 
-    patch<T>(endpoint: string, body: any, options?: ApiRequestOptions): Observable<T> {
-        return this.http.patch<T>(`${environment.apiUrl}${endpoint}`, body, options);
-    }
+  patch<T>(endpoint: string, body: any, options?: ApiRequestOptions): Observable<T> {
+    return this.http.patch<T>(`${environment.apiUrl}${endpoint}`, body, options);
+  }
 
-    delete<T>(endpoint: string, options?: ApiRequestOptions): Observable<T> {
-        return this.http.delete<T>(`${environment.apiUrl}${endpoint}`, options);
-    }
+  delete<T>(endpoint: string, options?: ApiRequestOptions): Observable<T> {
+    return this.http.delete<T>(`${environment.apiUrl}${endpoint}`, options);
+  }
 }

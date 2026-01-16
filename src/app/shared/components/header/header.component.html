@@ -1,0 +1,22 @@
+<header class="header">
+  <div class="header-content">
+    <div class="header-left">
+      <button class="menu-toggle" (click)="toggleMenu()" *ngIf="showMenuToggle">
+        <span class="menu-icon"></span>
+      </button>
+      <div class="logo">
+        <a routerLink="/">
+          <span class="logo-text">{{ appTitle }}</span>
+        </a>
+      </div>
+    </div>
+
+    <nav class="header-nav" *ngIf="showNav">
+      <ng-content select="[nav]"></ng-content>
+    </nav>
+
+    <div class="header-right">
+      <ng-content select="[actions]"></ng-content>
+    </div>
+  </div>
+</header>

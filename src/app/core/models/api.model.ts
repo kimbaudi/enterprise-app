@@ -3,59 +3,59 @@
  */
 
 export interface ApiResponse<T = any> {
-    success: boolean;
-    data: T;
-    message?: string;
-    timestamp?: Date;
+  success: boolean;
+  data: T;
+  message?: string;
+  timestamp?: Date;
 }
 
 export interface ApiError {
-    success: false;
-    error: {
-        code: string;
-        message: string;
-        details?: any;
-    };
-    timestamp?: Date;
+  success: false;
+  error: {
+    code: string;
+    message: string;
+    details?: any;
+  };
+  timestamp?: Date;
 }
 
 export interface PaginatedResponse<T> {
-    data: T[];
-    pagination: PaginationMeta;
+  data: T[];
+  pagination: PaginationMeta;
 }
 
 export interface PaginationMeta {
-    page: number;
-    limit: number;
-    total: number;
-    totalPages: number;
-    hasNext: boolean;
-    hasPrev: boolean;
+  page: number;
+  limit: number;
+  total: number;
+  totalPages: number;
+  hasNext: boolean;
+  hasPrev: boolean;
 }
 
 export interface PaginationParams {
-    page?: number;
-    limit?: number;
-    sortBy?: string;
-    sortOrder?: 'asc' | 'desc';
+  page?: number;
+  limit?: number;
+  sortBy?: string;
+  sortOrder?: 'asc' | 'desc';
 }
 
 export interface SearchParams extends PaginationParams {
-    query?: string;
-    filters?: Record<string, any>;
+  query?: string;
+  filters?: Record<string, any>;
 }
 
 export enum HttpMethod {
-    GET = 'GET',
-    POST = 'POST',
-    PUT = 'PUT',
-    PATCH = 'PATCH',
-    DELETE = 'DELETE',
+  GET = 'GET',
+  POST = 'POST',
+  PUT = 'PUT',
+  PATCH = 'PATCH',
+  DELETE = 'DELETE',
 }
 
 export interface RequestOptions {
-    headers?: Record<string, string>;
-    params?: Record<string, any>;
-    withCredentials?: boolean;
-    responseType?: 'json' | 'text' | 'blob' | 'arraybuffer';
+  headers?: Record<string, string>;
+  params?: Record<string, any>;
+  withCredentials?: boolean;
+  responseType?: 'json' | 'text' | 'blob' | 'arraybuffer';
 }

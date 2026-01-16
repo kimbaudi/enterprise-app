@@ -3,16 +3,16 @@ import { Router, CanActivateFn } from '@angular/router';
 import { AuthService } from '@core/services/auth.service';
 
 export const authGuard: CanActivateFn = (route, state) => {
-    const authService = inject(AuthService);
-    const router = inject(Router);
+  const authService = inject(AuthService);
+  const router = inject(Router);
 
-    if (authService.isAuthenticated()) {
-        return true;
-    }
+  if (authService.isAuthenticated()) {
+    return true;
+  }
 
-    // Store the attempted URL for redirecting
-    authService.redirectUrl = state.url;
+  // Store the attempted URL for redirecting
+  authService.redirectUrl = state.url;
 
-    // Navigate to the login page
-    return router.createUrlTree(['/auth/login']);
+  // Navigate to the login page
+  return router.createUrlTree(['/auth/login']);
 };

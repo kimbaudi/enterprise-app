@@ -2,13 +2,13 @@
  * Remove duplicates by key
  */
 export function uniqueBy<T>(array: T[], key: keyof T): T[] {
-    const seen = new Set();
-    return array.filter(item => {
-        const value = item[key];
-        if (seen.has(value)) {
-            return false;
-        }
-        seen.add(value);
-        return true;
-    });
+  const seen = new Set();
+  return array.filter((item) => {
+    const value = item[key];
+    if (seen.has(value)) {
+      return false;
+    }
+    seen.add(value);
+    return true;
+  });
 }

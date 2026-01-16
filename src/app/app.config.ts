@@ -1,4 +1,9 @@
-import { ApplicationConfig, ErrorHandler, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
+import {
+  ApplicationConfig,
+  ErrorHandler,
+  provideBrowserGlobalErrorListeners,
+  provideZonelessChangeDetection,
+} from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideStore } from '@ngrx/store';
@@ -19,9 +24,7 @@ export const appConfig: ApplicationConfig = {
     provideZonelessChangeDetection(),
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
-    provideHttpClient(
-      withInterceptors([authInterceptor, errorInterceptor, loadingInterceptor])
-    ),
+    provideHttpClient(withInterceptors([authInterceptor, errorInterceptor, loadingInterceptor])),
     provideStore(appReducers),
     provideEffects([UserEffects]),
     provideStoreDevtools({
@@ -29,5 +32,5 @@ export const appConfig: ApplicationConfig = {
       logOnly: environment.production,
     }),
     { provide: ErrorHandler, useClass: GlobalErrorHandler },
-  ]
+  ],
 };

@@ -8,20 +8,18 @@ import { User } from '@core/models';
 
 @Injectable()
 export class UserEffects {
-    private actions$ = inject(Actions);
-    private apiService = inject(ApiService);
+  private actions$ = inject(Actions);
+  private apiService = inject(ApiService);
 
-    loadUsers$ = createEffect(() =>
-        this.actions$.pipe(
-            ofType(UserActions.loadUsers),
-            switchMap(() =>
-                this.apiService.get<User[]>('/users').pipe(
-                    map((users) => UserActions.loadUsersSuccess({ users })),
-                    catchError((error) =>
-                        of(UserActions.loadUsersFailure({ error: error.message }))
-                    )
-                )
-            )
-        )
-    );
+  loadUsers$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(UserActions.loadUsers),
+      switchMap(() =>
+        this.apiService.get<User[]>('/users').pipe(
+          map((users) => UserActions.loadUsersSuccess({ users })),
+          catchError((error) => of(UserActions.loadUsersFailure({ error: error.message }))),
+        ),
+      ),
+    ),
+  );
 }

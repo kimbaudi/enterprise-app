@@ -6,134 +6,20 @@ import { RouterModule } from '@angular/router';
  * Header component for application layout
  */
 @Component({
-    selector: 'app-header',
-    standalone: true,
-    imports: [CommonModule, RouterModule],
-    template: `
-        <header class="header">
-            <div class="header-content">
-                <div class="header-left">
-                    <button class="menu-toggle" (click)="toggleMenu()" *ngIf="showMenuToggle">
-                        <span class="menu-icon"></span>
-                    </button>
-                    <div class="logo">
-                        <a routerLink="/">
-                            <span class="logo-text">{{ appTitle }}</span>
-                        </a>
-                    </div>
-                </div>
-                
-                <nav class="header-nav" *ngIf="showNav">
-                    <ng-content select="[nav]"></ng-content>
-                </nav>
-                
-                <div class="header-right">
-                    <ng-content select="[actions]"></ng-content>
-                </div>
-            </div>
-        </header>
-    `,
-    styles: [`
-        .header {
-            background: #fff;
-            border-bottom: 1px solid #e5e7eb;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 1.5rem;
-            max-width: 1920px;
-            margin: 0 auto;
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .menu-toggle {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .menu-icon {
-            width: 20px;
-            height: 2px;
-            background: #374151;
-            position: relative;
-            display: block;
-        }
-
-        .menu-icon::before,
-        .menu-icon::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 2px;
-            background: #374151;
-            left: 0;
-        }
-
-        .menu-icon::before {
-            top: -6px;
-        }
-
-        .menu-icon::after {
-            bottom: -6px;
-        }
-
-        .logo a {
-            text-decoration: none;
-            color: #111827;
-            font-size: 1.25rem;
-            font-weight: 600;
-        }
-
-        .logo-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .header-nav {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        @media (max-width: 768px) {
-            .header-nav {
-                display: none;
-            }
-        }
-    `]
+  selector: 'app-header',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-    @Input() appTitle = 'Enterprise App';
-    @Input() showMenuToggle = true;
-    @Input() showNav = true;
+  @Input() appTitle = 'Enterprise App';
+  @Input() showMenuToggle = true;
+  @Input() showNav = true;
 
-    menuOpen = signal(false);
+  menuOpen = signal(false);
 
-    toggleMenu(): void {
-        this.menuOpen.update(value => !value);
-    }
+  toggleMenu(): void {
+    this.menuOpen.update((value) => !value);
+  }
 }

@@ -5,25 +5,25 @@ import { ErrorService } from '@core/services/error.service';
 import { NotificationService } from '@core/services/notification.service';
 
 export const errorInterceptor: HttpInterceptorFn = (req, next) => {
-    const errorService = inject(ErrorService);
-    const notificationService = inject(NotificationService);
+  const errorService = inject(ErrorService);
+  const notificationService = inject(NotificationService);
 
-    return next(req).pipe(
-        catchError((error: HttpErrorResponse) => {
-            let errorMessage = 'An error occurred';
+  return next(req).pipe(
+    catchError((error: HttpErrorResponse) => {
+      let errorMessage = 'An error occurred';
 
-            if (error.error instanceof ErrorEvent) {
-                // Client-side error
-                errorMessage = `Error: ${error.error.message}`;
-            } else {
-                // Server-side error
-                errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-            }
+      if (error.error instanceof ErrorEvent) {
+        // Client-side error
+        errorMessage = `Error: ${error.error.message}`;
+      } else {
+        // Server-side error
+        errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+      }
 
-            errorService.logError(error);
-            notificationService.showError(errorMessage);
+      errorService.logError(error);
+      notificationService.showError(errorMessage);
 
-            return throwError(() => error);
-        })
-    );
+      return throwError(() => error);
+    }),
+  );
 };

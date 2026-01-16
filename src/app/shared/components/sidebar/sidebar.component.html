@@ -1,0 +1,56 @@
+<aside class="sidebar" [class.collapsed]="collapsed()">
+  <div class="sidebar-header">
+    <ng-content select="[header]"></ng-content>
+  </div>
+
+  <nav class="sidebar-nav">
+    <ul class="nav-list">
+      <li *ngFor="let item of items" class="nav-item">
+        <a
+          *ngIf="item.route && !item.children"
+          [routerLink]="item.route"
+          routerLinkActive="active"
+          class="nav-link"
+          (click)="onItemClick(item)"
+        >
+          <span class="nav-icon" *ngIf="item.icon">{{ item.icon }}</span>
+          <span class="nav-label" [class.hidden]="collapsed()">{{ item.label }}</span>
+          <span class="nav-badge" *ngIf="item.badge && !collapsed()">{{ item.badge }}</span>
+        </a>
+
+        <button
+          *ngIf="item.children"
+          class="nav-link"
+          [class.active]="item.active"
+          (click)="toggleItem(item)"
+        >
+          <span class="nav-icon" *ngIf="item.icon">{{ item.icon }}</span>
+          <span class="nav-label" [class.hidden]="collapsed()">{{ item.label }}</span>
+          <span class="nav-arrow" [class.hidden]="collapsed()">
+            {{ item.active ? '▼' : '▶' }}
+          </span>
+        </button>
+
+        <ul *ngIf="item.children && item.active && !collapsed()" class="nav-submenu">
+          <li *ngFor="let child of item.children" class="nav-item">
+            <a
+              [routerLink]="child.route"
+              routerLinkActive="active"
+              class="nav-link"
+              (click)="onItemClick(child)"
+            >
+              <span class="nav-label">{{ child.label }}</span>
+              <span class="nav-badge" *ngIf="child.badge">{{ child.badge }}</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="sidebar-footer">
+    <button class="collapse-btn" (click)="toggleCollapse()">
+      {{ collapsed() ? '→' : '←' }}
+    </button>
+  </div>
+</aside>

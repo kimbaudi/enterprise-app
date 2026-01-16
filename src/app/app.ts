@@ -7,7 +7,7 @@ import { NotificationComponent } from '@shared/components/notification/notificat
   selector: 'app-root',
   imports: [RouterOutlet, LoadingSpinnerComponent, NotificationComponent],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
 export class App {
   title = 'Enterprise Angular App';
