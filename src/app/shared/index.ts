@@ -13,6 +13,7 @@ export * from '@shared/components/input/input.component';
 export * from '@shared/components/select/select.component';
 export * from '@shared/components/checkbox/checkbox.component';
 export * from '@shared/components/radio/radio.component';
+export * from '@shared/components/breadcrumb/breadcrumb.component';
 
 export * from '@shared/pipes/truncate.pipe';
 export * from '@shared/pipes/safe-html.pipe';

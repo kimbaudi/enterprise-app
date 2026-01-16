@@ -16,6 +16,10 @@ import { InputComponent } from '@shared/components/input/input.component';
 import { SelectComponent, SelectOption } from '@shared/components/select/select.component';
 import { CheckboxComponent } from '@shared/components/checkbox/checkbox.component';
 import { RadioComponent, RadioOption } from '@shared/components/radio/radio.component';
+import {
+  BreadcrumbComponent,
+  BreadcrumbItem,
+} from '@shared/components/breadcrumb/breadcrumb.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -32,6 +36,7 @@ import { RadioComponent, RadioOption } from '@shared/components/radio/radio.comp
     SelectComponent,
     CheckboxComponent,
     RadioComponent,
+    BreadcrumbComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -43,6 +48,11 @@ export class DashboardComponent {
 
   showModal = false;
   selectedUser: any = null;
+
+  breadcrumbItems: BreadcrumbItem[] = [
+    { label: 'Dashboard', url: '/dashboard', icon: '📊' },
+    { label: 'Overview', active: true },
+  ];
 
   // Form demo data
   formName = signal('');
