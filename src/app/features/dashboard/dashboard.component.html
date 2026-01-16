@@ -1,7 +1,10 @@
 <div class="dashboard-container">
   <div class="dashboard-header">
     <h1>Dashboard</h1>
-    <app-button variant="secondary" (click)="logout()">Logout</app-button>
+    <div class="header-actions">
+      <app-button variant="outline" (click)="openModalViaService()">Open Modal</app-button>
+      <app-button variant="secondary" (click)="logout()">Logout</app-button>
+    </div>
   </div>
 
   <div class="dashboard-content">
@@ -54,3 +57,41 @@
     </div>
   </div>
 </div>
+
+<!-- User Details Modal -->
+<app-modal [title]="'User Details'" [size]="'md'" [isOpen]="showModal" (closeEvent)="closeModal()"
+  *ngIf="showModal && selectedUser">
+  <div class="modal-content">
+    <div class="user-detail">
+      <label>ID:</label>
+      <span>{{ selectedUser.id }}</span>
+    </div>
+    <div class="user-detail">
+      <label>Name:</label>
+      <span>{{ selectedUser.name }}</span>
+    </div>
+    <div class="user-detail">
+      <label>Email:</label>
+      <span>{{ selectedUser.email }}</span>
+    </div>
+    <div class="user-detail">
+      <label>Role:</label>
+      <span>{{ selectedUser.role }}</span>
+    </div>
+    <div class="user-detail">
+      <label>Status:</label>
+      <span [class]="selectedUser.status ? 'status-active' : 'status-inactive'">
+        {{ selectedUser.status ? 'Active' : 'Inactive' }}
+      </span>
+    </div>
+    <div class="user-detail">
+      <label>Created:</label>
+      <span>{{ selectedUser.createdAt }}</span>
+    </div>
+  </div>
+
+  <div footer>
+    <app-button variant="outline" (click)="closeModal()">Cancel</app-button>
+    <app-button variant="primary" (click)="deleteUser()">Delete User</app-button>
+  </div>
+</app-modal>

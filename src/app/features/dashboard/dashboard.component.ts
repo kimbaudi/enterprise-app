@@ -5,17 +5,23 @@ import { AuthService } from '@core/services/auth.service';
 import { ButtonComponent } from '@shared/components/button/button.component';
 import { CardComponent } from '@shared/components/card/card.component';
 import { TableComponent, TableColumn } from '@shared/components/table/table.component';
+import { ModalComponent } from '@shared/components/modal/modal.component';
+import { ModalService } from '@shared/components/modal/modal.service';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, ButtonComponent, CardComponent, TableComponent],
+  imports: [CommonModule, ButtonComponent, CardComponent, TableComponent, ModalComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
 })
 export class DashboardComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
+  private modalService = inject(ModalService);
+
+  showModal = false;
+  selectedUser: any = null;
 
   // Sample data for table demo
   columns: TableColumn[] = [
@@ -111,6 +117,25 @@ export class DashboardComponent {
   }
 
   onRowClick(user: any): void {
-    console.log('Row clicked:', user);
+    this.selectedUser = user;
+    this.showModal = true;
+  }
+
+  openModalViaService(): void {
+    const modal = this.modalService.open({
+      title: 'Service Modal',
+      size: 'md',
+      closeOnBackdrop: true,
+    });
+  }
+
+  closeModal(): void {
+    this.showModal = false;
+    this.selectedUser = null;
+  }
+
+  deleteUser(): void {
+    console.log('Delete user:', this.selectedUser);
+    this.closeModal();
   }
 }

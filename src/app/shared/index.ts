@@ -6,6 +6,8 @@ export * from '@shared/components/header/header.component';
 export * from '@shared/components/footer/footer.component';
 export * from '@shared/components/sidebar/sidebar.component';
 export * from '@shared/components/table/table.component';
+export * from '@shared/components/modal/modal.component';
+export * from '@shared/components/modal/modal.service';
 
 export * from '@shared/pipes/truncate.pipe';
 export * from '@shared/pipes/safe-html.pipe';
