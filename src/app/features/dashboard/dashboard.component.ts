@@ -33,6 +33,7 @@ import { SkeletonComponent } from '@shared/components/skeleton/skeleton.componen
 import { TooltipDirective } from '@shared/directives/tooltip.directive';
 import { PaginationComponent } from '@shared/components/pagination/pagination.component';
 import { AlertComponent } from '@shared/components/alert/alert.component';
+import { AvatarComponent } from '@shared/components/avatar/avatar.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -62,6 +63,7 @@ import { AlertComponent } from '@shared/components/alert/alert.component';
     TooltipDirective,
     PaginationComponent,
     AlertComponent,
+    AvatarComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',

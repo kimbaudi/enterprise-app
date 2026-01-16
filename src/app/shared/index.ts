@@ -28,6 +28,7 @@ export * from '@shared/components/skeleton/skeleton.component';
 export * from '@shared/components/tooltip/tooltip.component';
 export * from '@shared/components/pagination/pagination.component';
 export * from '@shared/components/alert/alert.component';
+export * from '@shared/components/avatar/avatar.component';
 
 export * from '@shared/directives/tooltip.directive';
 export * from '@shared/pipes/safe-html.pipe';

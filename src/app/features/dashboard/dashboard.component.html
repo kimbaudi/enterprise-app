@@ -1006,6 +1006,132 @@
         </div>
       </app-card>
     </div>
+
+    <div class="avatar-section">
+      <app-card title="Avatar Component Demo">
+        <p>Avatars represent users or entities with images, initials, or icons.</p>
+
+        <h3>Sizes</h3>
+        <div class="avatar-demo-row">
+          <div class="avatar-demo-item">
+            <span>Extra Small</span>
+            <app-avatar size="xs" initials="XS"></app-avatar>
+          </div>
+          <div class="avatar-demo-item">
+            <span>Small</span>
+            <app-avatar size="sm" initials="SM"></app-avatar>
+          </div>
+          <div class="avatar-demo-item">
+            <span>Medium</span>
+            <app-avatar size="md" initials="MD"></app-avatar>
+          </div>
+          <div class="avatar-demo-item">
+            <span>Large</span>
+            <app-avatar size="lg" initials="LG"></app-avatar>
+          </div>
+          <div class="avatar-demo-item">
+            <span>Extra Large</span>
+            <app-avatar size="xl" initials="XL"></app-avatar>
+          </div>
+        </div>
+
+        <h3>Shapes</h3>
+        <div class="avatar-demo-row">
+          <div class="avatar-demo-item">
+            <span>Circle (default)</span>
+            <app-avatar shape="circle" initials="JD" size="lg"></app-avatar>
+          </div>
+          <div class="avatar-demo-item">
+            <span>Square</span>
+            <app-avatar shape="square" initials="JD" size="lg"></app-avatar>
+          </div>
+          <div class="avatar-demo-item">
+            <span>Rounded</span>
+            <app-avatar shape="rounded" initials="JD" size="lg"></app-avatar>
+          </div>
+        </div>
+
+        <h3>With Initials</h3>
+        <div class="avatar-demo-row">
+          <app-avatar initials="JD" size="lg"></app-avatar>
+          <app-avatar initials="SM" size="lg"></app-avatar>
+          <app-avatar initials="AB" size="lg"></app-avatar>
+          <app-avatar initials="KC" size="lg"></app-avatar>
+        </div>
+
+        <h3>With Icons</h3>
+        <div class="avatar-demo-row">
+          <app-avatar icon="���" size="lg"></app-avatar>
+          <app-avatar icon="���‍���" size="lg"></app-avatar>
+          <app-avatar icon="���‍���" size="lg"></app-avatar>
+          <app-avatar icon="���" size="lg"></app-avatar>
+        </div>
+
+        <h3>With Status Indicators</h3>
+        <div class="avatar-demo-row">
+          <div class="avatar-demo-item">
+            <span>Online</span>
+            <app-avatar initials="JD" size="lg" status="online"></app-avatar>
+          </div>
+          <div class="avatar-demo-item">
+            <span>Offline</span>
+            <app-avatar initials="SM" size="lg" status="offline"></app-avatar>
+          </div>
+          <div class="avatar-demo-item">
+            <span>Away</span>
+            <app-avatar initials="AB" size="lg" status="away"></app-avatar>
+          </div>
+          <div class="avatar-demo-item">
+            <span>Busy</span>
+            <app-avatar initials="KC" size="lg" status="busy"></app-avatar>
+          </div>
+        </div>
+
+        <h3>With Border</h3>
+        <div class="avatar-demo-row">
+          <app-avatar initials="JD" size="lg" [border]="true"></app-avatar>
+          <app-avatar icon="���" size="lg" [border]="true"></app-avatar>
+        </div>
+
+        <h3>Avatar Groups</h3>
+        <div class="avatar-demo-groups">
+          <div class="avatar-demo-item">
+            <span>Stacked Group</span>
+            <div class="avatar-group">
+              <app-avatar initials="JD" size="md" [border]="true"></app-avatar>
+              <app-avatar initials="SM" size="md" [border]="true"></app-avatar>
+              <app-avatar initials="AB" size="md" [border]="true"></app-avatar>
+              <app-avatar initials="+5" size="md" [border]="true"></app-avatar>
+            </div>
+          </div>
+        </div>
+
+        <h3>User List Examples</h3>
+        <div class="avatar-demo-list">
+          <div class="avatar-list-item">
+            <app-avatar initials="JD" size="md" status="online"></app-avatar>
+            <div class="avatar-list-content">
+              <div class="avatar-list-name">John Doe</div>
+              <div class="avatar-list-info">john.doe@example.com</div>
+            </div>
+          </div>
+          <div class="avatar-list-item">
+            <app-avatar initials="SM" size="md" status="away"></app-avatar>
+            <div class="avatar-list-content">
+              <div class="avatar-list-name">Sarah Miller</div>
+              <div class="avatar-list-info">sarah.m@example.com</div>
+            </div>
+          </div>
+          <div class="avatar-list-item">
+            <app-avatar initials="AB" size="md" status="busy"></app-avatar>
+            <div class="avatar-list-content">
+              <div class="avatar-list-name">Alex Brown</div>
+              <div class="avatar-list-info">alex.b@example.com</div>
+            </div>
+          </div>
+        </div>
+      </app-card>
+    </div>
   </div>
 </div>
 
