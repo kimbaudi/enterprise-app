@@ -1,0 +1,116 @@
+<div
+  class="slider-container"
+  [class.slider-vertical]="vertical"
+  [class.slider-disabled]="disabled"
+  [class.slider-sm]="size === 'sm'"
+  [class.slider-md]="size === 'md'"
+  [class.slider-lg]="size === 'lg'"
+>
+  <!-- Value display (optional) -->
+  @if (showValue && !vertical) {
+    <div class="slider-value">
+      @if (range && Array.isArray(value())) {
+        <span>{{ startValue() }} - {{ endValue() }}</span>
+      } @else {
+        <span>{{ startValue() }}</span>
+      }
+    </div>
+  }
+
+  <div class="slider-wrapper">
+    <!-- Track -->
+    <div class="slider-track" (click)="onTrackClick($event)" [class.slider-vertical]="vertical">
+      <!-- Fill -->
+      <div
+        class="slider-fill"
+        [class]="'slider-fill-' + color"
+        [style]="
+          vertical
+            ? { height: fillWidth() + '%', bottom: fillLeft() + '%' }
+            : { width: fillWidth() + '%', left: fillLeft() + '%' }
+        "
+      ></div>
+
+      <!-- Marks -->
+      @if (marks.length > 0) {
+        @for (mark of marks; track mark.value) {
+          <div
+            class="slider-mark"
+            [class.slider-mark-active]="isMarkInRange(mark)"
+            [style]="
+              vertical
+                ? { bottom: getMarkPosition(mark) + '%' }
+                : { left: getMarkPosition(mark) + '%' }
+            "
+          >
+            <div class="slider-mark-dot"></div>
+            @if (mark.label) {
+              <div class="slider-mark-label">{{ mark.label }}</div>
+            }
+          </div>
+        }
+      }
+
+      <!-- Start Handle (or single handle) -->
+      <div
+        class="slider-handle"
+        [class.slider-handle-active]="isDragging() && activeHandle() === 'start'"
+        [style]="vertical ? { bottom: startPosition() + '%' } : { left: startPosition() + '%' }"
+        (mousedown)="onHandleMouseDown($event, 'start')"
+        (mouseenter)="onHandleMouseEnter('start')"
+        (mouseleave)="onHandleMouseLeave('start')"
+        (keydown)="onKeyDown($event, 'start')"
+        [attr.tabindex]="disabled ? -1 : 0"
+        [attr.role]="'slider'"
+        [attr.aria-valuemin]="min"
+        [attr.aria-valuemax]="max"
+        [attr.aria-valuenow]="startValue()"
+        [attr.aria-disabled]="disabled"
+        [attr.aria-orientation]="vertical ? 'vertical' : 'horizontal'"
+      >
+        @if (showTooltip && tooltipVisible().start) {
+          <div class="slider-tooltip">
+            {{ formatTooltip(startValue()) }}
+          </div>
+        }
+      </div>
+
+      <!-- End Handle (range mode only) -->
+      @if (range) {
+        <div
+          class="slider-handle"
+          [class.slider-handle-active]="isDragging() && activeHandle() === 'end'"
+          [style]="vertical ? { bottom: endPosition() + '%' } : { left: endPosition() + '%' }"
+          (mousedown)="onHandleMouseDown($event, 'end')"
+          (mouseenter)="onHandleMouseEnter('end')"
+          (mouseleave)="onHandleMouseLeave('end')"
+          (keydown)="onKeyDown($event, 'end')"
+          [attr.tabindex]="disabled ? -1 : 0"
+          [attr.role]="'slider'"
+          [attr.aria-valuemin]="min"
+          [attr.aria-valuemax]="max"
+          [attr.aria-valuenow]="endValue()"
+          [attr.aria-disabled]="disabled"
+          [attr.aria-orientation]="vertical ? 'vertical' : 'horizontal'"
+        >
+          @if (showTooltip && tooltipVisible().end) {
+            <div class="slider-tooltip">
+              {{ formatTooltip(endValue()) }}
+            </div>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- Value display (vertical) -->
+    @if (showValue && vertical) {
+      <div class="slider-value slider-value-vertical">
+        @if (range && Array.isArray(value())) {
+          <span>{{ startValue() }} - {{ endValue() }}</span>
+        } @else {
+          <span>{{ startValue() }}</span>
+        }
+      </div>
+    }
+  </div>
+</div>

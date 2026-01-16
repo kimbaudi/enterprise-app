@@ -90,6 +90,7 @@ import {
   FormField,
   FormBuilderConfig,
 } from '@shared/components/form-builder/form-builder.component';
+import { SliderComponent } from '@shared/components/slider/slider.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -138,6 +139,7 @@ import {
     NotificationCenterComponent,
     CodeEditorComponent,
     FormBuilderComponent,
+    SliderComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -2276,5 +2278,44 @@ export class ExampleComponent {}`);
 
   onFormValidationChange(isValid: boolean): void {
     console.log('Form validation changed:', isValid);
+  }
+
+  // Slider component demo data
+  sliderValue = signal(50);
+  rangeSliderValue = signal<[number, number]>([20, 80]);
+  priceRangeValue = signal<[number, number]>([0, 1000]);
+  volumeValue = signal(75);
+  brightnessValue = signal(60);
+  temperatureValue = signal(22);
+
+  sliderMarks = [
+    { value: 0, label: '0°C' },
+    { value: 10, label: '10°C' },
+    { value: 20, label: '20°C' },
+    { value: 30, label: '30°C' },
+  ];
+
+  onSliderChange(value: number | [number, number], name: string): void {
+    console.log(`${name} changed:`, value);
+  }
+
+  onSlideStart(): void {
+    console.log('Slide started');
+  }
+
+  onSlideEnd(): void {
+    console.log('Slide ended');
+  }
+
+  formatPrice(value: number): string {
+    return `$${value}`;
+  }
+
+  formatPercentage(value: number): string {
+    return `${value}%`;
+  }
+
+  formatTemperature(value: number): string {
+    return `${value}°C`;
   }
 }

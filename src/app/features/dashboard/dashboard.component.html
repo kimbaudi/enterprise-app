@@ -4119,6 +4119,272 @@
         </div>
       </app-card>
     </div>
+
+    <!-- Slider Component Section -->
+    <div class="slider-section">
+      <app-card title="Slider Component Demo">
+        <p>
+          Interactive slider control for selecting numeric values or ranges. Supports single values,
+          range selection, vertical/horizontal orientations, custom tooltips, marks, and various
+          styling options. Perfect for filters, settings, and value adjustments.
+        </p>
+
+        <h3>Basic Slider</h3>
+        <app-slider
+          [min]="0"
+          [max]="100"
+          [step]="1"
+          [showTooltip]="true"
+          [(ngModel)]="sliderValue"
+          (valueChange)="onSliderChange($event, 'Basic Slider')"
+        ></app-slider>
+        <p>Selected Value: {{ sliderValue() }}</p>
+
+        <h3>Range Slider</h3>
+        <app-slider
+          [min]="0"
+          [max]="100"
+          [step]="5"
+          [range]="true"
+          [showTooltip]="true"
+          [(ngModel)]="rangeSliderValue"
+          (valueChange)="onSliderChange($event, 'Range Slider')"
+        ></app-slider>
+        <p>Selected Range: {{ rangeSliderValue()[0] }} - {{ rangeSliderValue()[1] }}</p>
+
+        <h3>Slider Sizes</h3>
+        <div class="slider-sizes-demo">
+          <div>
+            <h4>Small</h4>
+            <app-slider [min]="0" [max]="100" [size]="'sm'" [(ngModel)]="sliderValue"></app-slider>
+          </div>
+          <div>
+            <h4>Medium (Default)</h4>
+            <app-slider [min]="0" [max]="100" [size]="'md'" [(ngModel)]="sliderValue"></app-slider>
+          </div>
+          <div>
+            <h4>Large</h4>
+            <app-slider [min]="0" [max]="100" [size]="'lg'" [(ngModel)]="sliderValue"></app-slider>
+          </div>
+        </div>
+
+        <h3>Slider Colors</h3>
+        <div class="slider-colors-demo">
+          <div>
+            <h4>Primary</h4>
+            <app-slider
+              [min]="0"
+              [max]="100"
+              [color]="'primary'"
+              [(ngModel)]="sliderValue"
+            ></app-slider>
+          </div>
+          <div>
+            <h4>Success</h4>
+            <app-slider
+              [min]="0"
+              [max]="100"
+              [color]="'success'"
+              [(ngModel)]="sliderValue"
+            ></app-slider>
+          </div>
+          <div>
+            <h4>Warning</h4>
+            <app-slider
+              [min]="0"
+              [max]="100"
+              [color]="'warning'"
+              [(ngModel)]="sliderValue"
+            ></app-slider>
+          </div>
+          <div>
+            <h4>Error</h4>
+            <app-slider
+              [min]="0"
+              [max]="100"
+              [color]="'error'"
+              [(ngModel)]="sliderValue"
+            ></app-slider>
+          </div>
+        </div>
+
+        <h3>Slider with Marks</h3>
+        <app-slider
+          [min]="0"
+          [max]="30"
+          [step]="1"
+          [marks]="sliderMarks"
+          [showTooltip]="true"
+          [tooltipFormat]="formatTemperature"
+          [(ngModel)]="temperatureValue"
+          (valueChange)="onSliderChange($event, 'Temperature Slider')"
+        ></app-slider>
+        <p>Selected Temperature: {{ temperatureValue() }}°C</p>
+
+        <h3>Vertical Slider</h3>
+        <div class="vertical-slider-demo">
+          <div>
+            <h4>Volume Control</h4>
+            <app-slider
+              [min]="0"
+              [max]="100"
+              [step]="1"
+              [vertical]="true"
+              [showTooltip]="true"
+              [tooltipFormat]="formatPercentage"
+              [(ngModel)]="volumeValue"
+              (valueChange)="onSliderChange($event, 'Volume')"
+            ></app-slider>
+          </div>
+          <div>
+            <h4>Brightness</h4>
+            <app-slider
+              [min]="0"
+              [max]="100"
+              [step]="5"
+              [vertical]="true"
+              [showTooltip]="true"
+              [tooltipFormat]="formatPercentage"
+              [color]="'warning'"
+              [(ngModel)]="brightnessValue"
+              (valueChange)="onSliderChange($event, 'Brightness')"
+            ></app-slider>
+          </div>
+        </div>
+
+        <h3>Disabled State</h3>
+        <app-slider [min]="0" [max]="100" [disabled]="true" [ngModel]="50"></app-slider>
+
+        <h3>Common Use Cases</h3>
+        <div class="use-case-grid">
+          <div class="use-case-item">
+            <h4>🛍️ Price Filter</h4>
+            <p>Allow users to filter products by price range with an intuitive slider control.</p>
+            <app-slider
+              [min]="0"
+              [max]="1000"
+              [step]="10"
+              [range]="true"
+              [showTooltip]="true"
+              [tooltipFormat]="formatPrice"
+              [(ngModel)]="priceRangeValue"
+            ></app-slider>
+            <p>Price Range: ${{ priceRangeValue()[0] }} - ${{ priceRangeValue()[1] }}</p>
+          </div>
+
+          <div class="use-case-item">
+            <h4>🎚️ Volume Control</h4>
+            <p>Adjust audio volume with a responsive slider that shows percentage values.</p>
+            <app-slider
+              [min]="0"
+              [max]="100"
+              [step]="1"
+              [showTooltip]="true"
+              [tooltipFormat]="formatPercentage"
+              [showValue]="true"
+              [(ngModel)]="volumeValue"
+            ></app-slider>
+          </div>
+
+          <div class="use-case-item">
+            <h4>🌡️ Temperature Settings</h4>
+            <p>Set temperature values with custom marks and formatted tooltip display.</p>
+            <app-slider
+              [min]="0"
+              [max]="30"
+              [step]="1"
+              [marks]="sliderMarks"
+              [showTooltip]="true"
+              [tooltipFormat]="formatTemperature"
+              [color]="'error'"
+              [(ngModel)]="temperatureValue"
+            ></app-slider>
+          </div>
+
+          <div class="use-case-item">
+            <h4>💡 Brightness Control</h4>
+            <p>Adjust screen or light brightness with visual feedback and smooth transitions.</p>
+            <app-slider
+              [min]="0"
+              [max]="100"
+              [step]="5"
+              [showTooltip]="true"
+              [tooltipFormat]="formatPercentage"
+              [color]="'warning'"
+              [showValue]="true"
+              [(ngModel)]="brightnessValue"
+            ></app-slider>
+          </div>
+        </div>
+
+        <h3>Features</h3>
+        <div class="features-grid">
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">🎯</span>
+              <strong>Single & Range</strong>
+              <p>Support for both single value selection and range selection modes</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">↔️</span>
+              <strong>Orientation</strong>
+              <p>Horizontal and vertical slider orientations for different layouts</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">💬</span>
+              <strong>Tooltips</strong>
+              <p>Optional tooltips with custom formatting for better value visibility</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">📍</span>
+              <strong>Marks</strong>
+              <p>Add visual markers with labels at specific values along the track</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">⌨️</span>
+              <strong>Keyboard Support</strong>
+              <p>Full keyboard navigation with arrow keys, Home, End, Page Up/Down</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">🎨</span>
+              <strong>Customizable</strong>
+              <p>Multiple colors, sizes, and custom tooltip formatters available</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">♿</span>
+              <strong>Accessible</strong>
+              <p>ARIA labels, keyboard navigation, and focus management included</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">📱</span>
+              <strong>Responsive</strong>
+              <p>Touch-friendly with smooth drag interactions on all devices</p>
+            </div>
+          </div>
+        </div>
+      </app-card>
+    </div>
   </div>
 
   <!-- User Details Modal -->

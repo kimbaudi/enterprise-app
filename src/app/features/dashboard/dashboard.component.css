@@ -2492,3 +2492,98 @@ li {
 .form-builder-section .use-case-card app-form-builder {
   margin-bottom: 0;
 }
+
+/* Slider Section */
+.slider-section {
+  margin-top: 2rem;
+}
+
+.slider-section h3 {
+  margin: 1.5rem 0 1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.slider-section h3:first-of-type {
+  margin-top: 1rem;
+}
+
+.slider-section h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.slider-section p {
+  margin: 0.5rem 0 1.5rem 0;
+  color: var(--color-text-secondary);
+}
+
+.slider-section app-slider {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.slider-sizes-demo,
+.slider-colors-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.slider-sizes-demo > div,
+.slider-colors-demo > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.vertical-slider-demo {
+  display: flex;
+  gap: 4rem;
+  margin-bottom: 1.5rem;
+  padding: 2rem;
+  background-color: var(--color-bg-secondary);
+  border-radius: 0.5rem;
+}
+
+.vertical-slider-demo > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.slider-section .use-case-item {
+  padding: 1.5rem;
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+}
+
+.slider-section .use-case-item h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.slider-section .use-case-item p {
+  margin: 0 0 1rem 0;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.slider-section .use-case-item app-slider {
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .vertical-slider-demo {
+    gap: 2rem;
+  }
+}
