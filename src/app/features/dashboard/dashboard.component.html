@@ -108,6 +108,64 @@
       </app-card>
     </div>
 
+    <div class="accordion-section">
+      <app-card title="Accordion Component Demo - FAQ">
+        <app-accordion [allowMultiple]="false">
+          <app-accordion-item id="faq1" title="What is this application?" icon="❓">
+            <p>
+              This is an enterprise-ready Angular application built with modern best practices
+              and design patterns. It includes state management with NgRx, authentication,
+              comprehensive utilities, and a complete component library.
+            </p>
+          </app-accordion-item>
+
+          <app-accordion-item id="faq2" title="How do I get started?" icon="🚀">
+            <p>Getting started is easy:</p>
+            <ol>
+              <li>Clone the repository</li>
+              <li>Run <code>npm install</code> to install dependencies</li>
+              <li>Run <code>npm start</code> to start the development server</li>
+              <li>Navigate to <code>http://localhost:4200/</code></li>
+            </ol>
+          </app-accordion-item>
+
+          <app-accordion-item id="faq3" title="What features are included?" icon="⭐">
+            <p>The application includes:</p>
+            <ul>
+              <li><strong>State Management:</strong> NgRx for predictable state updates</li>
+              <li><strong>Authentication:</strong> JWT-based auth with refresh tokens</li>
+              <li><strong>UI Components:</strong> 15+ reusable components with dark mode</li>
+              <li><strong>Form Controls:</strong> Input, select, checkbox, radio with validation</li>
+              <li><strong>Utilities:</strong> 100+ helper functions for common tasks</li>
+              <li><strong>Testing:</strong> Comprehensive test setup with Jest</li>
+            </ul>
+          </app-accordion-item>
+
+          <app-accordion-item id="faq4" title="Is it production-ready?" icon="✅">
+            <p>
+              Yes! This application follows enterprise best practices including:
+            </p>
+            <ul>
+              <li>TypeScript strict mode for type safety</li>
+              <li>Modular architecture with lazy-loaded features</li>
+              <li>Docker configuration for containerization</li>
+              <li>CI/CD pipeline with GitHub Actions</li>
+              <li>Comprehensive error handling and logging</li>
+              <li>Performance optimizations and code splitting</li>
+            </ul>
+          </app-accordion-item>
+
+          <app-accordion-item id="faq5" title="How can I customize it?" icon="🎨">
+            <p>
+              Customization is straightforward with CSS variables for theming,
+              modular components that can be extended, and clear separation of concerns.
+              Check the documentation for detailed customization guides.
+            </p>
+          </app-accordion-item>
+        </app-accordion>
+      </app-card>
+    </div>
+
     <div class="users-section">
       <app-card title="Users Management">
         <app-table [columns]="columns" [data]="users" [config]="{

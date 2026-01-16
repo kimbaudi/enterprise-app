@@ -142,6 +142,34 @@ app-breadcrumb {
   margin-top: 1.5rem;
 }
 
+.accordion-section {
+  margin-top: 2rem;
+}
+
+.accordion-section code {
+  background-color: var(--color-bg-secondary);
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-family: monospace;
+  font-size: 0.875rem;
+  color: var(--color-primary);
+}
+
+.accordion-section ul,
+.accordion-section ol {
+  margin: 0.75rem 0;
+  padding-left: 1.5rem;
+}
+
+.accordion-section li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.accordion-section strong {
+  color: var(--color-text-primary);
+}
+
 .users-section {
   margin-top: 2rem;
 }

@@ -22,6 +22,8 @@ import {
 } from '@shared/components/breadcrumb/breadcrumb.component';
 import { TabsComponent, Tab } from '@shared/components/tabs/tabs.component';
 import { TabPanelComponent } from '@shared/components/tab-panel/tab-panel.component';
+import { AccordionComponent } from '@shared/components/accordion/accordion.component';
+import { AccordionItemComponent } from '@shared/components/accordion-item/accordion-item.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -41,6 +43,8 @@ import { TabPanelComponent } from '@shared/components/tab-panel/tab-panel.compon
     BreadcrumbComponent,
     TabsComponent,
     TabPanelComponent,
+    AccordionComponent,
+    AccordionItemComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
