@@ -102,6 +102,10 @@ import {
   TransferListItem,
   TransferChangeEvent,
 } from '@shared/components/transfer-list/transfer-list.component';
+import {
+  BreadcrumbTrailComponent,
+  BreadcrumbTrailItem,
+} from '@shared/components/breadcrumb-trail/breadcrumb-trail.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -155,6 +159,7 @@ import {
     SegmentedControlComponent,
     TagInputComponent,
     TransferListComponent,
+    BreadcrumbTrailComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -2526,5 +2531,60 @@ export class ExampleComponent {}`);
     const direction = event.direction === 'toTarget' ? 'added' : 'removed';
     const count = event.movedItems.length;
     this.toastService.info(`${count} item(s) ${direction}`, name);
+  }
+
+  // Breadcrumb Trail Component Data
+  simpleBreadcrumbs: BreadcrumbTrailItem[] = [
+    { label: 'Products', url: '/products' },
+    { label: 'Electronics', url: '/products/electronics' },
+    { label: 'Laptops', url: '/products/electronics/laptops' },
+  ];
+
+  iconBreadcrumbs: BreadcrumbTrailItem[] = [
+    { label: 'Dashboard', url: '/dashboard', icon: '📊' },
+    { label: 'Projects', url: '/projects', icon: '📁' },
+    { label: 'Website Redesign', url: '/projects/website', icon: '🌐' },
+  ];
+
+  dropdownBreadcrumbs: BreadcrumbTrailItem[] = [
+    { label: 'Home', url: '/' },
+    {
+      label: 'Products',
+      items: [
+        { label: 'All Products', url: '/products' },
+        { label: 'New Arrivals', url: '/products/new' },
+        { label: 'Best Sellers', url: '/products/bestsellers' },
+      ],
+    },
+    {
+      label: 'Electronics',
+      items: [
+        { label: 'Laptops', url: '/electronics/laptops' },
+        { label: 'Phones', url: '/electronics/phones' },
+        { label: 'Tablets', url: '/electronics/tablets' },
+      ],
+    },
+    { label: 'MacBook Pro', url: '/products/macbook-pro' },
+  ];
+
+  longBreadcrumbs: BreadcrumbTrailItem[] = [
+    { label: 'Home', url: '/' },
+    { label: 'Products', url: '/products' },
+    { label: 'Electronics', url: '/electronics' },
+    { label: 'Computers', url: '/computers' },
+    { label: 'Laptops', url: '/laptops' },
+    { label: 'Gaming Laptops', url: '/gaming' },
+    { label: 'ASUS ROG Series', url: '/asus' },
+    { label: 'Current Product', url: '/current' },
+  ];
+
+  onBreadcrumbClick(item: BreadcrumbTrailItem): void {
+    console.log('Breadcrumb clicked:', item);
+    this.toastService.info(`Navigating to: ${item.label}`, 'Breadcrumb');
+  }
+
+  onBreadcrumbHome(): void {
+    console.log('Home clicked');
+    this.toastService.info('Navigating to home', 'Breadcrumb');
   }
 }

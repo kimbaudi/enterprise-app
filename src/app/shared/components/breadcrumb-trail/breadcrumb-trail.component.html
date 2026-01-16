@@ -1,0 +1,91 @@
+<nav class="breadcrumb-trail" aria-label="Breadcrumb">
+  <ol class="breadcrumb-list">
+    <!-- Home Item -->
+    @if (showHome) {
+      <li class="breadcrumb-item">
+        <a
+          href="{{ homeUrl }}"
+          class="breadcrumb-link breadcrumb-home"
+          (click)="onHomeClick($event)"
+        >
+          @if (homeIcon) {
+            <span class="breadcrumb-icon">{{ homeIcon }}</span>
+          }
+          @if (homeLabel) {
+            <span class="breadcrumb-label">{{ homeLabel }}</span>
+          }
+        </a>
+        @if (items.length > 0) {
+          <span class="breadcrumb-separator" aria-hidden="true">{{ separatorSymbol }}</span>
+        }
+      </li>
+    }
+
+    <!-- Breadcrumb Items -->
+    @for (item of visibleItems; track $index) {
+      <li class="breadcrumb-item" [class.breadcrumb-item-active]="isLastItem($index)">
+        @if (item.items && item.items.length > 0) {
+          <!-- Dropdown Item -->
+          <div class="breadcrumb-dropdown">
+            <button
+              type="button"
+              class="breadcrumb-link breadcrumb-dropdown-toggle"
+              [class.breadcrumb-link-disabled]="item.disabled"
+              (click)="onItemClick($event, item, $index)"
+            >
+              @if (item.icon) {
+                <span class="breadcrumb-icon">{{ item.icon }}</span>
+              }
+              <span class="breadcrumb-label">{{ item.label }}</span>
+              <span class="breadcrumb-chevron">▼</span>
+            </button>
+
+            @if (openDropdownIndex === $index) {
+              <div class="breadcrumb-dropdown-menu">
+                @for (subItem of item.items; track $index) {
+                  <a
+                    href="{{ subItem.url || '#' }}"
+                    class="breadcrumb-dropdown-item"
+                    [class.breadcrumb-dropdown-item-disabled]="subItem.disabled"
+                    (click)="onDropdownItemClick($event, subItem)"
+                  >
+                    @if (subItem.icon) {
+                      <span class="breadcrumb-icon">{{ subItem.icon }}</span>
+                    }
+                    <span class="breadcrumb-label">{{ subItem.label }}</span>
+                  </a>
+                }
+              </div>
+            }
+          </div>
+        } @else {
+          <!-- Regular Item -->
+          @if (isLastItem($index)) {
+            <span class="breadcrumb-link breadcrumb-current" aria-current="page">
+              @if (item.icon) {
+                <span class="breadcrumb-icon">{{ item.icon }}</span>
+              }
+              <span class="breadcrumb-label">{{ item.label }}</span>
+            </span>
+          } @else {
+            <a
+              href="{{ item.url || '#' }}"
+              class="breadcrumb-link"
+              [class.breadcrumb-link-disabled]="item.disabled"
+              (click)="onItemClick($event, item, $index)"
+            >
+              @if (item.icon) {
+                <span class="breadcrumb-icon">{{ item.icon }}</span>
+              }
+              <span class="breadcrumb-label">{{ item.label }}</span>
+            </a>
+          }
+        }
+
+        @if (!isLastItem($index)) {
+          <span class="breadcrumb-separator" aria-hidden="true">{{ separatorSymbol }}</span>
+        }
+      </li>
+    }
+  </ol>
+</nav>

@@ -2912,3 +2912,88 @@ li {
     margin-top: 2rem;
   }
 }
+
+/* Breadcrumb Trail Section */
+.breadcrumb-trail-section {
+  margin-top: 2rem;
+}
+
+.breadcrumb-trail-section h3 {
+  margin: 1.5rem 0 1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.breadcrumb-trail-section h3:first-of-type {
+  margin-top: 1rem;
+}
+
+.breadcrumb-trail-section h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.breadcrumb-trail-section p {
+  margin: 0.5rem 0 1.5rem 0;
+  color: var(--color-text-secondary);
+}
+
+.breadcrumb-trail-section app-breadcrumb-trail {
+  display: block;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.375rem;
+}
+
+.breadcrumb-separators-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb-separators-demo > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.breadcrumb-trail-section .use-case-item {
+  padding: 1.5rem;
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+}
+
+.breadcrumb-trail-section .use-case-item h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.breadcrumb-trail-section .use-case-item p {
+  margin: 0 0 1rem 0;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.breadcrumb-trail-section .use-case-item app-breadcrumb-trail {
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .breadcrumb-trail-section {
+    margin-top: 2rem;
+  }
+
+  .breadcrumb-separators-demo {
+    gap: 1rem;
+  }
+}

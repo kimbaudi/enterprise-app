@@ -5354,6 +5354,236 @@
         </div>
       </app-card>
     </div>
+
+    <!-- Breadcrumb Trail Component Section -->
+    <div class="breadcrumb-trail-section">
+      <app-card title="Breadcrumb Trail Component Demo">
+        <p>
+          Enhanced breadcrumb navigation with dropdown menus, icons, and smart collapsing.
+          Provides visual hierarchy and easy navigation through application pages.
+        </p>
+
+        <h3>Basic Breadcrumb</h3>
+        <app-breadcrumb-trail
+          [items]="simpleBreadcrumbs"
+          (itemClick)="onBreadcrumbClick($event)"
+          (homeClick)="onBreadcrumbHome()"
+        ></app-breadcrumb-trail>
+
+        <h3>With Icons</h3>
+        <app-breadcrumb-trail
+          [items]="iconBreadcrumbs"
+          homeIcon="🏠"
+          (itemClick)="onBreadcrumbClick($event)"
+        ></app-breadcrumb-trail>
+
+        <h3>With Dropdown Menus</h3>
+        <app-breadcrumb-trail
+          [items]="dropdownBreadcrumbs"
+          (itemClick)="onBreadcrumbClick($event)"
+        ></app-breadcrumb-trail>
+
+        <h3>Separator Styles</h3>
+        <div class="breadcrumb-separators-demo">
+          <div>
+            <h4>Chevron (Default)</h4>
+            <app-breadcrumb-trail
+              [items]="simpleBreadcrumbs"
+              separator="chevron"
+            ></app-breadcrumb-trail>
+          </div>
+          <div>
+            <h4>Slash</h4>
+            <app-breadcrumb-trail
+              [items]="simpleBreadcrumbs"
+              separator="slash"
+            ></app-breadcrumb-trail>
+          </div>
+          <div>
+            <h4>Arrow</h4>
+            <app-breadcrumb-trail
+              [items]="simpleBreadcrumbs"
+              separator="arrow"
+            ></app-breadcrumb-trail>
+          </div>
+          <div>
+            <h4>Dot</h4>
+            <app-breadcrumb-trail
+              [items]="simpleBreadcrumbs"
+              separator="dot"
+            ></app-breadcrumb-trail>
+          </div>
+        </div>
+
+        <h3>Collapsed Items</h3>
+        <app-breadcrumb-trail
+          [items]="longBreadcrumbs"
+          [maxItems]="4"
+          (itemClick)="onBreadcrumbClick($event)"
+        ></app-breadcrumb-trail>
+
+        <h3>Without Home</h3>
+        <app-breadcrumb-trail
+          [items]="simpleBreadcrumbs"
+          [showHome]="false"
+        ></app-breadcrumb-trail>
+
+        <h3>Custom Home</h3>
+        <app-breadcrumb-trail
+          [items]="simpleBreadcrumbs"
+          homeIcon="🏢"
+          homeLabel="Dashboard"
+          homeUrl="/dashboard"
+        ></app-breadcrumb-trail>
+
+        <h3>Use Cases</h3>
+        <div class="use-case-grid">
+          <div class="use-case-item">
+            <h4>🛒 E-commerce Navigation</h4>
+            <p>Show product category hierarchy and current location</p>
+            <app-breadcrumb-trail
+              [items]="[
+                { label: 'Shop', url: '/shop' },
+                {
+                  label: 'Electronics',
+                  items: [
+                    { label: 'All Electronics', url: '/electronics' },
+                    { label: 'Computers', url: '/computers' },
+                    { label: 'Audio', url: '/audio' },
+                    { label: 'Gaming', url: '/gaming' }
+                  ]
+                },
+                { label: 'Laptops', url: '/laptops' },
+                { label: 'MacBook Pro 16', url: '/macbook-pro-16' }
+              ]"
+              homeIcon="🏪"
+              homeLabel="Store"
+              (itemClick)="onBreadcrumbClick($event)"
+            ></app-breadcrumb-trail>
+          </div>
+
+          <div class="use-case-item">
+            <h4>📁 File Browser</h4>
+            <p>Navigate through folders and directory structure</p>
+            <app-breadcrumb-trail
+              [items]="[
+                { label: 'Documents', url: '/documents', icon: '📄' },
+                { label: 'Projects', url: '/projects', icon: '📁' },
+                { label: '2024', url: '/2024', icon: '📅' },
+                { label: 'Website', url: '/website', icon: '🌐' }
+              ]"
+              homeIcon="💾"
+              homeLabel="My Drive"
+              separator="chevron"
+            ></app-breadcrumb-trail>
+          </div>
+
+          <div class="use-case-item">
+            <h4>⚙️ Settings Navigation</h4>
+            <p>Show settings hierarchy with dropdown options</p>
+            <app-breadcrumb-trail
+              [items]="[
+                { label: 'Settings', url: '/settings', icon: '⚙️' },
+                {
+                  label: 'Account',
+                  icon: '👤',
+                  items: [
+                    { label: 'Profile', url: '/profile' },
+                    { label: 'Security', url: '/security' },
+                    { label: 'Privacy', url: '/privacy' }
+                  ]
+                },
+                { label: 'Notifications', url: '/notifications', icon: '🔔' }
+              ]"
+              homeIcon="🏠"
+              homeLabel="Home"
+            ></app-breadcrumb-trail>
+          </div>
+
+          <div class="use-case-item">
+            <h4>📊 Dashboard Sections</h4>
+            <p>Navigate through dashboard sections and reports</p>
+            <app-breadcrumb-trail
+              [items]="[
+                { label: 'Analytics', url: '/analytics', icon: '📊' },
+                { label: 'Reports', url: '/reports', icon: '📈' },
+                { label: 'Monthly Sales', url: '/monthly', icon: '💰' }
+              ]"
+              homeIcon="📊"
+              homeLabel="Dashboard"
+              separator="arrow"
+            ></app-breadcrumb-trail>
+          </div>
+        </div>
+
+        <h3>Features</h3>
+        <div class="features-grid">
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">📋</span>
+              <strong>Dropdown Menus</strong>
+              <p>Add nested navigation options to breadcrumb items</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">🎨</span>
+              <strong>Icons</strong>
+              <p>Display icons alongside labels for better visual context</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">↔️</span>
+              <strong>Separators</strong>
+              <p>Choose from chevron, slash, arrow, or dot separators</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">📦</span>
+              <strong>Smart Collapse</strong>
+              <p>Automatically collapse long breadcrumb trails</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">🏠</span>
+              <strong>Custom Home</strong>
+              <p>Customize home icon, label, and navigation URL</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">♿</span>
+              <strong>Accessible</strong>
+              <p>Proper ARIA labels and semantic HTML structure</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">📱</span>
+              <strong>Responsive</strong>
+              <p>Adapts to mobile with truncation and compact spacing</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div>
+              <span class="feature-icon">🎯</span>
+              <strong>Events</strong>
+              <p>Emit events for item clicks and home navigation</p>
+            </div>
+          </div>
+        </div>
+      </app-card>
+    </div>
   </div>
 
   <!-- User Details Modal -->
