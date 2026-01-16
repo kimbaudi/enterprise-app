@@ -1,0 +1,25 @@
+<div class="input-wrapper">
+    @if (label) {
+    <label class="input-label">
+        {{ label }}
+        @if (required) {
+        <span class="required">*</span>
+        }
+    </label>
+    }
+
+    <div class="input-container" [class.focused]="focused()" [class.error]="error" [class.disabled]="disabled">
+        @if (icon) {
+        <span class="input-icon">{{ icon }}</span>
+        }
+        <input [type]="type" [placeholder]="placeholder" [value]="value()" [disabled]="disabled" [readonly]="readonly"
+            [required]="required" [attr.maxlength]="maxlength" [attr.min]="min" [attr.max]="max"
+            (input)="onInput($event)" (focus)="onFocus()" (blur)="onBlur()" class="input-field" />
+    </div>
+
+    @if (error) {
+    <span class="input-error">{{ error }}</span>
+    } @else if (hint) {
+    <span class="input-hint">{{ hint }}</span>
+    }
+</div>

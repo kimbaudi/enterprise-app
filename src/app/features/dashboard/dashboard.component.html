@@ -46,32 +46,74 @@
 
     <div class="users-section">
       <app-card title="Users Management">
-        <app-table
-          [columns]="columns"
-          [data]="users"
-          [config]="{
+        <app-table [columns]="columns" [data]="users" [config]="{
             pageSize: 5,
             pageSizeOptions: [5, 10, 20],
             showPagination: true,
             showSearch: true,
             striped: true,
             hoverable: true,
-          }"
-          (rowClick)="onRowClick($event)"
-        ></app-table>
+          }" (rowClick)="onRowClick($event)"></app-table>
+      </app-card>
+    </div>
+
+    <div class="form-section">
+      <app-card title="Form Components Demo">
+        <form class="demo-form">
+          <div class="form-row">
+            <app-input label="Full Name" placeholder="Enter your name" [required]="true" icon="👤"
+              hint="Enter your first and last name" [(ngModel)]="formName" name="name"></app-input>
+          </div>
+
+          <div class="form-row">
+            <app-input label="Email Address" type="email" placeholder="you@example.com" [required]="true" icon="📧"
+              [(ngModel)]="formEmail" name="email"></app-input>
+          </div>
+
+          <div class="form-row">
+            <app-input label="Password" type="password" placeholder="Enter password" [required]="true" icon="🔒"
+              hint="Must be at least 8 characters" [(ngModel)]="formPassword" name="password"></app-input>
+          </div>
+
+          <div class="form-row">
+            <app-select label="Country" placeholder="Select your country" [options]="countryOptions" [searchable]="true"
+              [required]="true" hint="Choose from the list" [(ngModel)]="formCountry" name="country"></app-select>
+          </div>
+
+          <div class="form-row">
+            <app-select label="Skills" placeholder="Select your skills" [options]="skillOptions" [searchable]="true"
+              [multiple]="true" hint="You can select multiple skills" [(ngModel)]="formSkills"
+              name="skills"></app-select>
+          </div>
+
+          <div class="form-row">
+            <app-checkbox label="Subscribe to newsletter" hint="Receive updates about new features"
+              [(ngModel)]="formNewsletter" name="newsletter"></app-checkbox>
+          </div>
+
+          <div class="form-row">
+            <app-checkbox label="Enable push notifications" [(ngModel)]="formNotifications"
+              name="notifications"></app-checkbox>
+          </div>
+
+          <div class="form-row">
+            <app-radio label="Choose a Plan" [options]="planOptions" [required]="true" [(ngModel)]="formPlan"
+              name="plan"></app-radio>
+          </div>
+
+          <div class="form-actions">
+            <app-button variant="outline" (click)="resetForm()" type="button">Reset</app-button>
+            <app-button variant="primary" (click)="submitForm()" type="button">Submit</app-button>
+          </div>
+        </form>
       </app-card>
     </div>
   </div>
 </div>
 
 <!-- User Details Modal -->
-<app-modal
-  [title]="'User Details'"
-  [size]="'md'"
-  [isOpen]="showModal"
-  (closeEvent)="closeModal()"
-  *ngIf="showModal && selectedUser"
->
+<app-modal [title]="'User Details'" [size]="'md'" [isOpen]="showModal" (closeEvent)="closeModal()"
+  *ngIf="showModal && selectedUser">
   <div class="modal-content">
     <div class="user-detail">
       <label>ID:</label>

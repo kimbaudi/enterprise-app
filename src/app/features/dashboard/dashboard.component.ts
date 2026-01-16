@@ -1,24 +1,37 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { AuthService } from '@core/services/auth.service';
 import { ButtonComponent } from '@shared/components/button/button.component';
 import { CardComponent } from '@shared/components/card/card.component';
-import { TableComponent, TableColumn } from '@shared/components/table/table.component';
+import {
+  TableComponent,
+  TableColumn,
+} from '@shared/components/table/table.component';
 import { ModalComponent } from '@shared/components/modal/modal.component';
 import { ModalService } from '@shared/components/modal/modal.service';
 import { ThemeToggleComponent } from '@shared/components/theme-toggle/theme-toggle.component';
+import { InputComponent } from '@shared/components/input/input.component';
+import { SelectComponent, SelectOption } from '@shared/components/select/select.component';
+import { CheckboxComponent } from '@shared/components/checkbox/checkbox.component';
+import { RadioComponent, RadioOption } from '@shared/components/radio/radio.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   imports: [
     CommonModule,
+    FormsModule,
     ButtonComponent,
     CardComponent,
     TableComponent,
     ModalComponent,
     ThemeToggleComponent,
+    InputComponent,
+    SelectComponent,
+    CheckboxComponent,
+    RadioComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -30,6 +43,42 @@ export class DashboardComponent {
 
   showModal = false;
   selectedUser: any = null;
+
+  // Form demo data
+  formName = signal('');
+  formEmail = signal('');
+  formPassword = signal('');
+  formCountry = signal<string | number | null>(null);
+  formSkills = signal<(string | number)[]>([]);
+  formNewsletter = signal(false);
+  formNotifications = signal(false);
+  formPlan = signal<string | number | null>(null);
+
+  countryOptions: SelectOption[] = [
+    { label: 'United States', value: 'us' },
+    { label: 'United Kingdom', value: 'uk' },
+    { label: 'Canada', value: 'ca' },
+    { label: 'Australia', value: 'au' },
+    { label: 'Germany', value: 'de' },
+    { label: 'France', value: 'fr' },
+    { label: 'Japan', value: 'jp' },
+  ];
+
+  skillOptions: SelectOption[] = [
+    { label: 'JavaScript', value: 'js' },
+    { label: 'TypeScript', value: 'ts' },
+    { label: 'Angular', value: 'angular' },
+    { label: 'React', value: 'react' },
+    { label: 'Vue', value: 'vue' },
+    { label: 'Node.js', value: 'node' },
+    { label: 'Python', value: 'python' },
+  ];
+
+  planOptions: RadioOption[] = [
+    { label: 'Free', value: 'free', hint: '$0/month - Basic features' },
+    { label: 'Pro', value: 'pro', hint: '$29/month - Advanced features' },
+    { label: 'Enterprise', value: 'enterprise', hint: '$99/month - All features' },
+  ];
 
   // Sample data for table demo
   columns: TableColumn[] = [
@@ -145,5 +194,29 @@ export class DashboardComponent {
   deleteUser(): void {
     console.log('Delete user:', this.selectedUser);
     this.closeModal();
+  }
+
+  submitForm(): void {
+    console.log('Form submitted:', {
+      name: this.formName(),
+      email: this.formEmail(),
+      password: this.formPassword(),
+      country: this.formCountry(),
+      skills: this.formSkills(),
+      newsletter: this.formNewsletter(),
+      notifications: this.formNotifications(),
+      plan: this.formPlan(),
+    });
+  }
+
+  resetForm(): void {
+    this.formName.set('');
+    this.formEmail.set('');
+    this.formPassword.set('');
+    this.formCountry.set(null);
+    this.formSkills.set([]);
+    this.formNewsletter.set(false);
+    this.formNotifications.set(false);
+    this.formPlan.set(null);
   }
 }

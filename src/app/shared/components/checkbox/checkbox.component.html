@@ -1,0 +1,22 @@
+<div class="checkbox-wrapper">
+    <label class="checkbox-label" [class.disabled]="disabled">
+        <input type="checkbox" [checked]="checked()" [disabled]="disabled" [indeterminate]="indeterminate"
+            (change)="toggle()" class="checkbox-input" />
+        <span class="checkbox-box" [class.checked]="checked()" [class.indeterminate]="indeterminate">
+            @if (indeterminate) {
+            <span class="checkbox-icon">−</span>
+            } @else if (checked()) {
+            <span class="checkbox-icon">✓</span>
+            }
+        </span>
+        @if (label) {
+        <span class="checkbox-text">{{ label }}</span>
+        }
+    </label>
+
+    @if (error) {
+    <span class="checkbox-error">{{ error }}</span>
+    } @else if (hint) {
+    <span class="checkbox-hint">{{ hint }}</span>
+    }
+</div>
