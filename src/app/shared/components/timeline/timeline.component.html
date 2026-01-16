@@ -1,0 +1,27 @@
+<div [class]="containerClasses">
+  @for (item of items; track $index) {
+    <div [class]="getItemClasses($index)">
+      <div class="timeline-marker">
+        <div class="timeline-icon">
+          {{ getDefaultIcon(item) }}
+        </div>
+      </div>
+
+      <div class="timeline-content">
+        @if (item.timestamp) {
+          <div class="timeline-timestamp">{{ item.timestamp }}</div>
+        }
+
+        <div class="timeline-title">{{ item.title }}</div>
+
+        @if (item.description) {
+          <div class="timeline-description">{{ item.description }}</div>
+        }
+
+        @if (item.content) {
+          <div class="timeline-detail">{{ item.content }}</div>
+        }
+      </div>
+    </div>
+  }
+</div>

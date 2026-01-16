@@ -1240,10 +1240,10 @@
 
         <h3>With Icons</h3>
         <div class="avatar-demo-row">
-          <app-avatar icon="���" size="lg"></app-avatar>
-          <app-avatar icon="���‍���" size="lg"></app-avatar>
-          <app-avatar icon="���‍���" size="lg"></app-avatar>
-          <app-avatar icon="���" size="lg"></app-avatar>
+          <app-avatar icon="👤" size="lg"></app-avatar>
+          <app-avatar icon="👨‍💻" size="lg"></app-avatar>
+          <app-avatar icon="👩‍🎨" size="lg"></app-avatar>
+          <app-avatar icon="👩‍💼" size="lg"></app-avatar>
         </div>
 
         <h3>With Status Indicators</h3>
@@ -1269,7 +1269,7 @@
         <h3>With Border</h3>
         <div class="avatar-demo-row">
           <app-avatar initials="JD" size="lg" [border]="true"></app-avatar>
-          <app-avatar icon="���" size="lg" [border]="true"></app-avatar>
+          <app-avatar icon="👤" size="lg" [border]="true"></app-avatar>
         </div>
 
         <h3>Avatar Groups</h3>
@@ -1368,11 +1368,11 @@
 
         <h3>With Icons</h3>
         <div class="chip-demo-row">
-          <app-chip label="Angular" icon="���️" color="error"></app-chip>
-          <app-chip label="TypeScript" icon="���" color="info"></app-chip>
-          <app-chip label="JavaScript" icon="���" color="warning"></app-chip>
+          <app-chip label="Angular" icon="⚡" color="error"></app-chip>
+          <app-chip label="TypeScript" icon="📘" color="info"></app-chip>
+          <app-chip label="JavaScript" icon="📜" color="warning"></app-chip>
           <app-chip label="React" icon="⚛️" color="info" variant="outline"></app-chip>
-          <app-chip label="Vue" icon="���" color="success" variant="outline"></app-chip>
+          <app-chip label="Vue" icon="💚" color="success" variant="outline"></app-chip>
         </div>
 
         <h3>Removable Chips</h3>
@@ -1391,7 +1391,7 @@
         <h3>Clickable Chips</h3>
         <div class="chip-demo-row">
           <app-chip label="Click me" [clickable]="true" color="primary"></app-chip>
-          <app-chip label="Interactive" [clickable]="true" color="success" icon="���"></app-chip>
+          <app-chip label="Interactive" [clickable]="true" color="success" icon="👆"></app-chip>
           <app-chip label="Select" [clickable]="true" [selected]="true" color="info"></app-chip>
           <app-chip label="Filter" [clickable]="true" [removable]="true" color="warning"></app-chip>
         </div>
@@ -1415,11 +1415,11 @@
 
         <h3>Use Cases - Categories</h3>
         <div class="chip-demo-row">
-          <app-chip label="Frontend" icon="���" color="primary" variant="subtle"></app-chip>
+          <app-chip label="Frontend" icon="💻" color="primary" variant="subtle"></app-chip>
           <app-chip label="Backend" icon="⚙️" color="info" variant="subtle"></app-chip>
-          <app-chip label="DevOps" icon="���" color="success" variant="subtle"></app-chip>
+          <app-chip label="DevOps" icon="🚀" color="success" variant="subtle"></app-chip>
           <app-chip label="Design" icon="✨" color="warning" variant="subtle"></app-chip>
-          <app-chip label="Testing" icon="���" color="error" variant="subtle"></app-chip>
+          <app-chip label="Testing" icon="🧪" color="error" variant="subtle"></app-chip>
         </div>
 
         <h3>Use Cases - Status Tags</h3>
@@ -1427,7 +1427,7 @@
           <app-chip label="Active" icon="✓" color="success" size="sm"></app-chip>
           <app-chip label="Pending" icon="⏳" color="warning" size="sm"></app-chip>
           <app-chip label="Failed" icon="✕" color="error" size="sm"></app-chip>
-          <app-chip label="Draft" icon="���" color="gray" size="sm"></app-chip>
+          <app-chip label="Draft" icon="📝" color="gray" size="sm"></app-chip>
         </div>
 
         <h3>Use Cases - Skills/Tags</h3>
@@ -1726,7 +1726,7 @@
         <div class="empty-state-demo-grid">
           <div class="empty-state-demo-item">
             <app-empty-state
-              icon="���"
+              icon="💬"
               title="No messages"
               description="You don't have any messages yet. Start a conversation to get started."
             ></app-empty-state>
@@ -1734,7 +1734,7 @@
 
           <div class="empty-state-demo-item">
             <app-empty-state
-              icon="���"
+              icon="🔍"
               title="No results found"
               description="We couldn't find any items matching your search criteria."
             ></app-empty-state>
@@ -1742,7 +1742,7 @@
 
           <div class="empty-state-demo-item">
             <app-empty-state
-              icon="���"
+              icon="📄"
               title="No documents"
               description="Upload your first document to get started with file management."
             ></app-empty-state>
@@ -1762,7 +1762,7 @@
 
           <div class="empty-state-demo-item">
             <app-empty-state
-              icon="���"
+              icon="👥"
               title="Invite team members"
               description="Collaborate with others by inviting them to join your workspace."
               primaryActionLabel="Invite"
@@ -1777,7 +1777,7 @@
             <span>Small</span>
             <app-empty-state
               size="sm"
-              icon="���"
+              icon="📦"
               title="Small empty state"
               description="This is a compact version for smaller spaces."
             ></app-empty-state>
@@ -1787,7 +1787,7 @@
             <span>Medium (default)</span>
             <app-empty-state
               size="md"
-              icon="���"
+              icon="📁"
               title="Medium empty state"
               description="This is the default size for most use cases."
             ></app-empty-state>
@@ -1797,7 +1797,7 @@
             <span>Large</span>
             <app-empty-state
               size="lg"
-              icon="���"
+              icon="📊"
               title="Large empty state"
               description="This is a larger version for prominent empty states."
             ></app-empty-state>
@@ -1808,7 +1808,7 @@
         <div class="empty-state-demo-compact">
           <app-empty-state
             [compact]="true"
-            icon="���"
+            icon="📋"
             title="No items"
             description="Try adjusting your filters"
           ></app-empty-state>
@@ -1817,7 +1817,7 @@
         <h3>Use Cases - No Search Results</h3>
         <div class="empty-state-demo-use-case">
           <app-empty-state
-            icon="���"
+            icon="🔍"
             title="No results for 'angular components'"
             description="Try adjusting your search terms or filters to find what you're looking for."
             primaryActionLabel="Clear Filters"
@@ -1838,7 +1838,7 @@
         <h3>Use Cases - No Data Yet</h3>
         <div class="empty-state-demo-use-case">
           <app-empty-state
-            icon="���"
+            icon="📊"
             title="No data to display"
             description="Connect your data source or import data to see analytics and insights."
             primaryActionLabel="Connect Data"
@@ -1860,7 +1860,7 @@
         <h3>Use Cases - Permission Denied</h3>
         <div class="empty-state-demo-use-case">
           <app-empty-state
-            icon="���"
+            icon="🔒"
             title="Access denied"
             description="You don't have permission to view this content. Contact your administrator to request access."
             primaryActionLabel="Request Access"
@@ -1870,7 +1870,7 @@
         <h3>Use Cases - Empty Cart</h3>
         <div class="empty-state-demo-use-case">
           <app-empty-state
-            icon="���"
+            icon="🛒"
             title="Your cart is empty"
             description="Browse our products and add items to your cart to get started."
             primaryActionLabel="Start Shopping"
@@ -1892,7 +1892,7 @@
         <div class="empty-state-demo-compact">
           <app-empty-state
             [compact]="true"
-            icon="���"
+            icon="🔔"
             title="No notifications"
             description="You're all up to date!"
           ></app-empty-state>
@@ -1901,22 +1901,22 @@
         <h3>Different Icons</h3>
         <div class="empty-state-demo-icons">
           <div class="empty-state-demo-icon-item">
-            <app-empty-state [compact]="true" icon="���" title="No tasks"></app-empty-state>
+            <app-empty-state [compact]="true" icon="✅" title="No tasks"></app-empty-state>
           </div>
           <div class="empty-state-demo-icon-item">
-            <app-empty-state [compact]="true" icon="���" title="No comments"></app-empty-state>
+            <app-empty-state [compact]="true" icon="💬" title="No comments"></app-empty-state>
           </div>
           <div class="empty-state-demo-icon-item">
-            <app-empty-state [compact]="true" icon="���" title="No photos"></app-empty-state>
+            <app-empty-state [compact]="true" icon="🖼" title="No photos"></app-empty-state>
           </div>
           <div class="empty-state-demo-icon-item">
-            <app-empty-state [compact]="true" icon="���" title="No music"></app-empty-state>
+            <app-empty-state [compact]="true" icon="🎵" title="No music"></app-empty-state>
           </div>
           <div class="empty-state-demo-icon-item">
-            <app-empty-state [compact]="true" icon="���" title="No videos"></app-empty-state>
+            <app-empty-state [compact]="true" icon="🎥" title="No videos"></app-empty-state>
           </div>
           <div class="empty-state-demo-icon-item">
-            <app-empty-state [compact]="true" icon="���️" title="No folders"></app-empty-state>
+            <app-empty-state [compact]="true" icon="📁" title="No folders"></app-empty-state>
           </div>
         </div>
       </app-card>
@@ -2179,121 +2179,124 @@
             </div>
             <div>
               <p><strong>Thumbs</strong></p>
-              <app-rating [value]="3" [max]="5" icon="���" emptyIcon="���"></app-rating>
+              <app-rating [value]="3" [max]="5" icon="👍" emptyIcon="👎"></app-rating>
             </div>
             <div>
               <p><strong>Faces</strong></p>
-              <app-rating [value]="4" icon="���" emptyIcon="���"></app-rating>
+              <app-rating [value]="4" icon="😊" emptyIcon="😐"></app-rating>
             </div>
           </div>
         </div>
 
-        <!-- Product Review Use Case -->
+        <h3>Use Case: Product Review</h3>
         <div class="rating-use-case">
-          <h3>Use Case: Product Review</h3>
-          <div class="product-review">
-            <div class="product-info">
-              <h4>Wireless Bluetooth Headphones</h4>
-              <div class="review-meta">
-                <app-rating [value]="4.5" [readonly]="true" size="sm"></app-rating>
-                <span class="review-count">(1,234 reviews)</span>
+          <div class="use-case-content">
+            <div class="product-review">
+              <div class="product-info">
+                <h4>Wireless Bluetooth Headphones</h4>
+                <div class="review-meta">
+                  <app-rating [value]="4.5" [readonly]="true" size="sm"></app-rating>
+                  <span class="review-count">(1,234 reviews)</span>
+                </div>
+                <p class="product-description">
+                  Premium wireless headphones with active noise cancellation, 30-hour battery life,
+                  and superior sound quality.
+                </p>
               </div>
-              <p class="product-description">
-                Premium wireless headphones with active noise cancellation, 30-hour battery life,
-                and superior sound quality.
-              </p>
-            </div>
-            <div class="add-review">
-              <h5>Rate this product:</h5>
-              <app-rating
-                [value]="productRating()"
-                [allowHalf]="true"
-                [showCount]="true"
-                (valueChange)="productRating.set($event)"
-              ></app-rating>
+              <div class="add-review">
+                <h5>Rate this product:</h5>
+                <app-rating
+                  [value]="productRating()"
+                  [allowHalf]="true"
+                  [showCount]="true"
+                  (valueChange)="productRating.set($event)"
+                ></app-rating>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Restaurant Review Use Case -->
+        <h3>Use Case: Restaurant Review</h3>
         <div class="rating-use-case">
-          <h3>Use Case: Restaurant Review</h3>
-          <div class="restaurant-review">
-            <h4>The Gourmet Kitchen</h4>
-            <div class="review-categories">
-              <div class="review-category">
-                <span class="category-label">Food Quality</span>
+          <div class="use-case-content">
+            <div class="restaurant-review">
+              <h4>The Gourmet Kitchen</h4>
+              <div class="review-categories">
+                <div class="review-category">
+                  <span class="category-label">Food Quality</span>
+                  <app-rating
+                    [value]="foodRating()"
+                    [allowHalf]="true"
+                    size="sm"
+                    (valueChange)="foodRating.set($event)"
+                  ></app-rating>
+                </div>
+                <div class="review-category">
+                  <span class="category-label">Service</span>
+                  <app-rating
+                    [value]="serviceRating()"
+                    [allowHalf]="true"
+                    size="sm"
+                    (valueChange)="serviceRating.set($event)"
+                  ></app-rating>
+                </div>
+                <div class="review-category">
+                  <span class="category-label">Atmosphere</span>
+                  <app-rating
+                    [value]="atmosphereRating()"
+                    [allowHalf]="true"
+                    size="sm"
+                    (valueChange)="atmosphereRating.set($event)"
+                  ></app-rating>
+                </div>
+                <div class="review-category">
+                  <span class="category-label">Value</span>
+                  <app-rating
+                    [value]="valueRating()"
+                    [allowHalf]="true"
+                    size="sm"
+                    (valueChange)="valueRating.set($event)"
+                  ></app-rating>
+                </div>
+              </div>
+              <div class="overall-rating">
+                <h5>Overall Rating</h5>
                 <app-rating
-                  [value]="foodRating()"
-                  [allowHalf]="true"
-                  size="sm"
-                  (valueChange)="foodRating.set($event)"
+                  [value]="overallRating()"
+                  [readonly]="true"
+                  [showCount]="true"
+                  size="lg"
                 ></app-rating>
               </div>
-              <div class="review-category">
-                <span class="category-label">Service</span>
-                <app-rating
-                  [value]="serviceRating()"
-                  [allowHalf]="true"
-                  size="sm"
-                  (valueChange)="serviceRating.set($event)"
-                ></app-rating>
-              </div>
-              <div class="review-category">
-                <span class="category-label">Atmosphere</span>
-                <app-rating
-                  [value]="atmosphereRating()"
-                  [allowHalf]="true"
-                  size="sm"
-                  (valueChange)="atmosphereRating.set($event)"
-                ></app-rating>
-              </div>
-              <div class="review-category">
-                <span class="category-label">Value</span>
-                <app-rating
-                  [value]="valueRating()"
-                  [allowHalf]="true"
-                  size="sm"
-                  (valueChange)="valueRating.set($event)"
-                ></app-rating>
-              </div>
-            </div>
-            <div class="overall-rating">
-              <h5>Overall Rating</h5>
-              <app-rating
-                [value]="overallRating()"
-                [readonly]="true"
-                [showCount]="true"
-                size="lg"
-              ></app-rating>
             </div>
           </div>
         </div>
 
-        <!-- Skill Level Use Case -->
+        <h3>Use Case: Skill Level Assessment</h3>
         <div class="rating-use-case">
-          <h3>Use Case: Skill Level Assessment</h3>
-          <div class="skills-assessment">
-            <h4>Technical Skills</h4>
-            <div class="skill-item">
-              <span class="skill-name">JavaScript</span>
-              <app-rating [value]="4.5" [readonly]="true" size="sm" color="primary"></app-rating>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">TypeScript</span>
-              <app-rating [value]="4" [readonly]="true" size="sm" color="primary"></app-rating>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Angular</span>
-              <app-rating [value]="5" [readonly]="true" size="sm" color="primary"></app-rating>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Node.js</span>
-              <app-rating [value]="3.5" [readonly]="true" size="sm" color="primary"></app-rating>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">SQL</span>
-              <app-rating [value]="4" [readonly]="true" size="sm" color="primary"></app-rating>
+          <div class="use-case-content">
+            <div class="skills-assessment">
+              <h4>Technical Skills</h4>
+              <div class="skill-item">
+                <span class="skill-name">JavaScript</span>
+                <app-rating [value]="4.5" [readonly]="true" size="sm" color="primary"></app-rating>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">TypeScript</span>
+                <app-rating [value]="4" [readonly]="true" size="sm" color="primary"></app-rating>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Angular</span>
+                <app-rating [value]="5" [readonly]="true" size="sm" color="primary"></app-rating>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">Node.js</span>
+                <app-rating [value]="3.5" [readonly]="true" size="sm" color="primary"></app-rating>
+              </div>
+              <div class="skill-item">
+                <span class="skill-name">SQL</span>
+                <app-rating [value]="4" [readonly]="true" size="sm" color="primary"></app-rating>
+              </div>
             </div>
           </div>
         </div>
@@ -2432,124 +2435,193 @@
           ></app-stepper>
         </div>
 
-        <!-- Use Case: Account Setup Wizard -->
+        <h3>Use Case: Account Setup Wizard</h3>
         <div class="stepper-use-case">
-          <h3>Use Case: Account Setup Wizard</h3>
-          <div class="wizard-container">
-            <app-stepper
-              [steps]="accountSetupSteps"
-              [activeStep]="accountStepperCurrent()"
-              (stepChange)="accountStepperCurrent.set($event)"
-              (completed)="onAccountSetupComplete()"
-            ></app-stepper>
+          <div class="use-case-content">
+            <div class="wizard-container">
+              <app-stepper
+                [steps]="accountSetupSteps"
+                [activeStep]="accountStepperCurrent()"
+                (stepChange)="accountStepperCurrent.set($event)"
+                (completed)="onAccountSetupComplete()"
+              ></app-stepper>
 
-            <div class="wizard-content">
-              @if (accountStepperCurrent() === 0) {
-                <div class="wizard-step-content">
-                  <h4>Personal Information</h4>
-                  <p>Please provide your basic information to get started.</p>
-                  <app-input label="Full Name" placeholder="John Doe"></app-input>
-                  <app-input label="Email" type="email" placeholder="john@example.com"></app-input>
-                  <app-input label="Phone" type="tel" placeholder="+1 (555) 000-0000"></app-input>
-                </div>
-              } @else if (accountStepperCurrent() === 1) {
-                <div class="wizard-step-content">
-                  <h4>Company Details</h4>
-                  <p>Tell us about your organization.</p>
-                  <app-input label="Company Name" placeholder="Acme Inc."></app-input>
-                  <app-input label="Website" placeholder="https://example.com"></app-input>
-                  <app-select label="Industry" [options]="industryOptions"></app-select>
-                </div>
-              } @else if (accountStepperCurrent() === 2) {
-                <div class="wizard-step-content">
-                  <h4>Preferences</h4>
-                  <p>Customize your experience.</p>
-                  <app-checkbox label="Send me email updates"></app-checkbox>
-                  <app-checkbox label="Enable two-factor authentication"></app-checkbox>
-                  <app-checkbox label="Subscribe to newsletter"></app-checkbox>
-                </div>
-              } @else if (accountStepperCurrent() === 3) {
-                <div class="wizard-step-content">
-                  <h4>Review & Confirm</h4>
-                  <p>Please review your information before submitting.</p>
-                  <div class="review-summary">
-                    <div class="review-item"><strong>Name:</strong> John Doe</div>
-                    <div class="review-item"><strong>Email:</strong> john@example.com</div>
-                    <div class="review-item"><strong>Company:</strong> Acme Inc.</div>
+              <div class="wizard-content">
+                @if (accountStepperCurrent() === 0) {
+                  <div class="wizard-step-content">
+                    <h4>Personal Information</h4>
+                    <p>Please provide your basic information to get started.</p>
+                    <app-input label="Full Name" placeholder="John Doe"></app-input>
+                    <app-input
+                      label="Email"
+                      type="email"
+                      placeholder="john@example.com"
+                    ></app-input>
+                    <app-input label="Phone" type="tel" placeholder="+1 (555) 000-0000"></app-input>
                   </div>
-                </div>
-              }
+                } @else if (accountStepperCurrent() === 1) {
+                  <div class="wizard-step-content">
+                    <h4>Company Details</h4>
+                    <p>Tell us about your organization.</p>
+                    <app-input label="Company Name" placeholder="Acme Inc."></app-input>
+                    <app-input label="Website" placeholder="https://example.com"></app-input>
+                    <app-select label="Industry" [options]="industryOptions"></app-select>
+                  </div>
+                } @else if (accountStepperCurrent() === 2) {
+                  <div class="wizard-step-content">
+                    <h4>Preferences</h4>
+                    <p>Customize your experience.</p>
+                    <app-checkbox label="Send me email updates"></app-checkbox>
+                    <app-checkbox label="Enable two-factor authentication"></app-checkbox>
+                    <app-checkbox label="Subscribe to newsletter"></app-checkbox>
+                  </div>
+                } @else if (accountStepperCurrent() === 3) {
+                  <div class="wizard-step-content">
+                    <h4>Review & Confirm</h4>
+                    <p>Please review your information before submitting.</p>
+                    <div class="review-summary">
+                      <div class="review-item"><strong>Name:</strong> John Doe</div>
+                      <div class="review-item"><strong>Email:</strong> john@example.com</div>
+                      <div class="review-item"><strong>Company:</strong> Acme Inc.</div>
+                    </div>
+                  </div>
+                }
 
-              <div class="wizard-actions">
-                <app-button
-                  variant="outline"
-                  [disabled]="accountStepperCurrent() === 0"
-                  (click)="accountStepperPrevious()"
-                  >Back</app-button
-                >
-                <app-button (click)="accountStepperNext()">
-                  {{
-                    accountStepperCurrent() === accountSetupSteps.length - 1
-                      ? 'Complete Setup'
-                      : 'Continue'
-                  }}
-                </app-button>
+                <div class="wizard-actions">
+                  <app-button
+                    variant="outline"
+                    [disabled]="accountStepperCurrent() === 0"
+                    (click)="accountStepperPrevious()"
+                    >Back</app-button
+                  >
+                  <app-button (click)="accountStepperNext()">
+                    {{
+                      accountStepperCurrent() === accountSetupSteps.length - 1
+                        ? 'Complete Setup'
+                        : 'Continue'
+                    }}
+                  </app-button>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Use Case: Checkout Process -->
+        <h3>Use Case: Checkout Process</h3>
         <div class="stepper-use-case">
-          <h3>Use Case: Checkout Process</h3>
-          <div class="checkout-container">
-            <app-stepper
-              [steps]="checkoutSteps"
-              [activeStep]="checkoutStepperCurrent()"
-              orientation="vertical"
-              [linear]="true"
-              (stepChange)="checkoutStepperCurrent.set($event)"
-            ></app-stepper>
+          <div class="use-case-content">
+            <div class="checkout-container">
+              <app-stepper
+                [steps]="checkoutSteps"
+                [activeStep]="checkoutStepperCurrent()"
+                orientation="vertical"
+                [linear]="true"
+                (stepChange)="checkoutStepperCurrent.set($event)"
+              ></app-stepper>
 
-            <div class="checkout-content">
-              <h4>{{ checkoutSteps[checkoutStepperCurrent()].label }}</h4>
-              @if (checkoutStepperCurrent() === 0) {
-                <p>Your shopping cart contains 3 items.</p>
-                <div class="cart-summary">
-                  <div class="cart-item">Wireless Headphones × 1 - $99.99</div>
-                  <div class="cart-item">USB Cable × 2 - $19.98</div>
-                  <div class="cart-total"><strong>Total: $119.97</strong></div>
-                </div>
-              } @else if (checkoutStepperCurrent() === 1) {
-                <p>Enter your shipping address.</p>
-                <app-input label="Street Address" placeholder="123 Main St"></app-input>
-                <app-input label="City" placeholder="San Francisco"></app-input>
-              } @else if (checkoutStepperCurrent() === 2) {
-                <p>Select your payment method.</p>
-                <app-radio [options]="paymentOptions"></app-radio>
-              } @else if (checkoutStepperCurrent() === 3) {
-                <p>Review your order before placing it.</p>
-                <div class="order-summary">
-                  <p><strong>✓</strong> Order reviewed and ready to submit</p>
-                </div>
-              }
+              <div class="checkout-content">
+                <h4>{{ checkoutSteps[checkoutStepperCurrent()].label }}</h4>
+                @if (checkoutStepperCurrent() === 0) {
+                  <p>Your shopping cart contains 3 items.</p>
+                  <div class="cart-summary">
+                    <div class="cart-item">Wireless Headphones × 1 - $99.99</div>
+                    <div class="cart-item">USB Cable × 2 - $19.98</div>
+                    <div class="cart-total"><strong>Total: $119.97</strong></div>
+                  </div>
+                } @else if (checkoutStepperCurrent() === 1) {
+                  <p>Enter your shipping address.</p>
+                  <app-input label="Street Address" placeholder="123 Main St"></app-input>
+                  <app-input label="City" placeholder="San Francisco"></app-input>
+                } @else if (checkoutStepperCurrent() === 2) {
+                  <p>Select your payment method.</p>
+                  <app-radio [options]="paymentOptions"></app-radio>
+                } @else if (checkoutStepperCurrent() === 3) {
+                  <p>Review your order before placing it.</p>
+                  <div class="order-summary">
+                    <p><strong>✓</strong> Order reviewed and ready to submit</p>
+                  </div>
+                }
 
-              <div class="checkout-actions">
-                <app-button
-                  variant="outline"
-                  [disabled]="checkoutStepperCurrent() === 0"
-                  (click)="checkoutStepperPrevious()"
-                  >Back</app-button
-                >
-                <app-button (click)="checkoutStepperNext()">
-                  {{
-                    checkoutStepperCurrent() === checkoutSteps.length - 1
-                      ? 'Place Order'
-                      : 'Continue'
-                  }}
-                </app-button>
+                <div class="checkout-actions">
+                  <app-button
+                    variant="outline"
+                    [disabled]="checkoutStepperCurrent() === 0"
+                    (click)="checkoutStepperPrevious()"
+                    >Back</app-button
+                  >
+                  <app-button (click)="checkoutStepperNext()">
+                    {{
+                      checkoutStepperCurrent() === checkoutSteps.length - 1
+                        ? 'Place Order'
+                        : 'Continue'
+                    }}
+                  </app-button>
+                </div>
               </div>
             </div>
+          </div>
+        </div>
+      </app-card>
+    </div>
+
+    <div class="timeline-section">
+      <app-card title="Timeline Component Demo">
+        <p>Display a chronological sequence of events or activities with flexible layouts.</p>
+
+        <h3>Basic Timeline</h3>
+        <div class="timeline-demo">
+          <app-timeline [items]="basicTimelineItems"></app-timeline>
+        </div>
+
+        <h3>Horizontal Timeline</h3>
+        <div class="timeline-demo">
+          <app-timeline [items]="basicTimelineItems" orientation="horizontal"></app-timeline>
+        </div>
+
+        <h3>Right Position</h3>
+        <div class="timeline-demo">
+          <app-timeline [items]="basicTimelineItems" position="right"></app-timeline>
+        </div>
+
+        <h3>Alternate Position</h3>
+        <div class="timeline-demo">
+          <app-timeline [items]="basicTimelineItems" position="alternate"></app-timeline>
+        </div>
+
+        <h3>With Details and Icons</h3>
+        <div class="timeline-demo">
+          <app-timeline [items]="detailedTimelineItems"></app-timeline>
+        </div>
+
+        <h3>Activity Log with Status Colors</h3>
+        <div class="timeline-demo">
+          <app-timeline [items]="activityTimelineItems"></app-timeline>
+        </div>
+
+        <h3>Custom Icons</h3>
+        <div class="timeline-demo">
+          <app-timeline [items]="customIconTimelineItems" position="alternate"></app-timeline>
+        </div>
+
+        <h3>Without Connecting Line</h3>
+        <div class="timeline-demo">
+          <app-timeline [items]="basicTimelineItems" [showLine]="false"></app-timeline>
+        </div>
+
+        <h3>Use Case: Order Tracking System</h3>
+        <div class="timeline-use-case">
+          <div class="use-case-content">
+            <h4>Order #12345</h4>
+            <p>Track your package delivery status</p>
+            <app-timeline [items]="detailedTimelineItems"></app-timeline>
+          </div>
+        </div>
+
+        <h3>Use Case: Project Milestone Tracker</h3>
+        <div class="timeline-use-case">
+          <div class="use-case-content">
+            <h4>Website Redesign Project</h4>
+            <app-timeline [items]="customIconTimelineItems" position="alternate"></app-timeline>
           </div>
         </div>
       </app-card>

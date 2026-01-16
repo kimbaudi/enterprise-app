@@ -37,6 +37,7 @@ import { EmptyStateComponent } from '@shared/components/empty-state/empty-state.
 import { FileUploadComponent } from '@shared/components/file-upload/file-upload.component';
 import { RatingComponent } from '@shared/components/rating/rating.component';
 import { StepperComponent, Step } from '@shared/components/stepper/stepper.component';
+import { TimelineComponent, TimelineItem } from '@shared/components/timeline/timeline.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -73,6 +74,7 @@ import { StepperComponent, Step } from '@shared/components/stepper/stepper.compo
     FileUploadComponent,
     RatingComponent,
     StepperComponent,
+    TimelineComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -493,4 +495,136 @@ export class DashboardComponent {
     this.toastService.success('Account setup completed!', 'Success');
     this.accountStepperCurrent.set(0);
   }
+
+  // Timeline demo data
+  basicTimelineItems: TimelineItem[] = [
+    {
+      title: 'Project Created',
+      description: 'Initial project setup and configuration',
+      timestamp: '2024-01-01',
+      status: 'success',
+    },
+    {
+      title: 'Development Started',
+      description: 'Begin coding the main features',
+      timestamp: '2024-01-05',
+      status: 'success',
+    },
+    {
+      title: 'Testing Phase',
+      description: 'Running automated tests and QA',
+      timestamp: '2024-01-15',
+      status: 'primary',
+    },
+    {
+      title: 'Deployment Scheduled',
+      description: 'Preparing for production release',
+      timestamp: '2024-01-25',
+      status: 'default',
+    },
+  ];
+
+  detailedTimelineItems: TimelineItem[] = [
+    {
+      title: 'Order Placed',
+      description: 'Customer placed order #12345',
+      timestamp: '2 hours ago',
+      icon: '🛒',
+      status: 'success',
+      content: 'Order details: 3 items, Total: $149.99',
+    },
+    {
+      title: 'Payment Confirmed',
+      description: 'Payment processed successfully',
+      timestamp: '1 hour ago',
+      icon: '💳',
+      status: 'success',
+      content: 'Transaction ID: TXN-789456123',
+    },
+    {
+      title: 'Preparing Shipment',
+      description: 'Items being packed for delivery',
+      timestamp: '30 minutes ago',
+      icon: '📦',
+      status: 'primary',
+    },
+    {
+      title: 'Out for Delivery',
+      description: 'Package is on its way',
+      timestamp: 'Expected in 2 hours',
+      icon: '🚚',
+      status: 'default',
+    },
+  ];
+
+  activityTimelineItems: TimelineItem[] = [
+    {
+      title: 'System Update',
+      description: 'Updated to version 2.1.0',
+      timestamp: '2024-01-20 14:30',
+      status: 'success',
+    },
+    {
+      title: 'Security Scan',
+      description: 'No vulnerabilities detected',
+      timestamp: '2024-01-20 10:15',
+      status: 'success',
+    },
+    {
+      title: 'Backup Failed',
+      description: 'Database backup encountered an error',
+      timestamp: '2024-01-19 23:00',
+      status: 'error',
+    },
+    {
+      title: 'High CPU Usage',
+      description: 'CPU usage exceeded 90% for 10 minutes',
+      timestamp: '2024-01-19 15:45',
+      status: 'warning',
+    },
+    {
+      title: 'New User Registered',
+      description: 'john.doe@example.com signed up',
+      timestamp: '2024-01-19 09:20',
+      status: 'info',
+    },
+    {
+      title: 'Server Maintenance',
+      description: 'Scheduled maintenance completed',
+      timestamp: '2024-01-18 02:00',
+      status: 'success',
+    },
+  ];
+
+  customIconTimelineItems: TimelineItem[] = [
+    {
+      title: 'Design Review',
+      description: 'UI/UX design approved by stakeholders',
+      timestamp: 'Jan 10, 2024',
+      icon: '🎨',
+      status: 'success',
+    },
+    {
+      title: 'Code Review',
+      description: 'Pull request merged to main branch',
+      timestamp: 'Jan 12, 2024',
+      icon: '👨‍💻',
+      status: 'success',
+    },
+    {
+      title: 'Testing',
+      description: 'QA team running test suites',
+      timestamp: 'Jan 15, 2024',
+      icon: '🧪',
+      status: 'primary',
+    },
+    {
+      title: 'Documentation',
+      description: 'Writing user documentation',
+      timestamp: 'Jan 18, 2024',
+      icon: '📝',
+      status: 'default',
+    },
+  ];
 }
+

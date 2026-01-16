@@ -246,7 +246,7 @@ app-breadcrumb {
   gap: 0.75rem;
 }
 
-.badge-demo-item > span {
+.badge-demo-item>span {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -292,7 +292,7 @@ app-breadcrumb {
   gap: 0.5rem;
 }
 
-.progress-demo-item > span {
+.progress-demo-item>span {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -331,7 +331,7 @@ app-breadcrumb {
   gap: 0.75rem;
 }
 
-.skeleton-demo-item > span {
+.skeleton-demo-item>span {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -572,7 +572,7 @@ app-breadcrumb {
   gap: 1rem;
 }
 
-.pagination-demo-sizes .pagination-demo-item > span {
+.pagination-demo-sizes .pagination-demo-item>span {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -591,7 +591,7 @@ app-breadcrumb {
   gap: 0.75rem;
 }
 
-.pagination-demo-grid .pagination-demo-item > span {
+.pagination-demo-grid .pagination-demo-item>span {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -676,6 +676,7 @@ li {
   margin-bottom: 0.5rem;
   color: #4b5563;
 }
+
 .alert-section {
   margin-top: 2rem;
 }
@@ -709,7 +710,7 @@ li {
   gap: 0.75rem;
 }
 
-.alert-demo-item > span {
+.alert-demo-item>span {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -753,7 +754,7 @@ li {
   gap: 0.5rem;
 }
 
-.avatar-demo-item > span {
+.avatar-demo-item>span {
   font-size: 0.75rem;
   color: var(--color-text-secondary);
 }
@@ -851,7 +852,7 @@ li {
   gap: 0.75rem;
 }
 
-.chip-demo-item > span {
+.chip-demo-item>span {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -909,7 +910,7 @@ li {
   gap: 0.75rem;
 }
 
-.divider-demo-item > span {
+.divider-demo-item>span {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -1031,7 +1032,7 @@ li {
   min-height: auto;
 }
 
-.empty-state-demo-sizes .empty-state-demo-item > span {
+.empty-state-demo-sizes .empty-state-demo-item>span {
   padding: 0.75rem 1rem;
   font-size: 0.875rem;
   font-weight: 600;
@@ -1121,6 +1122,11 @@ li {
   margin-top: 3rem;
 }
 
+.rating-section p {
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+}
+
 .rating-demo {
   padding: 1.5rem;
   background-color: var(--color-background);
@@ -1166,28 +1172,23 @@ li {
   flex-wrap: wrap;
 }
 
-.rating-sizes > div,
-.rating-colors > div,
-.custom-icons > div {
+.rating-sizes>div,
+.rating-colors>div,
+.custom-icons>div {
   flex: 1;
   min-width: 150px;
 }
 
 /* Rating Use Cases */
 .rating-use-case {
-  padding: 2rem;
-  background-color: var(--color-background);
-  border: 1px solid var(--color-border);
-  border-radius: 0.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
-.rating-use-case h3 {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--color-text-primary);
+.rating-use-case .use-case-content {
+  background-color: var(--color-background-secondary);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-border);
 }
 
 /* Product Review */
@@ -1341,6 +1342,11 @@ li {
   margin-top: 3rem;
 }
 
+.stepper-section p {
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+}
+
 .stepper-demo {
   padding: 2rem;
   background-color: var(--color-background);
@@ -1374,19 +1380,14 @@ li {
 
 /* Stepper Use Cases */
 .stepper-use-case {
-  padding: 2rem;
-  background-color: var(--color-background);
-  border: 1px solid var(--color-border);
-  border-radius: 0.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
-.stepper-use-case h3 {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--color-text-primary);
+.stepper-use-case .use-case-content {
+  background-color: var(--color-background-secondary);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-border);
 }
 
 /* Wizard Container */
@@ -1528,6 +1529,7 @@ li {
 
 /* Responsive */
 @media (max-width: 768px) {
+
   .wizard-actions,
   .checkout-actions,
   .stepper-controls {
@@ -1543,4 +1545,41 @@ li {
   .checkout-container {
     grid-template-columns: 1fr;
   }
+}
+
+/* Timeline Section */
+.timeline-section {
+  margin-top: 3rem;
+}
+
+.timeline-section p {
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.timeline-demo {
+  margin-bottom: 2rem;
+}
+
+.timeline-use-case {
+  margin-bottom: 2rem;
+}
+
+.timeline-use-case .use-case-content {
+  background-color: var(--color-background-secondary);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-border);
+}
+
+.timeline-use-case .use-case-content h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--color-text-primary);
+  font-size: 1.125rem;
+}
+
+.timeline-use-case .use-case-content p {
+  margin: 0 0 1rem 0;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
 }
