@@ -1,15 +1,15 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { AuthService } from '../../core/services/auth.service';
-import { ButtonComponent } from '../../shared/components/button/button.component';
-import { CardComponent } from '../../shared/components/card/card.component';
+import { AuthService } from '@core/services/auth.service';
+import { ButtonComponent } from '@shared/components/button/button.component';
+import { CardComponent } from '@shared/components/card/card.component';
 
 @Component({
-    selector: 'app-dashboard',
-    standalone: true,
-    imports: [CommonModule, ButtonComponent, CardComponent],
-    template: `
+  selector: 'app-dashboard',
+  standalone: true,
+  imports: [CommonModule, ButtonComponent, CardComponent],
+  template: `
     <div class="dashboard-container">
       <div class="dashboard-header">
         <h1>Dashboard</h1>
@@ -54,7 +54,7 @@ import { CardComponent } from '../../shared/components/card/card.component';
       </div>
     </div>
   `,
-    styles: [`
+  styles: [`
     .dashboard-container {
       padding: 2rem;
       max-width: 1400px;
@@ -109,10 +109,10 @@ import { CardComponent } from '../../shared/components/card/card.component';
   `],
 })
 export class DashboardComponent {
-    private authService = inject(AuthService);
-    private router = inject(Router);
+  private authService = inject(AuthService);
+  private router = inject(Router);
 
-    logout(): void {
-        this.authService.logout();
-    }
+  logout(): void {
+    this.authService.logout();
+  }
 }

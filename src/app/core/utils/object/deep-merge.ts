@@ -1,4 +1,4 @@
-import { isObject } from './is-object';
+import { isObject } from '@core/utils/object/is-object';
 
 /**
  * Deep merge objects

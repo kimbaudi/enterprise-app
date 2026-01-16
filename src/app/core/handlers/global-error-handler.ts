@@ -1,7 +1,7 @@
 import { ErrorHandler, Injectable, inject } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { LoggerService } from '../services/logger.service';
-import { NotificationService } from '../services/notification.service';
+import { LoggerService } from '@core/services/logger.service';
+import { NotificationService } from '@core/services/notification.service';
 
 /**
  * Global error handler for catching and logging all application errors

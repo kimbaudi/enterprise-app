@@ -7,13 +7,13 @@ import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 
 import { routes } from './app.routes';
-import { appReducers } from './store';
-import { UserEffects } from './store/effects/user.effects';
-import { authInterceptor } from './core/interceptors/auth.interceptor';
-import { errorInterceptor } from './core/interceptors/error.interceptor';
-import { loadingInterceptor } from './core/interceptors/loading.interceptor';
-import { GlobalErrorHandler } from './core/handlers/global-error-handler';
-import { environment } from '../environments/environment';
+import { appReducers } from '@store/index';
+import { UserEffects } from '@store/effects/user.effects';
+import { authInterceptor } from '@core/interceptors/auth.interceptor';
+import { errorInterceptor } from '@core/interceptors/error.interceptor';
+import { loadingInterceptor } from '@core/interceptors/loading.interceptor';
+import { GlobalErrorHandler } from '@core/handlers/global-error-handler';
+import { environment } from '@environments/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [

@@ -1,4 +1,4 @@
-import { VALIDATION_PATTERNS } from '../../constants/validation.constants';
+import { VALIDATION_PATTERNS } from '@core/constants/validation.constants';
 
 /**
  * Validate email address

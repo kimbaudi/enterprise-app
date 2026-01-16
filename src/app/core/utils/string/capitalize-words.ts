@@ -1,4 +1,4 @@
-import { capitalize } from './capitalize';
+import { capitalize } from '@core/utils/string/capitalize';
 
 /**
  * Capitalize first letter of each word

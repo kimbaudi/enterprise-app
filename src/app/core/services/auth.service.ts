@@ -2,9 +2,9 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, tap, of, delay } from 'rxjs';
 import { Router } from '@angular/router';
-import { environment } from '../../../environments/environment';
-import { StorageService } from './storage.service';
-import { STORAGE_KEYS } from '../constants/storage.constants';
+import { environment } from '@environments/environment';
+import { StorageService } from '@core/services/storage.service';
+import { STORAGE_KEYS } from '@core/constants/storage.constants';
 import { AuthResponse, LoginCredentials, User } from '@core/models';
 
 @Injectable({

@@ -1,4 +1,4 @@
-import { isValidDate } from './is-valid-date';
+import { isValidDate } from '@core/utils/date/is-valid-date';
 
 /**
  * Parse ISO date string

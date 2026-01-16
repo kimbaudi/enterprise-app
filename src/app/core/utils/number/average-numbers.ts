@@ -1,4 +1,4 @@
-import { sumNumbers } from './sum-numbers';
+import { sumNumbers } from '@core/utils/number/sum-numbers';
 
 /**
  * Average of numbers

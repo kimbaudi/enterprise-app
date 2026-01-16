@@ -1,13 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoadingService } from '../../../core/services/loading.service';
+import { LoadingService } from '@core/services/loading.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
-    selector: 'app-loading-spinner',
-    standalone: true,
-    imports: [CommonModule],
-    template: `
+  selector: 'app-loading-spinner',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
     <div class="loading-overlay" *ngIf="loading()">
       <div class="spinner-container">
         <div class="spinner"></div>
@@ -15,7 +15,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
       </div>
     </div>
   `,
-    styles: [`
+  styles: [`
     .loading-overlay {
       position: fixed;
       top: 0;
@@ -55,6 +55,6 @@ import { toSignal } from '@angular/core/rxjs-interop';
   `],
 })
 export class LoadingSpinnerComponent {
-    private loadingService = inject(LoadingService);
-    loading = toSignal(this.loadingService.loading$, { initialValue: false });
+  private loadingService = inject(LoadingService);
+  loading = toSignal(this.loadingService.loading$, { initialValue: false });
 }
