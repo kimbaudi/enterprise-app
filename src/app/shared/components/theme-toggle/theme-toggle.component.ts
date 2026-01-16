@@ -3,24 +3,24 @@ import { CommonModule } from '@angular/common';
 import { ThemeService } from '@core/services/theme.service';
 
 @Component({
-    selector: 'app-theme-toggle',
-    standalone: true,
-    imports: [CommonModule],
-    templateUrl: './theme-toggle.component.html',
-    styleUrl: './theme-toggle.component.css',
+  selector: 'app-theme-toggle',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './theme-toggle.component.html',
+  styleUrl: './theme-toggle.component.css',
 })
 export class ThemeToggleComponent {
-    themeService = inject(ThemeService);
+  themeService = inject(ThemeService);
 
-    toggleTheme(): void {
-        this.themeService.toggleTheme();
-    }
+  toggleTheme(): void {
+    this.themeService.toggleTheme();
+  }
 
-    getIcon(): string {
-        return this.themeService.activeTheme() === 'dark' ? '☀️' : '🌙';
-    }
+  getIcon(): string {
+    return this.themeService.activeTheme() === 'dark' ? '☀️' : '🌙';
+  }
 
-    getLabel(): string {
-        return this.themeService.activeTheme() === 'dark' ? 'Light Mode' : 'Dark Mode';
-    }
+  getLabel(): string {
+    return this.themeService.activeTheme() === 'dark' ? 'Light Mode' : 'Dark Mode';
+  }
 }

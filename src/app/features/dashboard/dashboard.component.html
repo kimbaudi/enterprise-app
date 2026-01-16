@@ -46,22 +46,32 @@
 
     <div class="users-section">
       <app-card title="Users Management">
-        <app-table [columns]="columns" [data]="users" [config]="{
+        <app-table
+          [columns]="columns"
+          [data]="users"
+          [config]="{
             pageSize: 5,
             pageSizeOptions: [5, 10, 20],
             showPagination: true,
             showSearch: true,
             striped: true,
-            hoverable: true
-          }" (rowClick)="onRowClick($event)"></app-table>
+            hoverable: true,
+          }"
+          (rowClick)="onRowClick($event)"
+        ></app-table>
       </app-card>
     </div>
   </div>
 </div>
 
 <!-- User Details Modal -->
-<app-modal [title]="'User Details'" [size]="'md'" [isOpen]="showModal" (closeEvent)="closeModal()"
-  *ngIf="showModal && selectedUser">
+<app-modal
+  [title]="'User Details'"
+  [size]="'md'"
+  [isOpen]="showModal"
+  (closeEvent)="closeModal()"
+  *ngIf="showModal && selectedUser"
+>
   <div class="modal-content">
     <div class="user-detail">
       <label>ID:</label>

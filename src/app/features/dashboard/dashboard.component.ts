@@ -12,7 +12,14 @@ import { ThemeToggleComponent } from '@shared/components/theme-toggle/theme-togg
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, ButtonComponent, CardComponent, TableComponent, ModalComponent, ThemeToggleComponent],
+  imports: [
+    CommonModule,
+    ButtonComponent,
+    CardComponent,
+    TableComponent,
+    ModalComponent,
+    ThemeToggleComponent,
+  ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
 })
