@@ -1,0 +1,8 @@
+/**
+ * Add years to date
+ */
+export function addYears(date: Date | string | number, years: number): Date {
+    const result = new Date(date);
+    result.setFullYear(result.getFullYear() + years);
+    return result;
+}
