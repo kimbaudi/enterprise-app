@@ -47,6 +47,11 @@ import {
   ColorFormat,
 } from '@shared/components/color-picker/color-picker.component';
 import { TreeViewComponent, TreeNode } from '@shared/components/tree-view/tree-view.component';
+import {
+  DataGridComponent,
+  DataGridColumn,
+  DataGridConfig,
+} from '@shared/components/data-grid/data-grid.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -87,6 +92,7 @@ import { TreeViewComponent, TreeNode } from '@shared/components/tree-view/tree-v
     DatePickerComponent,
     ColorPickerComponent,
     TreeViewComponent,
+    DataGridComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -907,5 +913,197 @@ export class DashboardComponent {
       `${nodes.length} task${nodes.length !== 1 ? 's' : ''} completed`,
       'Progress Updated',
     );
+  }
+
+  // Data Grid Demo
+  employeeGridColumns: DataGridColumn[] = [
+    { field: 'id', header: 'ID', sortable: true, width: '80px', type: 'number' },
+    { field: 'name', header: 'Name', sortable: true, filterable: true },
+    { field: 'email', header: 'Email', sortable: true, filterable: true },
+    { field: 'department', header: 'Department', sortable: true, filterable: true },
+    { field: 'role', header: 'Role', sortable: true, filterable: true },
+    {
+      field: 'salary',
+      header: 'Salary',
+      sortable: true,
+      type: 'number',
+      format: (value: number) => `$${value.toLocaleString()}`,
+    },
+    {
+      field: 'hireDate',
+      header: 'Hire Date',
+      sortable: true,
+      type: 'date',
+      format: (value: Date) => new Date(value).toLocaleDateString(),
+    },
+    {
+      field: 'status',
+      header: 'Status',
+      sortable: true,
+      filterable: true,
+    },
+  ];
+
+  employeeGridData = [
+    {
+      id: 1,
+      name: 'John Doe',
+      email: 'john.doe@company.com',
+      department: 'Engineering',
+      role: 'Senior Developer',
+      salary: 95000,
+      hireDate: new Date('2020-03-15'),
+      status: 'Active',
+    },
+    {
+      id: 2,
+      name: 'Jane Smith',
+      email: 'jane.smith@company.com',
+      department: 'Marketing',
+      role: 'Marketing Manager',
+      salary: 85000,
+      hireDate: new Date('2019-07-22'),
+      status: 'Active',
+    },
+    {
+      id: 3,
+      name: 'Mike Johnson',
+      email: 'mike.johnson@company.com',
+      department: 'Engineering',
+      role: 'Tech Lead',
+      salary: 120000,
+      hireDate: new Date('2018-01-10'),
+      status: 'Active',
+    },
+    {
+      id: 4,
+      name: 'Sarah Williams',
+      email: 'sarah.williams@company.com',
+      department: 'Sales',
+      role: 'Sales Director',
+      salary: 110000,
+      hireDate: new Date('2019-05-18'),
+      status: 'Active',
+    },
+    {
+      id: 5,
+      name: 'David Brown',
+      email: 'david.brown@company.com',
+      department: 'Engineering',
+      role: 'Junior Developer',
+      salary: 65000,
+      hireDate: new Date('2022-09-01'),
+      status: 'Active',
+    },
+    {
+      id: 6,
+      name: 'Emily Davis',
+      email: 'emily.davis@company.com',
+      department: 'HR',
+      role: 'HR Manager',
+      salary: 80000,
+      hireDate: new Date('2020-11-30'),
+      status: 'Active',
+    },
+    {
+      id: 7,
+      name: 'Chris Martinez',
+      email: 'chris.martinez@company.com',
+      department: 'Engineering',
+      role: 'DevOps Engineer',
+      salary: 90000,
+      hireDate: new Date('2021-02-14'),
+      status: 'Active',
+    },
+    {
+      id: 8,
+      name: 'Lisa Anderson',
+      email: 'lisa.anderson@company.com',
+      department: 'Marketing',
+      role: 'Content Strategist',
+      salary: 70000,
+      hireDate: new Date('2021-06-20'),
+      status: 'Active',
+    },
+    {
+      id: 9,
+      name: 'Tom Wilson',
+      email: 'tom.wilson@company.com',
+      department: 'Sales',
+      role: 'Account Executive',
+      salary: 75000,
+      hireDate: new Date('2020-08-05'),
+      status: 'On Leave',
+    },
+    {
+      id: 10,
+      name: 'Amy Taylor',
+      email: 'amy.taylor@company.com',
+      department: 'Engineering',
+      role: 'QA Engineer',
+      salary: 72000,
+      hireDate: new Date('2021-10-12'),
+      status: 'Active',
+    },
+    {
+      id: 11,
+      name: 'Robert Moore',
+      email: 'robert.moore@company.com',
+      department: 'Finance',
+      role: 'Financial Analyst',
+      salary: 78000,
+      hireDate: new Date('2019-12-03'),
+      status: 'Active',
+    },
+    {
+      id: 12,
+      name: 'Jennifer Lee',
+      email: 'jennifer.lee@company.com',
+      department: 'Design',
+      role: 'UX Designer',
+      salary: 82000,
+      hireDate: new Date('2020-04-25'),
+      status: 'Active',
+    },
+  ];
+
+  dataGridConfig: DataGridConfig = {
+    selectable: true,
+    multiSelect: true,
+    pagination: true,
+    pageSize: 5,
+    sortable: true,
+    filterable: true,
+    exportable: true,
+    rowHeight: 'normal',
+  };
+
+  compactGridConfig: DataGridConfig = {
+    ...this.dataGridConfig,
+    rowHeight: 'compact',
+    pageSize: 8,
+  };
+
+  comfortableGridConfig: DataGridConfig = {
+    ...this.dataGridConfig,
+    rowHeight: 'comfortable',
+    pageSize: 4,
+  };
+
+  onDataGridRowClick(row: any): void {
+    console.log('Row clicked:', row);
+    this.toastService.info(`Selected: ${row.name}`, 'Employee Info');
+  }
+
+  onDataGridRowSelect(rows: any[]): void {
+    console.log('Selected rows:', rows);
+  }
+
+  onDataGridSort(sort: any): void {
+    console.log('Sort changed:', sort);
+  }
+
+  onDataGridFilter(filters: any): void {
+    console.log('Filters applied:', filters);
   }
 }

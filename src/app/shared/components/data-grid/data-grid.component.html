@@ -1,0 +1,153 @@
+<div class="data-grid-container" [class.loading]="loading">
+  <!-- Toolbar -->
+  <div class="data-grid-toolbar">
+    <div class="toolbar-left">
+      @if (config.filterable) {
+        <div class="search-box">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search..."
+            [value]="searchQuery()"
+            (input)="onSearch($any($event.target).value)"
+          />
+        </div>
+      }
+      @if (selectedRows().size > 0) {
+        <div class="selection-info">
+          <span>{{ selectedRows().size }} selected</span>
+          <app-button variant="outline" size="sm" (click)="clearSelection()">Clear</app-button>
+        </div>
+      }
+    </div>
+    <div class="toolbar-right">
+      @if (hasActiveFilters()) {
+        <app-button variant="outline" size="sm" (click)="clearFilters()">Clear Filters</app-button>
+      }
+      @if (config.exportable) {
+        <app-button variant="outline" size="sm" (click)="exportToCSV()">📥 Export CSV</app-button>
+      }
+    </div>
+  </div>
+
+  <!-- Data Grid Table -->
+  <div class="data-grid-wrapper" [attr.data-row-height]="config.rowHeight">
+    @if (loading) {
+      <div class="loading-overlay">
+        <div class="spinner"></div>
+        <p>Loading data...</p>
+      </div>
+    }
+
+    <table class="data-grid-table">
+      <thead>
+        <tr>
+          @if (config.selectable) {
+            <th class="select-column">
+              @if (config.multiSelect) {
+                <input
+                  type="checkbox"
+                  [checked]="allSelected()"
+                  [indeterminate]="someSelected()"
+                  (change)="onSelectAll($event)"
+                />
+              }
+            </th>
+          }
+          @for (column of columns; track column.field) {
+            <th
+              [style.width]="column.width"
+              [class.sortable]="config.sortable && column.sortable !== false"
+              (click)="onSort(column.field)"
+            >
+              <div class="header-content">
+                <span class="header-text">{{ column.header }}</span>
+                @if (config.sortable && column.sortable !== false) {
+                  <span class="sort-icon">{{ getSortIcon(column.field) }}</span>
+                }
+              </div>
+            </th>
+          }
+        </tr>
+
+        <!-- Filter Row -->
+        @if (config.filterable) {
+          <tr class="filter-row">
+            @if (config.selectable) {
+              <th class="select-column"></th>
+            }
+            @for (column of columns; track column.field) {
+              <th>
+                @if (column.filterable !== false) {
+                  <input
+                    type="text"
+                    placeholder="Filter..."
+                    class="filter-input"
+                    [value]="filters()[column.field] || ''"
+                    (input)="onFilter(column.field, $any($event.target).value)"
+                  />
+                }
+              </th>
+            }
+          </tr>
+        }
+      </thead>
+
+      <tbody>
+        @if (paginatedData().length === 0) {
+          <tr class="empty-row">
+            <td [attr.colspan]="columns.length + (config.selectable ? 1 : 0)">
+              <div class="empty-state">
+                <span class="empty-icon">📭</span>
+                <p>{{ emptyMessage }}</p>
+              </div>
+            </td>
+          </tr>
+        } @else {
+          @for (row of paginatedData(); track row) {
+            <tr
+              class="data-row"
+              [class.selected]="selectedRows().has(row)"
+              (click)="onRowClick(row)"
+            >
+              @if (config.selectable) {
+                <td class="select-column" (click)="onRowSelect(row, $event)">
+                  <input type="checkbox" [checked]="selectedRows().has(row)" />
+                </td>
+              }
+              @for (column of columns; track column.field) {
+                <td [attr.data-type]="column.type || 'text'">
+                  @if (column.cellTemplate) {
+                    <ng-container
+                      *ngTemplateOutlet="
+                        column.cellTemplate;
+                        context: { $implicit: row, column: column }
+                      "
+                    />
+                  } @else {
+                    {{ getCellValue(row, column) }}
+                  }
+                </td>
+              }
+            </tr>
+          }
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Footer -->
+  @if (config.pagination && filteredData().length > 0) {
+    <div class="data-grid-footer">
+      <div class="footer-info">
+        Showing {{ getStartIndex() }} to {{ getEndIndex() }} of {{ filteredData().length }} entries
+      </div>
+      <app-pagination
+        [totalItems]="filteredData().length"
+        [pageSize]="config.pageSize || 10"
+        [currentPage]="currentPage()"
+        (pageChange)="onPageChange($event)"
+      />
+    </div>
+  }
+</div>

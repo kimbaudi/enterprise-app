@@ -3030,6 +3030,110 @@
         </div>
       </app-card>
     </div>
+
+    <div class="data-grid-section">
+      <app-card title="Data Grid Component Demo">
+        <p>
+          Advanced data table with sorting, filtering, pagination, row selection, and CSV export
+          capabilities.
+        </p>
+
+        <h3>Full-Featured Employee Grid</h3>
+        <div class="data-grid-demo">
+          <app-data-grid
+            [columns]="employeeGridColumns"
+            [data]="employeeGridData"
+            [config]="dataGridConfig"
+            (rowClick)="onDataGridRowClick($event)"
+            (rowSelect)="onDataGridRowSelect($event)"
+            (sortChange)="onDataGridSort($event)"
+            (filterChange)="onDataGridFilter($event)"
+          />
+        </div>
+
+        <h3>Compact Row Height</h3>
+        <div class="data-grid-demo">
+          <app-data-grid
+            [columns]="employeeGridColumns"
+            [data]="employeeGridData"
+            [config]="compactGridConfig"
+          />
+        </div>
+
+        <h3>Comfortable Row Height</h3>
+        <div class="data-grid-demo">
+          <app-data-grid
+            [columns]="employeeGridColumns"
+            [data]="employeeGridData"
+            [config]="comfortableGridConfig"
+          />
+        </div>
+
+        <h3>Without Selection</h3>
+        <div class="data-grid-demo">
+          <app-data-grid
+            [columns]="employeeGridColumns"
+            [data]="employeeGridData"
+            [config]="{ ...dataGridConfig, selectable: false, pageSize: 6 }"
+          />
+        </div>
+
+        <h3>Without Pagination</h3>
+        <div class="data-grid-demo">
+          <app-data-grid
+            [columns]="employeeGridColumns.slice(0, 5)"
+            [data]="employeeGridData.slice(0, 6)"
+            [config]="{ ...dataGridConfig, pagination: false }"
+          />
+        </div>
+
+        <h3>Loading State</h3>
+        <div class="data-grid-demo">
+          <app-data-grid
+            [columns]="employeeGridColumns"
+            [data]="employeeGridData"
+            [config]="dataGridConfig"
+            [loading]="true"
+          />
+        </div>
+
+        <h3>Empty State</h3>
+        <div class="data-grid-demo">
+          <app-data-grid
+            [columns]="employeeGridColumns"
+            [data]="[]"
+            [config]="dataGridConfig"
+            emptyMessage="No employees found"
+          />
+        </div>
+
+        <h3>Use Case: Employee Directory</h3>
+        <div class="data-grid-use-case">
+          <div class="use-case-content">
+            <h4>Company Employee Directory</h4>
+            <p>
+              Manage and search through your company's employee database with advanced filtering and
+              sorting options.
+            </p>
+            <app-data-grid
+              [columns]="employeeGridColumns"
+              [data]="employeeGridData"
+              [config]="{
+                selectable: true,
+                multiSelect: true,
+                pagination: true,
+                pageSize: 8,
+                sortable: true,
+                filterable: true,
+                exportable: true,
+                rowHeight: 'normal',
+              }"
+              (rowClick)="onDataGridRowClick($event)"
+            />
+          </div>
+        </div>
+      </app-card>
+    </div>
   </div>
 
   <!-- User Details Modal -->

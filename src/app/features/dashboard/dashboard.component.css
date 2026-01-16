@@ -2029,3 +2029,48 @@ li {
     flex-wrap: wrap;
   }
 }
+
+/* Data Grid Section */
+.data-grid-section {
+  margin-top: 2rem;
+}
+
+.data-grid-section h3 {
+  margin: 1.5rem 0 1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.data-grid-section h3:first-of-type {
+  margin-top: 1rem;
+}
+
+.data-grid-section p {
+  margin: 0 0 1.5rem 0;
+  color: var(--color-text-secondary);
+}
+
+.data-grid-demo {
+  margin-bottom: 2rem;
+}
+
+.data-grid-use-case {
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: var(--color-background-secondary);
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-border);
+}
+
+.data-grid-use-case h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.data-grid-use-case p {
+  margin: 0 0 1.5rem 0;
+  color: var(--color-text-secondary);
+}
