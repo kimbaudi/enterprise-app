@@ -2869,6 +2869,167 @@
         </div>
       </app-card>
     </div>
+
+    <div class="tree-view-section">
+      <app-card title="Tree View Component Demo">
+        <p>Display hierarchical data with expand/collapse, selection, and icons.</p>
+
+        <h3>Basic File System Tree</h3>
+        <div class="tree-view-demo">
+          <app-tree-view
+            [nodes]="fileSystemTree"
+            [showIcons]="true"
+            [showLines]="true"
+            (nodeClick)="onTreeNodeClick($event)"
+            (nodeExpand)="onTreeNodeExpand($event)"
+            (nodeCollapse)="onTreeNodeCollapse($event)"
+          />
+        </div>
+
+        <h3>Organization Structure</h3>
+        <div class="tree-view-demo">
+          <app-tree-view
+            [nodes]="organizationTree"
+            [showIcons]="true"
+            [showLines]="true"
+            [expandAll]="true"
+            (nodeClick)="onTreeNodeClick($event)"
+          />
+        </div>
+
+        <h3>Single Selection Mode</h3>
+        <div class="tree-view-demo">
+          <app-tree-view
+            [nodes]="navigationTree"
+            [showIcons]="true"
+            [selectable]="true"
+            (nodeSelect)="onTreeNodeSelect($event)"
+          />
+          @if (selectedTreeNodes().length > 0) {
+            <div class="selected-nodes">
+              <strong>Selected:</strong> {{ selectedTreeNodes()[0].label }}
+            </div>
+          }
+        </div>
+
+        <h3>Multi Selection Mode</h3>
+        <div class="tree-view-demo">
+          <app-tree-view
+            [nodes]="checklistTree"
+            [selectable]="true"
+            [multiSelect]="true"
+            (nodeSelect)="onChecklistSelect($event)"
+          />
+          @if (selectedTreeNodes().length > 0) {
+            <div class="selected-nodes">
+              <strong>Completed Tasks ({{ selectedTreeNodes().length }}):</strong>
+              <ul>
+                @for (node of selectedTreeNodes(); track node.id) {
+                  <li>{{ node.label }}</li>
+                }
+              </ul>
+            </div>
+          }
+        </div>
+
+        <h3>Without Connecting Lines</h3>
+        <div class="tree-view-demo">
+          <app-tree-view [nodes]="fileSystemTree" [showIcons]="true" [showLines]="false" />
+        </div>
+
+        <h3>Without Icons</h3>
+        <div class="tree-view-demo">
+          <app-tree-view [nodes]="navigationTree" [showIcons]="false" [showLines]="true" />
+        </div>
+
+        <h3>Disabled State</h3>
+        <div class="tree-view-demo">
+          <app-tree-view [nodes]="fileSystemTree" [showIcons]="true" [disabled]="true" />
+        </div>
+
+        <h3>Pre-expanded Tree</h3>
+        <div class="tree-view-demo">
+          <app-tree-view
+            [nodes]="fileSystemTree"
+            [showIcons]="true"
+            [showLines]="true"
+            [expandAll]="true"
+          />
+        </div>
+
+        <h3>Use Cases</h3>
+
+        <div class="use-case-grid">
+          <div class="use-case-item">
+            <h4>��� File Browser</h4>
+            <p>Navigate file system with expand/collapse</p>
+            <div class="file-browser-demo">
+              <div class="browser-toolbar">
+                <app-button variant="outline" size="sm">⬅️ Back</app-button>
+                <app-button variant="outline" size="sm">➡️ Forward</app-button>
+                <app-button variant="outline" size="sm">��� Home</app-button>
+              </div>
+              <div class="browser-content">
+                <app-tree-view
+                  [nodes]="fileSystemTree"
+                  [showIcons]="true"
+                  [showLines]="true"
+                  [selectable]="true"
+                  (nodeSelect)="onTreeNodeSelect($event)"
+                />
+                @if (selectedTreeNodes().length > 0) {
+                  <div class="file-details">
+                    <h5>{{ selectedTreeNodes()[0].label }}</h5>
+                    <div class="file-info">
+                      <p>
+                        <strong>Type:</strong> {{ selectedTreeNodes()[0].icon }}
+                        {{ selectedTreeNodes()[0].children ? 'Folder' : 'File' }}
+                      </p>
+                      <p><strong>Path:</strong> /Documents/{{ selectedTreeNodes()[0].label }}</p>
+                      <p><strong>Modified:</strong> January 16, 2026</p>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+
+          <div class="use-case-item">
+            <h4>👥 Organization Chart</h4>
+            <p>View company structure and employee hierarchy</p>
+            <div class="org-chart-demo">
+              <div class="org-stats">
+                <div class="stat-item">
+                  <span class="stat-label">Total Employees</span>
+                  <span class="stat-value">10</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">Departments</span>
+                  <span class="stat-value">3</span>
+                </div>
+              </div>
+              <app-tree-view
+                [nodes]="organizationTree"
+                [showIcons]="true"
+                [showLines]="true"
+                [expandAll]="true"
+                [selectable]="true"
+                (nodeSelect)="onTreeNodeSelect($event)"
+              />
+              @if (selectedTreeNodes().length > 0) {
+                <div class="employee-card">
+                  <h5>{{ selectedTreeNodes()[0].label }}</h5>
+                  <div class="employee-actions">
+                    <app-button variant="outline" size="sm">View Profile</app-button>
+                    <app-button variant="outline" size="sm">Send Message</app-button>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </app-card>
+    </div>
   </div>
 
   <!-- User Details Modal -->

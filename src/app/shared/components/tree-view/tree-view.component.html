@@ -1,0 +1,48 @@
+<div class="tree-view" [class.disabled]="disabled" [class.show-lines]="showLines">
+  @if (flatNodes().length === 0) {
+    <div class="tree-empty">
+      <span>No items to display</span>
+    </div>
+  }
+
+  @for (item of flatNodes(); track item.node.id) {
+    <div
+      class="tree-node"
+      [class.selected]="isNodeSelected(item.node.id)"
+      [class.disabled]="item.node.disabled || disabled"
+      [class.has-children]="item.state.hasChildren"
+      [style.padding-left.rem]="item.state.level * 1.5"
+    >
+      <!-- Expand/Collapse Button -->
+      <button
+        type="button"
+        class="expand-button"
+        [class.expanded]="isNodeExpanded(item.node.id)"
+        [class.invisible]="!item.state.hasChildren"
+        (click)="toggleNode(item.node.id)"
+        [disabled]="item.node.disabled || disabled"
+      >
+        @if (item.state.hasChildren) {
+          <span class="expand-icon">
+            {{ isNodeExpanded(item.node.id) ? '▼' : '▶' }}
+          </span>
+        }
+      </button>
+
+      <!-- Node Content -->
+      <div
+        class="node-content"
+        (click)="selectNode(item.node); onNodeClick(item.node)"
+        [class.selectable]="selectable && item.node.selectable !== false"
+      >
+        <!-- Icon -->
+        @if (showIcons && item.node.icon) {
+          <span class="node-icon">{{ item.node.icon }}</span>
+        }
+
+        <!-- Label -->
+        <span class="node-label">{{ item.node.label }}</span>
+      </div>
+    </div>
+  }
+</div>

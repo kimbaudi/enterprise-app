@@ -45,3 +45,4 @@ export * from '@shared/directives/click-outside.directive';
 
 export * from '@shared/pipes/safe-html.pipe';
 export * from './components/color-picker/color-picker.component';
+export * from './components/tree-view/tree-view.component';

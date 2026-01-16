@@ -246,7 +246,7 @@ app-breadcrumb {
   gap: 0.75rem;
 }
 
-.badge-demo-item > span {
+.badge-demo-item>span {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -292,7 +292,7 @@ app-breadcrumb {
   gap: 0.5rem;
 }
 
-.progress-demo-item > span {
+.progress-demo-item>span {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -331,7 +331,7 @@ app-breadcrumb {
   gap: 0.75rem;
 }
 
-.skeleton-demo-item > span {
+.skeleton-demo-item>span {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -572,7 +572,7 @@ app-breadcrumb {
   gap: 1rem;
 }
 
-.pagination-demo-sizes .pagination-demo-item > span {
+.pagination-demo-sizes .pagination-demo-item>span {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -591,7 +591,7 @@ app-breadcrumb {
   gap: 0.75rem;
 }
 
-.pagination-demo-grid .pagination-demo-item > span {
+.pagination-demo-grid .pagination-demo-item>span {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -710,7 +710,7 @@ li {
   gap: 0.75rem;
 }
 
-.alert-demo-item > span {
+.alert-demo-item>span {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -754,7 +754,7 @@ li {
   gap: 0.5rem;
 }
 
-.avatar-demo-item > span {
+.avatar-demo-item>span {
   font-size: 0.75rem;
   color: var(--color-text-secondary);
 }
@@ -852,7 +852,7 @@ li {
   gap: 0.75rem;
 }
 
-.chip-demo-item > span {
+.chip-demo-item>span {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -910,7 +910,7 @@ li {
   gap: 0.75rem;
 }
 
-.divider-demo-item > span {
+.divider-demo-item>span {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -1032,7 +1032,7 @@ li {
   min-height: auto;
 }
 
-.empty-state-demo-sizes .empty-state-demo-item > span {
+.empty-state-demo-sizes .empty-state-demo-item>span {
   padding: 0.75rem 1rem;
   font-size: 0.875rem;
   font-weight: 600;
@@ -1172,9 +1172,9 @@ li {
   flex-wrap: wrap;
 }
 
-.rating-sizes > div,
-.rating-colors > div,
-.custom-icons > div {
+.rating-sizes>div,
+.rating-colors>div,
+.custom-icons>div {
   flex: 1;
   min-width: 150px;
 }
@@ -1529,6 +1529,7 @@ li {
 
 /* Responsive */
 @media (max-width: 768px) {
+
   .wizard-actions,
   .checkout-actions,
   .stepper-controls {
@@ -1582,6 +1583,7 @@ li {
   color: var(--color-text-secondary);
   font-size: 0.875rem;
 }
+
 /* Date Picker Section */
 .date-picker-section {
   margin-top: 3rem;
@@ -1824,5 +1826,207 @@ li {
 
   .color-picker-demo {
     margin-bottom: 1.5rem;
+  }
+}
+
+/* Tree View Section */
+.tree-view-section {
+  margin-top: 2rem;
+}
+
+.tree-view-section h3 {
+  margin: 1.5rem 0 1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.tree-view-section h3:first-of-type {
+  margin-top: 1rem;
+}
+
+.tree-view-section p {
+  margin: 0 0 1.5rem 0;
+  color: var(--color-text-secondary);
+}
+
+.tree-view-demo {
+  margin-bottom: 2rem;
+}
+
+.selected-nodes {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+}
+
+.selected-nodes strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+.selected-nodes ul {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.5rem;
+}
+
+.selected-nodes li {
+  margin-bottom: 0.25rem;
+  color: var(--color-text-secondary);
+}
+
+/* File Browser Demo */
+.file-browser-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.browser-toolbar {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+}
+
+.browser-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.file-details {
+  padding: 1rem;
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+}
+
+.file-details h5 {
+  margin: 0 0 1rem 0;
+  font-size: 1.125rem;
+  color: var(--color-text-primary);
+}
+
+.file-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.file-info p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.file-info strong {
+  color: var(--color-text-primary);
+}
+
+/* Organization Chart Demo */
+.org-chart-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.org-stats {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.employee-card {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+}
+
+.employee-card h5 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1rem;
+  color: var(--color-text-primary);
+}
+
+.employee-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Use Cases Grid */
+.use-case-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.use-case-item {
+  padding: 1.5rem;
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.use-case-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-color: var(--color-primary);
+}
+
+.use-case-item h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.use-case-item>p {
+  margin: 0 0 1rem 0;
+  color: var(--color-text-secondary);
+  font-size: 0.9375rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .browser-content {
+    grid-template-columns: 1fr;
+  }
+
+  .use-case-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .browser-toolbar {
+    flex-wrap: wrap;
   }
 }

@@ -46,6 +46,7 @@ import {
   ColorPickerComponent,
   ColorFormat,
 } from '@shared/components/color-picker/color-picker.component';
+import { TreeViewComponent, TreeNode } from '@shared/components/tree-view/tree-view.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -85,6 +86,7 @@ import {
     TimelineComponent,
     DatePickerComponent,
     ColorPickerComponent,
+    TreeViewComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -708,5 +710,202 @@ export class DashboardComponent {
 
   onColorFormatChange(format: ColorFormat): void {
     this.colorFormat.set(format);
+  }
+
+  // Tree View demo data
+  fileSystemTree: TreeNode[] = [
+    {
+      id: '1',
+      label: 'Documents',
+      icon: '📁',
+      children: [
+        {
+          id: '1-1',
+          label: 'Work',
+          icon: '📁',
+          children: [
+            { id: '1-1-1', label: 'report.pdf', icon: '📄' },
+            { id: '1-1-2', label: 'presentation.pptx', icon: '📊' },
+            { id: '1-1-3', label: 'budget.xlsx', icon: '📈' },
+          ],
+        },
+        {
+          id: '1-2',
+          label: 'Personal',
+          icon: '📁',
+          children: [
+            { id: '1-2-1', label: 'resume.pdf', icon: '📄' },
+            { id: '1-2-2', label: 'photo.jpg', icon: '🖼️' },
+          ],
+        },
+      ],
+    },
+    {
+      id: '2',
+      label: 'Pictures',
+      icon: '📁',
+      children: [
+        { id: '2-1', label: 'vacation.jpg', icon: '🖼️' },
+        { id: '2-2', label: 'family.png', icon: '🖼️' },
+      ],
+    },
+    {
+      id: '3',
+      label: 'Downloads',
+      icon: '📁',
+      children: [
+        { id: '3-1', label: 'installer.exe', icon: '⚙️' },
+        { id: '3-2', label: 'archive.zip', icon: '📦' },
+      ],
+    },
+  ];
+
+  organizationTree: TreeNode[] = [
+    {
+      id: 'ceo',
+      label: 'Sarah Johnson - CEO',
+      icon: '👤',
+      children: [
+        {
+          id: 'eng',
+          label: 'Engineering',
+          icon: '💻',
+          children: [
+            { id: 'eng-1', label: 'John Smith - Lead Developer', icon: '👨‍💻' },
+            { id: 'eng-2', label: 'Emily Davis - Senior Developer', icon: '👩‍💻' },
+            { id: 'eng-3', label: 'Michael Brown - Developer', icon: '👨‍💻' },
+          ],
+        },
+        {
+          id: 'design',
+          label: 'Design',
+          icon: '🎨',
+          children: [
+            { id: 'design-1', label: 'Lisa Anderson - Lead Designer', icon: '👩‍🎨' },
+            { id: 'design-2', label: 'David Wilson - UI/UX Designer', icon: '👨‍🎨' },
+          ],
+        },
+        {
+          id: 'marketing',
+          label: 'Marketing',
+          icon: '📢',
+          children: [
+            { id: 'marketing-1', label: 'Jennifer Taylor - Marketing Manager', icon: '👩‍💼' },
+            { id: 'marketing-2', label: 'Robert Martinez - Content Specialist', icon: '👨‍💼' },
+          ],
+        },
+      ],
+    },
+  ];
+
+  navigationTree: TreeNode[] = [
+    {
+      id: 'dashboard',
+      label: 'Dashboard',
+      icon: '📊',
+    },
+    {
+      id: 'products',
+      label: 'Products',
+      icon: '📦',
+      children: [
+        { id: 'products-list', label: 'All Products', icon: '📋' },
+        { id: 'products-add', label: 'Add Product', icon: '➕' },
+        { id: 'products-categories', label: 'Categories', icon: '🏷️' },
+      ],
+    },
+    {
+      id: 'orders',
+      label: 'Orders',
+      icon: '🛒',
+      children: [
+        { id: 'orders-pending', label: 'Pending', icon: '⏳' },
+        { id: 'orders-completed', label: 'Completed', icon: '✅' },
+        { id: 'orders-cancelled', label: 'Cancelled', icon: '❌' },
+      ],
+    },
+    {
+      id: 'customers',
+      label: 'Customers',
+      icon: '👥',
+    },
+    {
+      id: 'settings',
+      label: 'Settings',
+      icon: '⚙️',
+      children: [
+        { id: 'settings-profile', label: 'Profile', icon: '👤' },
+        { id: 'settings-security', label: 'Security', icon: '🔒' },
+        { id: 'settings-notifications', label: 'Notifications', icon: '🔔' },
+      ],
+    },
+  ];
+
+  checklistTree: TreeNode[] = [
+    {
+      id: 'onboarding',
+      label: 'Employee Onboarding',
+      selectable: true,
+      children: [
+        {
+          id: 'paperwork',
+          label: 'Complete Paperwork',
+          selectable: true,
+          children: [
+            { id: 'paperwork-1', label: 'Sign employment contract', selectable: true },
+            { id: 'paperwork-2', label: 'Fill W-4 form', selectable: true },
+            { id: 'paperwork-3', label: 'Provide emergency contacts', selectable: true },
+          ],
+        },
+        {
+          id: 'equipment',
+          label: 'Setup Equipment',
+          selectable: true,
+          children: [
+            { id: 'equipment-1', label: 'Receive laptop', selectable: true },
+            { id: 'equipment-2', label: 'Get access badge', selectable: true },
+            { id: 'equipment-3', label: 'Configure email', selectable: true },
+          ],
+        },
+        {
+          id: 'training',
+          label: 'Complete Training',
+          selectable: true,
+          children: [
+            { id: 'training-1', label: 'Watch orientation video', selectable: true },
+            { id: 'training-2', label: 'Read company handbook', selectable: true },
+            { id: 'training-3', label: 'Attend safety training', selectable: true },
+          ],
+        },
+      ],
+    },
+  ];
+
+  selectedTreeNodes = signal<TreeNode[]>([]);
+  expandedFileNodes = signal<string[]>([]);
+
+  onTreeNodeClick(node: TreeNode): void {
+    console.log('Node clicked:', node);
+  }
+
+  onTreeNodeSelect(nodes: TreeNode[]): void {
+    this.selectedTreeNodes.set(nodes);
+    console.log('Selected nodes:', nodes);
+  }
+
+  onTreeNodeExpand(node: TreeNode): void {
+    console.log('Node expanded:', node);
+  }
+
+  onTreeNodeCollapse(node: TreeNode): void {
+    console.log('Node collapsed:', node);
+  }
+
+  onChecklistSelect(nodes: TreeNode[]): void {
+    this.selectedTreeNodes.set(nodes);
+    this.toastService.success(
+      `${nodes.length} task${nodes.length !== 1 ? 's' : ''} completed`,
+      'Progress Updated',
+    );
   }
 }

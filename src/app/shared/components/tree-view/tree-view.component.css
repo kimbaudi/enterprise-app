@@ -1,0 +1,204 @@
+.tree-view {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  min-height: 200px;
+  overflow-y: auto;
+}
+
+.tree-view.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.tree-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+}
+
+.tree-node {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.375rem 0.5rem;
+  border-radius: 0.375rem;
+  transition: background-color 0.2s;
+  position: relative;
+  min-height: 2rem;
+}
+
+.tree-node:hover:not(.disabled) {
+  background: var(--color-background-secondary);
+}
+
+.tree-node.selected {
+  background: var(--color-primary);
+  color: white;
+}
+
+.tree-node.selected .node-label {
+  font-weight: 600;
+}
+
+.tree-node.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Connecting Lines */
+.tree-view.show-lines .tree-node::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: calc(var(--level, 0) * 1.5rem + 0.5rem);
+  height: 1px;
+  background: var(--color-border);
+}
+
+.tree-view.show-lines .tree-node::after {
+  content: '';
+  position: absolute;
+  left: calc(var(--level, 0) * 1.5rem);
+  top: 0;
+  bottom: 50%;
+  width: 1px;
+  background: var(--color-border);
+}
+
+.tree-view.show-lines .tree-node:first-child::after {
+  top: 50%;
+}
+
+.tree-view.show-lines .tree-node:last-child::after {
+  display: none;
+}
+
+/* Expand Button */
+.expand-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.expand-button:hover:not(:disabled) {
+  background: var(--color-background-secondary);
+}
+
+.expand-button:disabled {
+  cursor: default;
+}
+
+.expand-button.invisible {
+  visibility: hidden;
+}
+
+.expand-icon {
+  font-size: 0.625rem;
+  color: var(--color-text-secondary);
+  transition: transform 0.2s;
+}
+
+.tree-node.selected .expand-icon {
+  color: white;
+}
+
+/* Node Content */
+.node-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s;
+}
+
+.node-content.selectable {
+  cursor: pointer;
+}
+
+.node-content.selectable:hover {
+  background: rgba(var(--color-primary-rgb), 0.1);
+}
+
+.tree-node.selected .node-content {
+  background: transparent;
+}
+
+.node-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.node-label {
+  font-size: 0.875rem;
+  color: var(--color-text-primary);
+  flex: 1;
+  user-select: none;
+}
+
+.tree-node.selected .node-label {
+  color: white;
+}
+
+.tree-node.disabled .node-label {
+  color: var(--color-text-secondary);
+}
+
+/* Scrollbar Styling */
+.tree-view::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tree-view::-webkit-scrollbar-track {
+  background: var(--color-background-secondary);
+  border-radius: 4px;
+}
+
+.tree-view::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+.tree-view::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .tree-view {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .tree-node.selected {
+    background: var(--color-primary);
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .tree-node {
+    padding: 0.5rem;
+  }
+
+  .node-label {
+    font-size: 0.8125rem;
+  }
+}
