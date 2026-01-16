@@ -411,6 +411,127 @@ app-breadcrumb {
   align-items: center;
 }
 
+.tooltip-section {
+  margin-top: 2rem;
+}
+
+.tooltip-section h3 {
+  margin: 1.5rem 0 1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.tooltip-section h3:first-of-type {
+  margin-top: 1rem;
+}
+
+.tooltip-section p {
+  margin: 0 0 1.5rem 0;
+  color: var(--color-text-secondary);
+}
+
+.tooltip-demo-positions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 2rem;
+  margin-bottom: 1rem;
+}
+
+.tooltip-demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.tooltip-demo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background-color: var(--color-bg-primary);
+}
+
+.tooltip-demo-item span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tooltip-demo-info {
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+.tooltip-demo-info p {
+  margin-bottom: 1rem;
+  color: var(--color-text-primary);
+}
+
+.tooltip-trigger {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+  cursor: help;
+  color: var(--color-primary);
+}
+
+.tooltip-demo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 400px;
+  margin-bottom: 1rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-field label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.help-icon {
+  cursor: help;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.help-icon:hover {
+  opacity: 1;
+}
+
+.tooltip-demo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tooltip-demo-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.status-indicator {
+  cursor: pointer;
+}
+
 .users-section {
   margin-top: 2rem;
 }

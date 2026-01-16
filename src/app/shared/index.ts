@@ -25,8 +25,9 @@ export * from '@shared/components/toast-container/toast-container.component';
 export * from '@shared/components/badge/badge.component';
 export * from '@shared/components/progress/progress.component';
 export * from '@shared/components/skeleton/skeleton.component';
+export * from '@shared/components/tooltip/tooltip.component';
 
-export * from '@shared/pipes/truncate.pipe';
+export * from '@shared/directives/tooltip.directive';
 export * from '@shared/pipes/safe-html.pipe';
 
 export * from '@shared/directives/highlight.directive';

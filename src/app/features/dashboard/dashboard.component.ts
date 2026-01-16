@@ -30,6 +30,7 @@ import { ToastService } from '@core/services/toast.service';
 import { BadgeComponent } from '@shared/components/badge/badge.component';
 import { ProgressComponent } from '@shared/components/progress/progress.component';
 import { SkeletonComponent } from '@shared/components/skeleton/skeleton.component';
+import { TooltipDirective } from '@shared/directives/tooltip.directive';
 
 @Component({
   selector: 'app-dashboard',
@@ -56,6 +57,7 @@ import { SkeletonComponent } from '@shared/components/skeleton/skeleton.componen
     BadgeComponent,
     ProgressComponent,
     SkeletonComponent,
+    TooltipDirective,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',

@@ -596,6 +596,126 @@
       </app-card>
     </div>
 
+    <div class="tooltip-section">
+      <app-card title="Tooltip Component Demo">
+        <p>Tooltips provide contextual information on hover. Hover over the elements below to see tooltips.</p>
+
+        <h3>Tooltip Positions</h3>
+        <div class="tooltip-demo-positions">
+          <app-button appTooltip="Tooltip on top" tooltipPosition="top" variant="outline">
+            Top
+          </app-button>
+          <app-button appTooltip="Tooltip on right" tooltipPosition="right" variant="outline">
+            Right
+          </app-button>
+          <app-button appTooltip="Tooltip on bottom" tooltipPosition="bottom" variant="outline">
+            Bottom
+          </app-button>
+          <app-button appTooltip="Tooltip on left" tooltipPosition="left" variant="outline">
+            Left
+          </app-button>
+        </div>
+
+        <h3>With Icons and Badges</h3>
+        <div class="tooltip-demo-grid">
+          <div class="tooltip-demo-item">
+            <span appTooltip="Click to edit your profile settings" tooltipPosition="top" style="cursor: pointer;">
+              ⚙️ Settings
+            </span>
+          </div>
+          <div class="tooltip-demo-item">
+            <span appTooltip="5 new notifications available" tooltipPosition="right" style="cursor: pointer;">
+              🔔 Notifications
+              <app-badge variant="solid" color="error" [rounded]="true" size="sm">5</app-badge>
+            </span>
+          </div>
+          <div class="tooltip-demo-item">
+            <span appTooltip="View your account information" tooltipPosition="bottom" style="cursor: pointer;">
+              👤 Profile
+            </span>
+          </div>
+          <div class="tooltip-demo-item">
+            <span appTooltip="Toggle dark/light theme" tooltipPosition="left" style="cursor: pointer;">
+              🌓 Theme
+            </span>
+          </div>
+        </div>
+
+        <h3>Informational Tooltips</h3>
+        <div class="tooltip-demo-info">
+          <p>
+            Hover over the
+            <span appTooltip="This is helpful contextual information" tooltipPosition="top" class="tooltip-trigger">
+              underlined text
+            </span>
+            to see additional information.
+          </p>
+          <p>
+            Need help? Check the
+            <span appTooltip="Documentation provides detailed guides and examples" tooltipPosition="right"
+              class="tooltip-trigger">
+              documentation
+            </span>
+            for more details.
+          </p>
+        </div>
+
+        <h3>Form Field Tooltips</h3>
+        <div class="tooltip-demo-form">
+          <div class="form-field">
+            <label>
+              Username
+              <span appTooltip="Must be 3-20 characters, alphanumeric only" tooltipPosition="right" class="help-icon">
+                ℹ️
+              </span>
+            </label>
+            <app-input placeholder="Enter username"></app-input>
+          </div>
+          <div class="form-field">
+            <label>
+              Password
+              <span appTooltip="Minimum 8 characters with uppercase, lowercase, and numbers" tooltipPosition="right"
+                class="help-icon">
+                ℹ️
+              </span>
+            </label>
+            <app-input type="password" placeholder="Enter password"></app-input>
+          </div>
+        </div>
+
+        <h3>Action Buttons</h3>
+        <div class="tooltip-demo-actions">
+          <app-button appTooltip="Save your changes" tooltipPosition="top" variant="primary" size="sm">
+            💾 Save
+          </app-button>
+          <app-button appTooltip="Discard all changes" tooltipPosition="top" variant="secondary" size="sm">
+            ❌ Cancel
+          </app-button>
+          <app-button appTooltip="Download as PDF" tooltipPosition="top" variant="outline" size="sm">
+            📥 Export
+          </app-button>
+          <app-button appTooltip="Delete permanently (cannot be undone)" tooltipPosition="top" variant="outline"
+            size="sm">
+            🗑️ Delete
+          </app-button>
+        </div>
+
+        <h3>Status Indicators</h3>
+        <div class="tooltip-demo-status">
+          <div appTooltip="System is running normally" tooltipPosition="top" class="status-indicator status-success">
+            <app-badge variant="solid" color="success" [dot]="true">Online</app-badge>
+          </div>
+          <div appTooltip="Warning: High memory usage detected" tooltipPosition="top"
+            class="status-indicator status-warning">
+            <app-badge variant="solid" color="warning" [dot]="true">Warning</app-badge>
+          </div>
+          <div appTooltip="Error: Connection failed" tooltipPosition="top" class="status-indicator status-error">
+            <app-badge variant="solid" color="error" [dot]="true">Error</app-badge>
+          </div>
+        </div>
+      </app-card>
+    </div>
+
     <div class="users-section">
       <app-card title="Users Management">
         <app-table [columns]="columns" [data]="users" [config]="{
