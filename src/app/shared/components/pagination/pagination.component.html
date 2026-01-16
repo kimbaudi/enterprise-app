@@ -25,7 +25,7 @@
     }
 
     <div class="pagination-pages">
-      @for (page of pages(); track page) {
+      @for (page of pages(); track $index) {
         @if (page === '...') {
           <span class="pagination-ellipsis">{{ page }}</span>
         } @else {
