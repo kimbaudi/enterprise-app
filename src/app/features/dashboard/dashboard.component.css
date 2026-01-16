@@ -2124,3 +2124,53 @@ li {
 .carousel-section .use-case-item app-carousel {
   margin-bottom: 0;
 }
+
+/* Rich Text Editor Section */
+.rich-text-editor-section {
+  margin-top: 2rem;
+}
+
+.rich-text-editor-section h3 {
+  margin: 1.5rem 0 1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.rich-text-editor-section h3:first-of-type {
+  margin-top: 1rem;
+}
+
+.rich-text-editor-section p {
+  margin: 0 0 1.5rem 0;
+  color: var(--color-text-secondary);
+}
+
+.rich-text-editor-section app-rich-text-editor {
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.rich-text-editor-section .use-case-item {
+  padding: 1.5rem;
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+}
+
+.rich-text-editor-section .use-case-item h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.rich-text-editor-section .use-case-item p {
+  margin: 0 0 1rem 0;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.rich-text-editor-section .use-case-item app-rich-text-editor {
+  margin-bottom: 0;
+}

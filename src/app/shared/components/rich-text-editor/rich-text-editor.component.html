@@ -1,0 +1,71 @@
+<div
+  class="rich-text-editor-container"
+  [class.focused]="isFocused()"
+  [class.readonly]="config.readonly"
+>
+  <!-- Toolbar -->
+  @if (config.toolbar && !config.readonly) {
+    <div class="editor-toolbar">
+      @for (group of toolbarGroups(); track group.name) {
+        <div class="toolbar-group">
+          @for (button of group.buttons; track button) {
+            <button
+              type="button"
+              class="toolbar-button"
+              [title]="getButtonTitle(button)"
+              (click)="handleToolbarAction(button)"
+              [attr.data-action]="button"
+            >
+              {{ getButtonIcon(button) }}
+            </button>
+          }
+        </div>
+      }
+    </div>
+  }
+
+  <!-- Editor Content -->
+  <div
+    #editor
+    class="editor-content"
+    [contentEditable]="!config.readonly"
+    [attr.data-placeholder]="config.placeholder"
+    [style.min-height]="config.minHeight"
+    [style.max-height]="config.maxHeight"
+    (input)="onContentChange()"
+    (focus)="onFocus()"
+    (blur)="onBlur()"
+    (paste)="onPaste($event)"
+  ></div>
+
+  <!-- Character Counter -->
+  @if (config.showCharCount) {
+    <div class="editor-footer">
+      <span class="char-count" [class.exceeded]="isMaxLengthExceeded()">
+        {{ charCountText() }}
+      </span>
+    </div>
+  }
+
+  <!-- Link Dialog -->
+  @if (showLinkDialog()) {
+    <div class="link-dialog-overlay" (click)="cancelLink()">
+      <div class="link-dialog" (click)="$event.stopPropagation()">
+        <h4>Insert Link</h4>
+        <input
+          type="url"
+          class="link-input"
+          placeholder="https://example.com"
+          [(ngModel)]="linkUrl"
+          (keyup.enter)="applyLink()"
+          (keyup.escape)="cancelLink()"
+          autofocus
+        />
+        <div class="link-dialog-actions">
+          <app-button variant="outline" size="sm" (click)="cancelLink()"> Cancel </app-button>
+          <app-button variant="primary" size="sm" (click)="applyLink()"> Insert </app-button>
+        </div>
+      </div>
+    </div>
+  }
+</div>

@@ -57,6 +57,10 @@ import {
   CarouselSlide,
   CarouselConfig,
 } from '@shared/components/carousel/carousel.component';
+import {
+  RichTextEditorComponent,
+  RichTextEditorConfig,
+} from '@shared/components/rich-text-editor/rich-text-editor.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -99,6 +103,7 @@ import {
     TreeViewComponent,
     DataGridComponent,
     CarouselComponent,
+    RichTextEditorComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -1211,5 +1216,71 @@ export class DashboardComponent {
   onCarouselSlideClick(slide: CarouselSlide): void {
     console.log('Slide clicked:', slide);
     this.toastService.info(slide.title || 'Slide clicked', 'Carousel');
+  }
+
+  // Rich Text Editor Component Data
+  editorContent = signal('');
+  blogContent = signal('<h2>Welcome to our Blog</h2><p>Start writing your content here...</p>');
+  commentContent = signal('');
+  emailContent = signal('');
+  readonlyContent = signal(
+    '<h3>Meeting Notes</h3><p>Team discussed project timeline and deliverables. <strong>Action items</strong> assigned to team members.</p><ul><li>Complete design mockups</li><li>Setup development environment</li><li>Schedule client review</li></ul>',
+  );
+  articleContent = signal(
+    '<h2>Product Launch</h2><p>We are excited to announce the launch of our new product line. This innovative solution combines <strong>cutting-edge technology</strong> with user-friendly design.</p><blockquote>Innovation is the key to success</blockquote><p>Learn more about our product features.</p>',
+  );
+
+  editorConfig: RichTextEditorConfig = {
+    toolbar: true,
+    minHeight: '300px',
+    placeholder: 'Start typing...',
+    readonly: false,
+    showCharCount: true,
+    maxLength: undefined,
+  };
+
+  minimalEditorConfig: RichTextEditorConfig = {
+    toolbar: true,
+    minHeight: '150px',
+    placeholder: 'Write a comment...',
+    showCharCount: true,
+    maxLength: 500,
+    toolbarButtons: ['bold', 'italic', 'underline', 'link'],
+  };
+
+  compactEditorConfig: RichTextEditorConfig = {
+    toolbar: true,
+    minHeight: '100px',
+    placeholder: 'Quick note...',
+    showCharCount: false,
+    toolbarButtons: ['bold', 'italic', 'code'],
+  };
+
+  readonlyEditorConfig: RichTextEditorConfig = {
+    toolbar: false,
+    minHeight: '200px',
+    readonly: true,
+    showCharCount: false,
+  };
+
+  fullEditorConfig: RichTextEditorConfig = {
+    toolbar: true,
+    minHeight: '400px',
+    maxHeight: '600px',
+    placeholder: 'Write your blog post...',
+    showCharCount: true,
+    maxLength: 10000,
+  };
+
+  onEditorContentChange(content: string): void {
+    console.log('Editor content changed:', content.substring(0, 50) + '...');
+  }
+
+  onEditorFocus(): void {
+    console.log('Editor focused');
+  }
+
+  onEditorBlur(): void {
+    console.log('Editor blurred');
   }
 }

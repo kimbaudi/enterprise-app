@@ -3135,7 +3135,6 @@
       </app-card>
     </div>
 
-    <!-- Carousel Component -->
     <div class="carousel-section">
       <app-card title="Carousel Component Demo">
         <p>Image slideshow with navigation, auto-play, thumbnails, and fullscreen mode.</p>
@@ -3214,6 +3213,97 @@
         </div>
       </app-card>
     </div>
+
+    <!-- Rich Text Editor Component -->
+    <div class="rich-text-editor-section">
+      <app-card title="Rich Text Editor Component Demo">
+        <p>WYSIWYG text editor with formatting toolbar, links, and images.</p>
+
+        <h3>Full-Featured Editor</h3>
+        <app-rich-text-editor
+          [content]="editorContent()"
+          [config]="editorConfig"
+          (contentChange)="editorContent.set($event)"
+          (focus)="onEditorFocus()"
+          (blur)="onEditorBlur()"
+        />
+
+        <h3>Minimal Toolbar (Comments)</h3>
+        <app-rich-text-editor
+          [content]="commentContent()"
+          [config]="minimalEditorConfig"
+          (contentChange)="commentContent.set($event)"
+        />
+
+        <h3>Compact Editor (Notes)</h3>
+        <app-rich-text-editor [content]="''" [config]="compactEditorConfig" />
+
+        <h3>Read-Only Display</h3>
+        <app-rich-text-editor [content]="readonlyContent()" [config]="readonlyEditorConfig" />
+
+        <h3>With Character Limit</h3>
+        <app-rich-text-editor
+          [content]="''"
+          [config]="{
+            toolbar: true,
+            minHeight: '150px',
+            placeholder: 'Max 200 characters...',
+            showCharCount: true,
+            maxLength: 200,
+            toolbarButtons: ['bold', 'italic', 'underline'],
+          }"
+        />
+
+        <h3>Blog Post Editor</h3>
+        <app-rich-text-editor
+          [content]="blogContent()"
+          [config]="fullEditorConfig"
+          (contentChange)="blogContent.set($event)"
+        />
+
+        <h3>Use Cases</h3>
+        <div class="use-case-grid">
+          <div class="use-case-item">
+            <h4>✉️ Email Composer</h4>
+            <p>Rich email composition with formatting</p>
+            <app-rich-text-editor
+              [content]="emailContent()"
+              [config]="{
+                toolbar: true,
+                minHeight: '250px',
+                placeholder: 'Compose your email...',
+                showCharCount: true,
+                maxLength: 5000,
+                toolbarButtons: [
+                  'bold',
+                  'italic',
+                  'underline',
+                  'link',
+                  'orderedList',
+                  'unorderedList',
+                ],
+              }"
+              (contentChange)="emailContent.set($event)"
+            />
+          </div>
+
+          <div class="use-case-item">
+            <h4>📝 Article Preview</h4>
+            <p>Display formatted content</p>
+            <app-rich-text-editor
+              [content]="articleContent()"
+              [config]="{
+                toolbar: false,
+                minHeight: '250px',
+                readonly: true,
+              }"
+            />
+          </div>
+        </div>
+      </app-card>
+    </div>
+
+    <!-- add new section here -->
   </div>
 
   <!-- User Details Modal -->
