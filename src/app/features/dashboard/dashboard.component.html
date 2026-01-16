@@ -222,6 +222,26 @@
       </app-card>
     </div>
 
+    <div class="toast-section">
+      <app-card title="Toast Notification System Demo">
+        <p>Click the buttons below to see different types of toast notifications:</p>
+        <div class="toast-demo-buttons">
+          <app-button variant="primary" (click)="showSuccessToast()">
+            Show Success
+          </app-button>
+          <app-button variant="secondary" (click)="showErrorToast()">
+            Show Error
+          </app-button>
+          <app-button variant="outline" (click)="showWarningToast()">
+            Show Warning
+          </app-button>
+          <app-button variant="outline" (click)="showInfoToast()">
+            Show Info
+          </app-button>
+        </div>
+      </app-card>
+    </div>
+
     <div class="users-section">
       <app-card title="Users Management">
         <app-table [columns]="columns" [data]="users" [config]="{

@@ -20,6 +20,8 @@ export * from '@shared/components/accordion/accordion.component';
 export * from '@shared/components/accordion-item/accordion-item.component';
 export * from '@shared/components/dropdown/dropdown.component';
 export * from '@shared/components/dropdown-item/dropdown-item.component';
+export * from '@shared/components/toast/toast.component';
+export * from '@shared/components/toast-container/toast-container.component';
 
 export * from '@shared/pipes/truncate.pipe';
 export * from '@shared/pipes/safe-html.pipe';

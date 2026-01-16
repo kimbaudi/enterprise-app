@@ -6,6 +6,7 @@ export * from '@core/services/error.service';
 export * from '@core/services/loading.service';
 export * from '@core/services/logger.service';
 export * from '@core/services/notification.service';
+export * from '@core/services/toast.service';
 
 // Core Guards
 export * from '@core/guards/auth.guard';

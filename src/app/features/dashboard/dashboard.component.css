@@ -199,6 +199,21 @@ app-breadcrumb {
   gap: 1rem;
 }
 
+.toast-section {
+  margin-top: 2rem;
+}
+
+.toast-section p {
+  margin: 0 0 1.5rem 0;
+  color: var(--color-text-secondary);
+}
+
+.toast-demo-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 .users-section {
   margin-top: 2rem;
 }

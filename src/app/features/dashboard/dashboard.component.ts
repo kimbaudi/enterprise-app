@@ -26,6 +26,7 @@ import { AccordionComponent } from '@shared/components/accordion/accordion.compo
 import { AccordionItemComponent } from '@shared/components/accordion-item/accordion-item.component';
 import { DropdownComponent } from '@shared/components/dropdown/dropdown.component';
 import { DropdownItemComponent } from '@shared/components/dropdown-item/dropdown-item.component';
+import { ToastService } from '@core/services/toast.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -57,6 +58,7 @@ export class DashboardComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
   private modalService = inject(ModalService);
+  private toastService = inject(ToastService);
 
   showModal = false;
   selectedUser: any = null;
@@ -268,5 +270,28 @@ export class DashboardComponent {
         alert('Delete action clicked');
         break;
     }
+  }
+
+  showSuccessToast(): void {
+    this.toastService.success('Operation completed successfully!', 'Success');
+  }
+
+  showErrorToast(): void {
+    this.toastService.error(
+      'Something went wrong. Please try again.',
+      'Error',
+      7000
+    );
+  }
+
+  showWarningToast(): void {
+    this.toastService.warning(
+      'This action requires your attention.',
+      'Warning'
+    );
+  }
+
+  showInfoToast(): void {
+    this.toastService.info('New updates are available.', 'Information', 6000);
   }
 }
