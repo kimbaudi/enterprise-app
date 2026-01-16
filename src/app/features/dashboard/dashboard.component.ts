@@ -34,6 +34,7 @@ import { TooltipDirective } from '@shared/directives/tooltip.directive';
 import { PaginationComponent } from '@shared/components/pagination/pagination.component';
 import { AlertComponent } from '@shared/components/alert/alert.component';
 import { AvatarComponent } from '@shared/components/avatar/avatar.component';
+import { ChipComponent } from '@shared/components/chip/chip.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -64,6 +65,7 @@ import { AvatarComponent } from '@shared/components/avatar/avatar.component';
     PaginationComponent,
     AlertComponent,
     AvatarComponent,
+    ChipComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',

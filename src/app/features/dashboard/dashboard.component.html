@@ -1132,6 +1132,183 @@
         </div>
       </app-card>
     </div>
+
+    <div class="chip-section">
+      <app-card title="Chip/Tag Component Demo">
+        <p>Chips are compact elements that represent tags, categories, filters, or user selections.</p>
+
+        <h3>Basic Chips</h3>
+        <div class="chip-demo-row">
+          <app-chip label="Default"></app-chip>
+          <app-chip label="Primary" color="primary"></app-chip>
+          <app-chip label="Success" color="success"></app-chip>
+          <app-chip label="Error" color="error"></app-chip>
+          <app-chip label="Warning" color="warning"></app-chip>
+          <app-chip label="Info" color="info"></app-chip>
+          <app-chip label="Gray" color="gray"></app-chip>
+        </div>
+
+        <h3>Variants</h3>
+        <div class="chip-demo-grid">
+          <div class="chip-demo-item">
+            <span>Solid (default)</span>
+            <div class="chip-group">
+              <app-chip label="Primary" variant="solid" color="primary"></app-chip>
+              <app-chip label="Success" variant="solid" color="success"></app-chip>
+              <app-chip label="Error" variant="solid" color="error"></app-chip>
+            </div>
+          </div>
+
+          <div class="chip-demo-item">
+            <span>Outline</span>
+            <div class="chip-group">
+              <app-chip label="Primary" variant="outline" color="primary"></app-chip>
+              <app-chip label="Success" variant="outline" color="success"></app-chip>
+              <app-chip label="Error" variant="outline" color="error"></app-chip>
+            </div>
+          </div>
+
+          <div class="chip-demo-item">
+            <span>Subtle</span>
+            <div class="chip-group">
+              <app-chip label="Primary" variant="subtle" color="primary"></app-chip>
+              <app-chip label="Success" variant="subtle" color="success"></app-chip>
+              <app-chip label="Error" variant="subtle" color="error"></app-chip>
+            </div>
+          </div>
+        </div>
+
+        <h3>Sizes</h3>
+        <div class="chip-demo-row">
+          <app-chip label="Small" size="sm" color="primary"></app-chip>
+          <app-chip label="Medium" size="md" color="primary"></app-chip>
+          <app-chip label="Large" size="lg" color="primary"></app-chip>
+        </div>
+
+        <h3>With Icons</h3>
+        <div class="chip-demo-row">
+          <app-chip label="Angular" icon="���️" color="error"></app-chip>
+          <app-chip label="TypeScript" icon="���" color="info"></app-chip>
+          <app-chip label="JavaScript" icon="���" color="warning"></app-chip>
+          <app-chip label="React" icon="⚛️" color="info" variant="outline"></app-chip>
+          <app-chip label="Vue" icon="���" color="success" variant="outline"></app-chip>
+        </div>
+
+        <h3>Removable Chips</h3>
+        <div class="chip-demo-row">
+          <app-chip label="Removable" [removable]="true" color="primary"></app-chip>
+          <app-chip label="Click X to remove" [removable]="true" color="success" icon="✓"></app-chip>
+          <app-chip label="Tag 1" [removable]="true" color="info" variant="outline"></app-chip>
+          <app-chip label="Tag 2" [removable]="true" color="warning" variant="subtle"></app-chip>
+        </div>
+
+        <h3>Clickable Chips</h3>
+        <div class="chip-demo-row">
+          <app-chip label="Click me" [clickable]="true" color="primary"></app-chip>
+          <app-chip label="Interactive" [clickable]="true" color="success" icon="���"></app-chip>
+          <app-chip label="Select" [clickable]="true" [selected]="true" color="info"></app-chip>
+          <app-chip label="Filter" [clickable]="true" [removable]="true" color="warning"></app-chip>
+        </div>
+
+        <h3>Disabled Chips</h3>
+        <div class="chip-demo-row">
+          <app-chip label="Disabled" [disabled]="true" color="primary"></app-chip>
+          <app-chip label="Disabled Removable" [disabled]="true" [removable]="true" color="success"></app-chip>
+          <app-chip label="Disabled Clickable" [disabled]="true" [clickable]="true" color="error"></app-chip>
+        </div>
+
+        <h3>Use Cases - Categories</h3>
+        <div class="chip-demo-row">
+          <app-chip label="Frontend" icon="���" color="primary" variant="subtle"></app-chip>
+          <app-chip label="Backend" icon="⚙️" color="info" variant="subtle"></app-chip>
+          <app-chip label="DevOps" icon="���" color="success" variant="subtle"></app-chip>
+          <app-chip label="Design" icon="✨" color="warning" variant="subtle"></app-chip>
+          <app-chip label="Testing" icon="���" color="error" variant="subtle"></app-chip>
+        </div>
+
+        <h3>Use Cases - Status Tags</h3>
+        <div class="chip-demo-row">
+          <app-chip label="Active" icon="✓" color="success" size="sm"></app-chip>
+          <app-chip label="Pending" icon="⏳" color="warning" size="sm"></app-chip>
+          <app-chip label="Failed" icon="✕" color="error" size="sm"></app-chip>
+          <app-chip label="Draft" icon="���" color="gray" size="sm"></app-chip>
+        </div>
+
+        <h3>Use Cases - Skills/Tags</h3>
+        <div class="chip-demo-row">
+          <app-chip label="Angular" [removable]="true" color="error" variant="outline"></app-chip>
+          <app-chip label="TypeScript" [removable]="true" color="info" variant="outline"></app-chip>
+          <app-chip label="NgRx" [removable]="true" color="primary" variant="outline"></app-chip>
+          <app-chip label="RxJS" [removable]="true" color="warning" variant="outline"></app-chip>
+          <app-chip label="CSS" [removable]="true" color="success" variant="outline"></app-chip>
+        </div>
+
+        <h3>Use Cases - Filters</h3>
+        <div class="chip-demo-row">
+          <app-chip label="All Items" [clickable]="true" [selected]="true" color="primary" size="sm"></app-chip>
+          <app-chip label="New" [clickable]="true" color="primary" size="sm"></app-chip>
+          <app-chip label="In Progress" [clickable]="true" color="primary" size="sm"></app-chip>
+          <app-chip label="Completed" [clickable]="true" color="primary" size="sm"></app-chip>
+        </div>
+
+        <h3>All Color Combinations</h3>
+        <div class="chip-demo-grid">
+          <div class="chip-demo-item">
+            <span>Primary</span>
+            <div class="chip-group">
+              <app-chip label="Solid" variant="solid" color="primary"></app-chip>
+              <app-chip label="Outline" variant="outline" color="primary"></app-chip>
+              <app-chip label="Subtle" variant="subtle" color="primary"></app-chip>
+            </div>
+          </div>
+
+          <div class="chip-demo-item">
+            <span>Success</span>
+            <div class="chip-group">
+              <app-chip label="Solid" variant="solid" color="success"></app-chip>
+              <app-chip label="Outline" variant="outline" color="success"></app-chip>
+              <app-chip label="Subtle" variant="subtle" color="success"></app-chip>
+            </div>
+          </div>
+
+          <div class="chip-demo-item">
+            <span>Error</span>
+            <div class="chip-group">
+              <app-chip label="Solid" variant="solid" color="error"></app-chip>
+              <app-chip label="Outline" variant="outline" color="error"></app-chip>
+              <app-chip label="Subtle" variant="subtle" color="error"></app-chip>
+            </div>
+          </div>
+
+          <div class="chip-demo-item">
+            <span>Warning</span>
+            <div class="chip-group">
+              <app-chip label="Solid" variant="solid" color="warning"></app-chip>
+              <app-chip label="Outline" variant="outline" color="warning"></app-chip>
+              <app-chip label="Subtle" variant="subtle" color="warning"></app-chip>
+            </div>
+          </div>
+
+          <div class="chip-demo-item">
+            <span>Info</span>
+            <div class="chip-group">
+              <app-chip label="Solid" variant="solid" color="info"></app-chip>
+              <app-chip label="Outline" variant="outline" color="info"></app-chip>
+              <app-chip label="Subtle" variant="subtle" color="info"></app-chip>
+            </div>
+          </div>
+
+          <div class="chip-demo-item">
+            <span>Gray</span>
+            <div class="chip-group">
+              <app-chip label="Solid" variant="solid" color="gray"></app-chip>
+              <app-chip label="Outline" variant="outline" color="gray"></app-chip>
+              <app-chip label="Subtle" variant="subtle" color="gray"></app-chip>
+            </div>
+          </div>
+        </div>
+      </app-card>
+    </div>
   </div>
 </div>
 

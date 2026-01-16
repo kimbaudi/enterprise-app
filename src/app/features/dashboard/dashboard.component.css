@@ -812,3 +812,53 @@ li {
   font-size: 0.875rem;
   color: var(--color-text-secondary);
 }
+
+/* Chip Section Styles */
+.chip-section {
+  margin-top: 2rem;
+}
+
+.chip-section h3 {
+  margin: 1.5rem 0 1rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.chip-section p {
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.chip-demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background: var(--color-background-secondary);
+  border-radius: 0.5rem;
+}
+
+.chip-demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.chip-demo-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.chip-demo-item > span {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
