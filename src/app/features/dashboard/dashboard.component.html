@@ -3134,6 +3134,86 @@
         </div>
       </app-card>
     </div>
+
+    <!-- Carousel Component -->
+    <div class="carousel-section">
+      <app-card title="Carousel Component Demo">
+        <p>Image slideshow with navigation, auto-play, thumbnails, and fullscreen mode.</p>
+
+        <h3>Basic Carousel with Manual Navigation</h3>
+        <app-carousel
+          [slides]="carouselSlides"
+          [config]="carouselConfig"
+          (slideChange)="onCarouselSlideChange($event)"
+          (slideClick)="onCarouselSlideClick($event)"
+        />
+
+        <h3>Auto-Play Carousel</h3>
+        <app-carousel [slides]="carouselSlides" [config]="autoPlayCarouselConfig" />
+
+        <h3>Fade Transition</h3>
+        <app-carousel [slides]="carouselSlides" [config]="fadeCarouselConfig" />
+
+        <h3>With Thumbnails</h3>
+        <app-carousel [slides]="carouselSlides" [config]="thumbnailCarouselConfig" />
+
+        <h3>Compact Carousel (3 Slides)</h3>
+        <app-carousel
+          [slides]="compactCarouselSlides"
+          [config]="{ ...carouselConfig, height: '300px' }"
+        />
+
+        <h3>Without Navigation Arrows</h3>
+        <app-carousel
+          [slides]="compactCarouselSlides"
+          [config]="{ ...carouselConfig, showArrows: false }"
+        />
+
+        <h3>Without Indicators</h3>
+        <app-carousel
+          [slides]="compactCarouselSlides"
+          [config]="{ ...carouselConfig, showIndicators: false }"
+        />
+
+        <h3>Single Slide (No Loop)</h3>
+        <app-carousel
+          [slides]="[carouselSlides[0]]"
+          [config]="{ ...carouselConfig, loop: false }"
+        />
+
+        <h3>Use Cases</h3>
+        <div class="use-case-grid">
+          <div class="use-case-item">
+            <h4>🖼️ Product Gallery</h4>
+            <p>Showcase product images with thumbnails</p>
+            <app-carousel
+              [slides]="compactCarouselSlides"
+              [config]="{
+                showThumbnails: true,
+                showIndicators: false,
+                height: '250px',
+                objectFit: 'contain',
+              }"
+            />
+          </div>
+
+          <div class="use-case-item">
+            <h4>📰 Hero Banner</h4>
+            <p>Auto-rotating promotional banners</p>
+            <app-carousel
+              [slides]="carouselSlides.slice(0, 3)"
+              [config]="{
+                autoPlay: true,
+                interval: 5000,
+                transition: 'fade',
+                height: '250px',
+                showThumbnails: false,
+              }"
+            />
+          </div>
+        </div>
+      </app-card>
+    </div>
   </div>
 
   <!-- User Details Modal -->

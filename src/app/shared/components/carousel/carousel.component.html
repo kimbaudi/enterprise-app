@@ -1,0 +1,109 @@
+<div
+  class="carousel-container"
+  [class.fullscreen]="isFullscreen()"
+  [style.height]="config.height"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
+  (keydown)="onKeyDown($event)"
+  tabindex="0"
+>
+  <!-- Main Carousel -->
+  <div
+    class="carousel-slides"
+    [attr.data-transition]="config.transition"
+    (touchstart)="onTouchStart($event)"
+    (touchmove)="onTouchMove($event)"
+    (touchend)="onTouchEnd()"
+  >
+    <div class="slides-wrapper" [style.transform]="getSlideTransform()">
+      @for (slide of slides; track slide.id) {
+        <div
+          class="slide"
+          [class.active]="currentIndex() === $index"
+          [attr.data-transition]="config.transition"
+          (click)="onSlideClick(slide)"
+        >
+          <img
+            [src]="slide.image"
+            [alt]="slide.alt || slide.title || 'Slide'"
+            [style.object-fit]="config.objectFit"
+          />
+          @if (slide.title || slide.description) {
+            <div class="slide-caption">
+              @if (slide.title) {
+                <h3>{{ slide.title }}</h3>
+              }
+              @if (slide.description) {
+                <p>{{ slide.description }}</p>
+              }
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- Navigation Arrows -->
+  @if (config.showArrows && slides.length > 1) {
+    <button
+      class="carousel-arrow prev"
+      [disabled]="!canGoPrevious()"
+      (click)="previous()"
+      aria-label="Previous slide"
+    >
+      ‹
+    </button>
+    <button
+      class="carousel-arrow next"
+      [disabled]="!canGoNext()"
+      (click)="next()"
+      aria-label="Next slide"
+    >
+      ›
+    </button>
+  }
+
+  <!-- Indicators -->
+  @if (config.showIndicators && slides.length > 1) {
+    <div class="carousel-indicators">
+      @for (slide of slides; track slide.id) {
+        <button
+          class="indicator"
+          [class.active]="currentIndex() === $index"
+          (click)="goToSlide($index)"
+          [attr.aria-label]="'Go to slide ' + ($index + 1)"
+        ></button>
+      }
+    </div>
+  }
+
+  <!-- Controls -->
+  <div class="carousel-controls">
+    @if (config.autoPlay) {
+      <button
+        class="control-button"
+        (click)="togglePlayPause()"
+        [attr.aria-label]="isPlaying() ? 'Pause' : 'Play'"
+      >
+        {{ isPlaying() ? '⏸' : '▶' }}
+      </button>
+    }
+    <button class="control-button" (click)="toggleFullscreen()" aria-label="Toggle fullscreen">
+      {{ isFullscreen() ? '✕' : '⛶' }}
+    </button>
+  </div>
+
+  <!-- Slide Counter -->
+  <div class="slide-counter">{{ currentIndex() + 1 }} / {{ slides.length }}</div>
+</div>
+
+<!-- Thumbnails -->
+@if (config.showThumbnails && slides.length > 1) {
+  <div class="carousel-thumbnails">
+    @for (slide of slides; track slide.id) {
+      <div class="thumbnail" [class.active]="currentIndex() === $index" (click)="goToSlide($index)">
+        <img [src]="slide.image" [alt]="slide.alt || slide.title || 'Thumbnail'" />
+      </div>
+    }
+  </div>
+}

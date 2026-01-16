@@ -52,6 +52,11 @@ import {
   DataGridColumn,
   DataGridConfig,
 } from '@shared/components/data-grid/data-grid.component';
+import {
+  CarouselComponent,
+  CarouselSlide,
+  CarouselConfig,
+} from '@shared/components/carousel/carousel.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -93,6 +98,7 @@ import {
     ColorPickerComponent,
     TreeViewComponent,
     DataGridComponent,
+    CarouselComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -1105,5 +1111,105 @@ export class DashboardComponent {
 
   onDataGridFilter(filters: any): void {
     console.log('Filters applied:', filters);
+  }
+
+  // Carousel Component Data
+  carouselSlides: CarouselSlide[] = [
+    {
+      id: 1,
+      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=600&fit=crop',
+      title: 'Global Network',
+      description: 'Connect with teams around the world',
+      alt: 'Earth from space with network connections',
+    },
+    {
+      id: 2,
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop',
+      title: 'Data Analytics',
+      description: 'Insights that drive business growth',
+      alt: 'Business analytics dashboard',
+    },
+    {
+      id: 3,
+      image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&h=600&fit=crop',
+      title: 'Team Collaboration',
+      description: 'Work together, achieve more',
+      alt: 'Team working together',
+    },
+    {
+      id: 4,
+      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=600&fit=crop',
+      title: 'Innovation',
+      description: 'Building the future of technology',
+      alt: 'Technology and innovation',
+    },
+    {
+      id: 5,
+      image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=600&fit=crop',
+      title: 'Success',
+      description: 'Your goals, our mission',
+      alt: 'Success and achievement',
+    },
+  ];
+
+  carouselConfig: CarouselConfig = {
+    autoPlay: false,
+    interval: 4000,
+    showIndicators: true,
+    showArrows: true,
+    showThumbnails: false,
+    loop: true,
+    pauseOnHover: true,
+    transition: 'slide',
+    height: '400px',
+    objectFit: 'cover',
+  };
+
+  autoPlayCarouselConfig: CarouselConfig = {
+    ...this.carouselConfig,
+    autoPlay: true,
+    interval: 3000,
+  };
+
+  fadeCarouselConfig: CarouselConfig = {
+    ...this.carouselConfig,
+    transition: 'fade',
+    showThumbnails: false,
+  };
+
+  thumbnailCarouselConfig: CarouselConfig = {
+    ...this.carouselConfig,
+    showThumbnails: true,
+    height: '500px',
+  };
+
+  compactCarouselSlides: CarouselSlide[] = [
+    {
+      id: 1,
+      image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=400&fit=crop',
+      title: 'Product Launch',
+      alt: 'Product launch event',
+    },
+    {
+      id: 2,
+      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop',
+      title: 'Team Meeting',
+      alt: 'Team meeting room',
+    },
+    {
+      id: 3,
+      image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=400&fit=crop',
+      title: 'Office Space',
+      alt: 'Modern office space',
+    },
+  ];
+
+  onCarouselSlideChange(index: number): void {
+    console.log('Slide changed to:', index);
+  }
+
+  onCarouselSlideClick(slide: CarouselSlide): void {
+    console.log('Slide clicked:', slide);
+    this.toastService.info(slide.title || 'Slide clicked', 'Carousel');
   }
 }
