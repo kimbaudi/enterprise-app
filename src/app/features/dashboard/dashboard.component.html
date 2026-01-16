@@ -242,6 +242,114 @@
       </app-card>
     </div>
 
+    <div class="badge-section">
+      <app-card title="Badge Component Demo">
+        <p>Badges are useful for labels, status indicators, and notification counts.</p>
+
+        <h3>Variants</h3>
+        <div class="badge-demo-grid">
+          <div class="badge-demo-item">
+            <span>Solid:</span>
+            <div class="badge-group">
+              <app-badge variant="solid" color="primary">Primary</app-badge>
+              <app-badge variant="solid" color="success">Success</app-badge>
+              <app-badge variant="solid" color="error">Error</app-badge>
+              <app-badge variant="solid" color="warning">Warning</app-badge>
+              <app-badge variant="solid" color="info">Info</app-badge>
+              <app-badge variant="solid" color="gray">Gray</app-badge>
+            </div>
+          </div>
+
+          <div class="badge-demo-item">
+            <span>Outline:</span>
+            <div class="badge-group">
+              <app-badge variant="outline" color="primary">Primary</app-badge>
+              <app-badge variant="outline" color="success">Success</app-badge>
+              <app-badge variant="outline" color="error">Error</app-badge>
+              <app-badge variant="outline" color="warning">Warning</app-badge>
+              <app-badge variant="outline" color="info">Info</app-badge>
+              <app-badge variant="outline" color="gray">Gray</app-badge>
+            </div>
+          </div>
+
+          <div class="badge-demo-item">
+            <span>Subtle:</span>
+            <div class="badge-group">
+              <app-badge variant="subtle" color="primary">Primary</app-badge>
+              <app-badge variant="subtle" color="success">Success</app-badge>
+              <app-badge variant="subtle" color="error">Error</app-badge>
+              <app-badge variant="subtle" color="warning">Warning</app-badge>
+              <app-badge variant="subtle" color="info">Info</app-badge>
+              <app-badge variant="subtle" color="gray">Gray</app-badge>
+            </div>
+          </div>
+        </div>
+
+        <h3>Sizes</h3>
+        <div class="badge-group">
+          <app-badge size="sm" color="primary">Small</app-badge>
+          <app-badge size="md" color="primary">Medium</app-badge>
+          <app-badge size="lg" color="primary">Large</app-badge>
+        </div>
+
+        <h3>Rounded</h3>
+        <div class="badge-group">
+          <app-badge [rounded]="true" color="primary">Rounded</app-badge>
+          <app-badge [rounded]="true" color="success">Success</app-badge>
+          <app-badge [rounded]="true" color="error">Error</app-badge>
+          <app-badge [rounded]="true" color="warning">Warning</app-badge>
+        </div>
+
+        <h3>With Icons</h3>
+        <div class="badge-group">
+          <app-badge icon="✓" color="success">Completed</app-badge>
+          <app-badge icon="✕" color="error">Failed</app-badge>
+          <app-badge icon="⚠" color="warning">Warning</app-badge>
+          <app-badge icon="ℹ" color="info">Info</app-badge>
+          <app-badge icon="🔔" color="primary">Notifications</app-badge>
+        </div>
+
+        <h3>With Dot</h3>
+        <div class="badge-group">
+          <app-badge [dot]="true" color="success">Online</app-badge>
+          <app-badge [dot]="true" color="error">Offline</app-badge>
+          <app-badge [dot]="true" color="warning">Away</app-badge>
+          <app-badge [dot]="true" color="info">Busy</app-badge>
+        </div>
+
+        <h3>Use Cases</h3>
+        <div class="badge-demo-grid">
+          <div class="badge-demo-item">
+            <span>Status Labels:</span>
+            <div class="badge-group">
+              <app-badge variant="solid" color="success" icon="✓">Active</app-badge>
+              <app-badge variant="solid" color="error" icon="✕">Inactive</app-badge>
+              <app-badge variant="solid" color="warning" icon="⏸">Pending</app-badge>
+            </div>
+          </div>
+
+          <div class="badge-demo-item">
+            <span>Counts:</span>
+            <div class="badge-group">
+              <app-badge variant="solid" [rounded]="true" color="primary">5</app-badge>
+              <app-badge variant="solid" [rounded]="true" color="error">99+</app-badge>
+              <app-badge variant="solid" [rounded]="true" color="info">NEW</app-badge>
+            </div>
+          </div>
+
+          <div class="badge-demo-item">
+            <span>Categories:</span>
+            <div class="badge-group">
+              <app-badge variant="subtle" color="primary">Angular</app-badge>
+              <app-badge variant="subtle" color="success">TypeScript</app-badge>
+              <app-badge variant="subtle" color="info">NgRx</app-badge>
+              <app-badge variant="subtle" color="warning">Frontend</app-badge>
+            </div>
+          </div>
+        </div>
+      </app-card>
+    </div>
+
     <div class="users-section">
       <app-card title="Users Management">
         <app-table [columns]="columns" [data]="users" [config]="{

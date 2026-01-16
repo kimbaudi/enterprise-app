@@ -27,6 +27,7 @@ import { AccordionItemComponent } from '@shared/components/accordion-item/accord
 import { DropdownComponent } from '@shared/components/dropdown/dropdown.component';
 import { DropdownItemComponent } from '@shared/components/dropdown-item/dropdown-item.component';
 import { ToastService } from '@core/services/toast.service';
+import { BadgeComponent } from '@shared/components/badge/badge.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -50,6 +51,7 @@ import { ToastService } from '@core/services/toast.service';
     AccordionItemComponent,
     DropdownComponent,
     DropdownItemComponent,
+    BadgeComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
