@@ -7,11 +7,12 @@ import { CardComponent } from '@shared/components/card/card.component';
 import { TableComponent, TableColumn } from '@shared/components/table/table.component';
 import { ModalComponent } from '@shared/components/modal/modal.component';
 import { ModalService } from '@shared/components/modal/modal.service';
+import { ThemeToggleComponent } from '@shared/components/theme-toggle/theme-toggle.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, ButtonComponent, CardComponent, TableComponent, ModalComponent],
+  imports: [CommonModule, ButtonComponent, CardComponent, TableComponent, ModalComponent, ThemeToggleComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
 })

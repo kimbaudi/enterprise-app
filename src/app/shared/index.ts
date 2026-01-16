@@ -8,6 +8,7 @@ export * from '@shared/components/sidebar/sidebar.component';
 export * from '@shared/components/table/table.component';
 export * from '@shared/components/modal/modal.component';
 export * from '@shared/components/modal/modal.service';
+export * from '@shared/components/theme-toggle/theme-toggle.component';
 
 export * from '@shared/pipes/truncate.pipe';
 export * from '@shared/pipes/safe-html.pipe';

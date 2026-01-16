@@ -2,6 +2,7 @@
   padding: 2rem;
   max-width: 1400px;
   margin: 0 auto;
+  background-color: var(--color-bg-secondary);
 }
 
 .dashboard-header {
@@ -14,7 +15,7 @@
 .dashboard-header h1 {
   margin: 0;
   font-size: 2rem;
-  color: #111827;
+  color: var(--color-text-primary);
 }
 
 .header-actions {
@@ -32,12 +33,12 @@
 .stat-value {
   font-size: 2rem;
   font-weight: bold;
-  color: #3b82f6;
+  color: var(--color-primary);
   margin-bottom: 0.5rem;
 }
 
 .stat-label {
-  color: #6b7280;
+  color: var(--color-text-secondary);
   font-size: 0.875rem;
 }
 
@@ -59,26 +60,36 @@
   display: flex;
   justify-content: space-between;
   padding: 0.75rem;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .user-detail label {
   font-weight: 600;
-  color: #374151;
+  color: var(--color-text-primary);
 }
 
 .user-detail span {
-  color: #6b7280;
+  color: var(--color-text-secondary);
 }
 
 .status-active {
-  color: #10b981 !important;
+  color: var(--color-success) !important;
   font-weight: 600;
 }
 
 .status-inactive {
-  color: #ef4444 !important;
+  color: var(--color-error) !important;
   font-weight: 600;
+}
+
+ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  color: var(--color-text-secondary);
 }
 
 ul {
